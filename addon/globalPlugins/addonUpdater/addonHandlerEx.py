@@ -96,7 +96,10 @@ def checkForAddonUpdates():
 		if name not in names2urls: continue
 		curVersion = manifest["version"]
 		curAddons[name] = {"summary": manifest["summary"], "version": curVersion}
-		info = checkForAddonUpdate(names2urls[name], name, curVersion)
+		try:
+			info = checkForAddonUpdate(names2urls[name], name, curVersion)
+		except:
+			continue
 		if info:
 			addonSummaries[name] = {"summary": manifest["summary"], "curVersion": curVersion}
 			addonSummaries[name].update(info)
