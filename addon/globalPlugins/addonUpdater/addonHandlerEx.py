@@ -66,57 +66,60 @@ names2urls={
 }
 
 # Borrowed ideas from NVDA Core.
-def checkForAddonUpdate(updateURL, name, addonVersion):
-	# If "-dev" flag is on, switch to development channel if it exists.
-	if "-dev" in addonVersion:
-		updateURL += "-dev"
-	try:
-		res = urllib.urlopen(updateURL)
-		res.close()
-	except IOError as e:
-		# SSL issue (seen in NVDA Core earlier than 2014.1).
-		if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
-			addonUtils._updateWindowsRootCertificates()
+def checkForAddonUpdate(curAddons):
+	info = {}
+	for addon in curAddons.keys():
+		if addon not in names2urls: continue
+		addonVersion = curAddons[addon]["version"]
+		del curAddons[addon]["version"]
+		updateURL = names2urls[addon]
+		# If "-dev" flag is on, switch to development channel if it exists.
+		if "-dev" in addonVersion:
+			updateURL += "-dev"
+		try:
 			res = urllib.urlopen(updateURL)
-		else:
-			raise
-	if res.code != 200:
-		raise RuntimeError("Checking for update failed with code %d" % res.code)
-	# Build emulated add-on update dictionary if there is indeed a new version.
-	version = re.search("(?P<name>)-(?P<version>.*).nvda-addon", res.url).groupdict()["version"]
-	# If hosted on places other than add-ons server, an unexpected URL might be returned, so parse this further.
-	version = version.split(name)[1][1:]
-	if addonVersion != version:
-		return {"curVersion": addonVersion, "version": version, "path": res.url}
-	return None
+		except IOError as e:
+			# SSL issue (seen in NVDA Core earlier than 2014.1).
+			if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
+				addonUtils._updateWindowsRootCertificates()
+				res = urllib.urlopen(updateURL)
+			else:
+				pass
+		finally:
+			res.close()
+		if res.code != 200:
+			continue
+		# Build emulated add-on update dictionary if there is indeed a new version.
+		version = re.search("(?P<name>)-(?P<version>.*).nvda-addon", res.url).groupdict()["version"]
+		# If hosted on places other than add-ons server, an unexpected URL might be returned, so parse this further.
+		version = version.split(addon)[1][1:]
+		if addonVersion != version:
+			info[addon] = {"curVersion": addonVersion, "version": version, "path": res.url}
+	return info
 
 def checkForAddonUpdates():
 	curAddons = {}
 	addonSummaries = {}
 	for addon in addonHandler.getAvailableAddons():
 		manifest = addon.manifest
-		name = manifest["name"]
-		if name not in names2urls: continue
+		name = addon.name
 		curVersion = manifest["version"]
 		curAddons[name] = {"summary": manifest["summary"], "version": curVersion}
-		try:
-			info = checkForAddonUpdate(names2urls[name], name, curVersion)
-		except:
-			continue
-		if info:
-			addonSummaries[name] = {"summary": manifest["summary"], "curVersion": curVersion}
-			addonSummaries[name].update(info)
-	# Necessary duplication.
+		addonSummaries[name] = manifest["summary"]
+	try:
+		info = checkForAddonUpdate(curAddons)
+	except:
+		info = {}
 	#data = json.dumps(curAddons)
-	data = json.dumps(addonSummaries)
 	# Pseudocode:
 	"""try:
 		res = urllib.open(someURL, data)
 		# Check SSL and what not.
 		res = json.loads(res)"""
-	res = json.loads(data)
+	#res = json.loads(data)
+	res = info
 	for addon in res:
-		res[addon].update(addonSummaries[addon])
+		res[addon]["summary"] = addonSummaries[addon]
 		# In reality, it'll be a list of URL's to try.
 		res[addon]["urls"] = names2urls[addon]
 	return res if len(res) else None
