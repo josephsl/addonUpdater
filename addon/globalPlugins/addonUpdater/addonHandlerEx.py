@@ -32,8 +32,10 @@ def checkForAddonUpdate(updateURL, name, addonVersion):
 			raise
 	if res.code != 200:
 		raise RuntimeError("Checking for update failed with code %d" % res.code)
-	# Build emulated add-on update dictionary if there is indeed a new verison.
+	# Build emulated add-on update dictionary if there is indeed a new version.
 	version = re.search("(?P<name>)-(?P<version>.*).nvda-addon", res.url).groupdict()["version"]
+	# If hosted on places other than add-ons server, an unexpected URL might be returned, so parse this further.
+	version = version.split(name)[1][1:]
 	if addonVersion != version:
 		return {"curVersion": addonVersion, "newVersion": version, "path": res.url}
 	return None
