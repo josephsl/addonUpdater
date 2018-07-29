@@ -15,6 +15,7 @@ from gui import guiHelper
 from logHandler import log
 import addonHandler
 import updateCheck
+import core
 
 _progressDialog = None
 
@@ -103,6 +104,13 @@ def updateAddonsGenerator(addons, auto=True):
 	The auto parameter is used to show add-ons manager after all add-ons were updated.
 	"""
 	if not len(addons):
+		# This is possible because all add-ons were updated.
+		# Translators: A message asking the user if they wish to restart NVDA as addons have been added, enabled/disabled or removed. 
+		if gui.messageBox(_("Changes were made to add-ons. You must restart NVDA for these changes to take effect. Would you like to restart now?"),
+		# Translators: Title for message asking if the user wishes to restart NVDA as addons have been added or removed. 
+		_("Restart NVDA"),
+		wx.YES|wx.NO|wx.ICON_WARNING)==wx.YES:
+			core.restart()
 		return
 	# #3208: Update (download and install) add-ons one after the other, done by retrieving the first item (as far as current add-ons container is concerned).
 	addonInfo = addons.pop(0)
