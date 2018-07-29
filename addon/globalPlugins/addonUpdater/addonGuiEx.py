@@ -96,8 +96,6 @@ class AddonUpdatesDialog(wx.Dialog):
 
 	def onClose(self, evt):
 		self.Destroy()
-		if not self.auto:
-			gui.mainFrame.onAddonsManagerCommand(None)
 
 
 def updateAddonsGenerator(addons, auto=True):
