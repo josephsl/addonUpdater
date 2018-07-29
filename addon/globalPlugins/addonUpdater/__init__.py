@@ -16,7 +16,6 @@ except ImportError:
 import tempfile
 import ssl
 import time
-import re
 import config
 import gui
 import wx

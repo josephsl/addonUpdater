@@ -11,6 +11,7 @@ import urllib
 import threading
 import wx
 import json
+import re
 import addonHandler
 
 names2urls={
@@ -20,13 +21,13 @@ names2urls={
 # Borrowed ideas from NVDA Core.
 def checkForAddonUpdate(updateURL, name, addonVersion):
 	try:
-		res = urlopen(updateURL)
+		res = urllib.urlopen(updateURL)
 		res.close()
 	except IOError as e:
 		# SSL issue (seen in NVDA Core earlier than 2014.1).
 		if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
 			addonUtils._updateWindowsRootCertificates()
-			res = urlopen(updateURL)
+			res = urllib.urlopen(updateURL)
 		else:
 			raise
 	if res.code != 200:
@@ -42,10 +43,12 @@ def checkForAddonUpdates():
 	addonSummaries = {}
 	for addon in addonHandler.getAvailableAddons():
 		manifest = addon.manifest
+		name = manifest["name"]
+		if name not in names2urls: continue
 		curVersion = manifest["version"]
 		curAddons[manifest["name"]] = {"summary": manifest["summary"], "version": curVersion}
 		addonSummaries[manifest["name"]] = {"summary": manifest["summary"], "curVersion": curVersion}
-		checkForAddonUpdate(names2urls[manifest["name"]], manifest["name"], curVersion)
+		checkForAddonUpdate(names2urls[name], name, curVersion)
 	data = json.dumps(curAddons)
 	# Pseudocode:
 	"""try:
