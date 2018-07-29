@@ -15,6 +15,7 @@ import re
 import addonHandler
 
 names2urls={
+	"addonUpdater": "https://addons.nvda-project.org/files/get.php?file=nvda3208",
 	"Access8Math": "https://addons.nvda-project.org/files/get.php?file=access8math",
 	"AudioThemes3D": "https://addons.nvda-project.org/files/get.php?file=ath",
 	"bgt_lullaby": "https://addons.nvda-project.org/files/get.php?file=bgt",
