@@ -63,14 +63,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		if globalVars.appArgs.secure: return
 		# #40: skip over the rest if appx is in effect.
 		if config.isAppX: return
-		addonUtils.loadState()
+		#addonUtils.loadState()
 		self.toolsMenu = gui.mainFrame.sysTrayIcon.toolsMenu
 		self.addonUpdater = self.toolsMenu.Append(wx.ID_ANY, _("Check for &add-on updates..."), _("Check for nVDA add-on updates"))
 		gui.mainFrame.sysTrayIcon.Bind(wx.EVT_MENU, addonGuiEx.onAddonUpdateCheck, self.addonUpdater)
-		if addonUtils.updateState["auto"]:
+		#if addonUtils.updateState["auto"]:
 			# But not when NVDA itself is updating.
-			if not (globalVars.appArgs.install and globalVars.appArgs.minimal):
-				wx.CallAfter(autoUpdateCheck)
+			#if not (globalVars.appArgs.install and globalVars.appArgs.minimal):
+				#wx.CallAfter(autoUpdateCheck)
 
 	def terminate(self):
 		super(GlobalPlugin, self).terminate()
@@ -81,8 +81,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				self.toolsMenu.RemoveItem(self.addonUpdater)
 		except: #(RuntimeError, AttributeError, wx.PyDeadObjectError):
 			pass
-		global updateChecker
-		if updateChecker and updateChecker.IsRunning():
-			updateChecker.Stop()
-		updateChecker = None
-		addonUtils.saveState()
+		#global updateChecker
+		#if updateChecker and updateChecker.IsRunning():
+			#updateChecker.Stop()
+		#updateChecker = None
+		#addonUtils.saveState()
