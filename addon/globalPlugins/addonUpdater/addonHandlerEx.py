@@ -14,10 +14,6 @@ import json
 import re
 import addonHandler
 
-names2urls={
-	"resourceMonitor":"https://addons.nvda-project.org/files/get.php?file=rm",
-}
-
 # Borrowed ideas from NVDA Core.
 def checkForAddonUpdate(updateURL, name, addonVersion):
 	try:
