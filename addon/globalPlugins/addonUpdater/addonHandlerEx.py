@@ -67,6 +67,9 @@ names2urls={
 
 # Borrowed ideas from NVDA Core.
 def checkForAddonUpdate(updateURL, name, addonVersion):
+	# If "-dev" flag is on, switch to development channel if it exists.
+	if "-dev" in addonVersion:
+		updateURL += "-dev"
 	try:
 		res = urllib.urlopen(updateURL)
 		res.close()
