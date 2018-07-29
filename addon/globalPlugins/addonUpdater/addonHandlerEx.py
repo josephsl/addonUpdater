@@ -48,10 +48,14 @@ def checkForAddonUpdates():
 		name = manifest["name"]
 		if name not in names2urls: continue
 		curVersion = manifest["version"]
-		curAddons[manifest["name"]] = {"summary": manifest["summary"], "version": curVersion}
-		addonSummaries[manifest["name"]] = {"summary": manifest["summary"], "curVersion": curVersion}
-		checkForAddonUpdate(names2urls[name], name, curVersion)
-	data = json.dumps(curAddons)
+		curAddons[name] = {"summary": manifest["summary"], "version": curVersion}
+		info = checkForAddonUpdate(names2urls[name], name, curVersion)
+		if info:
+			addonSummaries[name] = {"summary": manifest["summary"], "curVersion": curVersion}
+			addonSummaries[name].update(info)
+	# Necessary duplication.
+	#data = json.dumps(curAddons)
+	data = json.dumps(addonSummaries)
 	# Pseudocode:
 	"""try:
 		res = urllib.open(someURL, data)
@@ -62,7 +66,7 @@ def checkForAddonUpdates():
 		res[addon].update(addonSummaries[addon])
 		# In reality, it'll be a list of URL's to try.
 		res[addon]["urls"] = names2urls[addon]
-	return res
+	return res if len(res) else None
 
 def autoAddonUpdateCheck():
 	t = threading.Thread(target=_showAddonUpdateUI)
