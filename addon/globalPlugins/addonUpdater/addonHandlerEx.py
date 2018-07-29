@@ -37,7 +37,7 @@ def checkForAddonUpdate(updateURL, name, addonVersion):
 	# If hosted on places other than add-ons server, an unexpected URL might be returned, so parse this further.
 	version = version.split(name)[1][1:]
 	if addonVersion != version:
-		return {"curVersion": addonVersion, "newVersion": version, "path": res.url}
+		return {"curVersion": addonVersion, "version": version, "path": res.url}
 	return None
 
 def checkForAddonUpdates():
