@@ -53,7 +53,6 @@ names2urls={
 	"sayCurrentKeyboardLanguage": "https://addons.nvda-project.org/files/get.php?file=ckbl",
 	"SentenceNav": "https://addons.nvda-project.org/files/get.php?file=sentencenav",
 	"speakPasswords": "https://addons.nvda-project.org/files/get.php?file=spp",
-	"speechHistory": "https://addons.nvda-project.org/files/get.php?file=sps",
 	"switchSynth": "https://addons.nvda-project.org/files/get.php?file=sws",
 	"systrayList": "https://addons.nvda-project.org/files/get.php?file=st",
 	"teamViewer": "https://addons.nvda-project.org/files/get.php?file=tv",
