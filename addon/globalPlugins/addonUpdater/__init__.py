@@ -5,21 +5,14 @@
 # URL: https://github.com/nvaccess/nvda/issues/3208
 
 import globalPluginHandler
-import json
-import os
-import threading
 # Python 3 calls for using urllib.request instead, which is functionally equivalent to urllib2.
 try:
 	from urllib.request import urlopen
 except ImportError:
 	from urllib import urlopen
-import tempfile
-import ssl
 import time
-import config
 import gui
 import wx
-import queueHandler
 # What if this is run from NVDA source?
 try:
 	import updateCheck
