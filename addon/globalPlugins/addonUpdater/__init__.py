@@ -113,3 +113,10 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 
 	def onSave(self):
 		addonUtils.updateState["autoUpdate"] = self.autoUpdateCheckBox.IsChecked()
+		global updateChecker
+		if updateChecker and updateChecker.IsRunning():
+			updateChecker.Stop()
+		updateChecker = None
+		if addonUtils.updateState["autoUpdate"]:
+			addonUtils.updateState["lastChecked"] = time.time()
+			wx.CallAfter(autoUpdateCheck)
