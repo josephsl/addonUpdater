@@ -21,6 +21,7 @@ except RuntimeError:
 	canUpdate = False
 from logHandler import log
 import globalVars
+import config
 from . import addonHandlerEx
 from . import addonGuiEx
 from . import addonUtils
@@ -63,9 +64,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def __init__(self):
 		super(GlobalPlugin, self).__init__()
-		# #20: don't even think about proceeding in secure screens (especially add-on updates).
 		if globalVars.appArgs.secure: return
-		# #40: skip over the rest if appx is in effect.
 		if config.isAppX: return
 		addonUtils.loadState()
 		self.toolsMenu = gui.mainFrame.sysTrayIcon.toolsMenu
