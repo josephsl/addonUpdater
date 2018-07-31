@@ -44,16 +44,27 @@ def autoUpdateCheck():
 	currentTime = time.time()
 	whenToCheck = addonUtils.updateState["lastChecked"] + addonUpdateCheckInterval
 	if currentTime >= whenToCheck:
+		addonUtils.updateState["lastChecked"] = currentTime
+		if addonUtils.updateState["autoUpdate"]: startAutoUpdateCheck(addonUpdateCheckInterval)
 		addonHandlerEx.autoAddonUpdateCheck()
-	else: startAutoUpdateCheck
+	else: startAutoUpdateCheck(whenToCheck - currentTime)
 
 # Start or restart auto update checker.
-def startAutoUpdateCheck():
+def startAutoUpdateCheck(interval):
 	global updateChecker
 	if updateChecker is not None:
 		wx.CallAfter(updateChecker.Stop)
 	updateChecker = wx.PyTimer(autoUpdateCheck)
-	wx.CallAfter(updateChecker.Start, addonUpdateCheckInterval * 1000, True)
+	wx.CallAfter(updateChecker.Start, interval * 1000, True)
+
+def endAutoUpdateCheck():
+	global updateChecker
+	addonUtils.updateState["lastChecked"] = time.time()
+	if updateChecker is not None:
+		wx.CallAfter(updateChecker.Stop)
+		wx.CallAfter(autoUpdateCheck)
+
+addonGuiEx.AddonUpdaterManualUpdateCheck.register(endAutoUpdateCheck)
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
@@ -63,14 +74,15 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		if globalVars.appArgs.secure: return
 		# #40: skip over the rest if appx is in effect.
 		if config.isAppX: return
-		#addonUtils.loadState()
+		addonUtils.loadState()
 		self.toolsMenu = gui.mainFrame.sysTrayIcon.toolsMenu
 		self.addonUpdater = self.toolsMenu.Append(wx.ID_ANY, _("Check for &add-on updates..."), _("Check for nVDA add-on updates"))
 		gui.mainFrame.sysTrayIcon.Bind(wx.EVT_MENU, addonGuiEx.onAddonUpdateCheck, self.addonUpdater)
-		#if addonUtils.updateState["auto"]:
+		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.append(AddonUpdaterPanel)
+		if addonUtils.updateState["autoUpdate"]:
 			# But not when NVDA itself is updating.
-			#if not (globalVars.appArgs.install and globalVars.appArgs.minimal):
-				#wx.CallAfter(autoUpdateCheck)
+			if not (globalVars.appArgs.install and globalVars.appArgs.minimal):
+				wx.CallAfter(autoUpdateCheck)
 
 	def terminate(self):
 		super(GlobalPlugin, self).terminate()
@@ -81,8 +93,23 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				self.toolsMenu.RemoveItem(self.addonUpdater)
 		except: #(RuntimeError, AttributeError, wx.PyDeadObjectError):
 			pass
-		#global updateChecker
-		#if updateChecker and updateChecker.IsRunning():
-			#updateChecker.Stop()
-		#updateChecker = None
-		#addonUtils.saveState()
+		global updateChecker
+		if updateChecker and updateChecker.IsRunning():
+			updateChecker.Stop()
+		updateChecker = None
+		addonUtils.saveState()
+
+class AddonUpdaterPanel(gui.SettingsPanel):
+	# Translators: This is the label for the Add-on Updater settings panel.
+	title = _("Add-on Updater")
+
+	def makeSettings(self, settingsSizer):
+		sHelper = gui.guiHelper.BoxSizerHelper(self, sizer=settingsSizer)
+		# Never, EVER allow touch support to be disabled completely if using normal configuration (only manual passthrough will be allowed).
+		# Translators: This is the label for a checkbox in the
+		# Enhanced Touch Gestures settings panel.
+		self.autoUpdateCheckBox=sHelper.addItem(wx.CheckBox(self, label=_("Automatically check for add-on &updates")))
+		self.autoUpdateCheckBox.SetValue(addonUtils.updateState["autoUpdate"])
+
+	def onSave(self):
+		addonUtils.updateState["autoUpdate"] = self.autoUpdateCheckBox.IsChecked()

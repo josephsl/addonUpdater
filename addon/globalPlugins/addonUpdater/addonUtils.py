@@ -16,7 +16,7 @@ def loadState():
 	try:
 		updateState = pickle.load(file(_updatePickle, "r"))
 	except (IOError, KeyError):
-		updateState["auto"] = True
+		updateState["autoUpdate"] = True
 		updateState["lastChecked"] = 0
 
 def saveState():

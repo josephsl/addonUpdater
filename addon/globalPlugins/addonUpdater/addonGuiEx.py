@@ -16,12 +16,16 @@ from logHandler import log
 import addonHandler
 import updateCheck
 import core
+import extensionPoints
+
+AddonUpdaterManualUpdateCheck = extensionPoints.Action()
 
 _progressDialog = None
 
 # The following event handler comes from a combination of StationPlaylist Studio and Windows 10 App Essentials.
 
 def onAddonUpdateCheck(evt):
+	AddonUpdaterManualUpdateCheck.notify()
 	global _progressDialog
 	_progressDialog = gui.IndeterminateProgressDialog(gui.mainFrame,
 	# Translators: The title of the dialog presented while checking for add-on updates.
