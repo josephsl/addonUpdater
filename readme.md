@@ -16,6 +16,10 @@ The following add-ons provide built-in update feature and thus updates will not 
 
 IMPORTANT: this is a proof of concept add-on. Once the relevant feature is included in NVDA, this add-on will be discontinued.
 
+## Version 18.08.1
+
+* It is now possible to let NVDA check for add-on updates automatically (every 24 hours). This is configured through a new Add-on Updater settings panel found in NVDA settings.
+
 ## Version 18.08
 
 * Initial version.
