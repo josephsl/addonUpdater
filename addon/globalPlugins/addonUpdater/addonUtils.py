@@ -9,19 +9,21 @@ import os
 import globalVars
 
 updateState = {}
-_updatePickle = os.path.join(globalVars.appArgs.configPath, "nvda3208.pickle")
 
 def loadState():
 	global updateState
 	try:
-		updateState = pickle.load(file(_updatePickle, "r"))
-	except (IOError, KeyError):
+		updateState = pickle.load(file(os.path.join(globalVars.appArgs.configPath, "nvda3208.pickle"), "r"))
+	except IOError:
 		updateState["autoUpdate"] = True
 		updateState["lastChecked"] = 0
 
 def saveState():
 	global updateState
-	pickle.dump(updateState, file(_updatePickle, "wb"))
+	try:
+		pickle.dump(updateState, file(os.path.join(globalVars.appArgs.configPath, "nvda3208.pickle"), "wb"))
+	except IOError:
+		pass
 	updateState= None
 
 
