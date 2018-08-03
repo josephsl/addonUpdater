@@ -52,6 +52,7 @@ names2urls={
 	"resourceMonitor":"https://addons.nvda-project.org/files/get.php?file=rm",
 	"reviewCursorCopier": "https://addons.nvda-project.org/files/get.php?file=rccp",
 	"sayCurrentKeyboardLanguage": "https://addons.nvda-project.org/files/get.php?file=ckbl",
+	"screenCurtain": "https://addons.nvda-project.org/files/get.php?file=nvda7857",
 	"SentenceNav": "https://addons.nvda-project.org/files/get.php?file=sentencenav",
 	"speakPasswords": "https://addons.nvda-project.org/files/get.php?file=spp",
 	"switchSynth": "https://addons.nvda-project.org/files/get.php?file=sws",
