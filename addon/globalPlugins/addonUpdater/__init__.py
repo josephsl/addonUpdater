@@ -107,6 +107,7 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 		from . import nvdaControlsEx
 		self.noAddonUpdates = sHelper.addLabeledControl(_("Do &not update add-ons:"), nvdaControlsEx.CustomCheckListBox, choices=[addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()])
 		self.noAddonUpdates.SetCheckedStrings(addonHandlerEx.shouldNotUpdate())
+		self.noAddonUpdates.SetSelection(0)
 
 	def onSave(self):
 		noAddonUpdateSummaries = self.noAddonUpdates.GetCheckedStrings()
