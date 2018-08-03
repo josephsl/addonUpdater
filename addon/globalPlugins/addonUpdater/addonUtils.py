@@ -17,6 +17,7 @@ def loadState():
 	except IOError:
 		updateState["autoUpdate"] = True
 		updateState["lastChecked"] = 0
+		updateState["noUpdates"] = []
 
 def saveState():
 	global updateState

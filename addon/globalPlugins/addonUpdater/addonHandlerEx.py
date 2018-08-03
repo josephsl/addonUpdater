@@ -13,6 +13,7 @@ import wx
 import json
 import re
 import addonHandler
+from . import addonUtils
 
 names2urls={
 	"addonUpdater": "https://addons.nvda-project.org/files/get.php?file=nvda3208",
@@ -63,6 +64,12 @@ names2urls={
 	"VLC": "https://addons.nvda-project.org/files/get.php?file=vlc-18",
 }
 
+def shouldNotUpdate():
+	# Returns a list of descriptions for add-ons that should not update.
+	noUpdates = []
+	return [addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
+		if addon.name in addonUtils.updateState["noUpdates"]]
+
 # Borrowed ideas from NVDA Core.
 def checkForAddonUpdate(curAddons):
 	info = {}
@@ -101,6 +108,7 @@ def checkForAddonUpdates():
 	for addon in addonHandler.getAvailableAddons():
 		manifest = addon.manifest
 		name = addon.name
+		if name in addonUtils.updateState["noUpdates"]: continue
 		curVersion = manifest["version"]
 		curAddons[name] = {"summary": manifest["summary"], "version": curVersion}
 		addonSummaries[name] = manifest["summary"]
