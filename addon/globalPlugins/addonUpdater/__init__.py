@@ -103,7 +103,15 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 		self.autoUpdateCheckBox=sHelper.addItem(wx.CheckBox(self, label=_("Automatically check for add-on &updates")))
 		self.autoUpdateCheckBox.SetValue(addonUtils.updateState["autoUpdate"])
 
+		# Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
+		from . import nvdaControlsEx
+		self.noAddonUpdates = sHelper.addLabeledControl(_("Do &not update add-ons:"), nvdaControlsEx.CustomCheckListBox, choices=[addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()])
+		self.noAddonUpdates.SetCheckedStrings(addonHandlerEx.shouldNotUpdate())
+
 	def onSave(self):
+		noAddonUpdateSummaries = self.noAddonUpdates.GetCheckedStrings()
+		addonUtils.updateState["noUpdates"] = [addon.name for addon in addonHandler.getAvailableAddons()
+			if addon.manifest["summary"] in noAddonUpdateSummaries]
 		addonUtils.updateState["autoUpdate"] = self.autoUpdateCheckBox.IsChecked()
 		global updateChecker
 		if updateChecker and updateChecker.IsRunning():
