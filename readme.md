@@ -16,7 +16,7 @@ The following add-ons provide built-in update feature and thus updates will not 
 
 IMPORTANT: this is a proof of concept add-on. Once the relevant feature is included in NVDA, this add-on will be discontinued.
 
-## Version 18.08.2
+## Version 18.08.3
 
 * Added ability to exclude add-ons from being updated via a new checkable list box found in Add-on Updater settings panel. Checked items will not be updated.
 
