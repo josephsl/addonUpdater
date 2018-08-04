@@ -14,7 +14,7 @@ def loadState():
 	global updateState
 	try:
 		updateState = pickle.load(file(os.path.join(globalVars.appArgs.configPath, "nvda3208.pickle"), "r"))
-	except IOError:
+	except (IOError, KeyError):
 		updateState["autoUpdate"] = True
 		updateState["lastChecked"] = 0
 		updateState["noUpdates"] = []
