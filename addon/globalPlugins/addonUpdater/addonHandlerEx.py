@@ -144,6 +144,10 @@ def _showAddonUpdateUI():
 			gui.mainFrame.prePopup()
 			AddonUpdatesDialog(gui.mainFrame, info).Show()
 			gui.mainFrame.postPopup()
-	info = checkForAddonUpdates()
+	try:
+		info = checkForAddonUpdates()
+	except:
+		info = None
+		raise
 	if info is not None:
 		wx.CallAfter(_showAddonUpdateUICallback, info)

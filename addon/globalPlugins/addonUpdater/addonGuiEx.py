@@ -39,7 +39,14 @@ def onAddonUpdateCheck(evt):
 def addonUpdateCheck():
 	from . import addonHandlerEx
 	global _progressDialog
-	info = addonHandlerEx.checkForAddonUpdates()
+	try:
+		info = addonHandlerEx.checkForAddonUpdates()
+	except:
+		info = None
+		wx.CallAfter(_progressDialog.done)
+		_progressDialog = None
+		wx.CallAfter(gui.messageBox, _("Error checking for add-on updates."), _("Error"), wx.ICON_ERROR)
+		raise
 	wx.CallAfter(_progressDialog.done)
 	_progressDialog = None
 	wx.CallAfter(AddonUpdatesDialog, gui.mainFrame, info, auto=False)
