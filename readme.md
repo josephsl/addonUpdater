@@ -1,7 +1,7 @@
 # Add-on Updater
 
 * Author: Joseph Lee
-* Download [stable version][1]
+* Download [prototype version][1]
 
 This add-on brings NVDA Core issue 3208 to life: ability to check for, download, and apply add-on updates.
 
@@ -14,7 +14,12 @@ The following add-ons provide built-in update feature and thus updates will not 
 * WeatherPlus
 * Windows 10 App Essentials
 
-IMPORTANT: this is a proof of concept add-on. Once the relevant feature is included in NVDA, this add-on will be discontinued.
+IMPORTANT: this is a proof of concept add-on. Once the [relevant feature is included in NVDA][2], this add-on will be discontinued.
+
+## Version 18.08.5
+
+* Fixed an issue where Add-on Updater settings panel failed to show if one or more add-ons had badly formatted manifest data.
+* Added Nuance Vocalizer family of add-ons to add-ons that'll not be checked for updates.
 
 ## Version 18.08.4
 
@@ -33,3 +38,5 @@ IMPORTANT: this is a proof of concept add-on. Once the relevant feature is inclu
 * Initial version.
 
 [1]: https://addons.nvda-project.org/files/get.php?file=nvda3208
+
+[2]: https://github.com/nvaccess/nvda/issues/3208
