@@ -78,6 +78,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def terminate(self):
 		super(GlobalPlugin, self).terminate()
+		if hasattr(gui.settingsDialogs, "SettingsPanel"):
+			gui.settingsDialogs.NVDASettingsDialog.categoryClasses.remove(AddonUpdaterPanel)
 		try:
 			if wx.version().startswith("4"):
 				self.toolsMenu.Remove(self.addonUpdater)
