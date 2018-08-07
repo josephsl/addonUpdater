@@ -67,7 +67,6 @@ names2urls={
 
 def shouldNotUpdate():
 	# Returns a list of descriptions for add-ons that should not update.
-	noUpdates = []
 	return [addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
 		if addon.name in addonUtils.updateState["noUpdates"]]
 
@@ -107,6 +106,8 @@ def checkForAddonUpdates():
 	curAddons = {}
 	addonSummaries = {}
 	for addon in addonHandler.getAvailableAddons():
+		# Sorry Nuance Vocalizer family, no update checks for you.
+		if "vocalizer" in addon.name.lower(): continue
 		manifest = addon.manifest
 		name = addon.name
 		if name in addonUtils.updateState["noUpdates"]: continue
