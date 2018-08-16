@@ -36,6 +36,7 @@ names2urls={
 	"goldenCursor": "https://addons.nvda-project.org/files/get.php?file=gc",
 	"goldwave": "https://addons.nvda-project.org/files/get.php?file=gwv",
 	"IndentNav": "https://addons.nvda-project.org/files/get.php?file=indentnav",
+	"inputLock": "https://addons.nvda-project.org/files/get.php?file=inputlock",
 	"instantTranslate": "https://addons.nvda-project.org/files/get.php?file=it",
 	"lambda": "https://addons.nvda-project.org/files/get.php?file=lambda",
 	"mirc": "https://addons.nvda-project.org/files/get.php?file=mirc",
