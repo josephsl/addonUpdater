@@ -17,7 +17,10 @@ import addonHandler
 import updateCheck
 import core
 import extensionPoints
-from . import nvdaControlsEx
+if hasattr(gui.nvdaControls, "AutoWidthColumnCheckListCtrl"):
+	from gui.nvdaControls import AutoWidthColumnCheckListCtrl
+else:
+	from .nvdaControlsEx import AutoWidthColumnCheckListCtrl
 
 AddonUpdaterManualUpdateCheck = extensionPoints.Action()
 
@@ -64,7 +67,7 @@ class AddonUpdatesDialog(wx.Dialog):
 
 		if addonUpdateInfo:
 			entriesSizer=wx.BoxSizer(wx.VERTICAL)
-			self.addonsList=nvdaControlsEx.AutoWidthColumnCheckListCtrl(self,-1,style=wx.LC_REPORT|wx.LC_SINGLE_SEL,size=(550,350))
+			self.addonsList=AutoWidthColumnCheckListCtrl(self,-1,style=wx.LC_REPORT|wx.LC_SINGLE_SEL,size=(550,350))
 			self.addonsList.Bind(wx.EVT_CHECKLISTBOX, self.onAddonsChecked)
 			# Translators: The label for a column in add-ons list used to identify add-on package name (example: package is OCR).
 			self.addonsList.InsertColumn(0,_("Package"),width=150)
