@@ -61,6 +61,7 @@ names2urls={
 	"teamViewer": "https://addons.nvda-project.org/files/get.php?file=tv",
 	"textInformation": "https://addons.nvda-project.org/files/get.php?file=txtinfo",
 	"toneMaster": "https://addons.nvda-project.org/files/get.php?file=tmast",
+	"toolbarsExplorer": "https://addons.nvda-project.org/files/get.php?file=tbx",
 	"unicodeBrailleInput": "https://addons.nvda-project.org/files/get.php?file=ubi",
 	"virtualRevision": "https://addons.nvda-project.org/files/get.php?file=VR",
 	"VLC": "https://addons.nvda-project.org/files/get.php?file=vlc-18",
