@@ -18,10 +18,12 @@ def loadState():
 		updateState["autoUpdate"] = True
 		updateState["lastChecked"] = 0
 		updateState["noUpdates"] = []
+		updateState["devUpdates"] = []
 	# Just to make sure...
 	if "autoUpdate" not in updateState: updateState["autoUpdate"] = True
 	if "lastChecked" not in updateState: updateState["lastChecked"] = 0
 	if "noUpdates" not in updateState: updateState["noUpdates"] = []
+	if "devUpdates" not in updateState: updateState["devUpdates"] = []
 
 def saveState():
 	global updateState

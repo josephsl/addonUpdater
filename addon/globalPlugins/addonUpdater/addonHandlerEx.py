@@ -72,6 +72,11 @@ def shouldNotUpdate():
 	return [addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
 		if addon.name in addonUtils.updateState["noUpdates"]]
 
+def preferDevUpdates():
+	# Returns a list of descriptions for add-ons that prefers development releases.
+	return [addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
+		if addon.name in addonUtils.updateState["devUpdates"]]
+
 # Borrowed ideas from NVDA Core.
 def checkForAddonUpdate(curAddons):
 	info = {}
@@ -81,8 +86,9 @@ def checkForAddonUpdate(curAddons):
 		del curAddons[addon]["version"]
 		updateURL = names2urls[addon]
 		# If "-dev" flag is on, switch to development channel if it exists.
-		if "-dev" in addonVersion:
-			updateURL += "-dev"
+		channel = curAddons[addon]["channel"]
+		if channel is not None:
+			updateURL += "-" + channel
 		try:
 			res = urllib.urlopen(updateURL)
 		except IOError as e:
@@ -99,7 +105,7 @@ def checkForAddonUpdate(curAddons):
 		# Build emulated add-on update dictionary if there is indeed a new version.
 		version = re.search("(?P<name>)-(?P<version>.*).nvda-addon", res.url).groupdict()["version"]
 		# If hosted on places other than add-ons server, an unexpected URL might be returned, so parse this further.
-		version = version.split(addon)[1][1:]
+		if addon in version: version = version.split(addon)[1][1:]
 		if addonVersion != version:
 			info[addon] = {"curVersion": addonVersion, "version": version, "path": res.url}
 	return info
@@ -114,7 +120,12 @@ def checkForAddonUpdates():
 		name = addon.name
 		if name in addonUtils.updateState["noUpdates"]: continue
 		curVersion = manifest["version"]
-		curAddons[name] = {"summary": manifest["summary"], "version": curVersion}
+		# Check different channels if appropriate.
+		updateChannel = manifest.get("updateChannel")
+		if updateChannel == "None": updateChannel = None
+		if updateChannel != "dev" and name in addonUtils.updateState["devUpdates"]:
+			updateChannel = "dev"
+		curAddons[name] = {"summary": manifest["summary"], "version": curVersion, "channel": updateChannel}
 		addonSummaries[name] = manifest["summary"]
 	try:
 		info = checkForAddonUpdate(curAddons)

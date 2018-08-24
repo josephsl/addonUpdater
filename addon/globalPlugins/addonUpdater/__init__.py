@@ -118,10 +118,18 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 		self.noAddonUpdates.SetCheckedStrings(addonHandlerEx.shouldNotUpdate())
 		self.noAddonUpdates.SetSelection(0)
 
+		self.devAddonUpdates = sHelper.addLabeledControl(_("Prefer development releases:"), CustomCheckListBox, choices=[unicode(addon.manifest["summary"]) for addon in addonHandler.getAvailableAddons()
+			if isinstance(addon.manifest['summary'], basestring) and "vocalizer" not in addon.name])
+		self.devAddonUpdates.SetCheckedStrings(addonHandlerEx.preferDevUpdates())
+		self.devAddonUpdates.SetSelection(0)
+
 	def onSave(self):
 		noAddonUpdateSummaries = self.noAddonUpdates.GetCheckedStrings()
 		addonUtils.updateState["noUpdates"] = [addon.name for addon in addonHandler.getAvailableAddons()
 			if unicode(addon.manifest["summary"]) in noAddonUpdateSummaries]
+		devAddonUpdateSummaries = self.devAddonUpdates.GetCheckedStrings()
+		addonUtils.updateState["devUpdates"] = [addon.name for addon in addonHandler.getAvailableAddons()
+			if unicode(addon.manifest["summary"]) in devAddonUpdateSummaries]
 		addonUtils.updateState["autoUpdate"] = self.autoUpdateCheckBox.IsChecked()
 		global updateChecker
 		if updateChecker and updateChecker.IsRunning():
