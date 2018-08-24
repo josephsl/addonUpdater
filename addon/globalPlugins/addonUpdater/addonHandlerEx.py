@@ -56,6 +56,7 @@ names2urls={
 	"screenCurtain": "https://addons.nvda-project.org/files/get.php?file=nvda7857",
 	"SentenceNav": "https://addons.nvda-project.org/files/get.php?file=sentencenav",
 	"speakPasswords": "https://addons.nvda-project.org/files/get.php?file=spp",
+	"stationPlaylist": "https://addons.nvda-project.org/files/get.php?file=spl",
 	"switchSynth": "https://addons.nvda-project.org/files/get.php?file=sws",
 	"systrayList": "https://addons.nvda-project.org/files/get.php?file=st",
 	"teamViewer": "https://addons.nvda-project.org/files/get.php?file=tv",
