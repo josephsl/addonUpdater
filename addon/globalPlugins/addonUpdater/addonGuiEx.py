@@ -79,6 +79,7 @@ class AddonUpdatesDialog(wx.Dialog):
 			for entry in sorted(addonUpdateInfo.keys()):
 				addon = addonUpdateInfo[entry]
 				self.addonsList.Append((addon['summary'], addon['curVersion'], addon['version']))
+				self.addonsList.CheckItem(self.addonsList.GetItemCount()-1)
 			self.addonsList.Select(0)
 			self.addonsList.SetItemState(0,wx.LIST_STATE_FOCUSED,wx.LIST_STATE_FOCUSED)
 			addonsSizerHelper.addItem(entriesSizer)
@@ -92,7 +93,6 @@ class AddonUpdatesDialog(wx.Dialog):
 			label = _("&Update add-ons")
 			self.updateButton = bHelper.addButton(self, label=label)
 			self.updateButton.Bind(wx.EVT_BUTTON, self.onUpdate)
-			self.updateButton.Disable()
 
 		# Translators: The label of a button to close a dialog.
 		closeButton = bHelper.addButton(self, wx.ID_CLOSE, label=_("&Close"))
