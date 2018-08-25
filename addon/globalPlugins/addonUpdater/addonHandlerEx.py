@@ -126,6 +126,8 @@ def checkForAddonUpdates():
 		if updateChannel == "None": updateChannel = None
 		if updateChannel != "dev" and name in addonUtils.updateState["devUpdates"]:
 			updateChannel = "dev"
+		elif updateChannel == "dev" and name not in addonUtils.updateState["devUpdates"]:
+			updateChannel = None
 		curAddons[name] = {"summary": manifest["summary"], "version": curVersion, "channel": updateChannel}
 		addonSummaries[name] = manifest["summary"]
 	try:
