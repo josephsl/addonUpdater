@@ -173,7 +173,7 @@ class AutoWidthColumnCheckListCtrl(AutoWidthColumnListCtrl, listmix.CheckListCtr
 		winUser.user32.NotifyWinEvent(winUser.EVENT_OBJECT_STATECHANGE, self.Handle, winUser.OBJID_CLIENT, index+1)
 
 	def sendCheckListBoxEvent(self, index):
-		evt = wx.CommandEvent(wx.wxEVT_CHECKLISTBOX,self.Id)
+		evt = wx.CommandEvent(10017,self.Id)
 		evt.EventObject = self
 		evt.Int = index
 		self.ProcessEvent(evt)
