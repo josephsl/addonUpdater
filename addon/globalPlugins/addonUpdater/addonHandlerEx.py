@@ -145,7 +145,7 @@ def checkForAddonUpdates():
 	for addon in res:
 		res[addon]["summary"] = addonSummaries[addon]
 		# In reality, it'll be a list of URL's to try.
-		res[addon]["urls"] = names2urls[addon]
+		res[addon]["urls"] = res[addon]["path"]
 	return res if len(res) else None
 
 def autoAddonUpdateCheck():
