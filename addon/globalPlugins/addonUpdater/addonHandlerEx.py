@@ -66,6 +66,7 @@ names2urls={
 	"unicodeBrailleInput": "https://addons.nvda-project.org/files/get.php?file=ubi",
 	"virtualRevision": "https://addons.nvda-project.org/files/get.php?file=VR",
 	"VLC": "https://addons.nvda-project.org/files/get.php?file=vlc-18",
+	"wintenApps": "https://addons.nvda-project.org/files/get.php?file=w10",
 }
 
 def shouldNotUpdate():
