@@ -49,6 +49,7 @@ names2urls={
 	"pcKbBrl": "https://addons.nvda-project.org/files/get.php?file=pckbbrl",
 	"placeMarkers": "https://addons.nvda-project.org/files/get.php?file=pm",
 	"readFeeds": "https://addons.nvda-project.org/files/get.php?file=rf",
+	"remote": "https://addons.nvda-project.org/files/get.php?file=nvdaremote",
 	"reportSymbols": "https://addons.nvda-project.org/files/get.php?file=rsy",
 	"resourceMonitor":"https://addons.nvda-project.org/files/get.php?file=rm",
 	"reviewCursorCopier": "https://addons.nvda-project.org/files/get.php?file=rccp",
