@@ -21,6 +21,7 @@ names2urls={
 	"AudioThemes3D": "https://addons.nvda-project.org/files/get.php?file=ath",
 	"bgt_lullaby": "https://addons.nvda-project.org/files/get.php?file=bgt",
 	"bitChe": "https://addons.nvda-project.org/files/get.php?file=bc",
+	"calibre": "https://addons.nvda-project.org/files/get.php?file=cae",
 	"classicSelection": "https://addons.nvda-project.org/files/get.php?file=clsel",
 	"clipContentsDesigner": "https://addons.nvda-project.org/files/get.php?file=ccd",
 	"clipspeak": "https://addons.nvda-project.org/files/get.php?file=cs",
