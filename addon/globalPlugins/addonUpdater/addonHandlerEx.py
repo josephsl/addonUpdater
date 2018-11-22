@@ -121,8 +121,6 @@ def checkForAddonUpdates():
 	curAddons = {}
 	addonSummaries = {}
 	for addon in addonHandler.getAvailableAddons():
-		# Skip disabled add-ons.
-		if addon.isDisabled: continue
 		# Sorry Nuance Vocalizer family, no update checks for you.
 		if "vocalizer" in addon.name.lower(): continue
 		manifest = addon.manifest

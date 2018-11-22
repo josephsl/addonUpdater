@@ -214,10 +214,15 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 				self.continueUpdatingAddons()
 				return
 			bundleName=bundle.manifest['name']
+			isDisabled = False
 			# Optimization (future): it is better to remove would-be add-ons all at once instead of doing it each time a bundle is opened.
 			for addon in addonHandler.getAvailableAddons():
-				if not addon.isPendingRemove and bundleName==addon.manifest['name']:
-					addon.requestRemove()
+				# Check for disabled state first.
+				if bundleName==addon.manifest['name']:
+					if addon.isDisabled:
+						isDisabled = True
+					if not addon.isPendingRemove:
+						addon.requestRemove()
 					break
 			progressDialog = gui.IndeterminateProgressDialog(gui.mainFrame,
 			# Translators: The title of the dialog presented while an Addon is being updated.
@@ -242,6 +247,11 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 				progressDialog.done()
 				progressDialog.Hide()
 				progressDialog.Destroy()
+				if isDisabled:
+					for addon in addonHandler.getAvailableAddons():
+						if bundleName==addon.manifest['name'] and addon.isPendingInstall:
+							addon.enable(False)
+							break
 		finally:
 			try:
 				os.remove(self.destPath)
