@@ -124,19 +124,23 @@ class AddonUpdatesDialog(wx.Dialog):
 	def onClose(self, evt):
 		self.Destroy()
 
+# Keep an eye on successful add-on updates.
+_updatedAddons = []
 
 def updateAddonsGenerator(addons, auto=True):
 	"""Updates one add-on after the other.
 	The auto parameter is used to show add-ons manager after all add-ons were updated.
 	"""
 	if not len(addons):
-		# This is possible because all add-ons were updated.
-		# Translators: A message asking the user if they wish to restart NVDA as addons have been added, enabled/disabled or removed. 
-		if gui.messageBox(_("Changes were made to add-ons. You must restart NVDA for these changes to take effect. Would you like to restart now?"),
-		# Translators: Title for message asking if the user wishes to restart NVDA as addons have been added or removed. 
-		_("Restart NVDA"),
-		wx.YES|wx.NO|wx.ICON_WARNING)==wx.YES:
-			core.restart()
+		# Only present messages if add-osn were actually updated.
+		if len(_updatedAddons):
+			# This is possible because all add-ons were updated.
+			# Translators: A message asking the user if they wish to restart NVDA as addons have been added, enabled/disabled or removed. 
+			if gui.messageBox(_("Changes were made to add-ons. You must restart NVDA for these changes to take effect. Would you like to restart now?"),
+			# Translators: Title for message asking if the user wishes to restart NVDA as addons have been added or removed. 
+			_("Restart NVDA"),
+			wx.YES|wx.NO|wx.ICON_WARNING)==wx.YES:
+				core.restart()
 		return
 	# #3208: Update (download and install) add-ons one after the other, done by retrieving the first item (as far as current add-ons container is concerned).
 	addonInfo = addons.pop(0)
@@ -280,6 +284,7 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 				progressDialog.done()
 				progressDialog.Hide()
 				progressDialog.Destroy()
+				_updatedAddons.append(bundleName)
 				if isDisabled:
 					for addon in addonHandler.getAvailableAddons():
 						if bundleName==addon.manifest['name'] and addon.isPendingInstall:
