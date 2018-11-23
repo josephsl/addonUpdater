@@ -229,6 +229,23 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 					wx.OK | wx.ICON_ERROR)
 				self.continueUpdatingAddons()
 				return
+			# Some add-ons require a specific Windows release or later.
+			import winVersion
+			minimumWindowsVersion = bundle.manifest.get("minimumWindowsVersion", None)
+			if minimumWindowsVersion is None:
+				minimumWindowsVersion = winVersion.winVersion[:3]
+			else:
+				minimumWindowsVersion = [int(data) for data in minimumWindowsVersion.split(".")]
+			minimumWinMajor, minimumWinMinor, minimumWinBuild = minimumWindowsVersion
+			winMajor, winMinor, winBuild = winVersion.winVersion[:3]
+			if (winMajor, winMinor, winBuild) < (minimumWinMajor, minimumWinMinor, minimumWinBuild):
+				# Translators: The message displayed when the add-on requires a newer version of Windows.
+				gui.messageBox(_("{name} add-on is not compatible with this version of Windows.").format(name = self.addonName),
+					# Translators: The title of a dialog presented when an error occurs.
+					_("Error"),
+					wx.OK | wx.ICON_ERROR)
+				self.continueUpdatingAddons()
+				return
 			bundleName=bundle.manifest['name']
 			isDisabled = False
 			# Optimization (future): it is better to remove would-be add-ons all at once instead of doing it each time a bundle is opened.
