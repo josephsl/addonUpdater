@@ -21,6 +21,7 @@ if hasattr(gui.nvdaControls, "AutoWidthColumnCheckListCtrl"):
 	from gui.nvdaControls import AutoWidthColumnCheckListCtrl
 else:
 	from .nvdaControlsEx import AutoWidthColumnCheckListCtrl
+from .skipTranslation import translate
 
 AddonUpdaterManualUpdateCheck = extensionPoints.Action()
 
@@ -49,7 +50,7 @@ def addonUpdateCheck():
 		info = None
 		wx.CallAfter(_progressDialog.done)
 		_progressDialog = None
-		wx.CallAfter(gui.messageBox, _("Error checking for add-on updates."), _("Error"), wx.ICON_ERROR)
+		wx.CallAfter(gui.messageBox, _("Error checking for add-on updates."), translate("Error"), wx.ICON_ERROR)
 		raise
 	wx.CallAfter(_progressDialog.done)
 	_progressDialog = None
@@ -69,8 +70,7 @@ class AddonUpdatesDialog(wx.Dialog):
 			entriesSizer=wx.BoxSizer(wx.VERTICAL)
 			self.addonsList=AutoWidthColumnCheckListCtrl(self,-1,style=wx.LC_REPORT|wx.LC_SINGLE_SEL,size=(550,350))
 			self.addonsList.Bind(wx.EVT_CHECKLISTBOX, self.onAddonsChecked)
-			# Translators: The label for a column in add-ons list used to identify add-on package name (example: package is OCR).
-			self.addonsList.InsertColumn(0,_("Package"),width=150)
+			self.addonsList.InsertColumn(0,translate("Package"),width=150)
 			# Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
 			self.addonsList.InsertColumn(1,_("Current version"),width=50)
 			# Translators: The label for a column in add-ons list used to identify add-on's version (example: version is 0.3).
@@ -94,8 +94,7 @@ class AddonUpdatesDialog(wx.Dialog):
 			self.updateButton = bHelper.addButton(self, label=label)
 			self.updateButton.Bind(wx.EVT_BUTTON, self.onUpdate)
 
-		# Translators: The label of a button to close a dialog.
-		closeButton = bHelper.addButton(self, wx.ID_CLOSE, label=_("&Close"))
+		closeButton = bHelper.addButton(self, wx.ID_CLOSE, label=translate("&Close"))
 		closeButton.Bind(wx.EVT_BUTTON, self.onClose)
 		self.Bind(wx.EVT_CLOSE, lambda evt: self.onClose)
 		self.EscapeId = wx.ID_CLOSE
@@ -135,10 +134,8 @@ def updateAddonsGenerator(addons, auto=True):
 		# Only present messages if add-osn were actually updated.
 		if len(_updatedAddons):
 			# This is possible because all add-ons were updated.
-			# Translators: A message asking the user if they wish to restart NVDA as addons have been added, enabled/disabled or removed. 
-			if gui.messageBox(_("Changes were made to add-ons. You must restart NVDA for these changes to take effect. Would you like to restart now?"),
-			# Translators: Title for message asking if the user wishes to restart NVDA as addons have been added or removed. 
-			_("Restart NVDA"),
+			if gui.messageBox(translate("Changes were made to add-ons. You must restart NVDA for these changes to take effect. Would you like to restart now?"),
+			translate("Restart NVDA"),
 			wx.YES|wx.NO|wx.ICON_WARNING)==wx.YES:
 				core.restart()
 		return
@@ -199,7 +196,7 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 		gui.messageBox(
 			# Translators: A message indicating that an error occurred while downloading an update to NVDA.
 			_("Error downloading update for {name}.").format(name = self.addonName),
-			_("Error"),
+			translate("Error"),
 			wx.OK | wx.ICON_ERROR)
 		self.continueUpdatingAddons()
 
@@ -212,8 +209,7 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 				log.error("Error opening addon bundle from %s"%self.destPath,exc_info=True)
 				# Translators: The message displayed when an error occurs when trying to update an add-on package due to package problems.
 				gui.messageBox(_("Cannot update {name} - missing file or invalid file format").format(name = self.addonName),
-					# Translators: The title of a dialog presented when an error occurs.
-					_("Error"),
+					translate("Error"),
 					wx.OK | wx.ICON_ERROR)
 				self.continueUpdatingAddons()
 				return
@@ -228,8 +224,7 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 			if (versionInfo.version_year, versionInfo.version_major) < (minimumYear, minimumMajor):
 				# Translators: The message displayed when trying to update an add-on that is not going to be compatible with the current version of NVDA.
 				gui.messageBox(_("{name} add-on is not compatible with this version of NVDA. Please use NVDA {year}.{major} or later.").format(name = self.addonName, year = minimumYear, major = minimumMajor),
-					# Translators: The title of a dialog presented when an error occurs.
-					_("Error"),
+					translate("Error"),
 					wx.OK | wx.ICON_ERROR)
 				self.continueUpdatingAddons()
 				return
@@ -245,8 +240,7 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 			if (winMajor, winMinor, winBuild) < (minimumWinMajor, minimumWinMinor, minimumWinBuild):
 				# Translators: The message displayed when the add-on requires a newer version of Windows.
 				gui.messageBox(_("{name} add-on is not compatible with this version of Windows.").format(name = self.addonName),
-					# Translators: The title of a dialog presented when an error occurs.
-					_("Error"),
+					translate("Error"),
 					wx.OK | wx.ICON_ERROR)
 				self.continueUpdatingAddons()
 				return
@@ -275,8 +269,7 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 				progressDialog.Destroy()
 				# Translators: The message displayed when an error occurs when installing an add-on package.
 				gui.messageBox(_("Failed to update {name} add-on").format(name = self.addonName),
-					# Translators: The title of a dialog presented when an error occurs.
-					_("Error"),
+					translate("Error"),
 					wx.OK | wx.ICON_ERROR)
 				self.continueUpdatingAddons()
 				return
