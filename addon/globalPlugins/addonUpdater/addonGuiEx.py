@@ -213,6 +213,22 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 					wx.OK | wx.ICON_ERROR)
 				self.continueUpdatingAddons()
 				return
+			# Check compatibility with NVDA and/or Windows release.
+			import versionInfo
+			minimumNVDAVersion = bundle.manifest.get("minimumNVDAVersion", None)
+			if minimumNVDAVersion is None:
+				minimumNVDAVersion = [versionInfo.version_year, versionInfo.version_major]
+			else:
+				minimumNVDAVersion = [int(data) for data in minimumNVDAVersion.split(".")]
+			minimumYear, minimumMajor = minimumNVDAVersion
+			if (versionInfo.version_year, versionInfo.version_major) < (minimumYear, minimumMajor):
+				# Translators: The message displayed when trying to update an add-on that is not going to be compatible with the current version of NVDA.
+				gui.messageBox(_("{name} add-on is not compatible with this version of NVDA. Please use NVDA {year}.{major} or later.").format(name = self.addonName, year = minimumYear, major = minimumMajor),
+					# Translators: The title of a dialog presented when an error occurs.
+					_("Error"),
+					wx.OK | wx.ICON_ERROR)
+				self.continueUpdatingAddons()
+				return
 			bundleName=bundle.manifest['name']
 			isDisabled = False
 			# Optimization (future): it is better to remove would-be add-ons all at once instead of doing it each time a bundle is opened.
