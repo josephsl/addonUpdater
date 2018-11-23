@@ -162,11 +162,10 @@ def autoAddonUpdateCheck():
 def _showAddonUpdateUI():
 	def _showAddonUpdateUICallback(info):
 		import gui
-		if gui.messageBox("One or more add-on updates are available. Would you like to review them?", "Add-on Updates", wx.YES_NO | wx.NO_DEFAULT | wx.CANCEL | wx.CENTER | wx.ICON_QUESTION) == wx.YES:
-			from .addonGuiEx import AddonUpdatesDialog
-			gui.mainFrame.prePopup()
-			AddonUpdatesDialog(gui.mainFrame, info).Show()
-			gui.mainFrame.postPopup()
+		from .addonGuiEx import AddonUpdatesDialog
+		gui.mainFrame.prePopup()
+		AddonUpdatesDialog(gui.mainFrame, info).Show()
+		gui.mainFrame.postPopup()
 	try:
 		info = checkForAddonUpdates()
 	except:

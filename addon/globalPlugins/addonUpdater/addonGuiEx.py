@@ -59,7 +59,7 @@ class AddonUpdatesDialog(wx.Dialog):
 
 	def __init__(self,parent, addonUpdateInfo, auto=True):
 		# Translators: The title of the add-on updates dialog.
-		super(AddonUpdatesDialog,self).__init__(parent,title=_("Add-on Updates"))
+		super(AddonUpdatesDialog,self).__init__(parent,title=_("NVDA Add-on Updates"))
 		mainSizer=wx.BoxSizer(wx.VERTICAL)
 		addonsSizerHelper = guiHelper.BoxSizerHelper(self, orientation=wx.VERTICAL)
 		self.addonUpdateInfo = addonUpdateInfo
