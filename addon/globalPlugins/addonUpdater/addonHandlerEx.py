@@ -7,7 +7,10 @@
 
 # Proof of concept implementation of NVDA Core issue 3208.
 
-import urllib
+try:
+	from urllib import urlopen
+except:
+	from urllib.request import urlopen
 import threading
 import wx
 import json
@@ -97,12 +100,12 @@ def checkForAddonUpdate(curAddons):
 		if channel is not None:
 			updateURL += "-" + channel
 		try:
-			res = urllib.urlopen(updateURL)
+			res = urlopen(updateURL)
 		except IOError as e:
 			# SSL issue (seen in NVDA Core earlier than 2014.1).
 			if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
 				addonUtils._updateWindowsRootCertificates()
-				res = urllib.urlopen(updateURL)
+				res = urlopen(updateURL)
 			else:
 				pass
 		finally:
