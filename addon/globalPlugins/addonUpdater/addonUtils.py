@@ -1,10 +1,14 @@
 # Add-on Updater
 # Copyright 2018 Joseph Lee, released under GPL.
 
-from urllib import urlopen
+try:
+	import cPickle as pickle
+	from urllib import urlopen
+except:
+	import pickle
+	from urllib.request import urlopen
 import ctypes
 import ssl
-import cPickle as pickle
 import os
 import globalVars
 
@@ -14,7 +18,7 @@ def loadState():
 	global updateState
 	try:
 		updateState = pickle.load(file(os.path.join(globalVars.appArgs.configPath, "nvda3208.pickle"), "r"))
-	except (IOError, EOFError):
+	except (IOError, EOFError, NameError):
 		updateState["autoUpdate"] = True
 		updateState["lastChecked"] = 0
 		updateState["noUpdates"] = []
