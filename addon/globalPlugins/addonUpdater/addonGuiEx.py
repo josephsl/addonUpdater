@@ -106,7 +106,10 @@ class AddonUpdatesDialog(wx.Dialog):
 		wx.CallAfter(self.Show)
 
 	def onAddonsChecked(self, evt):
-		self.updateButton.Enable() if any([self.addonsList.IsChecked(addon) for addon in xrange(self.addonsList.GetItemCount())]) else self.updateButton.Disable()
+		try:
+			self.updateButton.Enable() if any([self.addonsList.IsChecked(addon) for addon in xrange(self.addonsList.GetItemCount())]) else self.updateButton.Disable()
+		except NameError:
+			self.updateButton.Enable() if any([self.addonsList.IsChecked(addon) for addon in range(self.addonsList.GetItemCount())]) else self.updateButton.Disable()
 
 	def onUpdate(self, evt):
 		self.Destroy()
@@ -115,10 +118,16 @@ class AddonUpdatesDialog(wx.Dialog):
 		if not self.auto:
 			self.Parent.Hide()
 		availableAddons = sorted(self.addonUpdateInfo.keys())
-		for addon in xrange(self.addonsList.GetItemCount()):
-			if not self.addonsList.IsChecked(addon):
-				del self.addonUpdateInfo[availableAddons[addon]]
-		updateAddonsGenerator(self.addonUpdateInfo.values(), auto=self.auto).next()
+		try:
+			for addon in xrange(self.addonsList.GetItemCount()):
+				if not self.addonsList.IsChecked(addon):
+					del self.addonUpdateInfo[availableAddons[addon]]
+			updateAddonsGenerator(self.addonUpdateInfo.values(), auto=self.auto).next()
+		except NameError:
+			for addon in range(self.addonsList.GetItemCount()):
+				if not self.addonsList.IsChecked(addon):
+					del self.addonUpdateInfo[availableAddons[addon]]
+			next(updateAddonsGenerator(list(self.addonUpdateInfo.values()), auto=self.auto))
 
 	def onClose(self, evt):
 		self.Destroy()
@@ -292,6 +301,6 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 
 	def continueUpdatingAddons(self):
 		try:
-			updateAddonsGenerator(self.addonsToBeUpdated, auto=self.auto).next()
+			next(updateAddonsGenerator(self.addonsToBeUpdated, auto=self.auto))
 		except StopIteration:
 			pass
