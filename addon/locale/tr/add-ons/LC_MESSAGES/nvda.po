@@ -1,0 +1,133 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 2018.12\n"
+"Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
+"POT-Creation-Date: 2018-11-30 01:00+1000\n"
+"PO-Revision-Date: 2018-11-30 08:34+0300\n"
+"Last-Translator: Çağrı Doğan <cagrid@hotmail.com>\n"
+"Language-Team: Turkish <cagrid@hotmail.comLL@li.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ../../../globalPlugins/addonUpdater\n"
+"X-Poedit-SearchPath-0: .\n"
+
+msgid "Check for &add-on updates..."
+msgstr "Eklenti &güncelleme kontrolü..."
+
+#, fuzzy
+msgid "Check for NVDA add-on updates"
+msgstr "&NVDA eklenti güncelleme kontrolü"
+
+#. Translators: This is the label for the Add-on Updater settings panel.
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on to be shown on installation and add-on information.
+msgid "Add-on Updater"
+msgstr "Eklenti Güncelleyici"
+
+#. Never, EVER allow touch support to be disabled completely if using normal configuration (only manual passthrough will be allowed).
+#. Translators: This is the label for a checkbox in the
+#. Add-on Updater settings panel.
+msgid "Automatically check for add-on &updates"
+msgstr "Eklenti &güncellemelerini otomatik olarak control et"
+
+msgid "Do &not update add-ons:"
+msgstr "Bu eklentileri gü&ncelleme:"
+
+msgid "Prefer development releases:"
+msgstr "Geliştirilmekte olan versiyonları tercih et:"
+
+#. Translators: The title of the dialog presented while checking for add-on updates.
+msgid "Add-on update check"
+msgstr "Eklenti güncelleme kontrolü"
+
+#. Translators: The message displayed while checking for add-on updates.
+msgid "Checking for add-on updates..."
+msgstr "Eklenti güncellemeleri araştırılıyor..."
+
+msgid "Error checking for add-on updates."
+msgstr "Eklenti güncelleme kontrolünde hata."
+
+#. Translators: The title of the add-on updates dialog.
+msgid "NVDA Add-on Updates"
+msgstr "NVDA Eklenti Güncellemeleri"
+
+#. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
+msgid "Current version"
+msgstr "Geçerli sürüm"
+
+#. Translators: The label for a column in add-ons list used to identify add-on's version (example: version is 0.3).
+msgid "New version"
+msgstr "Yeni sürüm"
+
+#. Translators: Message displayed when no add-on updates are available.
+msgid "No add-on update available."
+msgstr "Eklenti güncellemesi mevcut değil"
+
+#. Translators: The label of a button to update add-ons.
+msgid "&Update add-ons"
+msgstr "Eklentileri &güncelle"
+
+#. Translators: The title of the dialog displayed while downloading add-on update.
+msgid "Downloading Add-on Update"
+msgstr "Eklenti güncellemesi indiriliyor"
+
+#. Translators: The progress message indicating the name of the add-on being downloaded.
+#, python-brace-format
+msgid "Downloading {name}"
+msgstr "{name} indiriliyor"
+
+#. Translators: A message indicating that an error occurred while downloading an update to NVDA.
+#, python-brace-format
+msgid "Error downloading update for {name}."
+msgstr "{name} güncellemesi indirilirken hata oluştu."
+
+#. Translators: The message displayed when an error occurs when trying to update an add-on package due to package problems.
+#, python-brace-format
+msgid "Cannot update {name} - missing file or invalid file format"
+msgstr "{name} güncellenemiyor - eksik ya da geçersiz dosya formatı"
+
+#. Translators: The message displayed when trying to update an add-on that is not going to be compatible with the current version of NVDA.
+#, python-brace-format
+msgid ""
+"{name} add-on is not compatible with this version of NVDA. Please use NVDA "
+"{year}.{major} or later."
+msgstr ""
+"{name} eklentisi NVDA'nın bu sürümü ile uyumlu değil. Lütfen NVDA {year}."
+"{major} ya da sonraki  sürümünü kullanın."
+
+#. Translators: The message displayed when the add-on requires a newer version of Windows.
+#, python-brace-format
+msgid "{name} add-on is not compatible with this version of Windows."
+msgstr "{name} eklentisi Windows'un bu sürümü ile uyumlu değil."
+
+#. Translators: The title of the dialog presented while an Addon is being updated.
+#, python-brace-format
+msgid "Updating {name}"
+msgstr "{name} güncelleniyor"
+
+#. Translators: The message displayed while an addon is being updated.
+msgid "Please wait while the add-on is being updated."
+msgstr "Eklenti güncellenirken lütfen bekleyin."
+
+#. Translators: The message displayed when an error occurs when installing an add-on package.
+#, python-brace-format
+msgid "Failed to update {name} add-on"
+msgstr "{name} eklentisi güncellemesi başarısız"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+msgid ""
+"Proof of concept implementation of add-on update feature (NVDA Core issue "
+"3208)"
+msgstr ""
+"NVDA'nın sahip olması beklenen eklenti güncelleme özelliği (NVDA Core issue "
+"3208)"
