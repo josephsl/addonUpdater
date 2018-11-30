@@ -8,6 +8,7 @@ import gettext
 import os
 import os.path
 import zipfile
+import shutil
 
 import buildVars
 
@@ -146,6 +147,14 @@ langDirs = [f for f in env.Glob(os.path.join("addon", "locale", "*"))]
 
 #Allow all NVDA's gettext po files to be compiled in source/locale, and manifest files to be generated
 for dir in langDirs:
+	# Somehow, an "add-ons" directory is blocking the way.
+	lang = dir.dirname[:-1]
+	curLangDir = os.path.join(".", "addon", "locale", lang, "add-ons", "LC_MESSAGES")
+	realLangDir = os.path.join(".", "addon", "locale", lang, "LC_MESSAGES")
+	try:
+		shutil.copytree(curLangDir, realLangDir)
+	except:
+		pass
 	poFile = dir.File(os.path.join("LC_MESSAGES", "nvda.po"))
 	moFile=env.gettextMoFile(poFile)
 	env.Depends(moFile, poFile)
