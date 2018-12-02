@@ -14,6 +14,7 @@ import gui
 from gui import guiHelper
 from logHandler import log
 import addonHandler
+addonHandler.initTranslation()
 import updateCheck
 import core
 import extensionPoints
