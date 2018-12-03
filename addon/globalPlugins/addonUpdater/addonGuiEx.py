@@ -22,6 +22,8 @@ if hasattr(gui.nvdaControls, "AutoWidthColumnCheckListCtrl"):
 else:
 	from .nvdaControlsEx import AutoWidthColumnCheckListCtrl
 from .skipTranslation import translate
+# Temporary
+addonHandler.initTranslation()
 
 AddonUpdaterManualUpdateCheck = extensionPoints.Action()
 
