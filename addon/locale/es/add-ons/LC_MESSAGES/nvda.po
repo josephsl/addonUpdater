@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2018-11-30 12:11+0100\n"
+"PO-Revision-Date: 2018-11-30 19:57+0100\n"
 "Last-Translator: José Manuel Delicado <jmdaweb@hotmail.com>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -20,7 +20,6 @@ msgstr ""
 msgid "Check for &add-on updates..."
 msgstr "Buscar &actualizaciones de complementos..."
 
-#, fuzzy
 msgid "Check for NVDA add-on updates"
 msgstr "Buscar actualizaciones de complementos de NVDA"
 

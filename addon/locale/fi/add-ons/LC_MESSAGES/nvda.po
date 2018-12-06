@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2018-11-30 08:02+0200\n"
+"PO-Revision-Date: 2018-11-30 20:23+0200\n"
 "Last-Translator: Jani Kinnunen <jani.kinnunen@wippies.fi>\n"
 "Language-Team: Jani Kinnunen <jani.kinnunen@wippies.fi>\n"
 "Language: fi\n"
@@ -22,7 +22,6 @@ msgstr ""
 msgid "Check for &add-on updates..."
 msgstr "Tarkista &lisäosien päivitykset..."
 
-#, fuzzy
 msgid "Check for NVDA add-on updates"
 msgstr "Tarkista NVDA-lisäosien päivitykset"
 
