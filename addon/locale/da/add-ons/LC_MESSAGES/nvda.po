@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2018-11-29 18:55+0100\n"
+"PO-Revision-Date: 2018-12-02 13:07+0100\n"
 "Last-Translator: Nicolai Svendsen <chojiro1990@gmail.com>\n"
 "Language-Team: \n"
 "Language: da\n"
@@ -20,9 +20,8 @@ msgstr ""
 msgid "Check for &add-on updates..."
 msgstr "Søg efter tilføjelses&opdateringer..."
 
-#, fuzzy
 msgid "Check for NVDA add-on updates"
-msgstr "Søg efter opdateringer til NVDAs tilføjelsespakker"
+msgstr "Søg efter opdateringer til NVDA-tilføjelser"
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -59,11 +58,11 @@ msgstr "NVDA-tilføjelsesopdateringer"
 
 #. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
 msgid "Current version"
-msgstr "Aktuel version"
+msgstr "Aktuelle version"
 
 #. Translators: The label for a column in add-ons list used to identify add-on's version (example: version is 0.3).
 msgid "New version"
-msgstr "Ny version"
+msgstr "Nye version"
 
 #. Translators: Message displayed when no add-on updates are available.
 msgid "No add-on update available."
