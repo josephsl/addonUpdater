@@ -19,9 +19,13 @@ The following add-ons do have their own update check feature which will be disab
 
 IMPORTANT: this is a proof of concept add-on. Once the [relevant feature is included in NVDA][2], this add-on will be discontinued.
 
-## Version 18.12.1
+## Version 18.12.2
 
 * Fixed compatibility with recent NVDA alpha snapshots where add-on updates would not download.
+
+## Version 18.12.1
+
+* Added localizations.
 
 ## Version 18.12
 
