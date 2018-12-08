@@ -21,6 +21,7 @@ IMPORTANT: this is a proof of concept add-on. Once the [relevant feature is incl
 
 ## Version 18.12.2
 
+* Python 3 ready.
 * Fixed compatibility with recent NVDA alpha snapshots where add-on updates would not download.
 
 ## Version 18.12.1
