@@ -1,0 +1,132 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the addonUpdater package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: addonUpdater 18.12\n"
+"Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
+"POT-Creation-Date: 2018-11-30 01:00+1000\n"
+"PO-Revision-Date: 2018-12-09 23:31+0100\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"Last-Translator: Ján Kulik <johny.kulik452@gmail.com>\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
+"Language: sk\n"
+
+msgid "Check for &add-on updates..."
+msgstr "Skontrolovať &aktualizácie..."
+
+msgid "Check for NVDA add-on updates"
+msgstr "Skontrolovať doplnky NVDA"
+
+#. Translators: This is the label for the Add-on Updater settings panel.
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on to be shown on installation and add-on information.
+msgid "Add-on Updater"
+msgstr "Add-on Updater"
+
+#. Never, EVER allow touch support to be disabled completely if using normal configuration (only manual passthrough will be allowed).
+#. Translators: This is the label for a checkbox in the
+#. Add-on Updater settings panel.
+msgid "Automatically check for add-on &updates"
+msgstr "Automaticky zistiť doplnok &aktualizácií"
+
+msgid "Do &not update add-ons:"
+msgstr "Neaktualizovať &doplnky:"
+
+msgid "Prefer development releases:"
+msgstr "Upredňostňovať vívojové vydania:"
+
+#. Translators: The title of the dialog presented while checking for add-on updates.
+msgid "Add-on update check"
+msgstr "Add-on update kontrola"
+
+#. Translators: The message displayed while checking for add-on updates.
+msgid "Checking for add-on updates..."
+msgstr "Kontrolujem aktualizácie..."
+
+msgid "Error checking for add-on updates."
+msgstr "Chyba pri kontrole aktualizácii."
+
+#. Translators: The title of the add-on updates dialog.
+msgid "NVDA Add-on Updates"
+msgstr "NVDA Add-on aktualizácie"
+
+#. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
+msgid "Current version"
+msgstr "Aktuálna verzia"
+
+#. Translators: The label for a column in add-ons list used to identify add-on's version (example: version is 0.3).
+msgid "New version"
+msgstr "Nová verzia"
+
+#. Translators: Message displayed when no add-on updates are available.
+msgid "No add-on update available."
+msgstr "Žiadna aktualizácia nie je k dispozícii."
+
+#. Translators: The label of a button to update add-ons.
+msgid "&Update add-ons"
+msgstr "&Aktualizujem doplnky"
+
+#. Translators: The title of the dialog displayed while downloading add-on update.
+msgid "Downloading Add-on Update"
+msgstr "Šťahujem doplnky"
+
+#. Translators: The progress message indicating the name of the add-on being downloaded.
+#, python-brace-format
+msgid "Downloading {name}"
+msgstr "Šťahujem {name}"
+
+#. Translators: A message indicating that an error occurred while downloading an update to NVDA.
+#, python-brace-format
+msgid "Error downloading update for {name}."
+msgstr "Chyba pri sťahovaní aktualizácie{name}."
+
+#. Translators: The message displayed when an error occurs when trying to update an add-on package due to package problems.
+#, python-brace-format
+msgid "Cannot update {name} - missing file or invalid file format"
+msgstr ""
+"Nie je možné aktualizovať {name} chýbajúci súbor alebo neplatný formát "
+"súboru"
+
+#. Translators: The message displayed when trying to update an add-on that is not going to be compatible with the current version of NVDA.
+#, python-brace-format
+msgid ""
+"{name} add-on is not compatible with this version of NVDA. Please use NVDA "
+"{year}.{major} or later."
+msgstr ""
+"{name} Add-on update nie je konpatibilný s verziou NVDA. Použite{year}."
+"{major} alebo neskôr."
+
+#. Translators: The message displayed when the add-on requires a newer version of Windows.
+#, python-brace-format
+msgid "{name} add-on is not compatible with this version of Windows."
+msgstr "{name} aktualizácie nie je konpatibilný s verziou Windows."
+
+#. Translators: The title of the dialog presented while an Addon is being updated.
+#, python-brace-format
+msgid "Updating {name}"
+msgstr "Aktualizujem {name}"
+
+#. Translators: The message displayed while an addon is being updated.
+msgid "Please wait while the add-on is being updated."
+msgstr "Čakajte prosím, doplnok sa aktualizuje."
+
+#. Translators: The message displayed when an error occurs when installing an add-on package.
+#, python-brace-format
+msgid "Failed to update {name} add-on"
+msgstr "Chyba aktualizácie {name} add-on"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+msgid ""
+"Proof of concept implementation of add-on update feature (NVDA Core issue "
+"3208)"
+msgstr ""
+"Dôkaz implementácie koncepcie doplnkovej aktualizačnej funkcie (NVDA Core "
+"Issue 3208)"
