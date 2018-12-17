@@ -32,8 +32,7 @@ if hasattr(gui.nvdaControls, "CustomCheckListBox"):
 else:
 	from .nvdaControlsEx import CustomCheckListBox
 
-
-# Overall update check routine comes from StationPlaylist Studio add-on (Joseph Lee).)
+# Overall update check routine was inspired by StationPlaylist Studio add-on (Joseph Lee).)
 
 addonUpdateCheckInterval = 86400
 updateChecker = None
@@ -99,7 +98,6 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 
 	def makeSettings(self, settingsSizer):
 		sHelper = gui.guiHelper.BoxSizerHelper(self, sizer=settingsSizer)
-		# Never, EVER allow touch support to be disabled completely if using normal configuration (only manual passthrough will be allowed).
 		# Translators: This is the label for a checkbox in the
 		# Add-on Updater settings panel.
 		self.autoUpdateCheckBox=sHelper.addItem(wx.CheckBox(self, label=_("Automatically check for add-on &updates")))
