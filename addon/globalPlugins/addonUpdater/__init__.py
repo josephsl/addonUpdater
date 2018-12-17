@@ -27,10 +27,7 @@ from . import addonGuiEx
 from . import addonUtils
 import addonHandler
 addonHandler.initTranslation()
-if hasattr(gui.nvdaControls, "CustomCheckListBox"):
-	from gui.nvdaControls import CustomCheckListBox
-else:
-	from .nvdaControlsEx import CustomCheckListBox
+from gui.nvdaControls import CustomCheckListBox
 
 # Overall update check routine was inspired by StationPlaylist Studio add-on (Joseph Lee).)
 

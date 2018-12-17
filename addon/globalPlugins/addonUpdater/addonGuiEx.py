@@ -22,10 +22,7 @@ import addonHandler
 import updateCheck
 import core
 import extensionPoints
-if hasattr(gui.nvdaControls, "AutoWidthColumnCheckListCtrl"):
-	from gui.nvdaControls import AutoWidthColumnCheckListCtrl
-else:
-	from .nvdaControlsEx import AutoWidthColumnCheckListCtrl
+from gui.nvdaControls import AutoWidthColumnCheckListCtrl
 from .skipTranslation import translate
 # Temporary
 addonHandler.initTranslation()
