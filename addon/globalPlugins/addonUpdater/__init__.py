@@ -69,8 +69,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def __init__(self):
 		super(GlobalPlugin, self).__init__()
-		if globalVars.appArgs.secure: return
-		if config.isAppX: return
+		if globalVars.appArgs.secure or config.isAppX: return
 		addonUtils.loadState()
 		self.toolsMenu = gui.mainFrame.sysTrayIcon.toolsMenu
 		self.addonUpdater = self.toolsMenu.Append(wx.ID_ANY, _("Check for &add-on updates..."), _("Check for NVDA add-on updates"))
