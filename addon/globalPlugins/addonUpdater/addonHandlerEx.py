@@ -88,36 +88,44 @@ def preferDevUpdates():
 		if addon.name in addonUtils.updateState["devUpdates"]]
 
 # Borrowed ideas from NVDA Core.
-def checkForAddonUpdate(curAddons):
-	info = {}
-	for addon in curAddons.keys():
-		if addon not in names2urls: continue
-		addonVersion = curAddons[addon]["version"]
-		del curAddons[addon]["version"]
-		updateURL = names2urls[addon]
-		# If "-dev" flag is on, switch to development channel if it exists.
-		channel = curAddons[addon]["channel"]
-		if channel is not None:
-			updateURL += "-" + channel
-		try:
+# Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
+
+def fetchAddonInfo(info, addon, manifestInfo):
+	if addon not in names2urls: return
+	addonVersion = manifestInfo["version"]
+	updateURL = names2urls[addon]
+	# If "-dev" flag is on, switch to development channel if it exists.
+	channel = manifestInfo["channel"]
+	if channel is not None:
+		updateURL += "-" + channel
+	try:
+		res = urlopen(updateURL)
+	except IOError as e:
+		# SSL issue (seen in NVDA Core earlier than 2014.1).
+		if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
+			addonUtils._updateWindowsRootCertificates()
 			res = urlopen(updateURL)
-		except IOError as e:
-			# SSL issue (seen in NVDA Core earlier than 2014.1).
-			if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
-				addonUtils._updateWindowsRootCertificates()
-				res = urlopen(updateURL)
-			else:
-				pass
-		finally:
-			res.close()
-		if res.code != 200:
-			continue
-		# Build emulated add-on update dictionary if there is indeed a new version.
-		version = re.search("(?P<name>)-(?P<version>.*).nvda-addon", res.url).groupdict()["version"]
-		# If hosted on places other than add-ons server, an unexpected URL might be returned, so parse this further.
-		if addon in version: version = version.split(addon)[1][1:]
-		if addonVersion != version:
-			info[addon] = {"curVersion": addonVersion, "version": version, "path": res.url}
+		else:
+			pass
+	finally:
+		res.close()
+	if res.code != 200:
+		return
+	# Build emulated add-on update dictionary if there is indeed a new version.
+	version = re.search("(?P<name>)-(?P<version>.*).nvda-addon", res.url).groupdict()["version"]
+	# If hosted on places other than add-ons server, an unexpected URL might be returned, so parse this further.
+	if addon in version: version = version.split(addon)[1][1:]
+	if addonVersion != version:
+		info[addon] = {"curVersion": addonVersion, "version": version, "path": res.url}
+
+def checkForAddonUpdate(curAddons):
+	# The info dictionary will be passed in as a reference in individual threads below.
+	info = {}
+	updateThreads = {threading.Thread(target=fetchAddonInfo, args=(info, addon, manifestInfo)) for addon, manifestInfo  in curAddons.items()}
+	for thread in updateThreads:	
+		thread.start()
+	for thread in updateThreads:
+		thread.join()
 	return info
 
 def checkForAddonUpdates():
