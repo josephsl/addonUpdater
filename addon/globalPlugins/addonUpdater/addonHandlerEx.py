@@ -121,7 +121,7 @@ def fetchAddonInfo(info, addon, manifestInfo):
 def checkForAddonUpdate(curAddons):
 	# The info dictionary will be passed in as a reference in individual threads below.
 	info = {}
-	updateThreads = {threading.Thread(target=fetchAddonInfo, args=(info, addon, manifestInfo)) for addon, manifestInfo  in curAddons.items()}
+	updateThreads = [threading.Thread(target=fetchAddonInfo, args=(info, addon, manifestInfo)) for addon, manifestInfo  in curAddons.items()]
 	for thread in updateThreads:	
 		thread.start()
 	for thread in updateThreads:
