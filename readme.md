@@ -2,6 +2,7 @@
 
 * Author: Joseph Lee
 * Download [stable version][1]
+* NVDA compatibility: 2018.4 to 2019.1
 
 This add-on brings NVDA Core issue 3208 to life: ability to check for, download, and apply add-on updates.
 
@@ -12,12 +13,13 @@ The following add-ons provide built-in update feature and thus updates will not 
 * Braille Extender
 * WeatherPlus
 
-The following add-ons do have their own update check feature which will be disabled once Add-on Updater is installed:
-
-* StationPlaylist Studio
-* Windows 10 App Essentials
-
 IMPORTANT: this is a proof of concept add-on. Once the [relevant feature is included in NVDA][2], this add-on will be discontinued.
+
+## Version 19.01
+
+* Requires NVDA 2018.4 or later.
+* Improved responsiveness when checking for add-on updates.
+* Made the add-on more compatible with Python 3.
 
 ## Version 18.12.2
 
