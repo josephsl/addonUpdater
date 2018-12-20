@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2018-11-30 23:50+0700\n"
+"PO-Revision-Date: 2018-12-13 15:05+0700\n"
 "Last-Translator: Dang Manh Cuong <dangmanhcuong@gmail.com>\n"
 "Language-Team: \n"
 "Language: vi\n"
@@ -20,7 +20,6 @@ msgstr ""
 msgid "Check for &add-on updates..."
 msgstr "Kiểm tra cập nhật &add-on..."
 
-#, fuzzy
 msgid "Check for NVDA add-on updates"
 msgstr "Kiểm tra cập nhật NVDA add-on"
 
@@ -28,7 +27,7 @@ msgstr "Kiểm tra cập nhật NVDA add-on"
 #. Add-on summary, usually the user visible name of the addon.
 #. Translators: Summary for this add-on to be shown on installation and add-on information.
 msgid "Add-on Updater"
-msgstr "Add-on Updater"
+msgstr "Cập nhật add-on"
 
 #. Never, EVER allow touch support to be disabled completely if using normal configuration (only manual passthrough will be allowed).
 #. Translators: This is the label for a checkbox in the

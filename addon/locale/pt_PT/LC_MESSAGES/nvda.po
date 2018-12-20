@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2018-11-29 17:20+0000\n"
+"PO-Revision-Date: 2018-11-30 18:22+0000\n"
 "Last-Translator: Ângelo Miguel Abrantes <ampa4374@gmail.com>\n"
 "Language-Team: Equipa portuguesa do NVDA <ampa4374@gmail.com; rui."
 "fontes@tiflotecnia.pt>\n"
@@ -20,11 +20,10 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 
 msgid "Check for &add-on updates..."
-msgstr "Procurar por actualizações de extras..."
+msgstr "Procurar por &actualizações de extras..."
 
-#, fuzzy
 msgid "Check for NVDA add-on updates"
-msgstr "Procurar por actualizações de extras para o NVDA"
+msgstr "Procurar por actualizações de extras para o NVDA "
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.

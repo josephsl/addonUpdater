@@ -7,91 +7,90 @@ msgid ""
 msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
-"POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2018-11-30 20:04+0100\n"
-"Last-Translator: Nikola Jović <wwenikola123@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: sr\n"
+"POT-Creation-Date: 2018-12-01 04:05+1000\n"
+"PO-Revision-Date: 2018-12-09 21:31+0100\n"
+"Last-Translator: zvonimir stanecic <zvonimirek222@yandex.com>\n"
+"Language-Team: ru <LL@li.org>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.6.10\n"
 
 msgid "Check for &add-on updates..."
-msgstr "Proveri dostupna ažuriranja &dodataka"
+msgstr "Проверить наличие обновлений &дополнений..."
 
 msgid "Check for NVDA add-on updates"
-msgstr "Provera dostupnih ažuriranja NVDA dodataka"
+msgstr "Проверка обновлений дополнений для NVDA"
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
 #. Translators: Summary for this add-on to be shown on installation and add-on information.
 msgid "Add-on Updater"
-msgstr "Ažuriranje dodataka"
+msgstr "Add-on Updater"
 
 #. Never, EVER allow touch support to be disabled completely if using normal configuration (only manual passthrough will be allowed).
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
 msgid "Automatically check for add-on &updates"
-msgstr "Automatski proveravaj &ažuriranja dodataka"
+msgstr "Автоматически проверять &обновления дополнений"
 
 msgid "Do &not update add-ons:"
-msgstr "&Ne ažuriraj dodatke:"
+msgstr "&Не обновлять дополнения:"
 
 msgid "Prefer development releases:"
-msgstr "Preferiraj razvojne verzije:"
+msgstr "Предпочитать разрабатываемые версии:"
 
 #. Translators: The title of the dialog presented while checking for add-on updates.
 msgid "Add-on update check"
-msgstr "Provera ažuriranja dodataka"
+msgstr "Проверка обновлений"
 
 #. Translators: The message displayed while checking for add-on updates.
 msgid "Checking for add-on updates..."
-msgstr "Proveravaju se ažuriranja dodataka..."
+msgstr "Проверка обновлений дополнений..."
 
 msgid "Error checking for add-on updates."
-msgstr "Greška pri proveri ažuriranja dodataka."
+msgstr "Ошибка при проверке обновлений."
 
 #. Translators: The title of the add-on updates dialog.
 msgid "NVDA Add-on Updates"
-msgstr "Ažuriranja NVDA dodataka"
+msgstr "Обновления Дополнений NVDA"
 
 #. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
 msgid "Current version"
-msgstr "Trenutna verzija"
+msgstr "Текущая версия"
 
 #. Translators: The label for a column in add-ons list used to identify add-on's version (example: version is 0.3).
 msgid "New version"
-msgstr "Nova verzija"
+msgstr "Новая версия"
 
 #. Translators: Message displayed when no add-on updates are available.
 msgid "No add-on update available."
-msgstr "Nema dostupnih ažuriranja dodataka."
+msgstr "Нет доступных обновлений."
 
 #. Translators: The label of a button to update add-ons.
 msgid "&Update add-ons"
-msgstr "&Ažuriraj dodatke"
+msgstr "&Обновить дополнения"
 
 #. Translators: The title of the dialog displayed while downloading add-on update.
 msgid "Downloading Add-on Update"
-msgstr "Preuzimanje ažuriranja dodatka"
+msgstr "Загрузка Обновлений"
 
 #. Translators: The progress message indicating the name of the add-on being downloaded.
 #, python-brace-format
 msgid "Downloading {name}"
-msgstr "Preuzimanje {name}"
+msgstr "Загрузка {name}"
 
 #. Translators: A message indicating that an error occurred while downloading an update to NVDA.
 #, python-brace-format
 msgid "Error downloading update for {name}."
-msgstr "Greška pri preuzimanju ažuriranja za {name}."
+msgstr "Ошибка загрузки обновления {name}."
 
 #. Translators: The message displayed when an error occurs when trying to update an add-on package due to package problems.
 #, python-brace-format
 msgid "Cannot update {name} - missing file or invalid file format"
 msgstr ""
-"Nemoguće ažurirati {name} - datoteka nedostaje ili je neispravan format "
-"datoteke"
+"Не удаётся обновить {name} - Файл отсутствует или имеет неверный формат"
 
 #. Translators: The message displayed when trying to update an add-on that is not going to be compatible with the current version of NVDA.
 #, python-brace-format
@@ -99,33 +98,31 @@ msgid ""
 "{name} add-on is not compatible with this version of NVDA. Please use NVDA "
 "{year}.{major} or later."
 msgstr ""
-"{name} dodatak nije kompatibilan sa ovom verzijom NVDA. Molimo koristite "
-"NVDA {year}.{major} ili noviji."
+"дополнение {name} несовместимо с данной версией NVDA. Пожалуйста, "
+"используйте NVDA {year}.{major} или новее."
 
 #. Translators: The message displayed when the add-on requires a newer version of Windows.
 #, python-brace-format
 msgid "{name} add-on is not compatible with this version of Windows."
-msgstr "{name} dodatak nije kompatibilan sa ovom verzijom Windowsa."
+msgstr "дополнение {name} несовместимо с данной версией Windows."
 
 #. Translators: The title of the dialog presented while an Addon is being updated.
 #, python-brace-format
 msgid "Updating {name}"
-msgstr "Ažuriranje {name}"
+msgstr "Обновление {name}"
 
 #. Translators: The message displayed while an addon is being updated.
 msgid "Please wait while the add-on is being updated."
-msgstr "Molimo sačekajte dok se dodatak ažurira."
+msgstr "Пожалуйста, подождите, пока происходит обновление дополнения."
 
 #. Translators: The message displayed when an error occurs when installing an add-on package.
 #, python-brace-format
 msgid "Failed to update {name} add-on"
-msgstr "Nemoguće ažurirati dodatak {name}"
+msgstr "Не удалось обновить дополнение {name}"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid ""
 "Proof of concept implementation of add-on update feature (NVDA Core issue "
 "3208)"
-msgstr ""
-"Implementacija kako bi se pokazao koncept ažuriranja NVDA dodataka (NVDA "
-"GiThub zahtev 3208)"
+msgstr "Тестовая версия функции обновления дополнений (NVDA 3208)"

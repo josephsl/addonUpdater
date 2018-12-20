@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 2018.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2018-11-30 08:34+0300\n"
+"PO-Revision-Date: 2018-12-03 13:52+0300\n"
 "Last-Translator: Çağrı Doğan <cagrid@hotmail.com>\n"
 "Language-Team: Turkish <cagrid@hotmail.comLL@li.org>\n"
 "Language: tr\n"
@@ -23,9 +23,8 @@ msgstr ""
 msgid "Check for &add-on updates..."
 msgstr "Eklenti &güncelleme kontrolü..."
 
-#, fuzzy
 msgid "Check for NVDA add-on updates"
-msgstr "&NVDA eklenti güncelleme kontrolü"
+msgstr "NVDA eklenti güncelleme kontrolü"
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
