@@ -31,6 +31,7 @@ names2urls={
 	"clipContentsDesigner": "https://addons.nvda-project.org/files/get.php?file=ccd",
 	"clipspeak": "https://addons.nvda-project.org/files/get.php?file=cs",
 	"clock": "https://addons.nvda-project.org/files/get.php?file=cac",
+	"columnsReview": "https://addons.nvda-project.org/files/get.php?file=cr",
 	"dayOfTheWeek": "https://addons.nvda-project.org/files/get.php?file=dw",
 	"dropbox": "https://addons.nvda-project.org/files/get.php?file=dx",
 	"easyTableNavigator": "https://addons.nvda-project.org/files/get.php?file=etn",
