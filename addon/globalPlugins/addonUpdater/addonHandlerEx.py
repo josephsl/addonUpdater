@@ -92,7 +92,6 @@ def preferDevUpdates():
 # Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
 
 def fetchAddonInfo(info, addon, manifestInfo):
-	if addon not in names2urls: return
 	addonVersion = manifestInfo["version"]
 	updateURL = names2urls[addon]
 	# If "-dev" flag is on, switch to development channel if it exists.
@@ -133,6 +132,7 @@ def checkForAddonUpdates():
 	curAddons = {}
 	addonSummaries = {}
 	for addon in addonHandler.getAvailableAddons():
+		if addon.name not in names2urls: continue
 		# Sorry Nuance Vocalizer family, no update checks for you.
 		if "vocalizer" in addon.name.lower(): continue
 		manifest = addon.manifest
