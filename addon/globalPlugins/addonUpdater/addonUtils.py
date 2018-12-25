@@ -17,7 +17,8 @@ updateState = {}
 def loadState():
 	global updateState
 	try:
-		with open(os.path.join(globalVars.appArgs.configPath, "nvda3208.pickle"), "r") as f:
+		# Pickle wants to work with bytes.
+		with open(os.path.join(globalVars.appArgs.configPath, "nvda3208.pickle"), "rb") as f:
 			updateState = pickle.load(f)
 	except (IOError, EOFError, NameError):
 		updateState["autoUpdate"] = True
