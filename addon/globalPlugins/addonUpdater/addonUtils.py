@@ -35,7 +35,7 @@ def saveState():
 	global updateState
 	try:
 		with open(os.path.join(globalVars.appArgs.configPath, "nvda3208.pickle"), "wb") as f:
-			pickle.dump(updateState, f)
+			pickle.dump(updateState, f, protocol=0)
 	except IOError:
 		pass
 	updateState= None
