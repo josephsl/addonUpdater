@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-12-01 04:05+1000\n"
-"PO-Revision-Date: 2018-12-09 21:31+0100\n"
-"Last-Translator: zvonimir stanecic <zvonimirek222@yandex.com>\n"
+"PO-Revision-Date: 2018-12-21 19:19+0200\n"
+"Last-Translator: Ecaterina Jivaga <notka@gozaltech.org>\n"
 "Language-Team: ru <LL@li.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.10\n"
+"X-Generator: Poedit 1.6.8\n"
 
 msgid "Check for &add-on updates..."
-msgstr "Проверить наличие обновлений &дополнений..."
+msgstr "Проверить наличие обновлений для &дополнений..."
 
 msgid "Check for NVDA add-on updates"
 msgstr "Проверка обновлений дополнений для NVDA"
@@ -33,7 +33,7 @@ msgstr "Add-on Updater"
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
 msgid "Automatically check for add-on &updates"
-msgstr "Автоматически проверять &обновления дополнений"
+msgstr "Автоматически проверять &обновления для дополнений"
 
 msgid "Do &not update add-ons:"
 msgstr "&Не обновлять дополнения:"
@@ -47,7 +47,7 @@ msgstr "Проверка обновлений"
 
 #. Translators: The message displayed while checking for add-on updates.
 msgid "Checking for add-on updates..."
-msgstr "Проверка обновлений дополнений..."
+msgstr "Проверка обновлений для дополнений..."
 
 msgid "Error checking for add-on updates."
 msgstr "Ошибка при проверке обновлений."
