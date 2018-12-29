@@ -5,11 +5,6 @@
 # URL: https://github.com/nvaccess/nvda/issues/3208
 
 import globalPluginHandler
-# Python 3 calls for using urllib.request instead, which is functionally equivalent to urllib2.
-try:
-	from urllib.request import urlopen
-except ImportError:
-	from urllib import urlopen
 import time
 import gui
 import wx

@@ -15,6 +15,7 @@ import threading
 import wx
 import json
 import re
+import ssl
 import addonHandler
 from . import addonUtils
 
