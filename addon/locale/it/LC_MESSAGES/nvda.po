@@ -1,0 +1,132 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the addonUpdater package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: addonUpdater 18.12.2\n"
+"Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
+"POT-Creation-Date: 2018-12-14 01:00+1000\n"
+"PO-Revision-Date: 2019-01-02 10:12+0100\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Simone Dal Maso <simone.dalmaso@gmail.com>\n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Check for &add-on updates..."
+msgstr "Controlla &aggiornamenti componenti aggiuntivi..."
+
+msgid "Check for NVDA add-on updates"
+msgstr "Controlla gli aggiornamenti dei componenti aggiuntivi di NVDA"
+
+#. Translators: This is the label for the Add-on Updater settings panel.
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on to be shown on installation and add-on information.
+msgid "Add-on Updater"
+msgstr "Add-on Updater"
+
+#. Never, EVER allow touch support to be disabled completely if using normal configuration (only manual passthrough will be allowed).
+#. Translators: This is the label for a checkbox in the
+#. Add-on Updater settings panel.
+msgid "Automatically check for add-on &updates"
+msgstr ""
+"Controlla a&utomaticamente la presenza di aggiornamenti per i componenti "
+"aggiuntivi"
+
+msgid "Do &not update add-ons:"
+msgstr "&non aggiornare i componenti"
+
+msgid "Prefer development releases:"
+msgstr "Usa versioni in sviluppo:"
+
+#. Translators: The title of the dialog presented while checking for add-on updates.
+msgid "Add-on update check"
+msgstr "Controllo aggiornamenti"
+
+#. Translators: The message displayed while checking for add-on updates.
+msgid "Checking for add-on updates..."
+msgstr "Controllo aggiornamenti in corso..."
+
+msgid "Error checking for add-on updates."
+msgstr "Errore nel controllo aggiornamenti."
+
+#. Translators: The title of the add-on updates dialog.
+msgid "NVDA Add-on Updates"
+msgstr "Controllo aggiornamenti componenti aggiuntivi NVDA"
+
+#. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
+msgid "Current version"
+msgstr "Versione attuale"
+
+#. Translators: The label for a column in add-ons list used to identify add-on's version (example: version is 0.3).
+msgid "New version"
+msgstr "Nuova versione"
+
+#. Translators: Message displayed when no add-on updates are available.
+msgid "No add-on update available."
+msgstr "Non ci sono aggiornamenti disponibili."
+
+#. Translators: The label of a button to update add-ons.
+msgid "&Update add-ons"
+msgstr "Aggiorna componenti aggi&untivi"
+
+#. Translators: The title of the dialog displayed while downloading add-on update.
+msgid "Downloading Add-on Update"
+msgstr "Download aggiornamento in corso"
+
+#. Translators: The progress message indicating the name of the add-on being downloaded.
+#, python-brace-format
+msgid "Downloading {name}"
+msgstr "Download di {name}"
+
+#. Translators: A message indicating that an error occurred while downloading an update to NVDA.
+#, python-brace-format
+msgid "Error downloading update for {name}."
+msgstr "Errore nello scaricamento dell'aggiornamento di {name}."
+
+#. Translators: The message displayed when an error occurs when trying to update an add-on package due to package problems.
+#, python-brace-format
+msgid "Cannot update {name} - missing file or invalid file format"
+msgstr "Impossibile aggiornare {name} - file mancanti o formato sconosciuto"
+
+#. Translators: The message displayed when trying to update an add-on that is not going to be compatible with the current version of NVDA.
+#, python-brace-format
+msgid ""
+"{name} add-on is not compatible with this version of NVDA. Please use NVDA "
+"{year}.{major} or later."
+msgstr ""
+"Il componente {name} non è compatibile con questa versione di NVDA. Si "
+"prega di utilizzare NVDA {year}.{major} o successivo."
+
+#. Translators: The message displayed when the add-on requires a newer version of Windows.
+#, python-brace-format
+msgid "{name} add-on is not compatible with this version of Windows."
+msgstr ""
+"Il componente {name} non è compatibile con questa versione di Windows."
+
+#. Translators: The title of the dialog presented while an Addon is being updated.
+#, python-brace-format
+msgid "Updating {name}"
+msgstr "Aggiornamento di {name}"
+
+#. Translators: The message displayed while an addon is being updated.
+msgid "Please wait while the add-on is being updated."
+msgstr "Si prega di Attendere mentre il componente viene aggiornato"
+
+#. Translators: The message displayed when an error occurs when installing an add-on package.
+#, python-brace-format
+msgid "Failed to update {name} add-on"
+msgstr "Impossibile aggiornare il componente aggiuntivo {name}."
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+msgid ""
+"Proof of concept implementation of add-on update feature (NVDA Core issue "
+"3208)"
+msgstr ""
+"Implementazione sperimentale della funzione di aggiornamento automatico "
+"dei componenti aggiuntivi, (NVDA Core issue 3208)"
