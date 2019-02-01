@@ -274,7 +274,8 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 			minimumNVDAVersion = bundle.manifest.get("minimumNVDAVersion", None)
 			if minimumNVDAVersion is None:
 				minimumNVDAVersion = [versionInfo.version_year, versionInfo.version_major]
-			else:
+			# 2019.1 stores minimum version flag as a tuple, whereas earlier versions uses strings.
+			elif minimumNVDAVersion and not isinstance(minimumNVDAVersion, tuple):
 				minimumNVDAVersion = [int(data) for data in minimumNVDAVersion.split(".")]
 			# For NVDA version, only version_year.version_major will be checked.
 			minimumYear, minimumMajor = minimumNVDAVersion[:2]
