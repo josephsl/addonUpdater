@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2018-12-10 19:55+0100\n"
-"Last-Translator: Karl Eick <hozosch@web.de>\n"
+"PO-Revision-Date: 2019-01-31 12:59+0100\n"
+"Last-Translator: René Linke <rene.linke@hamburg.de>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2\n"
+"X-Generator: Poedit 2.2.1\n"
 
 msgid "Check for &add-on updates..."
 msgstr "Nach Erweiterungs-&Updates suchen..."
@@ -36,14 +36,14 @@ msgid "Automatically check for add-on &updates"
 msgstr "Automatisch nach Erweiterungs-&Updates suchen"
 
 msgid "Do &not update add-ons:"
-msgstr "Erweiterungen vom Update ausschließen:"
+msgstr "&Keine Erweiterungs-Updates:"
 
 msgid "Prefer development releases:"
 msgstr "Entwicklerversionen bevorzugen:"
 
 #. Translators: The title of the dialog presented while checking for add-on updates.
 msgid "Add-on update check"
-msgstr "Suche nach Erweiterungs-Updates"
+msgstr "Erweiterungs-Updates suchen"
 
 #. Translators: The message displayed while checking for add-on updates.
 msgid "Checking for add-on updates..."
@@ -90,8 +90,8 @@ msgstr "Fehler beim Herunterladen des Updates für {name}"
 #, python-brace-format
 msgid "Cannot update {name} - missing file or invalid file format"
 msgstr ""
-"{name} kann nicht aktualisiert werden - fehlende Datei oder ungültiges "
-"Dateiformat"
+"{name} konnte nicht aktualisiert werden - fehlende Datei oder ungültiges "
+"Datei-Format!"
 
 #. Translators: The message displayed when trying to update an add-on that is not going to be compatible with the current version of NVDA.
 #, python-brace-format
