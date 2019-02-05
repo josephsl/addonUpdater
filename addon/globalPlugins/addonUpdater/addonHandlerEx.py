@@ -28,6 +28,7 @@ names2urls={
 	"bgt_lullaby": "bgt",
 	"bitChe": "bc",
 	"bluetoothaudio": "btaudio",
+	"browsernav": "browsernav",
 	"calibre": "cae",
 	"classicSelection": "clsel",
 	"clipContentsDesigner": "ccd",
