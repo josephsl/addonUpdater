@@ -103,6 +103,7 @@ def fetchAddonInfo(info, addon, manifestInfo):
 	if channel is not None:
 		addonKey += "-" + channel
 	updateURL = "https://addons.nvda-project.org/files/get.php?file=%s"%addonKey
+	res = None
 	try:
 		res = urlopen(updateURL)
 	except IOError as e:
@@ -113,8 +114,8 @@ def fetchAddonInfo(info, addon, manifestInfo):
 		else:
 			pass
 	finally:
-		res.close()
-	if res.code != 200:
+		if res is not None: res.close()
+	if res is None or (res and res.code != 200):
 		return
 	# Build emulated add-on update dictionary if there is indeed a new version.
 	version = re.search("(?P<name>)-(?P<version>.*).nvda-addon", res.url).groupdict()["version"]
