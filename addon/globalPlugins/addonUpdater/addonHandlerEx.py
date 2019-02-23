@@ -57,6 +57,7 @@ names2urls={
 	"noBeepsSpeechMode": "nb",
 	"objLocTones": "objLoc",
 	"objPad": "objPad",
+	"outlookExtended": "outlookextended",
 	"pcKbBrl": "pckbbrl",
 	"placeMarkers": "pm",
 	"readFeeds": "rf",
