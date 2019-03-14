@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2019-01-31 12:59+0100\n"
+"PO-Revision-Date: 2019-03-11 08:55+0100\n"
 "Last-Translator: René Linke <rene.linke@hamburg.de>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -18,43 +18,43 @@ msgstr ""
 "X-Generator: Poedit 2.2.1\n"
 
 msgid "Check for &add-on updates..."
-msgstr "Nach Erweiterungs-&Updates suchen..."
+msgstr "Nach Erweiterungs-&Aktualisierungen suchen..."
 
 msgid "Check for NVDA add-on updates"
-msgstr "Sucht nach NVDA-Erweiterungs-Updates"
+msgstr "Sucht nach NVDA-Erweiterungs-Aktualisierungen"
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
 #. Translators: Summary for this add-on to be shown on installation and add-on information.
 msgid "Add-on Updater"
-msgstr "Add-on Updater"
+msgstr "Erweiterung zur Aktualisierung von Erweiterungen"
 
 #. Never, EVER allow touch support to be disabled completely if using normal configuration (only manual passthrough will be allowed).
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
 msgid "Automatically check for add-on &updates"
-msgstr "Automatisch nach Erweiterungs-&Updates suchen"
+msgstr "Automatisch nach Erweiterungs-&Aktualisierungen suchen"
 
 msgid "Do &not update add-ons:"
-msgstr "&Keine Erweiterungs-Updates:"
+msgstr "&Keine Erweiterungs-Aktualisierungen:"
 
 msgid "Prefer development releases:"
 msgstr "Entwicklerversionen bevorzugen:"
 
 #. Translators: The title of the dialog presented while checking for add-on updates.
 msgid "Add-on update check"
-msgstr "Erweiterungs-Updates suchen"
+msgstr "Erweiterungs-Aktualisierungen suchen"
 
 #. Translators: The message displayed while checking for add-on updates.
 msgid "Checking for add-on updates..."
-msgstr "Erweiterungs-Updates werden gesucht..."
+msgstr "Erweiterungs-Aktualisierungen werden gesucht..."
 
 msgid "Error checking for add-on updates."
-msgstr "Fehler beim Suchen nach Erweiterungs-Updates"
+msgstr "Fehler bei der Suche nach Erweiterungs-Aktualisierungen."
 
 #. Translators: The title of the add-on updates dialog.
 msgid "NVDA Add-on Updates"
-msgstr "NVDA Erweiterungs-Updates"
+msgstr "NVDA-Erweiterungs-Aktualisierungen"
 
 #. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
 msgid "Current version"
@@ -66,7 +66,7 @@ msgstr "Neue Version"
 
 #. Translators: Message displayed when no add-on updates are available.
 msgid "No add-on update available."
-msgstr "Keine Erweiterungs-Updates verfügbar!"
+msgstr "Keine Erweiterungs-Aktualisierungen verfügbar!"
 
 #. Translators: The label of a button to update add-ons.
 msgid "&Update add-ons"
@@ -74,7 +74,7 @@ msgstr "Erweiterungen &aktualisieren"
 
 #. Translators: The title of the dialog displayed while downloading add-on update.
 msgid "Downloading Add-on Update"
-msgstr "Erweiterungs-Update wird heruntergeladen"
+msgstr "Aktualisierung der Erweiterung wird heruntergeladen"
 
 #. Translators: The progress message indicating the name of the add-on being downloaded.
 #, python-brace-format
@@ -84,7 +84,7 @@ msgstr "{name} wird heruntergeladen"
 #. Translators: A message indicating that an error occurred while downloading an update to NVDA.
 #, python-brace-format
 msgid "Error downloading update for {name}."
-msgstr "Fehler beim Herunterladen des Updates für {name}"
+msgstr "Fehler beim Herunterladen der Aktualisierung für {name}"
 
 #. Translators: The message displayed when an error occurs when trying to update an add-on package due to package problems.
 #, python-brace-format
@@ -100,7 +100,7 @@ msgid ""
 "{year}.{major} or later."
 msgstr ""
 "Die Erweiterung {name} ist nicht mit dieser NVDA-Version kompatibel. Bitte "
-"verwenden Sie NVDA {year}.{major} oder höher."
+"verwenden Sie NVDA {year}.{major} oder neuer."
 
 #. Translators: The message displayed when the add-on requires a newer version of Windows.
 #, python-brace-format
@@ -120,7 +120,7 @@ msgstr "Bitte warten Sie, während die Erweiterung aktualisiert wird."
 #. Translators: The message displayed when an error occurs when installing an add-on package.
 #, python-brace-format
 msgid "Failed to update {name} add-on"
-msgstr "{name} konnte nicht aktualisiert werden"
+msgstr "Die Erweiterung {name} konnte nicht aktualisiert werden"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
@@ -128,5 +128,5 @@ msgid ""
 "Proof of concept implementation of add-on update feature (NVDA Core issue "
 "3208)"
 msgstr ""
-"\"Proof of Concept\"-Implementierung der Erweiterungs-Update-Funktion (NVDA-"
-"Kernproblem #3208)"
+"\"Proof of Concept\"-Implementierung der Funktion für die Erweiterungs-"
+"Aktualisierung (NVDA-Kernproblem #3208)"
