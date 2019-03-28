@@ -226,32 +226,31 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 		# Therefore, set a higher timeout.
 		if sys.version_info.major == 2: remote.fp._sock.settimeout(120)
 		size = int(remote.headers["content-length"])
-		local = open(self.destPath, "wb")
-		if self.fileHash:
-			hasher = hashlib.sha1()
-		self._guiExec(self._downloadReport, 0, size)
-		read = 0
-		chunk=8192
-		while True:
-			if self._shouldCancel:
-				return
-			if size -read <chunk:
-				chunk =size -read
-			block = remote.read(chunk)
-			if not block:
-				break
-			read += len(block)
-			if self._shouldCancel:
-				return
-			local.write(block)
+		with open(self.destPath, "wb") as local:
 			if self.fileHash:
-				hasher.update(block)
-			self._guiExec(self._downloadReport, read, size)
-		if read < size:
-			raise RuntimeError("Content too short")
-		if self.fileHash and hasher.hexdigest() != self.fileHash:
-			raise RuntimeError("Content has incorrect file hash")
-		local.close()
+				hasher = hashlib.sha1()
+			self._guiExec(self._downloadReport, 0, size)
+			read = 0
+			chunk=8192
+			while True:
+				if self._shouldCancel:
+					return
+				if size -read <chunk:
+					chunk =size -read
+				block = remote.read(chunk)
+				if not block:
+					break
+				read += len(block)
+				if self._shouldCancel:
+					return
+				local.write(block)
+				if self.fileHash:
+					hasher.update(block)
+				self._guiExec(self._downloadReport, read, size)
+			if read < size:
+				raise RuntimeError("Content too short")
+			if self.fileHash and hasher.hexdigest() != self.fileHash:
+				raise RuntimeError("Content has incorrect file hash")
 		self._guiExec(self._downloadReport, read, size)
 
 	def _downloadSuccess(self):
