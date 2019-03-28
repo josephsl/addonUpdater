@@ -281,7 +281,7 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 			lastTestedYear, lastTestedMajor = lastTestedNVDAVersion[:2]
 			if not ((minimumYear, minimumMajor) <= (versionInfo.version_year, versionInfo.version_major) <= (lastTestedYear, lastTestedMajor)):
 				# Translators: The message displayed when trying to update an add-on that is not going to be compatible with the current version of NVDA.
-				gui.messageBox(_("{name} add-on is not compatible with this version of NVDA. Please use NVDA {year}.{major} or later.").format(name = self.addonName, year = minimumYear, major = minimumMajor),
+				gui.messageBox(_("{name} add-on is not compatible with this version of NVDA. Minimum NVDA version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}.").format(name = self.addonName, minYear = minimumYear, minMajor = minimumMajor, testedYear=lastTestedYear, testedMajor=lastTestedMajor),
 					translate("Error"),
 					wx.OK | wx.ICON_ERROR)
 				self.continueUpdatingAddons()
