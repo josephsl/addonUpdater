@@ -2,7 +2,7 @@
 
 * Author: Joseph Lee
 * Download [stable version][1]
-* NVDA compatibility: 2018.4 to 2019.1
+* NVDA compatibility: 2019.1
 
 This add-on brings NVDA Core issue 3208 to life: ability to check for, download, and apply add-on updates.
 
@@ -13,7 +13,15 @@ The following add-ons provide built-in update feature and thus updates will not 
 * Braille Extender
 * WeatherPlus
 
-IMPORTANT: this is a proof of concept add-on. Once the [relevant feature is included in NVDA][2], this add-on will be discontinued.
+IMPORTANT NOTES:
+
+* This is a proof of concept add-on. Once the [relevant feature is included in NVDA][2], this add-on will be discontinued.
+* If the new add-on updates specify a compatibility range (minimum and last tested NVDA versions) and if the NVDA version you are running does not fall within the compatibility range, ad-don updating will not proceed.
+
+## Version 19.04
+
+* Requires NVDA 2019.1 or later.
+* When installing add-on updates, both minimum and last tested versions will be checked.
 
 ## Version 19.01
 
