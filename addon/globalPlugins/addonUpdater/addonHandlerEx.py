@@ -46,6 +46,7 @@ names2urls={
 	"focusHighlight": "fh",
 	"goldenCursor": "gc",
 	"goldwave": "gwv",
+	"ImageDescriber": "imgdesc",
 	"IndentNav": "indentnav",
 	"inputLock": "inputlock",
 	"instantTranslate": "it",
