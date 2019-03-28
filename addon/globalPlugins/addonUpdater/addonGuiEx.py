@@ -273,12 +273,13 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 			minimumNVDAVersion = bundle.manifest.get("minimumNVDAVersion", None)
 			if minimumNVDAVersion is None:
 				minimumNVDAVersion = [versionInfo.version_year, versionInfo.version_major]
-			# 2019.1 stores minimum version flag as a tuple, whereas earlier versions uses strings.
-			elif minimumNVDAVersion and not isinstance(minimumNVDAVersion, tuple):
-				minimumNVDAVersion = [int(data) for data in minimumNVDAVersion.split(".")]
+			lastTestedNVDAVersion = bundle.manifest.get("lastTestedNVDAVersion", None)
+			if lastTestedNVDAVersion is None:
+				lastTestedNVDAVersion = [versionInfo.version_year, versionInfo.version_major]
 			# For NVDA version, only version_year.version_major will be checked.
 			minimumYear, minimumMajor = minimumNVDAVersion[:2]
-			if (versionInfo.version_year, versionInfo.version_major) < (minimumYear, minimumMajor):
+			lastTestedYear, lastTestedMajor = lastTestedNVDAVersion[:2]
+			if not ((minimumYear, minimumMajor) <= (versionInfo.version_year, versionInfo.version_major) <= (lastTestedYear, lastTestedMajor)):
 				# Translators: The message displayed when trying to update an add-on that is not going to be compatible with the current version of NVDA.
 				gui.messageBox(_("{name} add-on is not compatible with this version of NVDA. Please use NVDA {year}.{major} or later.").format(name = self.addonName, year = minimumYear, major = minimumMajor),
 					translate("Error"),
