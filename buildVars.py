@@ -19,7 +19,7 @@ addon_info = {
 	# Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 	"addon_description" : _("""Proof of concept implementation of add-on update feature (NVDA Core issue 3208)"""),
 	# version
-	"addon_version" : "19.02",
+	"addon_version" : "19.04",
 	# Author(s)
 	"addon_author" : u"Joseph Lee <joseph.lee22590@gmail.com>",
 	# URL for the add-on documentation support
@@ -27,7 +27,7 @@ addon_info = {
 	# Documentation file name
 	"addon_docFileName" : "readme.html",
 	# Minimum NVDA version supported
-	"addon_minimumNVDAVersion" : "2018.4.0",
+	"addon_minimumNVDAVersion" : "2019.1.0",
 	# Last NVDA version supported/tested
 	"addon_lastTestedNVDAVersion" : "2019.1.0",
 	# Add-on update channel (default is stable)
