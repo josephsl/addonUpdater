@@ -29,7 +29,6 @@ msgstr "Sprawdź aktualizacje dodatków"
 msgid "Add-on Updater"
 msgstr "Add-on Updater"
 
-#. Never, EVER allow touch support to be disabled completely if using normal configuration (only manual passthrough will be allowed).
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
 msgid "Automatically check for add-on &updates"
@@ -94,10 +93,10 @@ msgstr ""
 "nieprawidłowy"
 
 #. Translators: The message displayed when trying to update an add-on that is not going to be compatible with the current version of NVDA.
-#, python-brace-format
+#, fuzzy, python-brace-format
 msgid ""
-"{name} add-on is not compatible with this version of NVDA. Please use NVDA "
-"{year}.{major} or later."
+"{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
+"version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
 msgstr ""
 "dodatek {name} jest niezgodny z tą wersją NVDA. Zainstaluj NVDA w wersji "
 "{year}.{major} lub nowszej."

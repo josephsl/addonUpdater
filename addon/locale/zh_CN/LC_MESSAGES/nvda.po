@@ -30,7 +30,6 @@ msgstr "检查NVDA插件更新"
 msgid "Add-on Updater"
 msgstr "插件更新器"
 
-#. Never, EVER allow touch support to be disabled completely if using normal configuration (only manual passthrough will be allowed).
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
 msgid "Automatically check for add-on &updates"
@@ -93,12 +92,11 @@ msgid "Cannot update {name} - missing file or invalid file format"
 msgstr "无法更新 {name} - 丢失文件或文件格式无效"
 
 #. Translators: The message displayed when trying to update an add-on that is not going to be compatible with the current version of NVDA.
-#, python-brace-format
+#, fuzzy, python-brace-format
 msgid ""
-"{name} add-on is not compatible with this version of NVDA. Please use NVDA "
-"{year}.{major} or later."
-msgstr ""
-"{name}插件与此版本的NVDA不兼容。请使用NVDA {year}。{major}或更高版本。"
+"{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
+"version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
+msgstr "{name}插件与此版本的NVDA不兼容。请使用NVDA {year}。{major}或更高版本。"
 
 #. Translators: The message displayed when the add-on requires a newer version of Windows.
 #, python-brace-format

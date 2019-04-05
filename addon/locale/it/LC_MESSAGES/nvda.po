@@ -9,12 +9,12 @@ msgstr ""
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-12-14 01:00+1000\n"
 "PO-Revision-Date: 2019-01-02 10:12+0100\n"
+"Last-Translator: Simone Dal Maso <simone.dalmaso@gmail.com>\n"
+"Language-Team: \n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Simone Dal Maso <simone.dalmaso@gmail.com>\n"
-"Language-Team: \n"
 "X-Generator: Poedit 2.2\n"
 
 msgid "Check for &add-on updates..."
@@ -29,7 +29,6 @@ msgstr "Controlla gli aggiornamenti dei componenti aggiuntivi di NVDA"
 msgid "Add-on Updater"
 msgstr "Add-on Updater"
 
-#. Never, EVER allow touch support to be disabled completely if using normal configuration (only manual passthrough will be allowed).
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
 msgid "Automatically check for add-on &updates"
@@ -94,19 +93,18 @@ msgid "Cannot update {name} - missing file or invalid file format"
 msgstr "Impossibile aggiornare {name} - file mancanti o formato sconosciuto"
 
 #. Translators: The message displayed when trying to update an add-on that is not going to be compatible with the current version of NVDA.
-#, python-brace-format
+#, fuzzy, python-brace-format
 msgid ""
-"{name} add-on is not compatible with this version of NVDA. Please use NVDA "
-"{year}.{major} or later."
+"{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
+"version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
 msgstr ""
-"Il componente {name} non è compatibile con questa versione di NVDA. Si "
-"prega di utilizzare NVDA {year}.{major} o successivo."
+"Il componente {name} non è compatibile con questa versione di NVDA. Si prega "
+"di utilizzare NVDA {year}.{major} o successivo."
 
 #. Translators: The message displayed when the add-on requires a newer version of Windows.
 #, python-brace-format
 msgid "{name} add-on is not compatible with this version of Windows."
-msgstr ""
-"Il componente {name} non è compatibile con questa versione di Windows."
+msgstr "Il componente {name} non è compatibile con questa versione di Windows."
 
 #. Translators: The title of the dialog presented while an Addon is being updated.
 #, python-brace-format
@@ -128,5 +126,5 @@ msgid ""
 "Proof of concept implementation of add-on update feature (NVDA Core issue "
 "3208)"
 msgstr ""
-"Implementazione sperimentale della funzione di aggiornamento automatico "
-"dei componenti aggiuntivi, (NVDA Core issue 3208)"
+"Implementazione sperimentale della funzione di aggiornamento automatico dei "
+"componenti aggiuntivi, (NVDA Core issue 3208)"
