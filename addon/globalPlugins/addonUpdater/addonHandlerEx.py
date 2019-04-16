@@ -82,6 +82,7 @@ names2urls={
 	"virtualRevision": "VR",
 	"VLC": "vlc-18",
 	"wintenApps": "w10",
+	"wordCount": "wc",
 }
 
 def shouldNotUpdate():
