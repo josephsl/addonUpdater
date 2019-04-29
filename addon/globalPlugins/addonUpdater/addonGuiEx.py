@@ -123,7 +123,7 @@ class AddonUpdatesDialog(wx.Dialog):
 			for addon in range(self.addonsList.GetItemCount()):
 				if not self.addonsList.IsChecked(addon):
 					del self.addonUpdateInfo[availableAddons[addon]]
-			updateAddonsGenerator(self.addonUpdateInfo.values(), auto=self.auto).next()
+			next(updateAddonsGenerator(self.addonUpdateInfo.values(), auto=self.auto))
 		except NameError:
 			for addon in range(self.addonsList.GetItemCount()):
 				if not self.addonsList.IsChecked(addon):
