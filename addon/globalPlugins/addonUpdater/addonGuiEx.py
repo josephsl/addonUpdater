@@ -6,10 +6,7 @@
 
 # Proof of concept user interface for add-on update dilaog (NVDA Core issue 3208)
 
-try:
-	from urllib import urlopen
-except:
-	from urllib.request import urlopen
+from urllib.request import urlopen
 import os
 import threading
 import tempfile

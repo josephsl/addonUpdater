@@ -7,10 +7,7 @@
 
 # Proof of concept implementation of NVDA Core issue 3208.
 
-try:
-	from urllib import urlopen
-except:
-	from urllib.request import urlopen
+from urllib.request import urlopen
 import threading
 import wx
 import json

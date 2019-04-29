@@ -1,12 +1,8 @@
 # Add-on Updater
 # Copyright 2018-2019 Joseph Lee, released under GPL.
 
-try:
-	import cPickle as pickle
-	from urllib import urlopen
-except:
-	import pickle
-	from urllib.request import urlopen
+import pickle
+from urllib.request import urlopen
 import ctypes
 import ssl
 import os
