@@ -108,7 +108,7 @@ class AddonUpdatesDialog(wx.Dialog):
 
 	def onAddonsChecked(self, evt):
 		try:
-			self.updateButton.Enable() if any([self.addonsList.IsChecked(addon) for addon in xrange(self.addonsList.GetItemCount())]) else self.updateButton.Disable()
+			self.updateButton.Enable() if any([self.addonsList.IsChecked(addon) for addon in range(self.addonsList.GetItemCount())]) else self.updateButton.Disable()
 		except NameError:
 			self.updateButton.Enable() if any([self.addonsList.IsChecked(addon) for addon in range(self.addonsList.GetItemCount())]) else self.updateButton.Disable()
 
@@ -120,7 +120,7 @@ class AddonUpdatesDialog(wx.Dialog):
 			self.Parent.Hide()
 		availableAddons = sorted(self.addonUpdateInfo.keys())
 		try:
-			for addon in xrange(self.addonsList.GetItemCount()):
+			for addon in range(self.addonsList.GetItemCount()):
 				if not self.addonsList.IsChecked(addon):
 					del self.addonUpdateInfo[availableAddons[addon]]
 			updateAddonsGenerator(self.addonUpdateInfo.values(), auto=self.auto).next()
