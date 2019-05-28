@@ -23,6 +23,7 @@ from . import addonUtils
 names2urls={
 	"addonUpdater": "nvda3208",
 	"Access8Math": "access8math",
+	"addonsHelp": "addonshelp",
 	"audioChart": "audiochart",
 	"AudioThemes3D": "ath",
 	"bgt_lullaby": "bgt",
