@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2019-01-14 10:11+0100\n"
+"PO-Revision-Date: 2019-04-04 21:03+0200\n"
 "Last-Translator: Nicolai Svendsen <chojiro1990@gmail.com>\n"
 "Language-Team: Dansk NVDA <dansk@nvda.dk>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2\n"
+"X-Generator: Poedit 2.2.1\n"
 
 msgid "Check for &add-on updates..."
 msgstr "Søg efter tilføjelses&opdateringer..."
@@ -91,13 +91,14 @@ msgid "Cannot update {name} - missing file or invalid file format"
 msgstr "Kunne ikke opdatere {name} - manglende fil eller ugyldigt filformat"
 
 #. Translators: The message displayed when trying to update an add-on that is not going to be compatible with the current version of NVDA.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid ""
 "{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
 "version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
 msgstr ""
 "Tilføjelsen {name} er ikke kompatibel med denne version af NVDA. Benyt "
-"venligst NVDA {year}.{major} eller nyere."
+"venligst NVDA {minYear}.{minMajor} eller nyere. Sidst testet: {testedYear}."
+"{testedMajor}."
 
 #. Translators: The message displayed when the add-on requires a newer version of Windows.
 #, python-brace-format

@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: 2018.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2018-12-03 13:52+0300\n"
+"PO-Revision-Date: 2019-04-11 10:11+0300\n"
 "Last-Translator: Çağrı Doğan <cagrid@hotmail.com>\n"
 "Language-Team: Turkish <cagrid@hotmail.comLL@li.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2\n"
+"X-Generator: Poedit 2.2.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Basepath: ../../../globalPlugins/addonUpdater\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -94,13 +94,13 @@ msgid "Cannot update {name} - missing file or invalid file format"
 msgstr "{name} güncellenemiyor - eksik ya da geçersiz dosya formatı"
 
 #. Translators: The message displayed when trying to update an add-on that is not going to be compatible with the current version of NVDA.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid ""
 "{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
 "version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
 msgstr ""
-"{name} eklentisi NVDA'nın bu sürümü ile uyumlu değil. Lütfen NVDA {year}."
-"{major} ya da sonraki  sürümünü kullanın."
+"{name} eklentisi NVDA'nın bu sürümüyle uyumlu değil. Minimum NVDA sürümü: "
+"{minYear}.{minMajor}, sınanan son sürüm: {testedYear}.{testedMajor}."
 
 #. Translators: The message displayed when the add-on requires a newer version of Windows.
 #, python-brace-format

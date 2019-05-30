@@ -5,92 +5,90 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: addonUpdater 18.12\n"
+"Project-Id-Version: addonUpdater 19.04\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
-"POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2019-04-04 17:13+0100\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: pl\n"
+"POT-Creation-Date: 2019-04-05 01:00+1000\n"
+"PO-Revision-Date: 2019-04-04 18:36+0200\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.10\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.6\n"
 
 msgid "Check for &add-on updates..."
-msgstr "Sprawdź &aktualizacje dodatków..."
+msgstr "Bővítmény-&frissítések keresése"
 
 msgid "Check for NVDA add-on updates"
-msgstr "Sprawdź aktualizacje dodatków"
+msgstr "Frissítéseket keres az NVDA bővítményeihez"
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
 #. Translators: Summary for this add-on to be shown on installation and add-on information.
 msgid "Add-on Updater"
-msgstr "Add-on Updater"
+msgstr "Bővítmény-frissítő"
 
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
 msgid "Automatically check for add-on &updates"
-msgstr "Automatycznie sprawdzaj &aktualizacje dodatków"
+msgstr "Bővítmény frissítések &automatikus keresése"
 
 msgid "Do &not update add-ons:"
-msgstr "&nie aktualizuj:"
+msgstr "&Nem frissülő bővítmények:"
 
 msgid "Prefer development releases:"
-msgstr "Preferuj wersje rozwojowe:"
+msgstr "Fejlesztői verziók engedélyezése:"
 
 #. Translators: The title of the dialog presented while checking for add-on updates.
 msgid "Add-on update check"
-msgstr "Sprawdzanie aktualizacji dodatków"
+msgstr "Bővítmény frissítések keresése"
 
 #. Translators: The message displayed while checking for add-on updates.
 msgid "Checking for add-on updates..."
-msgstr "Trwa sprawdzanie..."
+msgstr "Bővítmény frissítések keresése..."
 
 msgid "Error checking for add-on updates."
-msgstr "Błąd sprawdzania aktualizacji."
+msgstr "hiba történt a frissítések keresésekor."
 
 #. Translators: The title of the add-on updates dialog.
 msgid "NVDA Add-on Updates"
-msgstr "Aktualizacje dodatku"
+msgstr "NVDA bővítmény-frissítő"
 
 #. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
 msgid "Current version"
-msgstr "Aktualna wersja"
+msgstr "Jelenlegi verzió"
 
 #. Translators: The label for a column in add-ons list used to identify add-on's version (example: version is 0.3).
 msgid "New version"
-msgstr "Nowa wersja"
+msgstr "Új verzió"
 
 #. Translators: Message displayed when no add-on updates are available.
 msgid "No add-on update available."
-msgstr "Brak dostępnych aktualizacji."
+msgstr "Nincs elérhető frissítés a telepített bővítményekhez."
 
 #. Translators: The label of a button to update add-ons.
 msgid "&Update add-ons"
-msgstr "&Aktualizuj"
+msgstr "Bővítmények &frissítése"
 
 #. Translators: The title of the dialog displayed while downloading add-on update.
 msgid "Downloading Add-on Update"
-msgstr "Pobieranie aktualizacji"
+msgstr "Bővítmény frissítésének letöltése"
 
 #. Translators: The progress message indicating the name of the add-on being downloaded.
 #, python-brace-format
 msgid "Downloading {name}"
-msgstr "Pobieranie {name}"
+msgstr "{name} letöltése"
 
 #. Translators: A message indicating that an error occurred while downloading an update to NVDA.
 #, python-brace-format
 msgid "Error downloading update for {name}."
-msgstr "Błąd pobierania aktualizacji {name}."
+msgstr "{name} bővítmény letöltése közben hiba történt."
 
 #. Translators: The message displayed when an error occurs when trying to update an add-on package due to package problems.
 #, python-brace-format
 msgid "Cannot update {name} - missing file or invalid file format"
-msgstr ""
-"Nie można pobrać {name} - plik nie istnieje lub jego format jest "
-"nieprawidłowy"
+msgstr "{name} nem frissíthető - hiányzó fájl, vagy hibás fájlformátum."
 
 #. Translators: The message displayed when trying to update an add-on that is not going to be compatible with the current version of NVDA.
 #, python-brace-format
@@ -98,27 +96,28 @@ msgid ""
 "{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
 "version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
 msgstr ""
-"Dodatek {name} jest niezgodny z tą wersją NVDA. Minimalna wersja NVDA: "
-"{minYear}.{minMajor}, Ostatnia testowana: {testedYear}.{testedMajor}."
+"{name} nem használható az NVDA jelenlegi verziójával. Minimum NVDA "
+"verzió: {minYear}.{minMajor}, Utoljára tesztelt: {testedYear}."
+"{testedMajor}."
 
 #. Translators: The message displayed when the add-on requires a newer version of Windows.
 #, python-brace-format
 msgid "{name} add-on is not compatible with this version of Windows."
-msgstr "dodatek {name} nie jest zgodny z tą wersją Windows."
+msgstr "{name} bővítmény nem kompatibilis a jelenlegi Windows verzióval."
 
 #. Translators: The title of the dialog presented while an Addon is being updated.
 #, python-brace-format
 msgid "Updating {name}"
-msgstr "Aktualizowanie {name}"
+msgstr "{name} frissítése"
 
 #. Translators: The message displayed while an addon is being updated.
 msgid "Please wait while the add-on is being updated."
-msgstr "Proszę czekać, trwa aktualizowanie dodatku."
+msgstr "Kérem, várjon, a bővítmény frissítése folyamatban."
 
 #. Translators: The message displayed when an error occurs when installing an add-on package.
 #, python-brace-format
 msgid "Failed to update {name} add-on"
-msgstr "Nie można zaktualizować {name}"
+msgstr "{name} frissítése közben hiba történt."
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
@@ -126,4 +125,5 @@ msgid ""
 "Proof of concept implementation of add-on update feature (NVDA Core issue "
 "3208)"
 msgstr ""
-"wdrożenie prototypu funkcji aktualizowania dodatków (rdzeń NVDA, temat 3208)"
+"Tesztelési célokat szolgáló fejlesztés (az NVDA 3208 számú hibajegyének "
+"egy lehetséges megoldása)"

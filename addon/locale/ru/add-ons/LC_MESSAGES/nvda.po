@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-12-01 04:05+1000\n"
-"PO-Revision-Date: 2018-12-21 19:19+0200\n"
+"PO-Revision-Date: 2019-04-20 08:11+0200\n"
 "Last-Translator: Ecaterina Jivaga <notka@gozaltech.org>\n"
 "Language-Team: ru <LL@li.org>\n"
 "Language: ru\n"
@@ -73,7 +73,7 @@ msgstr "&Обновить дополнения"
 
 #. Translators: The title of the dialog displayed while downloading add-on update.
 msgid "Downloading Add-on Update"
-msgstr "Загрузка Обновлений"
+msgstr "Загрузка Обновления"
 
 #. Translators: The progress message indicating the name of the add-on being downloaded.
 #, python-brace-format
@@ -92,13 +92,14 @@ msgstr ""
 "Не удаётся обновить {name} - Файл отсутствует или имеет неверный формат"
 
 #. Translators: The message displayed when trying to update an add-on that is not going to be compatible with the current version of NVDA.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid ""
 "{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
 "version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
 msgstr ""
-"дополнение {name} несовместимо с данной версией NVDA. Пожалуйста, "
-"используйте NVDA {year}.{major} или новее."
+"дополнение {name} несовместимо с данной версией NVDA. Минимальная требуемая "
+"версия NVDA: {minYear}.{minMajor}, последняя проверенная версия NVDA: "
+"{testedYear}.{testedMajor}."
 
 #. Translators: The message displayed when the add-on requires a newer version of Windows.
 #, python-brace-format
