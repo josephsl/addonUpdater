@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2018-12-14 14:13-0800\n"
+"PO-Revision-Date: 2019-05-30 06:19-0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ko\n"
@@ -94,11 +94,11 @@ msgstr ""
 #. Translators: The message displayed when trying to update an add-on that is not going to be compatible with the current version of NVDA.
 #, python-brace-format
 msgid ""
-"{name} add-on is not compatible with this version of NVDA. Please use NVDA "
-"{year}.{major} or later."
+"{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
+"version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
 msgstr ""
-"추가 기능 {name}은 사용중인 NVDA 버전에서 사용할 수 없습니다. NVDA {year}."
-"{major} 또는 이후 버전을 설치하십시오."
+"추가 기능 {name}은 사용중인 NVDA 버전에서 사용할 수 없습니다. 최소 버전: "
+"{minYear}.{minMajor}, 최신 테스트 버전: {testedYear}.{testedMajor}."
 
 #. Translators: The message displayed when the add-on requires a newer version of Windows.
 #, python-brace-format

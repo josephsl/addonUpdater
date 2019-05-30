@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2018-12-06 23:14+0100\n"
+"PO-Revision-Date: 2019-04-04 17:13+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pl\n"
@@ -93,13 +93,13 @@ msgstr ""
 "nieprawidłowy"
 
 #. Translators: The message displayed when trying to update an add-on that is not going to be compatible with the current version of NVDA.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid ""
 "{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
 "version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
 msgstr ""
-"dodatek {name} jest niezgodny z tą wersją NVDA. Zainstaluj NVDA w wersji "
-"{year}.{major} lub nowszej."
+"Dodatek {name} jest niezgodny z tą wersją NVDA. Minimalna wersja NVDA: "
+"{minYear}.{minMajor}, Ostatnia testowana: {testedYear}.{testedMajor}."
 
 #. Translators: The message displayed when the add-on requires a newer version of Windows.
 #, python-brace-format
