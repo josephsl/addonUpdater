@@ -31,6 +31,7 @@ names2urls={
 	"bluetoothaudio": "btaudio",
 	"browsernav": "browsernav",
 	"calibre": "cae",
+	"charInfo": "chari",
 	"classicSelection": "clsel",
 	"clipContentsDesigner": "ccd",
 	"clipspeak": "cs",
