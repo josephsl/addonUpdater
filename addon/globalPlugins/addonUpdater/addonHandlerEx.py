@@ -16,6 +16,7 @@ import wx
 import json
 import re
 import ssl
+import encodings.idna
 import addonHandler
 from . import addonUtils
 
