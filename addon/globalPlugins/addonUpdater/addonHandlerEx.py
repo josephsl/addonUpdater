@@ -39,6 +39,7 @@ names2urls={
 	"clock": "cac",
 	"columnsReview": "cr",
 	"dayOfTheWeek": "dw",
+	"developerToolkit": "devtoolkit",
 	"dropbox": "dx",
 	"easyTableNavigator": "etn",
 	"emoticons": "emo",
