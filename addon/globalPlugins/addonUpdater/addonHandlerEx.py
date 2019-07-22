@@ -124,10 +124,10 @@ def fetchAddonInfo(info, addon, manifestInfo):
 		if res is not None: res.close()
 	if res is None or (res and res.code != 200):
 		return
-	# All the info we need for add-on version check is after the last slash.
-	addonUrl = res.url.split("/")[-1]
+	addonUrl = res.url
 	# Build emulated add-on update dictionary if there is indeed a new version.
-	version = re.search("(?P<name>)-(?P<version>.*).nvda-addon", addonUrl).groupdict()["version"]
+	# All the info we need for add-on version check is after the last slash.
+	version = re.search("(?P<name>)-(?P<version>.*).nvda-addon", addonUrl.split("/")[-1]).groupdict()["version"]
 	# If hosted on places other than add-ons server, an unexpected URL might be returned, so parse this further.
 	if addon in version: version = version.split(addon)[1][1:]
 	if addonVersion != version:
