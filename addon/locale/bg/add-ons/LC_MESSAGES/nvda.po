@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
-"Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
+"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
 "PO-Revision-Date: 2019-04-04 19:02+0300\n"
 "Last-Translator: Kostadin Kolev <k_kolev1985@mail.bg>\n"
