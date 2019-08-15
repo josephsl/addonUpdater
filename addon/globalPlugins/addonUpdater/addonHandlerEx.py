@@ -38,6 +38,7 @@ names2urls={
 	"clipspeak": "cs",
 	"clock": "cac",
 	"columnsReview": "cr",
+	"controlUsageAssistant": "cua",
 	"dayOfTheWeek": "dw",
 	"developerToolkit": "devtoolkit",
 	"dropbox": "dx",
