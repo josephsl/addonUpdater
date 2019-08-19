@@ -103,28 +103,38 @@ def preferDevUpdates():
 # Borrowed ideas from NVDA Core.
 # Obtain update status for add-ons returned from community add-ons website.
 # Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
+# This is the case when it becomes necessary to open another website.
 
-def fetchAddonInfo(info, addon, manifestInfo):
+def fetchAddonInfo(info, results, addon, manifestInfo):
+	# Some add-ons require traversing another URL.
+	secondaryUrl = ("spl-dev", "w10-dev")
 	addonVersion = manifestInfo["version"]
 	addonKey = names2urls[addon]
 	# If "-dev" flag is on, switch to development channel if it exists.
 	channel = manifestInfo["channel"]
 	if channel is not None:
 		addonKey += "-" + channel
-	updateURL = "https://addons.nvda-project.org/files/get.php?file=%s"%addonKey
-	res = None
+	# Necessary duplication.
+	if addonKey in secondaryUrl:
+		res = None
+		try:
+			res = urlopen("https://addons.nvda-project.org/files/get.php?file=%s"%addonKey)
+		except IOError as e:
+			# SSL issue (seen in NVDA Core earlier than 2014.1).
+			if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
+				addonUtils._updateWindowsRootCertificates()
+				res = urlopen("https://addons.nvda-project.org/files/get.php?file=%s"%addonKey)
+			else:
+				pass
+		finally:
+			if res is not None:
+				results[addonKey] = res.url
+				res.close()
+		if res is None or (res and res.code != 200):
+			return
 	try:
-		res = urlopen(updateURL)
-	except IOError as e:
-		# SSL issue (seen in NVDA Core earlier than 2014.1).
-		if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
-			addonUtils._updateWindowsRootCertificates()
-			res = urlopen(updateURL)
-		else:
-			pass
-	finally:
-		if res is not None: res.close()
-	if res is None or (res and res.code != 200):
+		addonUrl = results[addonKey]
+	except:
 		return
 	# Note that some add-ons are hosted on community add-ons server directly.
 	if "/" not in addonUrl:
