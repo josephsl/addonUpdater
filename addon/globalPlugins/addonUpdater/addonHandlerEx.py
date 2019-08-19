@@ -101,6 +101,7 @@ def preferDevUpdates():
 		if addon.name in addonUtils.updateState["devUpdates"]]
 
 # Borrowed ideas from NVDA Core.
+# Obtain update status for add-ons returned from community add-ons website.
 # Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
 
 def fetchAddonInfo(info, addon, manifestInfo):
@@ -125,7 +126,9 @@ def fetchAddonInfo(info, addon, manifestInfo):
 		if res is not None: res.close()
 	if res is None or (res and res.code != 200):
 		return
-	addonUrl = res.url
+	# Note that some add-ons are hosted on community add-ons server directly.
+	if "/" not in addonUrl:
+		addonUrl = "https://addons.nvda-project.org/files/%s"%addonUrl
 	# Build emulated add-on update dictionary if there is indeed a new version.
 	# All the info we need for add-on version check is after the last slash.
 	version = re.search("(?P<name>)-(?P<version>.*).nvda-addon", addonUrl.split("/")[-1]).groupdict()["version"]
@@ -158,7 +161,7 @@ def checkForAddonUpdate(curAddons):
 	addonsFetcher.join()
 	# The info dictionary will be passed in as a reference in individual threads below.
 	info = {}
-	updateThreads = [threading.Thread(target=fetchAddonInfo, args=(info, addon, manifestInfo)) for addon, manifestInfo  in curAddons.items()]
+	updateThreads = [threading.Thread(target=fetchAddonInfo, args=(info, results, addon, manifestInfo)) for addon, manifestInfo  in curAddons.items()]
 	for thread in updateThreads:	
 		thread.start()
 	for thread in updateThreads:
