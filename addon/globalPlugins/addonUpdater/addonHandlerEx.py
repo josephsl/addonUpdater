@@ -135,6 +135,27 @@ def fetchAddonInfo(info, addon, manifestInfo):
 		info[addon] = {"curVersion": addonVersion, "version": version, "path": addonUrl}
 
 def checkForAddonUpdate(curAddons):
+	# First, fetch current community add-ons via an internal thread.
+	def _currentCommunityAddons(results):
+		res = None
+		try:
+			res = urlopen("https://addons.nvda-project.org/files/get.php?addonslist")
+		except IOError as e:
+			# SSL issue (seen in NVDA Core earlier than 2014.1).
+			if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
+				addonUtils._updateWindowsRootCertificates()
+				res = urlopen("https://addons.nvda-project.org/files/get.php?addonslist")
+			else:
+				pass
+		finally:
+			if res is not None:
+				results.update(json.load(res))
+				res.close()
+	results = {}
+	addonsFetcher = threading.Thread(target=_currentCommunityAddons, args=(results,))
+	addonsFetcher.start()
+	# This internal thread must be joined, otherwise results will be lost.
+	addonsFetcher.join()
 	# The info dictionary will be passed in as a reference in individual threads below.
 	info = {}
 	updateThreads = [threading.Thread(target=fetchAddonInfo, args=(info, addon, manifestInfo)) for addon, manifestInfo  in curAddons.items()]
