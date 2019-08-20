@@ -61,6 +61,7 @@ names2urls={
 	"Mozilla": "moz",
 	"mushClient": "mush",
 	"noBeepsSpeechMode": "nb",
+	"NotepadPlusPlus": "NotepadPlusPlus",
 	"objLocTones": "objLoc",
 	"objPad": "objPad",
 	"outlookExtended": "outlookextended",
