@@ -16,7 +16,12 @@ The following add-ons provide built-in update feature and thus updates will not 
 IMPORTANT NOTES:
 
 * This is a proof of concept add-on. Once the [relevant feature is included in NVDA][2], this add-on will be discontinued.
-* If the new add-on updates specify a compatibility range (minimum and last tested NVDA versions) and if the NVDA version you are running does not fall within the compatibility range, ad-don updating will not proceed.
+* If the new add-on updates specify a compatibility range (minimum and last tested NVDA versions) and if the NVDA version you are running does not fall within the compatibility range, add-on updating will not proceed.
+
+## Version 19.09
+
+* Requires NVDA 2019.2 or later.
+* Timeout errors seen when attempting to download some add-on updates (notably add-on files hosted on GitHub) has been resolved.
 
 ## Version 19.04
 
