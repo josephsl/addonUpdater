@@ -40,6 +40,7 @@ names2urls={
 	"columnsReview": "cr",
 	"controlUsageAssistant": "cua",
 	"dayOfTheWeek": "dw",
+	"debugHelper": "debughelper",
 	"developerToolkit": "devtoolkit",
 	"dropbox": "dx",
 	"easyTableNavigator": "etn",
