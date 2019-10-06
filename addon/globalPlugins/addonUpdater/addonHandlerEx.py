@@ -80,7 +80,7 @@ names2urls={
 	"speakPasswords": "spp",
 	"stationPlaylist": "spl",
 	"switchSynth": "sws",
-	"synthRingSettingsSelector": "synthringsettingsselector",
+	"synthRingSettingsSelector": "synthrings",
 	"systrayList": "st",
 	"teamViewer": "tv",
 	"textInformation": "txtinfo",
