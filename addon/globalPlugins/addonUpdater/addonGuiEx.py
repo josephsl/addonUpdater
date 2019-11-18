@@ -71,6 +71,13 @@ class AddonUpdatesDialog(wx.Dialog):
 		self.auto = auto
 
 		if addonUpdateInfo:
+			if len(addonUpdateInfo) > 1:
+				# Translators: Message displayed when add-on updates are available.
+				updateText = _("{updateCount} add-on updates are available.").format(updateCount = len(addonUpdateInfo))
+			else:
+				# Translators: Message displayed when add-on updates are available.
+				updateText = _("1 add-on update is available.")
+			addonsSizerHelper.addItem(wx.StaticText(self, label=updateText))
 			entriesSizer=wx.BoxSizer(wx.VERTICAL)
 			self.addonsList=AutoWidthColumnCheckListCtrl(self,-1,style=wx.LC_REPORT|wx.LC_SINGLE_SEL,size=(550,350))
 			self.addonsList.Bind(wx.EVT_CHECKLISTBOX, self.onAddonsChecked)
