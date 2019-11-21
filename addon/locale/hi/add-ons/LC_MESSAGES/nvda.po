@@ -55,6 +55,16 @@ msgstr "ऐड-ऑन अपडेट के लिए त्रुटि जा
 msgid "NVDA Add-on Updates"
 msgstr "NVDA ऐड-ऑन अपडेट"
 
+#. Translators: Message displayed when add-on updates are available.
+#, fuzzy, python-brace-format
+msgid "{updateCount} add-on updates are available."
+msgstr "कोई ऐड-ऑन अपडेट उपलब्ध नहीं है."
+
+#. Translators: Message displayed when add-on updates are available.
+#, fuzzy
+msgid "1 add-on update is available."
+msgstr "कोई ऐड-ऑन अपडेट उपलब्ध नहीं है."
+
 #. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
 msgid "Current version"
 msgstr "वर्तमान संस्करण"

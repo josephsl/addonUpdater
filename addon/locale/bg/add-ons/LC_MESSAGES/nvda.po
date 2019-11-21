@@ -55,6 +55,16 @@ msgstr "Грешка при проверката за обновления на 
 msgid "NVDA Add-on Updates"
 msgstr "Обновления на добавките в NVDA"
 
+#. Translators: Message displayed when add-on updates are available.
+#, fuzzy, python-brace-format
+msgid "{updateCount} add-on updates are available."
+msgstr "Няма налични обновления на добавките."
+
+#. Translators: Message displayed when add-on updates are available.
+#, fuzzy
+msgid "1 add-on update is available."
+msgstr "Няма налични обновления на добавките."
+
 #. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
 msgid "Current version"
 msgstr "Текуща версия"
@@ -98,9 +108,8 @@ msgid ""
 "{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
 "version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
 msgstr ""
-"Добавката \"{name}\" не е съвместима с тази версия на NVDA. Минимална "
-"версия на NVDA: {minYear}.{minMajor}, последна тествана: {testedYear}."
-"{testedMajor}."
+"Добавката \"{name}\" не е съвместима с тази версия на NVDA. Минимална версия "
+"на NVDA: {minYear}.{minMajor}, последна тествана: {testedYear}.{testedMajor}."
 
 #. Translators: The message displayed when the add-on requires a newer version of Windows.
 #, python-brace-format

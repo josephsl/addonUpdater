@@ -55,6 +55,16 @@ msgstr "Fejl under søgning efter tilføjelsesopdateringer."
 msgid "NVDA Add-on Updates"
 msgstr "NVDA-tilføjelsesopdateringer"
 
+#. Translators: Message displayed when add-on updates are available.
+#, fuzzy, python-brace-format
+msgid "{updateCount} add-on updates are available."
+msgstr "Ingen tilføjelsesopdatering tilgængelig."
+
+#. Translators: Message displayed when add-on updates are available.
+#, fuzzy
+msgid "1 add-on update is available."
+msgstr "Ingen tilføjelsesopdatering tilgængelig."
+
 #. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
 msgid "Current version"
 msgstr "Aktuelle version"

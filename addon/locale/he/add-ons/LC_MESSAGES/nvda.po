@@ -55,6 +55,16 @@ msgstr "שגיאה במהלך הבדיקה ."
 msgid "NVDA Add-on Updates"
 msgstr "עדכונים עבור תוספי NVDA"
 
+#. Translators: Message displayed when add-on updates are available.
+#, fuzzy, python-brace-format
+msgid "{updateCount} add-on updates are available."
+msgstr "לא נמצאו עדכונים"
+
+#. Translators: Message displayed when add-on updates are available.
+#, fuzzy
+msgid "1 add-on update is available."
+msgstr "לא נמצאו עדכונים"
+
 #. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
 msgid "Current version"
 msgstr "גירסה נוכחית"
