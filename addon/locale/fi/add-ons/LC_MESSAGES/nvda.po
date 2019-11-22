@@ -57,6 +57,16 @@ msgstr "Virhe tarkistettaessa lisäosien päivityksiä."
 msgid "NVDA Add-on Updates"
 msgstr "NVDA-lisäosien päivitykset"
 
+#. Translators: Message displayed when add-on updates are available.
+#, fuzzy, python-brace-format
+msgid "{updateCount} add-on updates are available."
+msgstr "Lisäosien päivityksiä ei saatavilla."
+
+#. Translators: Message displayed when add-on updates are available.
+#, fuzzy
+msgid "1 add-on update is available."
+msgstr "Lisäosien päivityksiä ei saatavilla."
+
 #. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
 msgid "Current version"
 msgstr "Nykyinen versio"

@@ -55,6 +55,16 @@ msgstr "Fehler bei der Suche nach Aktualisierungen für NVDA-Erweiterungen."
 msgid "NVDA Add-on Updates"
 msgstr "Aktualisierungen von NVDA-Erweiterungen"
 
+#. Translators: Message displayed when add-on updates are available.
+#, fuzzy, python-brace-format
+msgid "{updateCount} add-on updates are available."
+msgstr "Keine Aktualisierungen für NVDA-Erweiterungen verfügbar!"
+
+#. Translators: Message displayed when add-on updates are available.
+#, fuzzy
+msgid "1 add-on update is available."
+msgstr "Keine Aktualisierungen für NVDA-Erweiterungen verfügbar!"
+
 #. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
 msgid "Current version"
 msgstr "Aktuelle Version"
@@ -98,9 +108,9 @@ msgid ""
 "{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
 "version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
 msgstr ""
-"Die Erweiterung {name} ist nicht kompatibel mit dieser NVDA-Version. Es "
-"wird minimal die NVDA-Version {minYear}.{minMajor} benötigt und die "
-"zuletzt getestete Version ist {testedYear}.{testedMajor}."
+"Die Erweiterung {name} ist nicht kompatibel mit dieser NVDA-Version. Es wird "
+"minimal die NVDA-Version {minYear}.{minMajor} benötigt und die zuletzt "
+"getestete Version ist {testedYear}.{testedMajor}."
 
 #. Translators: The message displayed when the add-on requires a newer version of Windows.
 #, python-brace-format
@@ -128,5 +138,5 @@ msgid ""
 "Proof of concept implementation of add-on update feature (NVDA Core issue "
 "3208)"
 msgstr ""
-"\"Proof of Concept\"-Implementierung der Funktion für die Aktualisierung "
-"von NVDA-Erweiterung (NVDA-Kernproblem #3208)"
+"\"Proof of Concept\"-Implementierung der Funktion für die Aktualisierung von "
+"NVDA-Erweiterung (NVDA-Kernproblem #3208)"
