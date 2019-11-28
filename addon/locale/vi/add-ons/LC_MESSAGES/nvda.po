@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2019-09-28 09:11+0700\n"
+"PO-Revision-Date: 2019-11-26 10:57+0700\n"
 "Last-Translator: Dang Manh Cuong <dangmanhcuong@gmail.com>\n"
 "Language-Team: \n"
 "Language: vi\n"
@@ -56,14 +56,13 @@ msgid "NVDA Add-on Updates"
 msgstr "Cập nhật NVDA add-on"
 
 #. Translators: Message displayed when add-on updates are available.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "{updateCount} add-on updates are available."
-msgstr "Không có bản cập nhật add-on nào."
+msgstr "Đã có {updateCount} bản cập nhật add-on."
 
 #. Translators: Message displayed when add-on updates are available.
-#, fuzzy
 msgid "1 add-on update is available."
-msgstr "Không có bản cập nhật add-on nào."
+msgstr "Đã có 1 bản cập nhật add-on."
 
 #. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
 msgid "Current version"

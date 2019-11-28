@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2019-09-27 20:54+0200\n"
+"PO-Revision-Date: 2019-11-22 01:01+0100\n"
 "Last-Translator: René Linke <rene.linke@hamburg.de>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Generator: Poedit 2.2.4\n"
 
 msgid "Check for &add-on updates..."
 msgstr "Nach &Aktualisierungen für NVDA-Erweiterungen suchen..."
@@ -53,17 +53,16 @@ msgstr "Fehler bei der Suche nach Aktualisierungen für NVDA-Erweiterungen."
 
 #. Translators: The title of the add-on updates dialog.
 msgid "NVDA Add-on Updates"
-msgstr "Aktualisierungen von NVDA-Erweiterungen"
+msgstr "Aktualisierungen für NVDA-Erweiterungen"
 
 #. Translators: Message displayed when add-on updates are available.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "{updateCount} add-on updates are available."
-msgstr "Keine Aktualisierungen für NVDA-Erweiterungen verfügbar!"
+msgstr "{updateCount} Aktualisierungen für NVDA-Erweiterungen verfügbar."
 
 #. Translators: Message displayed when add-on updates are available.
-#, fuzzy
 msgid "1 add-on update is available."
-msgstr "Keine Aktualisierungen für NVDA-Erweiterungen verfügbar!"
+msgstr "Eine Aktualisierungen für NVDA-Erweiterungen ist verfügbar."
 
 #. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
 msgid "Current version"
@@ -75,7 +74,7 @@ msgstr "Neue Version"
 
 #. Translators: Message displayed when no add-on updates are available.
 msgid "No add-on update available."
-msgstr "Keine Aktualisierungen für NVDA-Erweiterungen verfügbar!"
+msgstr "Keine Aktualisierungen für NVDA-Erweiterungen verfügbar."
 
 #. Translators: The label of a button to update add-ons.
 msgid "&Update add-ons"
@@ -100,7 +99,7 @@ msgstr "Fehler beim Herunterladen der Aktualisierung für {name}."
 msgid "Cannot update {name} - missing file or invalid file format"
 msgstr ""
 "{name} konnte nicht aktualisiert werden - fehlende Datei oder ungültiges "
-"Datei-Format!"
+"Datei-Format"
 
 #. Translators: The message displayed when trying to update an add-on that is not going to be compatible with the current version of NVDA.
 #, python-brace-format

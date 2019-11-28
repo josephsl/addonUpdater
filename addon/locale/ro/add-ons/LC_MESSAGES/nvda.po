@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2019-05-16 09:11-0700\n"
+"PO-Revision-Date: 2019-11-22 14:39+0200\n"
 "Last-Translator: Florian Ionașcu <florianionascu@hotmail.com>\n"
 "Language-Team: \n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.9\n"
+"X-Generator: Poedit 2.2.4\n"
 
 msgid "Check for &add-on updates..."
 msgstr "Caută actualizări pentru &suplimente..."
@@ -56,14 +56,13 @@ msgid "NVDA Add-on Updates"
 msgstr "Actualizări pentru suplimente NVDA"
 
 #. Translators: Message displayed when add-on updates are available.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "{updateCount} add-on updates are available."
-msgstr "Nu este disponibilă nici o actualizare pentru suplimente."
+msgstr "Sunt disponibile {updateCount} actualizări pentru acest supliment."
 
 #. Translators: Message displayed when add-on updates are available.
-#, fuzzy
 msgid "1 add-on update is available."
-msgstr "Nu este disponibilă nici o actualizare pentru suplimente."
+msgstr "Este disponibilă o actualizare pentru acest supliment."
 
 #. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
 msgid "Current version"
