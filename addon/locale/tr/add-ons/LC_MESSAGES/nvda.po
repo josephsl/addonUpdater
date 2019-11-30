@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: 2018.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2019-04-11 10:11+0300\n"
+"PO-Revision-Date: 2019-11-23 22:00+0300\n"
 "Last-Translator: Çağrı Doğan <cagrid@hotmail.com>\n"
 "Language-Team: Turkish <cagrid@hotmail.comLL@li.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.2.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Basepath: ../../../globalPlugins/addonUpdater\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -59,14 +59,13 @@ msgid "NVDA Add-on Updates"
 msgstr "NVDA Eklenti Güncellemeleri"
 
 #. Translators: Message displayed when add-on updates are available.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "{updateCount} add-on updates are available."
-msgstr "Eklenti güncellemesi mevcut değil"
+msgstr "{updateCount} Eklenti için güncelleme var."
 
 #. Translators: Message displayed when add-on updates are available.
-#, fuzzy
 msgid "1 add-on update is available."
-msgstr "Eklenti güncellemesi mevcut değil"
+msgstr "1 eklenti güncellemesi var."
 
 #. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
 msgid "Current version"
