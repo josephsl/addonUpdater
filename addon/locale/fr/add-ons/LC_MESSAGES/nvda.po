@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2019-04-05 11:24+0200\n"
-"Last-Translator: Michel Such <michel.such@free.fr>\n"
+"PO-Revision-Date: 2019-11-30 11:56+0100\n"
+"Last-Translator: Bachir BENANOU <ben_bach@yahoo.fr>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 1.6.6\n"
 
 msgid "Check for &add-on updates..."
 msgstr "Rechercher les &mises à jour des extensions..."
@@ -56,14 +56,13 @@ msgid "NVDA Add-on Updates"
 msgstr "Mises à jour des extensions NVDA"
 
 #. Translators: Message displayed when add-on updates are available.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "{updateCount} add-on updates are available."
-msgstr "Aucune mise à jour d'extensions disponible."
+msgstr "{updateCount} mises à jours d'extension sont disponibles."
 
 #. Translators: Message displayed when add-on updates are available.
-#, fuzzy
 msgid "1 add-on update is available."
-msgstr "Aucune mise à jour d'extensions disponible."
+msgstr "1 mise à jour d'extension est disponible."
 
 #. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
 msgid "Current version"
@@ -120,7 +119,7 @@ msgstr "L'extension {name} n'est pas compatible avec cette version de Windows."
 #. Translators: The title of the dialog presented while an Addon is being updated.
 #, python-brace-format
 msgid "Updating {name}"
-msgstr "Mise à jour {name} en cours"
+msgstr "Mise à jour de {name} en cours"
 
 #. Translators: The message displayed while an addon is being updated.
 msgid "Please wait while the add-on is being updated."
