@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-12-01 04:05+1000\n"
-"PO-Revision-Date: 2019-05-23 21:43+0100\n"
+"PO-Revision-Date: 2019-11-27 23:40+0100\n"
 "Last-Translator: \n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: sl\n"
@@ -54,6 +54,14 @@ msgstr "Napaka pri preverjanju posodobitev dodatka."
 #. Translators: The title of the add-on updates dialog.
 msgid "NVDA Add-on Updates"
 msgstr "Posodobitev NVDA Dodatka"
+
+#. Translators: Message displayed when add-on updates are available.
+msgid "{updateCount} add-on updates are available."
+msgstr "{updateCount} posodobitev dodatkov je na voljo."
+
+#. Translators: Message displayed when add-on updates are available.
+msgid "1 add-on update is available."
+msgstr "1 posodobitev dodatka je na voljo."
 
 #. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
 msgid "Current version"
