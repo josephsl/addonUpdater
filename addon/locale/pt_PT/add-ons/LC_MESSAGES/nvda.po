@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2018-11-30 18:22+0000\n"
+"PO-Revision-Date: 2019-12-12 17:19+0000\n"
 "Last-Translator: Ângelo Miguel Abrantes <ampa4374@gmail.com>\n"
 "Language-Team: Equipa portuguesa do NVDA <ampa4374@gmail.com; rui."
 "fontes@tiflotecnia.pt>\n"
@@ -58,14 +58,13 @@ msgid "NVDA Add-on Updates"
 msgstr "Actualizações de extras do NVDA"
 
 #. Translators: Message displayed when add-on updates are available.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "{updateCount} add-on updates are available."
-msgstr "Sem actualizações disponíveis"
+msgstr "{updateCount} Actualizações do extra estão disponíveis."
 
 #. Translators: Message displayed when add-on updates are available.
-#, fuzzy
 msgid "1 add-on update is available."
-msgstr "Sem actualizações disponíveis"
+msgstr "Está disponível uma nova versão do extra."
 
 #. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
 msgid "Current version"
@@ -103,13 +102,14 @@ msgid "Cannot update {name} - missing file or invalid file format"
 msgstr "Impossível actualizar {name} - ficheiro em falta ou formato inválido."
 
 #. Translators: The message displayed when trying to update an add-on that is not going to be compatible with the current version of NVDA.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid ""
 "{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
 "version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
 msgstr ""
-"O extra {name} não é compatível com esta versão do NVDA. Por favor use o "
-"NVDA {year}.{major} ou posterior."
+"O extra {name} é incompatível com esta versão do NVDA. Versão mínima do "
+"NVDA: {minYear}.{minMajor}, última versão testada: {testedYear}."
+"{testedMajor}."
 
 #. Translators: The message displayed when the add-on requires a newer version of Windows.
 #, python-brace-format

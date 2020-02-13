@@ -9,12 +9,12 @@ msgstr ""
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2019-04-05 01:00+1000\n"
 "PO-Revision-Date: 2019-06-01 09:29+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: \n"
-"Language-Team: \n"
 "X-Generator: Poedit 2.2.3\n"
 
 msgid "Check for &add-on updates..."
@@ -54,6 +54,16 @@ msgstr "hiba történt a frissítések keresésekor."
 #. Translators: The title of the add-on updates dialog.
 msgid "NVDA Add-on Updates"
 msgstr "NVDA bővítmény-frissítések"
+
+#. Translators: Message displayed when add-on updates are available.
+#, fuzzy, python-brace-format
+msgid "{updateCount} add-on updates are available."
+msgstr "Nincs elérhető frissítés a telepített bővítményekhez."
+
+#. Translators: Message displayed when add-on updates are available.
+#, fuzzy
+msgid "1 add-on update is available."
+msgstr "Nincs elérhető frissítés a telepített bővítményekhez."
 
 #. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
 msgid "Current version"
@@ -96,9 +106,8 @@ msgid ""
 "{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
 "version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
 msgstr ""
-"{name} nem használható az NVDA jelenlegi verziójával. Minimum NVDA "
-"verzió: {minYear}.{minMajor}, Utoljára tesztelt: {testedYear}."
-"{testedMajor}."
+"{name} nem használható az NVDA jelenlegi verziójával. Minimum NVDA verzió: "
+"{minYear}.{minMajor}, Utoljára tesztelt: {testedYear}.{testedMajor}."
 
 #. Translators: The message displayed when the add-on requires a newer version of Windows.
 #, python-brace-format
@@ -125,5 +134,5 @@ msgid ""
 "Proof of concept implementation of add-on update feature (NVDA Core issue "
 "3208)"
 msgstr ""
-"Tesztelési célokat szolgáló fejlesztés (az NVDA 3208 számú hibajegyének "
-"egy lehetséges megoldása)"
+"Tesztelési célokat szolgáló fejlesztés (az NVDA 3208 számú hibajegyének egy "
+"lehetséges megoldása)"

@@ -1,5 +1,5 @@
 # Add-on Updater
-# Copyright 2018-2019 Joseph Lee, released under GPL.
+# Copyright 2018-2020 Joseph Lee, released under GPL.
 
 import pickle
 from urllib.request import urlopen

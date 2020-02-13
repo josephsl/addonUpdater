@@ -56,6 +56,16 @@ msgstr "检查插件更新时出错。"
 msgid "NVDA Add-on Updates"
 msgstr "NVDA插件更新"
 
+#. Translators: Message displayed when add-on updates are available.
+#, fuzzy, python-brace-format
+msgid "{updateCount} add-on updates are available."
+msgstr "没有可用的插件更新。"
+
+#. Translators: Message displayed when add-on updates are available.
+#, fuzzy
+msgid "1 add-on update is available."
+msgstr "没有可用的插件更新。"
+
 #. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
 msgid "Current version"
 msgstr "当前版本"
@@ -97,8 +107,8 @@ msgid ""
 "{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
 "version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
 msgstr ""
-"{name} 插件与此版本的NVDA不兼容。最低NVDA版本: {minYear}.{minMajor}, 最近"
-"测试: {testedYear}.{testedMajor}."
+"{name} 插件与此版本的NVDA不兼容。最低NVDA版本: {minYear}.{minMajor}, 最近测"
+"试: {testedYear}.{testedMajor}."
 
 #. Translators: The message displayed when the add-on requires a newer version of Windows.
 #, python-brace-format

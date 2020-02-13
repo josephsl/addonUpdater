@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2019-11-22 01:01+0100\n"
+"PO-Revision-Date: 2019-12-15 13:29+0100\n"
 "Last-Translator: René Linke <rene.linke@hamburg.de>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -18,10 +18,10 @@ msgstr ""
 "X-Generator: Poedit 2.2.4\n"
 
 msgid "Check for &add-on updates..."
-msgstr "Nach &Aktualisierungen für NVDA-Erweiterungen suchen..."
+msgstr "Nach &Updates für NVDA-Erweiterungen suchen..."
 
 msgid "Check for NVDA add-on updates"
-msgstr "Nach Aktualisierungen für NVDA-Erweiterungen suchen"
+msgstr "Nach Updates für NVDA-Erweiterungen suchen"
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -32,7 +32,7 @@ msgstr "Updater für NVDA-Erweiterungen"
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
 msgid "Automatically check for add-on &updates"
-msgstr "Automatisch nach &Aktualisierungen für NVDA-Erweiterung suchen"
+msgstr "Automatisch nach &Updates für NVDA-Erweiterung suchen"
 
 msgid "Do &not update add-ons:"
 msgstr "Au&sgeschlossene NVDA-Erweiterungen:"
@@ -42,27 +42,27 @@ msgstr "Entwicklerversionen bevorzugen:"
 
 #. Translators: The title of the dialog presented while checking for add-on updates.
 msgid "Add-on update check"
-msgstr "Aktualisierungen für NVDA-Erweiterungen suchen"
+msgstr "Updates für NVDA-Erweiterungen suchen"
 
 #. Translators: The message displayed while checking for add-on updates.
 msgid "Checking for add-on updates..."
-msgstr "Aktualisierungen für NVDA-Erweiterungen werden gesucht..."
+msgstr "Updates für NVDA-Erweiterungen werden gesucht..."
 
 msgid "Error checking for add-on updates."
-msgstr "Fehler bei der Suche nach Aktualisierungen für NVDA-Erweiterungen."
+msgstr "Fehler bei der Suche nach Updates für NVDA-Erweiterungen."
 
 #. Translators: The title of the add-on updates dialog.
 msgid "NVDA Add-on Updates"
-msgstr "Aktualisierungen für NVDA-Erweiterungen"
+msgstr "Updates für NVDA-Erweiterungen"
 
 #. Translators: Message displayed when add-on updates are available.
 #, python-brace-format
 msgid "{updateCount} add-on updates are available."
-msgstr "{updateCount} Aktualisierungen für NVDA-Erweiterungen verfügbar."
+msgstr "{updateCount} Updates für NVDA-Erweiterungen verfügbar."
 
 #. Translators: Message displayed when add-on updates are available.
 msgid "1 add-on update is available."
-msgstr "Eine Aktualisierungen für NVDA-Erweiterungen ist verfügbar."
+msgstr "Ein Update für eine NVDA-Erweiterung ist verfügbar."
 
 #. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
 msgid "Current version"
@@ -74,7 +74,7 @@ msgstr "Neue Version"
 
 #. Translators: Message displayed when no add-on updates are available.
 msgid "No add-on update available."
-msgstr "Keine Aktualisierungen für NVDA-Erweiterungen verfügbar."
+msgstr "Keine Updates für NVDA-Erweiterungen verfügbar."
 
 #. Translators: The label of a button to update add-ons.
 msgid "&Update add-ons"
@@ -82,7 +82,7 @@ msgstr "Erweiterungen &aktualisieren"
 
 #. Translators: The title of the dialog displayed while downloading add-on update.
 msgid "Downloading Add-on Update"
-msgstr "Aktualisierung der NVDA-Erweiterung wird heruntergeladen"
+msgstr "Update der NVDA-Erweiterung wird heruntergeladen"
 
 #. Translators: The progress message indicating the name of the add-on being downloaded.
 #, python-brace-format
@@ -92,7 +92,7 @@ msgstr "{name} wird heruntergeladen"
 #. Translators: A message indicating that an error occurred while downloading an update to NVDA.
 #, python-brace-format
 msgid "Error downloading update for {name}."
-msgstr "Fehler beim Herunterladen der Aktualisierung für {name}."
+msgstr "Fehler beim Update-Download für {name}."
 
 #. Translators: The message displayed when an error occurs when trying to update an add-on package due to package problems.
 #, python-brace-format

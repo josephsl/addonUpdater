@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2019-04-06 10:45+0800\n"
+"PO-Revision-Date: 2020-01-05 12:08+0800\n"
 "Last-Translator: dingpengyu <dingpengyu06@gmail.com>\n"
 "Language-Team: NVDASimplified Chinese team All volunteers <Copyright (C) "
 "2010-2019>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.2.4\n"
 
 msgid "Check for &add-on updates..."
 msgstr "&检查插件更新..."
@@ -57,14 +57,13 @@ msgid "NVDA Add-on Updates"
 msgstr "NVDA插件更新"
 
 #. Translators: Message displayed when add-on updates are available.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "{updateCount} add-on updates are available."
-msgstr "没有可用的插件更新。"
+msgstr "{updateCount} 插件更新可用。"
 
 #. Translators: Message displayed when add-on updates are available.
-#, fuzzy
 msgid "1 add-on update is available."
-msgstr "没有可用的插件更新。"
+msgstr "1 个插件更新可用。"
 
 #. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
 msgid "Current version"
@@ -107,8 +106,8 @@ msgid ""
 "{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
 "version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
 msgstr ""
-"{name} 插件与此版本的NVDA不兼容。最低NVDA版本: {minYear}.{minMajor}, 最近测"
-"试: {testedYear}.{testedMajor}."
+"{name} 插件与此版本的NVDA不兼容。最低NVDA版本: {minYear}.{minMajor}, 最近"
+"测试: {testedYear}.{testedMajor}."
 
 #. Translators: The message displayed when the add-on requires a newer version of Windows.
 #, python-brace-format
