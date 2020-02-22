@@ -256,8 +256,6 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 		self._stopped()
 		try:
 			try:
-				bundle=addonHandler.AddonBundle(self.destPath.decode("mbcs"))
-			except AttributeError:
 				bundle=addonHandler.AddonBundle(self.destPath)
 			except:
 				log.error("Error opening addon bundle from %s"%self.destPath,exc_info=True)
