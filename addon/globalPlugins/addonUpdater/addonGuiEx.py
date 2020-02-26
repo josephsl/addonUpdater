@@ -266,21 +266,16 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 				self.continueUpdatingAddons()
 				return
 			# Check compatibility with NVDA and/or Windows release.
-			import versionInfo
-			minimumNVDAVersion = bundle.manifest.get("minimumNVDAVersion", None)
-			if minimumNVDAVersion is None:
-				minimumNVDAVersion = [versionInfo.version_year, versionInfo.version_major]
-			lastTestedNVDAVersion = bundle.manifest.get("lastTestedNVDAVersion", None)
-			if lastTestedNVDAVersion is None:
-				lastTestedNVDAVersion = [versionInfo.version_year, versionInfo.version_major]
-			# For NVDA version, only version_year.version_major will be checked.
-			minimumYear, minimumMajor = minimumNVDAVersion[:2]
-			lastTestedYear, lastTestedMajor = lastTestedNVDAVersion[:2]
-			if not ((minimumYear, minimumMajor) <= (versionInfo.version_year, versionInfo.version_major) <= (lastTestedYear, lastTestedMajor)):
-				# Translators: The message displayed when trying to update an add-on that is not going to be compatible with the current version of NVDA.
-				gui.messageBox(_("{name} add-on is not compatible with this version of NVDA. Minimum NVDA version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}.").format(name = self.addonName, minYear = minimumYear, minMajor = minimumMajor, testedYear=lastTestedYear, testedMajor=lastTestedMajor),
-					translate("Error"),
-					wx.OK | wx.ICON_ERROR)
+			# NVDA itself will check add-on compatibility range.
+			# As such, the below fragment was borrowed from NVDA Core (credit: NV Access).
+			from addonHandler import addonVersionCheck
+			from gui import addonGui
+			if not addonVersionCheck.hasAddonGotRequiredSupport(bundle):# Check compatibility with NVDA and/or Windows release.
+				addonGui._showAddonRequiresNVDAUpdateDialog(self, bundle)
+				self.continueUpdatingAddons()
+				return
+			elif not addonVersionCheck.isAddonTested(bundle):
+				addonGui._showAddonTooOldDialog(self, bundle)
 				self.continueUpdatingAddons()
 				return
 			# Some add-ons require a specific Windows release or later.
