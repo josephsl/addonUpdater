@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2020-01-07 17:10+0100\n"
+"PO-Revision-Date: 2020-02-12 12:16+0100\n"
 "Last-Translator: Ondrej Rosík <ondrej.rosik@gmail.com>\n"
 "Language-Team: \n"
 "Language: sk\n"
@@ -19,10 +19,10 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
 
 msgid "Check for &add-on updates..."
-msgstr "Skontrolovať &aktualizácie..."
+msgstr "Skontrolovať &aktualizácie doplnkov..."
 
 msgid "Check for NVDA add-on updates"
-msgstr "Skontrolovať aktualizácie doplnkov NVDA"
+msgstr "Skontrolovať aktualizácie doplnkov"
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -33,17 +33,17 @@ msgstr "Aktualizačný nástroj pre doplnky NVDA"
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
 msgid "Automatically check for add-on &updates"
-msgstr "Automaticy kontrolovať &Aktualizácie doplnkov"
+msgstr "Automaticky kontrolovať &Aktualizácie doplnkov"
 
 msgid "Do &not update add-ons:"
 msgstr "Neaktualizovať &doplnky:"
 
 msgid "Prefer development releases:"
-msgstr "Uprednostňovať vývojové verzie:"
+msgstr "Uprednostniť vývojové verzie:"
 
 #. Translators: The title of the dialog presented while checking for add-on updates.
 msgid "Add-on update check"
-msgstr "KOntrola aktualizácii"
+msgstr "KOntrola aktualizácií"
 
 #. Translators: The message displayed while checking for add-on updates.
 msgid "Checking for add-on updates..."
