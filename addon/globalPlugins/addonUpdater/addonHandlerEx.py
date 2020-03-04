@@ -87,6 +87,7 @@ names2urls={
 	"unicodeBrailleInput": "ubi",
 	"virtualRevision": "VR",
 	"VLC": "vlc-18",
+	"winMag": "winmag",
 	"wintenApps": "w10",
 	"wordCount": "wc",
 }
