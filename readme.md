@@ -2,7 +2,7 @@
 
 * Author: Joseph Lee
 * Download [stable version][1]
-* NVDA compatibility: 2019.2
+* NVDA compatibility: 2019.3
 
 This add-on brings NVDA Core issue 3208 to life: ability to check for, download, and apply add-on updates.
 
@@ -16,7 +16,12 @@ The following add-ons provide built-in update feature and thus updates will not 
 IMPORTANT NOTES:
 
 * This is a proof of concept add-on. Once the [relevant feature is included in NVDA][2], this add-on will be discontinued.
-* If the new add-on updates specify a compatibility range (minimum and last tested NVDA versions) and if the NVDA version you are running does not fall within the compatibility range, add-on updating will not proceed.
+* If the new add-on updates specify a compatibility range (minimum and last tested NVDA versions) and if the NVDA version you are running does not fall within the compatibility range according to NVDA, add-on updating will not proceed.
+
+## Version 20.03
+
+* NVDA 2019.3 or later is required.
+* When installing add-on updates, Add-on Updater will no longer check for compatibility range. NVDA itself will check add-on compatibility.
 
 ## Version 19.11
 
