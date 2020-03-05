@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2020-02-12 12:16+0100\n"
+"PO-Revision-Date: 2020-02-29 17:48+0100\n"
 "Last-Translator: Ondrej Rosík <ondrej.rosik@gmail.com>\n"
 "Language-Team: \n"
 "Language: sk\n"
@@ -28,7 +28,7 @@ msgstr "Skontrolovať aktualizácie doplnkov"
 #. Add-on summary, usually the user visible name of the addon.
 #. Translators: Summary for this add-on to be shown on installation and add-on information.
 msgid "Add-on Updater"
-msgstr "Aktualizačný nástroj pre doplnky NVDA"
+msgstr "Aktualizácie doplnkovAktualizačný nástroj pre doplnky NVDA"
 
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
