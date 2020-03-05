@@ -34,6 +34,9 @@ msgstr "ऐड-ऑन अपडेट करने वाला"
 msgid "Automatically check for add-on &updates"
 msgstr "खुद ब खुद &add-on अपडेट के लिए जांचें"
 
+#. Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
+#. Some add-ons come with pretty badly formatted summary text, so try catching them and exclude them from this list.
+#. Also, Vocalizer add-on family should be excluded from this list (requested by add-on author).
 msgid "Do &not update add-ons:"
 msgstr "ऐड-ऑन अपडेट न &not करें:"
 
@@ -100,15 +103,6 @@ msgstr "{name} अपडेट डाउनलोड करने में त�
 msgid "Cannot update {name} - missing file or invalid file format"
 msgstr "{name} - गुम फ़ाइल या अमान्य फ़ाइल प्रारूप को अपडेट नहीं किया जा सकता"
 
-#. Translators: The message displayed when trying to update an add-on that is not going to be compatible with the current version of NVDA.
-#, fuzzy, python-brace-format
-msgid ""
-"{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
-"version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
-msgstr ""
-"{name} एड-ऑन एनवीडीए के इस संस्करण के साथ संगत नहीं है। कृपयाएनवीडीए {year}.{major} "
-"या बाद का उपयोग करें."
-
 #. Translators: The message displayed when the add-on requires a newer version of Windows.
 #, python-brace-format
 msgid "{name} add-on is not compatible with this version of Windows."
@@ -134,3 +128,11 @@ msgid ""
 "Proof of concept implementation of add-on update feature (NVDA Core issue "
 "3208)"
 msgstr "ऐड-ऑन अपडेट सुविधा की अवधारणा कार्यान्वयन का सबूत (एनवीडीए कोर मुद्दा 3208)"
+
+#, fuzzy
+#~ msgid ""
+#~ "{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
+#~ "version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
+#~ msgstr ""
+#~ "{name} एड-ऑन एनवीडीए के इस संस्करण के साथ संगत नहीं है। कृपयाएनवीडीए {year}."
+#~ "{major} या बाद का उपयोग करें."
