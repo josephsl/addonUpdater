@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: addonUpdater 19.07\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2019-06-28 01:00+1000\n"
-"PO-Revision-Date: 2019-08-14 11:28+0300\n"
+"PO-Revision-Date: 2020-03-09 10:51+0200\n"
 "Last-Translator: Volodymyr Pyrih <vp88.mobile@gmail.com>\n"
 "Language-Team: \n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Generator: Poedit 2.3\n"
 
 msgid "Check for &add-on updates..."
-msgstr "Перевірити &оновлення додатків"
+msgstr "Перевірити &оновлення додатків..."
 
 msgid "Check for NVDA add-on updates"
 msgstr "Перевірити оновлення додатків для NVDA"
@@ -27,7 +27,7 @@ msgstr "Перевірити оновлення додатків для NVDA"
 #. Add-on summary, usually the user visible name of the addon.
 #. Translators: Summary for this add-on to be shown on installation and add-on information.
 msgid "Add-on Updater"
-msgstr "Add-on Updater"
+msgstr "Оновлювач додатків"
 
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
@@ -56,14 +56,13 @@ msgid "NVDA Add-on Updates"
 msgstr "Оновлення додатків для NVDA"
 
 #. Translators: Message displayed when add-on updates are available.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "{updateCount} add-on updates are available."
-msgstr "Немає доступних оновлень для додатків."
+msgstr "Доступне оновлення для {updateCount} додатків."
 
 #. Translators: Message displayed when add-on updates are available.
-#, fuzzy
 msgid "1 add-on update is available."
-msgstr "Немає доступних оновлень для додатків."
+msgstr "Доступне оновлення для одного дотатка."
 
 #. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
 msgid "Current version"
@@ -136,5 +135,5 @@ msgid ""
 "Proof of concept implementation of add-on update feature (NVDA Core issue "
 "3208)"
 msgstr ""
-"Proof of concept implementation of add-on update feature (NVDA Core issue "
-"3208)"
+"Пробна концепція вбудувати в NBDA функцію оновлення додатків (Тікет  3208 "
+"щодо ядра NVDA)"
