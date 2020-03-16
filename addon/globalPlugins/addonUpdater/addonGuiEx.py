@@ -271,11 +271,11 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 			from addonHandler import addonVersionCheck
 			from gui import addonGui
 			if not addonVersionCheck.hasAddonGotRequiredSupport(bundle):# Check compatibility with NVDA and/or Windows release.
-				addonGui._showAddonRequiresNVDAUpdateDialog(self, bundle)
+				addonGui._showAddonRequiresNVDAUpdateDialog(gui.mainFrame, bundle)
 				self.continueUpdatingAddons()
 				return
 			elif not addonVersionCheck.isAddonTested(bundle):
-				addonGui._showAddonTooOldDialog(self, bundle)
+				addonGui._showAddonTooOldDialog(gui.mainFrame, bundle)
 				self.continueUpdatingAddons()
 				return
 			# Some add-ons require a specific Windows release or later.
