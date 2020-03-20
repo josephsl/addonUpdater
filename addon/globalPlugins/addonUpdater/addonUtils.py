@@ -16,7 +16,7 @@ def loadState():
 		# Pickle wants to work with bytes.
 		with open(os.path.join(globalVars.appArgs.configPath, "nvda3208.pickle"), "rb") as f:
 			updateState = pickle.load(f)
-	except (IOError, EOFError, NameError, ValueError):
+	except (IOError, EOFError, NameError, ValueError, pickle.UnpicklingError):
 		updateState["autoUpdate"] = True
 		updateState["lastChecked"] = 0
 		updateState["noUpdates"] = []
