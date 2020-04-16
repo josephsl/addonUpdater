@@ -75,6 +75,7 @@ names2urls={
 	"screenCurtain": "nvda7857",
 	"SentenceNav": "sentencenav",
 	"speakPasswords": "spp",
+	"speechHistory": "sps",
 	"stationPlaylist": "spl",
 	"switchSynth": "sws",
 	"synthRingSettingsSelector": "synthrings",
