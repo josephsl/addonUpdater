@@ -73,7 +73,7 @@ names2urls = {
 	"readFeeds": "rf",
 	"remote": "nvdaremote",
 	"reportSymbols": "rsy",
-	"resourceMonitor":"rm",
+	"resourceMonitor": "rm",
 	"reviewCursorCopier": "rccp",
 	"sayCurrentKeyboardLanguage": "ckbl",
 	"screenCurtain": "nvda7857",
