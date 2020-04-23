@@ -59,9 +59,9 @@ def addonUpdateCheck():
 
 class AddonUpdatesDialog(wx.Dialog):
 
-	def __init__(self,parent, addonUpdateInfo, auto=True):
+	def __init__(self, parent, addonUpdateInfo, auto=True):
 		# Translators: The title of the add-on updates dialog.
-		super(AddonUpdatesDialog,self).__init__(parent,title=_("NVDA Add-on Updates"))
+		super(AddonUpdatesDialog, self).__init__(parent, title=_("NVDA Add-on Updates"))
 		mainSizer = wx.BoxSizer(wx.VERTICAL)
 		addonsSizerHelper = guiHelper.BoxSizerHelper(self, orientation=wx.VERTICAL)
 		self.addonUpdateInfo = addonUpdateInfo
@@ -76,20 +76,20 @@ class AddonUpdatesDialog(wx.Dialog):
 				updateText = _("1 add-on update is available.")
 			addonsSizerHelper.addItem(wx.StaticText(self, label=updateText))
 			entriesSizer = wx.BoxSizer(wx.VERTICAL)
-			self.addonsList = AutoWidthColumnCheckListCtrl(self,-1,style=wx.LC_REPORT | wx.LC_SINGLE_SEL,size=(550,350))
+			self.addonsList = AutoWidthColumnCheckListCtrl(self, -1, style=wx.LC_REPORT | wx.LC_SINGLE_SEL, size=(550, 350))
 			self.addonsList.Bind(wx.EVT_CHECKLISTBOX, self.onAddonsChecked)
-			self.addonsList.InsertColumn(0,translate("Package"),width=150)
+			self.addonsList.InsertColumn(0, translate("Package"), width=150)
 			# Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
-			self.addonsList.InsertColumn(1,_("Current version"),width=50)
+			self.addonsList.InsertColumn(1, _("Current version"), width=50)
 			# Translators: The label for a column in add-ons list used to identify add-on's version (example: version is 0.3).
-			self.addonsList.InsertColumn(2,_("New version"),width=50)
-			entriesSizer.Add(self.addonsList,proportion=8)
+			self.addonsList.InsertColumn(2, _("New version"), width=50)
+			entriesSizer.Add(self.addonsList, proportion=8)
 			for entry in sorted(addonUpdateInfo.keys()):
 				addon = addonUpdateInfo[entry]
 				self.addonsList.Append((addon['summary'], addon['curVersion'], addon['version']))
 				self.addonsList.CheckItem(self.addonsList.GetItemCount()-1)
 			self.addonsList.Select(0)
-			self.addonsList.SetItemState(0,wx.LIST_STATE_FOCUSED,wx.LIST_STATE_FOCUSED)
+			self.addonsList.SetItemState(0, wx.LIST_STATE_FOCUSED, wx.LIST_STATE_FOCUSED)
 			addonsSizerHelper.addItem(entriesSizer)
 		else:
 			# Translators: Message displayed when no add-on updates are available.
@@ -258,7 +258,7 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 			try:
 				bundle = addonHandler.AddonBundle(self.destPath)
 			except:
-				log.error("Error opening addon bundle from %s"%self.destPath,exc_info=True)
+				log.error("Error opening addon bundle from %s"%self.destPath, exc_info=True)
 				# Translators: The message displayed when an error occurs when trying to update an add-on package due to package problems.
 				gui.messageBox(_("Cannot update {name} - missing file or invalid file format").format(name = self.addonName),
 					translate("Error"),
@@ -311,9 +311,9 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 			# Translators: The message displayed while an addon is being updated.
 			_("Please wait while the add-on is being updated."))
 			try:
-				gui.ExecAndPump(addonHandler.installAddonBundle,bundle)
+				gui.ExecAndPump(addonHandler.installAddonBundle, bundle)
 			except:
-				log.error("Error installing  addon bundle from %s"%self.destPath,exc_info=True)
+				log.error("Error installing  addon bundle from %s"%self.destPath, exc_info=True)
 				progressDialog.done()
 				progressDialog.Hide()
 				progressDialog.Destroy()
