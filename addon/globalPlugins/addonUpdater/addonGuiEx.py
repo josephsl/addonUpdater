@@ -70,7 +70,7 @@ class AddonUpdatesDialog(wx.Dialog):
 		if addonUpdateInfo:
 			if len(addonUpdateInfo) > 1:
 				# Translators: Message displayed when add-on updates are available.
-				updateText = _("{updateCount} add-on updates are available.").format(updateCount = len(addonUpdateInfo))
+				updateText = _("{updateCount} add-on updates are available.").format(updateCount=len(addonUpdateInfo))
 			else:
 				# Translators: Message displayed when add-on updates are available.
 				updateText = _("1 add-on update is available.")
@@ -198,7 +198,7 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 		# Translators: The title of the dialog displayed while downloading add-on update.
 		self._progressDialog = wx.ProgressDialog(_("Downloading Add-on Update"),
 			# Translators: The progress message indicating the name of the add-on being downloaded.
-			_("Downloading {name}").format(name = self.addonName),
+			_("Downloading {name}").format(name=self.addonName),
 			# PD_AUTO_HIDE is required because ProgressDialog.Update blocks at 100%
 			# and waits for the user to press the Close button.
 			style=wx.PD_CAN_ABORT | wx.PD_ELAPSED_TIME | wx.PD_REMAINING_TIME | wx.PD_AUTO_HIDE,
@@ -212,7 +212,7 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 		self._stopped()
 		gui.messageBox(
 			# Translators: A message indicating that an error occurred while downloading an update to NVDA.
-			_("Error downloading update for {name}.").format(name = self.addonName),
+			_("Error downloading update for {name}.").format(name=self.addonName),
 			translate("Error"),
 			wx.OK | wx.ICON_ERROR)
 		self.continueUpdatingAddons()
@@ -260,7 +260,7 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 			except:
 				log.error("Error opening addon bundle from %s"%self.destPath, exc_info=True)
 				# Translators: The message displayed when an error occurs when trying to update an add-on package due to package problems.
-				gui.messageBox(_("Cannot update {name} - missing file or invalid file format").format(name = self.addonName),
+				gui.messageBox(_("Cannot update {name} - missing file or invalid file format").format(name=self.addonName),
 					translate("Error"),
 					wx.OK | wx.ICON_ERROR)
 				self.continueUpdatingAddons()
@@ -289,7 +289,7 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 			winMajor, winMinor, winBuild = winVersion.winVersion[:3]
 			if (winMajor, winMinor, winBuild) < (minimumWinMajor, minimumWinMinor, minimumWinBuild):
 				# Translators: The message displayed when the add-on requires a newer version of Windows.
-				gui.messageBox(_("{name} add-on is not compatible with this version of Windows.").format(name = self.addonName),
+				gui.messageBox(_("{name} add-on is not compatible with this version of Windows.").format(name=self.addonName),
 					translate("Error"),
 					wx.OK | wx.ICON_ERROR)
 				self.continueUpdatingAddons()
@@ -307,7 +307,7 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 					break
 			progressDialog = gui.IndeterminateProgressDialog(gui.mainFrame,
 			# Translators: The title of the dialog presented while an Addon is being updated.
-			_("Updating {name}").format(name = self.addonName),
+			_("Updating {name}").format(name=self.addonName),
 			# Translators: The message displayed while an addon is being updated.
 			_("Please wait while the add-on is being updated."))
 			try:
@@ -318,7 +318,7 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 				progressDialog.Hide()
 				progressDialog.Destroy()
 				# Translators: The message displayed when an error occurs when installing an add-on package.
-				gui.messageBox(_("Failed to update {name} add-on").format(name = self.addonName),
+				gui.messageBox(_("Failed to update {name} add-on").format(name=self.addonName),
 					translate("Error"),
 					wx.OK | wx.ICON_ERROR)
 				self.continueUpdatingAddons()
