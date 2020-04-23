@@ -54,6 +54,7 @@ names2urls={
 	"IndentNav": "indentnav",
 	"inputLock": "inputlock",
 	"instantTranslate": "it",
+	"killNVDA": "killnvda",
 	"lambda": "lambda",
 	"mirc": "mirc",
 	"mp3DirectCut": "mp3dc",
