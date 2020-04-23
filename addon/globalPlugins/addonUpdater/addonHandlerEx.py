@@ -65,6 +65,7 @@ names2urls={
 	"nvSpeechPlayer": "nvsp",
 	"objLocTones": "objLoc",
 	"objPad": "objPad",
+	"ocr": "ocr",
 	"outlookExtended": "outlookextended",
 	"pcKbBrl": "pckbbrl",
 	"phoneticPunctuation": "phoneticpunc",
