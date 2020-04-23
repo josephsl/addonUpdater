@@ -1,9 +1,9 @@
 # -*- coding: UTF-8 -*-
-#addonHandler.py
-#A part of NonVisual Desktop Access (NVDA)
-#Copyright (C) 2012-2019 Rui Batista, NV Access Limited, Noelia Ruiz Martínez, Joseph Lee
-#This file is covered by the GNU General Public License.
-#See the file COPYING for more details.
+# addonHandler.py
+# A part of NonVisual Desktop Access (NVDA)
+# Copyright (C) 2012-2019 Rui Batista, NV Access Limited, Noelia Ruiz Martínez, Joseph Lee
+# This file is covered by the GNU General Public License.
+# See the file COPYING for more details.
 
 # Proof of concept implementation of NVDA Core issue 3208.
 
@@ -211,13 +211,13 @@ def checkForAddonUpdates():
 		info = checkForAddonUpdate(curAddons)
 	except:
 		info = {}
-	#data = json.dumps(curAddons)
+	# data = json.dumps(curAddons)
 	# Pseudocode:
 	"""try:
 		res = urllib.open(someURL, data)
 		# Check SSL and what not.
 		res = json.loads(res)"""
-	#res = json.loads(data)
+	# res = json.loads(data)
 	res = info
 	for addon in res:
 		res[addon]["summary"] = addonSummaries[addon]
