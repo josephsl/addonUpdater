@@ -84,6 +84,7 @@ names2urls={
 	"teamViewer": "tv",
 	"textInformation": "txtinfo",
 	"textnav": "textnav",
+	"timezone": "tz",
 	"toneMaster": "tmast",
 	"tonysEnhancements": "tony",
 	"toolbarsExplorer": "tbx",
