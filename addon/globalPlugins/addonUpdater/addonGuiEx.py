@@ -62,7 +62,7 @@ class AddonUpdatesDialog(wx.Dialog):
 	def __init__(self,parent, addonUpdateInfo, auto=True):
 		# Translators: The title of the add-on updates dialog.
 		super(AddonUpdatesDialog,self).__init__(parent,title=_("NVDA Add-on Updates"))
-		mainSizer=wx.BoxSizer(wx.VERTICAL)
+		mainSizer = wx.BoxSizer(wx.VERTICAL)
 		addonsSizerHelper = guiHelper.BoxSizerHelper(self, orientation=wx.VERTICAL)
 		self.addonUpdateInfo = addonUpdateInfo
 		self.auto = auto
@@ -75,8 +75,8 @@ class AddonUpdatesDialog(wx.Dialog):
 				# Translators: Message displayed when add-on updates are available.
 				updateText = _("1 add-on update is available.")
 			addonsSizerHelper.addItem(wx.StaticText(self, label=updateText))
-			entriesSizer=wx.BoxSizer(wx.VERTICAL)
-			self.addonsList=AutoWidthColumnCheckListCtrl(self,-1,style=wx.LC_REPORT|wx.LC_SINGLE_SEL,size=(550,350))
+			entriesSizer = wx.BoxSizer(wx.VERTICAL)
+			self.addonsList = AutoWidthColumnCheckListCtrl(self,-1,style=wx.LC_REPORT|wx.LC_SINGLE_SEL,size=(550,350))
 			self.addonsList.Bind(wx.EVT_CHECKLISTBOX, self.onAddonsChecked)
 			self.addonsList.InsertColumn(0,translate("Package"),width=150)
 			# Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
@@ -230,12 +230,12 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 				hasher = hashlib.sha1()
 			self._guiExec(self._downloadReport, 0, size)
 			read = 0
-			chunk=8192
+			chunk = 8192
 			while True:
 				if self._shouldCancel:
 					return
-				if size -read <chunk:
-					chunk =size -read
+				if size-read < chunk:
+					chunk = size-read
 				block = remote.read(chunk)
 				if not block:
 					break
@@ -256,7 +256,7 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 		self._stopped()
 		try:
 			try:
-				bundle=addonHandler.AddonBundle(self.destPath)
+				bundle = addonHandler.AddonBundle(self.destPath)
 			except:
 				log.error("Error opening addon bundle from %s"%self.destPath,exc_info=True)
 				# Translators: The message displayed when an error occurs when trying to update an add-on package due to package problems.
@@ -294,7 +294,7 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 					wx.OK | wx.ICON_ERROR)
 				self.continueUpdatingAddons()
 				return
-			bundleName=bundle.manifest['name']
+			bundleName = bundle.manifest['name']
 			isDisabled = False
 			# Optimization (future): it is better to remove would-be add-ons all at once instead of doing it each time a bundle is opened.
 			for addon in addonHandler.getAvailableAddons():

@@ -92,7 +92,7 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 		sHelper = gui.guiHelper.BoxSizerHelper(self, sizer=settingsSizer)
 		# Translators: This is the label for a checkbox in the
 		# Add-on Updater settings panel.
-		self.autoUpdateCheckBox=sHelper.addItem(wx.CheckBox(self, label=_("Automatically check for add-on &updates")))
+		self.autoUpdateCheckBox = sHelper.addItem(wx.CheckBox(self, label=_("Automatically check for add-on &updates")))
 		self.autoUpdateCheckBox.SetValue(addonUtils.updateState["autoUpdate"])
 
 		# Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).

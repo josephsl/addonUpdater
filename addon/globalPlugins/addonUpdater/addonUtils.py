@@ -34,7 +34,7 @@ def saveState():
 			pickle.dump(updateState, f, protocol=0)
 	except IOError:
 		pass
-	updateState= None
+	updateState = None
 
 
 # Borrowed from NVDA Core (the only difference is the URL and where structures are coming from).

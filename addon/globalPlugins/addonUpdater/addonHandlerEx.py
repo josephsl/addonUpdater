@@ -18,7 +18,7 @@ import addonHandler
 from . import addonUtils
 
 # The URL prefixes are same for add-ons listed below.
-names2urls={
+names2urls = {
 	"addonUpdater": "nvda3208",
 	"Access8Math": "access8math",
 	"addonsHelp": "addonshelp",
