@@ -76,7 +76,7 @@ class AddonUpdatesDialog(wx.Dialog):
 				updateText = _("1 add-on update is available.")
 			addonsSizerHelper.addItem(wx.StaticText(self, label=updateText))
 			entriesSizer = wx.BoxSizer(wx.VERTICAL)
-			self.addonsList = AutoWidthColumnCheckListCtrl(self,-1,style=wx.LC_REPORT|wx.LC_SINGLE_SEL,size=(550,350))
+			self.addonsList = AutoWidthColumnCheckListCtrl(self,-1,style=wx.LC_REPORT | wx.LC_SINGLE_SEL,size=(550,350))
 			self.addonsList.Bind(wx.EVT_CHECKLISTBOX, self.onAddonsChecked)
 			self.addonsList.InsertColumn(0,translate("Package"),width=150)
 			# Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
@@ -153,7 +153,7 @@ def updateAddonsGenerator(addons, auto=True):
 			# This is possible because all add-ons were updated.
 			if gui.messageBox(translate("Changes were made to add-ons. You must restart NVDA for these changes to take effect. Would you like to restart now?"),
 			translate("Restart NVDA"),
-			wx.YES|wx.NO|wx.ICON_WARNING) == wx.YES:
+			wx.YES | wx.NO | wx.ICON_WARNING) == wx.YES:
 				core.restart()
 		return
 	# #3208: Update (download and install) add-ons one after the other, done by retrieving the first item (as far as current add-ons container is concerned).
