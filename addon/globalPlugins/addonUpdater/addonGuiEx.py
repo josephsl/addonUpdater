@@ -153,7 +153,7 @@ def updateAddonsGenerator(addons, auto=True):
 			# This is possible because all add-ons were updated.
 			if gui.messageBox(translate("Changes were made to add-ons. You must restart NVDA for these changes to take effect. Would you like to restart now?"),
 			translate("Restart NVDA"),
-			wx.YES|wx.NO|wx.ICON_WARNING)==wx.YES:
+			wx.YES|wx.NO|wx.ICON_WARNING) == wx.YES:
 				core.restart()
 		return
 	# #3208: Update (download and install) add-ons one after the other, done by retrieving the first item (as far as current add-ons container is concerned).
@@ -299,7 +299,7 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 			# Optimization (future): it is better to remove would-be add-ons all at once instead of doing it each time a bundle is opened.
 			for addon in addonHandler.getAvailableAddons():
 				# Check for disabled state first.
-				if bundleName==addon.manifest['name']:
+				if bundleName == addon.manifest['name']:
 					if addon.isDisabled:
 						isDisabled = True
 					if not addon.isPendingRemove:
@@ -330,7 +330,7 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 				_updatedAddons.append(bundleName)
 				if isDisabled:
 					for addon in addonHandler.getAvailableAddons():
-						if bundleName==addon.manifest['name'] and addon.isPendingInstall:
+						if bundleName == addon.manifest['name'] and addon.isPendingInstall:
 							addon.enable(False)
 							break
 		finally:
