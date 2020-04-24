@@ -270,7 +270,8 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 			# As such, the below fragment was borrowed from NVDA Core (credit: NV Access).
 			from addonHandler import addonVersionCheck
 			from gui import addonGui
-			if not addonVersionCheck.hasAddonGotRequiredSupport(bundle):# Check compatibility with NVDA and/or Windows release.
+			# Check compatibility with NVDA and/or Windows release.
+			if not addonVersionCheck.hasAddonGotRequiredSupport(bundle):
 				addonGui._showAddonRequiresNVDAUpdateDialog(gui.mainFrame, bundle)
 				self.continueUpdatingAddons()
 				return

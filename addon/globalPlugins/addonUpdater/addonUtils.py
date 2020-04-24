@@ -47,7 +47,7 @@ def _updateWindowsRootCertificates():
 	u.close()
 	# Convert to a form usable by Windows.
 	certCont = crypt.CertCreateCertificateContext(
-		0x00000001, # X509_ASN_ENCODING
+		0x00000001,  # X509_ASN_ENCODING
 		cert,
 		len(cert))
 	# Ask Windows to build a certificate chain, thus triggering a root certificate update.
