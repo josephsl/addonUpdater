@@ -14,7 +14,6 @@ try:
 	canUpdate = True
 except RuntimeError:
 	canUpdate = False
-from logHandler import log
 import globalVars
 import config
 from . import addonHandlerEx
