@@ -39,6 +39,7 @@ def saveState():
 
 # Borrowed from NVDA Core (the only difference is the URL and where structures are coming from).
 def _updateWindowsRootCertificates():
+	import updateCheck
 	crypt = ctypes.windll.crypt32
 	# Get the server certificate.
 	sslCont = ssl._create_unverified_context()
