@@ -76,7 +76,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.remove(AddonUpdaterPanel)
 		try:
 			self.toolsMenu.Remove(self.addonUpdater)
-		except: #(RuntimeError, AttributeError, wx.PyDeadObjectError):
+		except (RuntimeError, AttributeError):
 			pass
 		global updateChecker
 		if updateChecker and updateChecker.IsRunning():
