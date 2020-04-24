@@ -142,6 +142,7 @@ class AddonUpdatesDialog(wx.Dialog):
 	def onClose(self, evt):
 		self.Destroy()
 
+
 # Keep an eye on successful add-on updates.
 _updatedAddons = []
 

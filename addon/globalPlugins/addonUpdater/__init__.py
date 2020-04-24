@@ -7,6 +7,7 @@
 import globalPluginHandler
 import time
 import gui
+from gui.nvdaControls import CustomCheckListBox
 import wx
 # What if this is run from NVDA source?
 try:
@@ -21,7 +22,6 @@ from . import addonGuiEx
 from . import addonUtils
 import addonHandler
 addonHandler.initTranslation()
-from gui.nvdaControls import CustomCheckListBox
 
 # Overall update check routine was inspired by StationPlaylist Studio add-on (Joseph Lee).)
 
@@ -55,6 +55,7 @@ def endAutoUpdateCheck():
 	if updateChecker is not None:
 		wx.CallAfter(updateChecker.Stop)
 		wx.CallAfter(autoUpdateCheck)
+
 
 addonGuiEx.AddonUpdaterManualUpdateCheck.register(endAutoUpdateCheck)
 
