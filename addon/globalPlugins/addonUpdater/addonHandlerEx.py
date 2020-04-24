@@ -98,21 +98,23 @@ names2urls = {
 	"wordCount": "wc",
 }
 
+
 def shouldNotUpdate():
 	# Returns a list of descriptions for add-ons that should not update.
 	return [addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
 		if addon.name in addonUtils.updateState["noUpdates"]]
+
 
 def preferDevUpdates():
 	# Returns a list of descriptions for add-ons that prefers development releases.
 	return [addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
 		if addon.name in addonUtils.updateState["devUpdates"]]
 
+
 # Borrowed ideas from NVDA Core.
 # Obtain update status for add-ons returned from community add-ons website.
 # Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
 # This is the case when it becomes necessary to open another website.
-
 def fetchAddonInfo(info, results, addon, manifestInfo):
 	# Some add-ons require traversing another URL.
 	secondaryUrl = ("spl-dev", "w10-dev")
@@ -155,6 +157,7 @@ def fetchAddonInfo(info, results, addon, manifestInfo):
 	if addonVersion != version:
 		info[addon] = {"curVersion": addonVersion, "version": version, "path": addonUrl}
 
+
 def checkForAddonUpdate(curAddons):
 	# First, fetch current community add-ons via an internal thread.
 	def _currentCommunityAddons(results):
@@ -185,6 +188,7 @@ def checkForAddonUpdate(curAddons):
 	for thread in updateThreads:
 		thread.join()
 	return info
+
 
 def checkForAddonUpdates():
 	curAddons = {}
@@ -224,10 +228,12 @@ def checkForAddonUpdates():
 		res[addon]["urls"] = res[addon]["path"]
 	return res if len(res) else None
 
+
 def autoAddonUpdateCheck():
 	t = threading.Thread(target=_showAddonUpdateUI)
 	t.daemon = True
 	t.start()
+
 
 def _showAddonUpdateUI():
 	def _showAddonUpdateUICallback(info):

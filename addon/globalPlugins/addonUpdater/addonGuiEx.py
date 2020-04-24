@@ -28,8 +28,8 @@ AddonUpdaterManualUpdateCheck = extensionPoints.Action()
 
 _progressDialog = None
 
-# The following event handler comes from a combination of StationPlaylist Studio and Windows 10 App Essentials.
 
+# The following event handler comes from a combination of StationPlaylist Studio and Windows 10 App Essentials.
 def onAddonUpdateCheck(evt):
 	AddonUpdaterManualUpdateCheck.notify()
 	global _progressDialog
@@ -41,6 +41,7 @@ def onAddonUpdateCheck(evt):
 	t = threading.Thread(target=addonUpdateCheck)
 	t.daemon = True
 	t.start()
+
 
 def addonUpdateCheck():
 	from . import addonHandlerEx
@@ -56,6 +57,7 @@ def addonUpdateCheck():
 	wx.CallAfter(_progressDialog.done)
 	_progressDialog = None
 	wx.CallAfter(AddonUpdatesDialog, gui.mainFrame, info, auto=False)
+
 
 class AddonUpdatesDialog(wx.Dialog):
 
@@ -142,6 +144,7 @@ class AddonUpdatesDialog(wx.Dialog):
 
 # Keep an eye on successful add-on updates.
 _updatedAddons = []
+
 
 def updateAddonsGenerator(addons, auto=True):
 	"""Updates one add-on after the other.

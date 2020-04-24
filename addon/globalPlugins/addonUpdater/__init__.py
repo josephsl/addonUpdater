@@ -28,6 +28,7 @@ from gui.nvdaControls import CustomCheckListBox
 addonUpdateCheckInterval = 86400
 updateChecker = None
 
+
 # To avoid freezes, a background thread will run after the global plugin constructor calls wx.CallAfter.
 def autoUpdateCheck():
 	currentTime = time.time()
@@ -38,6 +39,7 @@ def autoUpdateCheck():
 		addonHandlerEx.autoAddonUpdateCheck()
 	else: startAutoUpdateCheck(whenToCheck - currentTime)
 
+
 # Start or restart auto update checker.
 def startAutoUpdateCheck(interval):
 	global updateChecker
@@ -45,6 +47,7 @@ def startAutoUpdateCheck(interval):
 		wx.CallAfter(updateChecker.Stop)
 	updateChecker = wx.PyTimer(autoUpdateCheck)
 	wx.CallAfter(updateChecker.Start, interval * 1000, True)
+
 
 def endAutoUpdateCheck():
 	global updateChecker
@@ -54,6 +57,7 @@ def endAutoUpdateCheck():
 		wx.CallAfter(autoUpdateCheck)
 
 addonGuiEx.AddonUpdaterManualUpdateCheck.register(endAutoUpdateCheck)
+
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
@@ -82,6 +86,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			updateChecker.Stop()
 		updateChecker = None
 		addonUtils.saveState()
+
 
 class AddonUpdaterPanel(gui.SettingsPanel):
 	# Translators: This is the label for the Add-on Updater settings panel.

@@ -10,6 +10,7 @@ import globalVars
 
 updateState = {}
 
+
 def loadState():
 	global updateState
 	try:
@@ -26,6 +27,7 @@ def loadState():
 	if "lastChecked" not in updateState: updateState["lastChecked"] = 0
 	if "noUpdates" not in updateState: updateState["noUpdates"] = []
 	if "devUpdates" not in updateState: updateState["devUpdates"] = []
+
 
 def saveState():
 	global updateState
