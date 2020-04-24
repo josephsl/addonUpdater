@@ -262,7 +262,7 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 			try:
 				bundle = addonHandler.AddonBundle(self.destPath)
 			except:
-				log.error("Error opening addon bundle from %s"%self.destPath, exc_info=True)
+				log.error(f"Error opening addon bundle from {self.destPath}", exc_info=True)
 				# Translators: The message displayed when an error occurs when trying to update an add-on package due to package problems.
 				gui.messageBox(_("Cannot update {name} - missing file or invalid file format").format(name=self.addonName),
 					translate("Error"),
@@ -318,7 +318,7 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 			try:
 				gui.ExecAndPump(addonHandler.installAddonBundle, bundle)
 			except:
-				log.error("Error installing  addon bundle from %s"%self.destPath, exc_info=True)
+				log.error(f"Error installing  addon bundle from {self.destPath}", exc_info=True)
 				progressDialog.done()
 				progressDialog.Hide()
 				progressDialog.Destroy()

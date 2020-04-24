@@ -128,12 +128,12 @@ def fetchAddonInfo(info, results, addon, manifestInfo):
 	if addonKey in secondaryUrl:
 		res = None
 		try:
-			res = urlopen("https://addons.nvda-project.org/files/get.php?file=%s"%addonKey)
+			res = urlopen(f"https://addons.nvda-project.org/files/get.php?file={addonKey}")
 		except IOError as e:
 			# SSL issue (seen in NVDA Core earlier than 2014.1).
 			if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
 				addonUtils._updateWindowsRootCertificates()
-				res = urlopen("https://addons.nvda-project.org/files/get.php?file=%s"%addonKey)
+				res = urlopen(f"https://addons.nvda-project.org/files/get.php?file={addonKey}")
 			else:
 				pass
 		finally:
@@ -148,7 +148,7 @@ def fetchAddonInfo(info, results, addon, manifestInfo):
 		return
 	# Note that some add-ons are hosted on community add-ons server directly.
 	if "/" not in addonUrl:
-		addonUrl = "https://addons.nvda-project.org/files/%s"%addonUrl
+		addonUrl = f"https://addons.nvda-project.org/files/{addonUrl}"
 	# Build emulated add-on update dictionary if there is indeed a new version.
 	# All the info we need for add-on version check is after the last slash.
 	version = re.search("(?P<name>)-(?P<version>.*).nvda-addon", addonUrl.split("/")[-1]).groupdict()["version"]
