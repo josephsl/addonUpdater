@@ -40,6 +40,7 @@ def saveState():
 
 
 # Borrowed from NVDA Core (the only difference is the URL and where structures are coming from).
+# Flake8: ignore this function altogether.
 def _updateWindowsRootCertificates():
 	import updateCheck
 	crypt = ctypes.windll.crypt32
