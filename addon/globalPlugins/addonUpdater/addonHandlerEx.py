@@ -101,14 +101,18 @@ names2urls = {
 
 def shouldNotUpdate():
 	# Returns a list of descriptions for add-ons that should not update.
-	return [addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
-		if addon.name in addonUtils.updateState["noUpdates"]]
+	return [
+		addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
+		if addon.name in addonUtils.updateState["noUpdates"]
+	]
 
 
 def preferDevUpdates():
 	# Returns a list of descriptions for add-ons that prefers development releases.
-	return [addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
-		if addon.name in addonUtils.updateState["devUpdates"]]
+	return [
+		addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
+		if addon.name in addonUtils.updateState["devUpdates"]
+	]
 
 
 # Borrowed ideas from NVDA Core.

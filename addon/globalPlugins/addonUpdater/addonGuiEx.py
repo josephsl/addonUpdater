@@ -33,11 +33,13 @@ _progressDialog = None
 def onAddonUpdateCheck(evt):
 	AddonUpdaterManualUpdateCheck.notify()
 	global _progressDialog
-	_progressDialog = gui.IndeterminateProgressDialog(gui.mainFrame,
-	# Translators: The title of the dialog presented while checking for add-on updates.
-	_("Add-on update check"),
-	# Translators: The message displayed while checking for add-on updates.
-	_("Checking for add-on updates..."))
+	_progressDialog = gui.IndeterminateProgressDialog(
+		gui.mainFrame,
+		# Translators: The title of the dialog presented while checking for add-on updates.
+		_("Add-on update check"),
+		# Translators: The message displayed while checking for add-on updates.
+		_("Checking for add-on updates...")
+	)
 	t = threading.Thread(target=addonUpdateCheck)
 	t.daemon = True
 	t.start()
@@ -155,9 +157,11 @@ def updateAddonsGenerator(addons, auto=True):
 		# Only present messages if add-osn were actually updated.
 		if len(_updatedAddons):
 			# This is possible because all add-ons were updated.
-			if gui.messageBox(translate("Changes were made to add-ons. You must restart NVDA for these changes to take effect. Would you like to restart now?"),
-			translate("Restart NVDA"),
-			wx.YES | wx.NO | wx.ICON_WARNING) == wx.YES:
+			if gui.messageBox(
+				translate("Changes were made to add-ons. You must restart NVDA for these changes to take effect. Would you like to restart now?"),
+				translate("Restart NVDA"),
+				wx.YES | wx.NO | wx.ICON_WARNING
+			) == wx.YES:
 				core.restart()
 		return
 	# #3208: Update (download and install) add-ons one after the other, done by retrieving the first item (as far as current add-ons container is concerned).
@@ -199,14 +203,16 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 		# Use a timer because timers aren't re-entrant.
 		self._guiExecTimer = wx.PyTimer(self._guiExecNotify)
 		gui.mainFrame.prePopup()
-		# Translators: The title of the dialog displayed while downloading add-on update.
-		self._progressDialog = wx.ProgressDialog(_("Downloading Add-on Update"),
+		self._progressDialog = wx.ProgressDialog(
+			# Translators: The title of the dialog displayed while downloading add-on update.
+			_("Downloading Add-on Update"),
 			# Translators: The progress message indicating the name of the add-on being downloaded.
 			_("Downloading {name}").format(name=self.addonName),
 			# PD_AUTO_HIDE is required because ProgressDialog.Update blocks at 100%
 			# and waits for the user to press the Close button.
 			style=wx.PD_CAN_ABORT | wx.PD_ELAPSED_TIME | wx.PD_REMAINING_TIME | wx.PD_AUTO_HIDE,
-			parent=gui.mainFrame)
+			parent=gui.mainFrame
+		)
 		self._progressDialog.Raise()
 		t = threading.Thread(target=self._bg)
 		t.daemon = True
@@ -263,10 +269,12 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 				bundle = addonHandler.AddonBundle(self.destPath)
 			except:
 				log.error(f"Error opening addon bundle from {self.destPath}", exc_info=True)
-				# Translators: The message displayed when an error occurs when trying to update an add-on package due to package problems.
-				gui.messageBox(_("Cannot update {name} - missing file or invalid file format").format(name=self.addonName),
+				gui.messageBox(
+					# Translators: The message displayed when an error occurs when trying to update an add-on package due to package problems.
+					_("Cannot update {name} - missing file or invalid file format").format(name=self.addonName),
 					translate("Error"),
-					wx.OK | wx.ICON_ERROR)
+					wx.OK | wx.ICON_ERROR
+				)
 				self.continueUpdatingAddons()
 				return
 			# Check compatibility with NVDA and/or Windows release.
@@ -293,10 +301,12 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 			minimumWinMajor, minimumWinMinor, minimumWinBuild = minimumWindowsVersion
 			winMajor, winMinor, winBuild = winVersion.winVersion[:3]
 			if (winMajor, winMinor, winBuild) < (minimumWinMajor, minimumWinMinor, minimumWinBuild):
-				# Translators: The message displayed when the add-on requires a newer version of Windows.
-				gui.messageBox(_("{name} add-on is not compatible with this version of Windows.").format(name=self.addonName),
+				gui.messageBox(
+					# Translators: The message displayed when the add-on requires a newer version of Windows.
+					_("{name} add-on is not compatible with this version of Windows.").format(name=self.addonName),
 					translate("Error"),
-					wx.OK | wx.ICON_ERROR)
+					wx.OK | wx.ICON_ERROR
+				)
 				self.continueUpdatingAddons()
 				return
 			bundleName = bundle.manifest['name']
@@ -310,11 +320,13 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 					if not addon.isPendingRemove:
 						addon.requestRemove()
 					break
-			progressDialog = gui.IndeterminateProgressDialog(gui.mainFrame,
-			# Translators: The title of the dialog presented while an Addon is being updated.
-			_("Updating {name}").format(name=self.addonName),
-			# Translators: The message displayed while an addon is being updated.
-			_("Please wait while the add-on is being updated."))
+			progressDialog = gui.IndeterminateProgressDialog(
+				gui.mainFrame,
+				# Translators: The title of the dialog presented while an Addon is being updated.
+				_("Updating {name}").format(name=self.addonName),
+				# Translators: The message displayed while an addon is being updated.
+				_("Please wait while the add-on is being updated.")
+			)
 			try:
 				gui.ExecAndPump(addonHandler.installAddonBundle, bundle)
 			except:
@@ -322,10 +334,12 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 				progressDialog.done()
 				progressDialog.Hide()
 				progressDialog.Destroy()
-				# Translators: The message displayed when an error occurs when installing an add-on package.
-				gui.messageBox(_("Failed to update {name} add-on").format(name=self.addonName),
+				gui.messageBox(
+					# Translators: The message displayed when an error occurs when installing an add-on package.
+					_("Failed to update {name} add-on").format(name=self.addonName),
 					translate("Error"),
-					wx.OK | wx.ICON_ERROR)
+					wx.OK | wx.ICON_ERROR
+				)
 				self.continueUpdatingAddons()
 				return
 			else:
