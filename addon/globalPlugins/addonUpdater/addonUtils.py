@@ -39,6 +39,21 @@ def saveState(keepStateOnline=False):
 	if not keepStateOnline: updateState = None
 
 
+# Load and save add-on state if asked by the user.
+def reload(factoryDefaults=False):
+	if not factoryDefaults: loadState()
+	else:
+		updateState.clear()
+		updateState["autoUpdate"] = True
+		updateState["lastChecked"] = 0
+		updateState["noUpdates"] = []
+		updateState["devUpdates"] = []
+
+
+def save():
+	saveState(keepStateOnline=True)
+
+
 # Borrowed from NVDA Core (the only difference is the URL and where structures are coming from).
 # Flake8: ignore this function altogether.
 def _updateWindowsRootCertificates():
