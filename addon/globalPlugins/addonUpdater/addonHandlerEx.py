@@ -14,6 +14,7 @@ import json
 import re
 import ssl
 import addonHandler
+from logHandler import log
 from . import addonUtils
 
 # The URL prefixes are same for add-ons listed below.
@@ -153,9 +154,16 @@ def fetchAddonInfo(info, results, addon, manifestInfo):
 	# Note that some add-ons are hosted on community add-ons server directly.
 	if "/" not in addonUrl:
 		addonUrl = f"https://addons.nvda-project.org/files/{addonUrl}"
+	# Announce add-on URL for debugging purposes.
+	log.debug(f"nvda3208: add-on URL is {addonUrl}")
 	# Build emulated add-on update dictionary if there is indeed a new version.
 	# All the info we need for add-on version check is after the last slash.
-	version = re.search("(?P<name>)-(?P<version>.*).nvda-addon", addonUrl.split("/")[-1]).groupdict()["version"]
+	# Sometimes, regular expression fails, and if so, treat it as though there is no update for this add-on.
+	try:
+		version = re.search("(?P<name>)-(?P<version>.*).nvda-addon", addonUrl.split("/")[-1]).groupdict()["version"]
+	except:
+		log.debug("nvda3208: could not retrieve version info for an add-on from its URL", exc_info=True)
+		return
 	# If hosted on places other than add-ons server, an unexpected URL might be returned, so parse this further.
 	if addon in version: version = version.split(addon)[1][1:]
 	if addonVersion != version:
