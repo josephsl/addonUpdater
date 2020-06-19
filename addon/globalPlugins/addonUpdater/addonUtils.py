@@ -29,14 +29,14 @@ def loadState():
 	if "devUpdates" not in updateState: updateState["devUpdates"] = []
 
 
-def saveState():
+def saveState(keepStateOnline=False):
 	global updateState
 	try:
 		with open(os.path.join(globalVars.appArgs.configPath, "nvda3208.pickle"), "wb") as f:
 			pickle.dump(updateState, f, protocol=0)
 	except IOError:
 		pass
-	updateState = None
+	if not keepStateOnline: updateState = None
 
 
 # Borrowed from NVDA Core (the only difference is the URL and where structures are coming from).
