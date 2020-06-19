@@ -70,6 +70,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		self.addonUpdater = self.toolsMenu.Append(wx.ID_ANY, _("Check for &add-on updates..."), _("Check for NVDA add-on updates"))
 		gui.mainFrame.sysTrayIcon.Bind(wx.EVT_MENU, addonGuiEx.onAddonUpdateCheck, self.addonUpdater)
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.append(AddonUpdaterPanel)
+		config.post_configSave.register(addonUtils.save)
+		config.post_configReset.register(addonUtils.reload)
 		if addonUtils.updateState["autoUpdate"]:
 			# But not when NVDA itself is updating.
 			if not (globalVars.appArgs.install and globalVars.appArgs.minimal):
@@ -77,6 +79,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def terminate(self):
 		super(GlobalPlugin, self).terminate()
+		config.post_configSave.unregister(addonUtils.save)
+		config.post_configReset.unregister(addonUtils.reload)
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.remove(AddonUpdaterPanel)
 		try:
 			self.toolsMenu.Remove(self.addonUpdater)
