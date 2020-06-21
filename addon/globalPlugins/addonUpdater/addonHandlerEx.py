@@ -100,6 +100,13 @@ names2urls = {
 }
 
 
+# Add-ons with all features integrated into NVDA.
+LegacyAddons = (
+	"focusHighlight",
+	"screenCurtain",
+)
+
+
 def shouldNotUpdate():
 	# Returns a list of descriptions for add-ons that should not update.
 	return [
