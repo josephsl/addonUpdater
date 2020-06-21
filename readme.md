@@ -2,7 +2,7 @@
 
 * Author: Joseph Lee
 * Download [stable version][1]
-* NVDA compatibility: 2019.3 to 2020.1
+* NVDA compatibility: 2020.1 to 2020.2
 
 This add-on brings NVDA Core issue 3208 to life: ability to check for, download, and apply add-on updates.
 
@@ -17,6 +17,12 @@ IMPORTANT NOTES:
 
 * This is a proof of concept add-on. Once the [relevant feature is included in NVDA][2], this add-on will be discontinued.
 * If the new add-on updates specify a compatibility range (minimum and last tested NVDA versions) and if the NVDA version you are running does not fall within the compatibility range according to NVDA, add-on updating will not proceed.
+
+## Version 20.07
+
+* NVDA 2020.1 or later is required.
+* If one or more legacy add-ons (such as Screen Curtain) are installed, Add-on Updater will present a message asking you to uninstall the add-ons listed.
+* You can now save, reload, or reset Add-on Updater settings by pressing Control+NVDA+C, Control+NVDA+R once, or Control+NVDA+R three times, respectively.
 
 ## Version 20.06
 
