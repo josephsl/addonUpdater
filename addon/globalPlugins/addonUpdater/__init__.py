@@ -67,7 +67,7 @@ def legacyAddonsFound():
 	addonUtils.updateState["legacyAddonsFound"] &= set(legacyAddons.keys())
 	legacyAddonsFound = [
 		addon for addon in legacyAddons.keys()
-		if not addon in addonUtils.updateState["legacyAddonsFound"]
+		if addon not in addonUtils.updateState["legacyAddonsFound"]
 	]
 	if len(legacyAddonsFound):
 		# Translators: message displayed if legacy add-ons are found (add-ons with all features included in NVDA).
