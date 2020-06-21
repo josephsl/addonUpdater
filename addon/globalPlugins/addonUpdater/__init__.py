@@ -60,6 +60,26 @@ def endAutoUpdateCheck():
 addonGuiEx.AddonUpdaterManualUpdateCheck.register(endAutoUpdateCheck)
 
 
+# Check if legacy add-ons (add-ons with all features integrated into NVDA) are found, and if yes, notify user and disable automatic add-on update checks.
+def legacyAddonsFound():
+	legacyAddons = addonHandlerEx.detectLegacyAddons()
+	# Installed add-ons marked "legacy" takes precedence (do set intersection).
+	addonUtils.updateState["legacyAddonsFound"] &= set(legacyAddons.keys())
+	legacyAddonsFound = [
+		addon for addon in legacyAddons.keys()
+		if not addon in addonUtils.updateState["legacyAddonsFound"]
+	]
+	if len(legacyAddonsFound):
+		# Translators: message displayed if legacy add-ons are found (add-ons with all features included in NVDA).
+		legacyAddonsFoundMessage = [_("One or more legacy add-ons were found in your NVDA installation. Features from these add-ons are now part of the NVDA version you are using. Please uninstall these add-ons by going to NVDA menu, Tools, Manage Add-ons.\n")]
+		for addon in legacyAddonsFound:
+			legacyAddonsFoundMessage.append("* {0}".format(legacyAddons[addon]))
+			addonUtils.updateState["legacyAddonsFound"].add(addon)
+		wx.CallAfter(gui.messageBox, "\n".join(legacyAddonsFoundMessage), _("Legacy add-ons found"))
+		return True
+	return False
+
+
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def __init__(self):
@@ -72,6 +92,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.append(AddonUpdaterPanel)
 		config.post_configSave.register(addonUtils.save)
 		config.post_configReset.register(addonUtils.reload)
+		if legacyAddonsFound(): return
 		if addonUtils.updateState["autoUpdate"]:
 			# But not when NVDA itself is updating.
 			if not (globalVars.appArgs.install and globalVars.appArgs.minimal):
