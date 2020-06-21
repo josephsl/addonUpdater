@@ -22,11 +22,13 @@ def loadState():
 		updateState["lastChecked"] = 0
 		updateState["noUpdates"] = []
 		updateState["devUpdates"] = []
+		updateState["legacyAddonsFound"] = set()
 	# Just to make sure...
 	if "autoUpdate" not in updateState: updateState["autoUpdate"] = True
 	if "lastChecked" not in updateState: updateState["lastChecked"] = 0
 	if "noUpdates" not in updateState: updateState["noUpdates"] = []
 	if "devUpdates" not in updateState: updateState["devUpdates"] = []
+	if "legacyAddonsFound" not in updateState: updateState["legacyAddonsFound"] = set()
 
 
 def saveState(keepStateOnline=False):
