@@ -123,6 +123,14 @@ def preferDevUpdates():
 	]
 
 
+def detectLegacyAddons():
+	# Returns a dictionary of add-on name and summary for legacy add-ons.
+	return {
+		addon.name: addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
+		if addon.name in LegacyAddons
+	}
+
+
 # Borrowed ideas from NVDA Core.
 # Obtain update status for add-ons returned from community add-ons website.
 # Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
