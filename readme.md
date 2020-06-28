@@ -21,7 +21,7 @@ IMPORTANT NOTES:
 ## Version 20.07
 
 * NVDA 2020.1 or later is required.
-* If one or more legacy add-ons (such as Screen Curtain) are installed, Add-on Updater will present a message asking you to uninstall the add-ons listed.
+* If one or more legacy add-ons (such as Screen Curtain) are installed, Add-on Updater will present a message asking you to disable or uninstall the add-ons listed.
 * You can now save, reload, or reset Add-on Updater settings by pressing Control+NVDA+C, Control+NVDA+R once, or Control+NVDA+R three times, respectively.
 
 ## Version 20.06
