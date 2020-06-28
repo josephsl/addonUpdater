@@ -71,7 +71,7 @@ def legacyAddonsFound():
 	]
 	if len(legacyAddonsFound):
 		# Translators: message displayed if legacy add-ons are found (add-ons with all features included in NVDA).
-		legacyAddonsFoundMessage = [_("One or more legacy add-ons were found in your NVDA installation. Features from these add-ons are now part of the NVDA version you are using. Please uninstall these add-ons by going to NVDA menu, Tools, Manage Add-ons.\n")]
+		legacyAddonsFoundMessage = [_("One or more legacy add-ons were found in your NVDA installation. Features from these add-ons are now part of the NVDA version you are using. Please disable or uninstall these add-ons by going to NVDA menu, Tools, Manage Add-ons.\n")]
 		for addon in legacyAddonsFound:
 			legacyAddonsFoundMessage.append("* {0}".format(legacyAddons[addon]))
 			addonUtils.updateState["legacyAddonsFound"].add(addon)
