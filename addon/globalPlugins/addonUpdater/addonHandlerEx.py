@@ -180,7 +180,8 @@ def fetchAddonInfo(info, results, addon, manifestInfo):
 		log.debug("nvda3208: could not retrieve version info for an add-on from its URL", exc_info=True)
 		return
 	# If hosted on places other than add-ons server, an unexpected URL might be returned, so parse this further.
-	if addon in version: version = version.split(addon)[1][1:]
+	if addon in version:
+		version = version.split(addon)[1][1:]
 	if addonVersion != version:
 		info[addon] = {"curVersion": addonVersion, "version": version, "path": addonUrl}
 
@@ -221,16 +222,20 @@ def checkForAddonUpdates():
 	curAddons = {}
 	addonSummaries = {}
 	for addon in addonHandler.getAvailableAddons():
-		if addon.name not in names2urls: continue
+		if addon.name not in names2urls:
+			continue
 		# Sorry Nuance Vocalizer family, no update checks for you.
-		if "vocalizer" in addon.name.lower(): continue
+		if "vocalizer" in addon.name.lower():
+			continue
 		manifest = addon.manifest
 		name = addon.name
-		if name in addonUtils.updateState["noUpdates"]: continue
+		if name in addonUtils.updateState["noUpdates"]:
+			continue
 		curVersion = manifest["version"]
 		# Check different channels if appropriate.
 		updateChannel = manifest.get("updateChannel")
-		if updateChannel == "None": updateChannel = None
+		if updateChannel == "None":
+			updateChannel = None
 		if updateChannel != "dev" and name in addonUtils.updateState["devUpdates"]:
 			updateChannel = "dev"
 		elif updateChannel == "dev" and name not in addonUtils.updateState["devUpdates"]:

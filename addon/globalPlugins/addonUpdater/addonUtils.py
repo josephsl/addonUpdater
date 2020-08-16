@@ -24,11 +24,16 @@ def loadState():
 		updateState["devUpdates"] = []
 		updateState["legacyAddonsFound"] = set()
 	# Just to make sure...
-	if "autoUpdate" not in updateState: updateState["autoUpdate"] = True
-	if "lastChecked" not in updateState: updateState["lastChecked"] = 0
-	if "noUpdates" not in updateState: updateState["noUpdates"] = []
-	if "devUpdates" not in updateState: updateState["devUpdates"] = []
-	if "legacyAddonsFound" not in updateState: updateState["legacyAddonsFound"] = set()
+	if "autoUpdate" not in updateState:
+		updateState["autoUpdate"] = True
+	if "lastChecked" not in updateState:
+		updateState["lastChecked"] = 0
+	if "noUpdates" not in updateState:
+		updateState["noUpdates"] = []
+	if "devUpdates" not in updateState:
+		updateState["devUpdates"] = []
+	if "legacyAddonsFound" not in updateState:
+		updateState["legacyAddonsFound"] = set()
 
 
 def saveState(keepStateOnline=False):
@@ -38,12 +43,14 @@ def saveState(keepStateOnline=False):
 			pickle.dump(updateState, f, protocol=0)
 	except IOError:
 		pass
-	if not keepStateOnline: updateState = None
+	if not keepStateOnline:
+		updateState = None
 
 
 # Load and save add-on state if asked by the user.
 def reload(factoryDefaults=False):
-	if not factoryDefaults: loadState()
+	if not factoryDefaults:
+		loadState()
 	else:
 		updateState.clear()
 		updateState["autoUpdate"] = True

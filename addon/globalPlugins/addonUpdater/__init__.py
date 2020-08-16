@@ -35,9 +35,11 @@ def autoUpdateCheck():
 	whenToCheck = addonUtils.updateState["lastChecked"] + addonUpdateCheckInterval
 	if currentTime >= whenToCheck:
 		addonUtils.updateState["lastChecked"] = currentTime
-		if addonUtils.updateState["autoUpdate"]: startAutoUpdateCheck(addonUpdateCheckInterval)
+		if addonUtils.updateState["autoUpdate"]:
+			startAutoUpdateCheck(addonUpdateCheckInterval)
 		addonHandlerEx.autoAddonUpdateCheck()
-	else: startAutoUpdateCheck(whenToCheck - currentTime)
+	else:
+		startAutoUpdateCheck(whenToCheck - currentTime)
 
 
 # Start or restart auto update checker.
@@ -84,7 +86,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def __init__(self):
 		super(GlobalPlugin, self).__init__()
-		if globalVars.appArgs.secure or config.isAppX: return
+		if globalVars.appArgs.secure or config.isAppX:
+			return
 		addonUtils.loadState()
 		self.toolsMenu = gui.mainFrame.sysTrayIcon.toolsMenu
 		self.addonUpdater = self.toolsMenu.Append(wx.ID_ANY, _("Check for &add-on updates..."), _("Check for NVDA add-on updates"))
@@ -92,7 +95,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.append(AddonUpdaterPanel)
 		config.post_configSave.register(addonUtils.save)
 		config.post_configReset.register(addonUtils.reload)
-		if legacyAddonsFound(): return
+		if legacyAddonsFound():
+			return
 		if addonUtils.updateState["autoUpdate"]:
 			# But not when NVDA itself is updating.
 			if not (globalVars.appArgs.install and globalVars.appArgs.minimal):
