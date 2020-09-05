@@ -8,8 +8,6 @@ _ = lambda x: x
 
 # Add-on information variables
 addon_info = {
-	# for previously unpublished addons, please follow the community guidelines at:
-	# https://bitbucket.org/nvdaaddonteam/todo/raw/master/guideLines.txt
 	# add-on Name, internal for nvda
 	"addon_name": "addonUpdater",
 	# Add-on summary, usually the user visible name of the addon.
@@ -21,7 +19,7 @@ addon_info = {
 	# version
 	"addon_version": "20.09",
 	# Author(s)
-	"addon_author": u"Joseph Lee <joseph.lee22590@gmail.com>",
+	"addon_author": "Joseph Lee <joseph.lee22590@gmail.com>",
 	# URL for the add-on documentation support
 	"addon_url": "https://addons.nvda-project.org/",
 	# Documentation file name
