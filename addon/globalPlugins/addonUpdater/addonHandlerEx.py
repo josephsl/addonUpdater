@@ -96,6 +96,7 @@ names2urls = {
 	"winMag": "winmag",
 	"wintenApps": "w10",
 	"wordCount": "wc",
+	"zoomEnhancements": "zoom",
 }
 
 
