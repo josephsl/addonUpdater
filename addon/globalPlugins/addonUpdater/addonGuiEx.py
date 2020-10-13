@@ -160,7 +160,10 @@ def updateAddonsGenerator(addons, auto=True):
 		if len(_updatedAddons):
 			# This is possible because all add-ons were updated.
 			if gui.messageBox(
-				translate("Changes were made to add-ons. You must restart NVDA for these changes to take effect. Would you like to restart now?"),
+				translate(
+					"Changes were made to add-ons. You must restart NVDA for these changes to take effect. "
+					"Would you like to restart now?"
+				),
 				translate("Restart NVDA"),
 				wx.YES | wx.NO | wx.ICON_WARNING
 			) == wx.YES:

@@ -73,8 +73,14 @@ def legacyAddonsFound():
 		if addon not in addonUtils.updateState["legacyAddonsFound"]
 	]
 	if len(legacyAddonsFound):
-		# Translators: message displayed if legacy add-ons are found (add-ons with all features included in NVDA).
-		legacyAddonsFoundMessage = [_("One or more legacy add-ons were found in your NVDA installation. Features from these add-ons are now part of the NVDA version you are using. Please disable or uninstall these add-ons by going to NVDA menu, Tools, Manage Add-ons.\n")]
+		legacyAddonsFoundMessage = [
+			_(
+				# Translators: message displayed if legacy add-ons are found (add-ons with all features included in NVDA).
+				"One or more legacy add-ons were found in your NVDA installation. "
+				"Features from these add-ons are now part of the NVDA version you are using. "
+				"Please disable or uninstall these add-ons by going to NVDA menu, Tools, Manage Add-ons.\n"
+			)
+		]
 		for addon in legacyAddonsFound:
 			legacyAddonsFoundMessage.append("* {0}".format(legacyAddons[addon]))
 			addonUtils.updateState["legacyAddonsFound"].add(addon)
@@ -91,7 +97,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			return
 		addonUtils.loadState()
 		self.toolsMenu = gui.mainFrame.sysTrayIcon.toolsMenu
-		self.addonUpdater = self.toolsMenu.Append(wx.ID_ANY, _("Check for &add-on updates..."), _("Check for NVDA add-on updates"))
+		self.addonUpdater = self.toolsMenu.Append(
+			wx.ID_ANY, _("Check for &add-on updates..."), _("Check for NVDA add-on updates")
+		)
 		gui.mainFrame.sysTrayIcon.Bind(wx.EVT_MENU, addonGuiEx.onAddonUpdateCheck, self.addonUpdater)
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.append(AddonUpdaterPanel)
 		config.post_configSave.register(addonUtils.save)
@@ -125,9 +133,11 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 
 	def makeSettings(self, settingsSizer):
 		sHelper = gui.guiHelper.BoxSizerHelper(self, sizer=settingsSizer)
-		# Translators: This is the label for a checkbox in the
-		# Add-on Updater settings panel.
-		self.autoUpdateCheckBox = sHelper.addItem(wx.CheckBox(self, label=_("Automatically check for add-on &updates")))
+		self.autoUpdateCheckBox = sHelper.addItem(
+			# Translators: This is the label for a checkbox in the
+			# Add-on Updater settings panel.
+			wx.CheckBox(self, label=_("Automatically check for add-on &updates"))
+		)
 		self.autoUpdateCheckBox.SetValue(addonUtils.updateState["autoUpdate"])
 
 		# Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
@@ -141,10 +151,12 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 		self.noAddonUpdates.SetCheckedStrings(addonHandlerEx.shouldNotUpdate())
 		self.noAddonUpdates.SetSelection(0)
 
-		self.devAddonUpdates = sHelper.addLabeledControl(_("Prefer development releases:"), CustomCheckListBox, choices=[
-			addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
-			if isinstance(addon.manifest['summary'], str) and "vocalizer" not in addon.name
-		])
+		self.devAddonUpdates = sHelper.addLabeledControl(
+			_("Prefer development releases:"), CustomCheckListBox, choices=[
+				addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
+				if isinstance(addon.manifest['summary'], str) and "vocalizer" not in addon.name
+			]
+		)
 		self.devAddonUpdates.SetCheckedStrings(addonHandlerEx.preferDevUpdates())
 		self.devAddonUpdates.SetSelection(0)
 
