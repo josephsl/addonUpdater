@@ -61,6 +61,7 @@ names2urls = {
 	"mushClient": "mush",
 	"noBeepsSpeechMode": "nb",
 	"NotepadPlusPlus": "NotepadPlusPlus",
+	"numpadNavMode": "numpadNav",
 	"nvSpeechPlayer": "nvsp",
 	"objLocTones": "objLoc",
 	"objPad": "objPad",
