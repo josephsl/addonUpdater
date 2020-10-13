@@ -62,7 +62,8 @@ def endAutoUpdateCheck():
 addonGuiEx.AddonUpdaterManualUpdateCheck.register(endAutoUpdateCheck)
 
 
-# Check if legacy add-ons (add-ons with all features integrated into NVDA) are found, and if yes, notify user and disable automatic add-on update checks.
+# Check if legacy add-ons (add-ons with all features integrated into NVDA) are found,
+# and if yes, notify user and disable automatic add-on update checks.
 def legacyAddonsFound():
 	legacyAddons = addonHandlerEx.detectLegacyAddons()
 	# Installed add-ons marked "legacy" takes precedence (do set intersection).
@@ -130,7 +131,8 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 		self.autoUpdateCheckBox.SetValue(addonUtils.updateState["autoUpdate"])
 
 		# Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
-		# Some add-ons come with pretty badly formatted summary text, so try catching them and exclude them from this list.
+		# Some add-ons come with pretty badly formatted summary text,
+		# so try catching them and exclude them from this list.
 		# Also, Vocalizer add-on family should be excluded from this list (requested by add-on author).
 		self.noAddonUpdates = sHelper.addLabeledControl(_("Do &not update add-ons:"), CustomCheckListBox, choices=[
 			addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()

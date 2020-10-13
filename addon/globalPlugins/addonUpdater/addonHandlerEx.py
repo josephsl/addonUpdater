@@ -104,7 +104,8 @@ names2urls = {
 # Add-ons with all features integrated into NVDA.
 LegacyAddons = (
 	"enhancedAria",
-	"focusHighlight",  # Advanced customizations are not implemented in NVDA yet, but as far as functionality goes, it is a legacy add-on.
+	# Advanced customizations are not implemented in NVDA yet, but legacy add-on in terms of functionality.
+	"focusHighlight",
 	"screenCurtain",
 )
 

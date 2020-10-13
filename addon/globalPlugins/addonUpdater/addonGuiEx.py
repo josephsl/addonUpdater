@@ -29,7 +29,7 @@ AddonUpdaterManualUpdateCheck = extensionPoints.Action()
 _progressDialog = None
 
 
-# The following event handler comes from a combination of StationPlaylist Studio and Windows 10 App Essentials.
+# The following event handler comes from a combination of StationPlaylist and Windows 10 App Essentials.
 def onAddonUpdateCheck(evt):
 	AddonUpdaterManualUpdateCheck.notify()
 	global _progressDialog
@@ -83,9 +83,11 @@ class AddonUpdatesDialog(wx.Dialog):
 			self.addonsList = AutoWidthColumnCheckListCtrl(self, -1, style=wx.LC_REPORT | wx.LC_SINGLE_SEL, size=(550, 350))
 			self.addonsList.Bind(wx.EVT_CHECKLISTBOX, self.onAddonsChecked)
 			self.addonsList.InsertColumn(0, translate("Package"), width=150)
-			# Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
+			# Translators: The label for a column in add-ons updates list
+			# used to identify current add-on version (example: version is 0.3).
 			self.addonsList.InsertColumn(1, _("Current version"), width=50)
-			# Translators: The label for a column in add-ons list used to identify add-on's version (example: version is 0.3).
+			# Translators: The label for a column in add-ons updates list
+			# used to identify new add-on version (example: version is 0.4).
 			self.addonsList.InsertColumn(2, _("New version"), width=50)
 			entriesSizer.Add(self.addonsList, proportion=8)
 			for entry in sorted(addonUpdateInfo.keys()):
@@ -164,7 +166,8 @@ def updateAddonsGenerator(addons, auto=True):
 			) == wx.YES:
 				core.restart()
 		return
-	# #3208: Update (download and install) add-ons one after the other, done by retrieving the first item (as far as current add-ons container is concerned).
+	# #3208: Update (download and install) add-ons one after the other,
+	# done by retrieving the first item (as far as current add-ons container is concerned).
 	addonInfo = addons.pop(0)
 	downloader = AddonUpdateDownloader([addonInfo["urls"]], addonInfo["summary"], addonsToBeUpdated=addons, auto=auto)
 	downloader.start()
@@ -270,7 +273,8 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 			except:
 				log.error(f"Error opening addon bundle from {self.destPath}", exc_info=True)
 				gui.messageBox(
-					# Translators: The message displayed when an error occurs when trying to update an add-on package due to package problems.
+					# Translators: The message displayed when an error occurs
+					# when trying to update an add-on package due to package problems.
 					_("Cannot update {name} - missing file or invalid file format").format(name=self.addonName),
 					translate("Error"),
 					wx.OK | wx.ICON_ERROR
@@ -311,7 +315,8 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 				return
 			bundleName = bundle.manifest['name']
 			isDisabled = False
-			# Optimization (future): it is better to remove would-be add-ons all at once instead of doing it each time a bundle is opened.
+			# Optimization (future): it is better to remove would-be add-ons all at once
+			# instead of doing it each time a bundle is opened.
 			for addon in addonHandler.getAvailableAddons():
 				# Check for disabled state first.
 				if bundleName == addon.manifest['name']:
