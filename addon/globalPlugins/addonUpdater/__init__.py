@@ -17,6 +17,7 @@ except RuntimeError:
 	canUpdate = False
 import globalVars
 import config
+from logHandler import log
 from . import addonHandlerEx
 from . import addonGuiEx
 from . import addonUtils
@@ -95,6 +96,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		super(GlobalPlugin, self).__init__()
 		if globalVars.appArgs.secure or config.isAppX:
 			return
+		# #4: warn and quit if this is a source code of NVDA.
+		if not canUpdate:
+			log.info("nvda3208: update check not supported in source code version of NVDA")
+			return
 		addonUtils.loadState()
 		self.toolsMenu = gui.mainFrame.sysTrayIcon.toolsMenu
 		self.addonUpdater = self.toolsMenu.Append(
@@ -113,6 +118,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def terminate(self):
 		super(GlobalPlugin, self).terminate()
+		# #4: no, do not go through all this if this is a source code copy of NVDA.
+		if not canUpdate:
+			return
 		config.post_configSave.unregister(addonUtils.save)
 		config.post_configReset.unregister(addonUtils.reload)
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.remove(AddonUpdaterPanel)
