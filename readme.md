@@ -18,6 +18,12 @@ IMPORTANT NOTES:
 * This is a proof of concept add-on. Once the [relevant feature is included in NVDA][2], this add-on will be discontinued.
 * If the new add-on updates specify a compatibility range (minimum and last tested NVDA versions) and if the NVDA version you are running does not fall within the compatibility range according to NVDA, add-on updating will not proceed.
 
+## Version 20.11
+
+* NVDA 2020.3 or later is required.
+* Resolved more coding style issues and potential bugs with Flake8.
+* NVDA will no longer play error tones or appear to do nothing when using the add-on while NVDA is running from source code. A message about this fact will be recorded in the log instead.
+
 ## Version 20.07
 
 * NVDA 2020.1 or later is required.
