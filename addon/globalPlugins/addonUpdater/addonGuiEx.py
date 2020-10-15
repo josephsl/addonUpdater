@@ -122,10 +122,10 @@ class AddonUpdatesDialog(wx.Dialog):
 		wx.CallAfter(self.Show)
 
 	def onAddonsChecked(self, evt):
-		try:
-			self.updateButton.Enable() if any([self.addonsList.IsChecked(addon) for addon in range(self.addonsList.GetItemCount())]) else self.updateButton.Disable()
-		except NameError:
-			self.updateButton.Enable() if any([self.addonsList.IsChecked(addon) for addon in range(self.addonsList.GetItemCount())]) else self.updateButton.Disable()
+		if any([self.addonsList.IsChecked(addon) for addon in range(self.addonsList.GetItemCount())]):
+			self.updateButton.Enable()
+		else:
+			self.updateButton.Disable()
 
 	def onUpdate(self, evt):
 		self.Destroy()
