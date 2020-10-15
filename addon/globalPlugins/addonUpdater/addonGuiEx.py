@@ -80,7 +80,9 @@ class AddonUpdatesDialog(wx.Dialog):
 				updateText = _("1 add-on update is available.")
 			addonsSizerHelper.addItem(wx.StaticText(self, label=updateText))
 			entriesSizer = wx.BoxSizer(wx.VERTICAL)
-			self.addonsList = AutoWidthColumnCheckListCtrl(self, -1, style=wx.LC_REPORT | wx.LC_SINGLE_SEL, size=(550, 350))
+			self.addonsList = AutoWidthColumnCheckListCtrl(
+				self, -1, style=wx.LC_REPORT | wx.LC_SINGLE_SEL, size=(550, 350)
+			)
 			self.addonsList.Bind(wx.EVT_CHECKLISTBOX, self.onAddonsChecked)
 			self.addonsList.InsertColumn(0, translate("Package"), width=150)
 			# Translators: The label for a column in add-ons updates list
@@ -172,7 +174,9 @@ def updateAddonsGenerator(addons, auto=True):
 	# #3208: Update (download and install) add-ons one after the other,
 	# done by retrieving the first item (as far as current add-ons container is concerned).
 	addonInfo = addons.pop(0)
-	downloader = AddonUpdateDownloader([addonInfo["urls"]], addonInfo["summary"], addonsToBeUpdated=addons, auto=auto)
+	downloader = AddonUpdateDownloader(
+		[addonInfo["urls"]], addonInfo["summary"], addonsToBeUpdated=addons, auto=auto
+	)
 	downloader.start()
 	yield
 
