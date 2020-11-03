@@ -19,7 +19,10 @@ import globalVars
 import config
 from logHandler import log
 from . import addonHandlerEx
-from . import addonGuiEx
+try:
+	from . import addonGuiEx
+except RuntimeError:
+	canUpdate = False
 from . import addonUtils
 import addonHandler
 addonHandler.initTranslation()
@@ -60,7 +63,8 @@ def endAutoUpdateCheck():
 		wx.CallAfter(autoUpdateCheck)
 
 
-addonGuiEx.AddonUpdaterManualUpdateCheck.register(endAutoUpdateCheck)
+if canUpdate:
+	addonGuiEx.AddonUpdaterManualUpdateCheck.register(endAutoUpdateCheck)
 
 
 # Check if legacy add-ons (add-ons with all features integrated into NVDA) are found,

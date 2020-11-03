@@ -16,7 +16,10 @@ import gui
 from gui import guiHelper
 from logHandler import log
 import addonHandler
-import updateCheck
+try:
+	import updateCheck
+except RuntimeError:
+	raise RuntimeError("Update check module cannot be imported")
 import core
 import extensionPoints
 from gui.nvdaControls import AutoWidthColumnCheckListCtrl
