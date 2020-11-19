@@ -17,6 +17,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.7\n"
 
+#. Translators: message displayed if legacy add-ons are found (add-ons with all features included in NVDA).
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using. Please "
+"disable or uninstall these add-ons by going to NVDA menu, Tools, Manage Add-"
+"ons.\n"
+msgstr ""
+
+msgid "Legacy add-ons found"
+msgstr ""
+
 msgid "Check for &add-on updates..."
 msgstr "Preveri, če obstajajo &posodobitve dodatkov..."
 
@@ -25,7 +36,8 @@ msgstr "Preveri, če obstajajo posodobitve dodatkov za NVDA"
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
-#. Translators: Summary for this add-on to be shown on installation and add-on information.
+#. Translators: Summary for this add-on
+#. to be shown on installation and add-on information.
 msgid "Add-on Updater"
 msgstr "Posodobitev Dodatkov"
 
@@ -34,6 +46,10 @@ msgstr "Posodobitev Dodatkov"
 msgid "Automatically check for add-on &updates"
 msgstr "Samodejno preveri, če obstajajo &posodobitve dodatkov"
 
+#. Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
+#. Some add-ons come with pretty badly formatted summary text,
+#. so try catching them and exclude them from this list.
+#. Also, Vocalizer add-on family should be excluded from this list (requested by add-on author).
 msgid "Do &not update add-ons:"
 msgstr "&Ne posodobi dodatkov:"
 
@@ -56,6 +72,7 @@ msgid "NVDA Add-on Updates"
 msgstr "Posodobitev NVDA Dodatka"
 
 #. Translators: Message displayed when add-on updates are available.
+#, python-brace-format
 msgid "{updateCount} add-on updates are available."
 msgstr "{updateCount} posodobitev dodatkov je na voljo."
 
@@ -63,11 +80,13 @@ msgstr "{updateCount} posodobitev dodatkov je na voljo."
 msgid "1 add-on update is available."
 msgstr "1 posodobitev dodatka je na voljo."
 
-#. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
+#. Translators: The label for a column in add-ons updates list
+#. used to identify current add-on version (example: version is 0.3).
 msgid "Current version"
 msgstr "Trenutna različica"
 
-#. Translators: The label for a column in add-ons list used to identify add-on's version (example: version is 0.3).
+#. Translators: The label for a column in add-ons updates list
+#. used to identify new add-on version (example: version is 0.4).
 msgid "New version"
 msgstr "Nova različica"
 
@@ -84,30 +103,28 @@ msgid "Downloading Add-on Update"
 msgstr "Prenašanje Posodobitve Dodatka"
 
 #. Translators: The progress message indicating the name of the add-on being downloaded.
+#, python-brace-format
 msgid "Downloading {name}"
 msgstr "Prenašanje {name}"
 
 #. Translators: A message indicating that an error occurred while downloading an update to NVDA.
+#, python-brace-format
 msgid "Error downloading update for {name}."
 msgstr "Napaka pri prenosu posodobitve za {name}."
 
-#. Translators: The message displayed when an error occurs when trying to update an add-on package due to package problems.
+#. Translators: The message displayed when an error occurs
+#. when trying to update an add-on package due to package problems.
+#, python-brace-format
 msgid "Cannot update {name} - missing file or invalid file format"
 msgstr "Ni mogoče posodobiti {name} - manjka datoteka ali je neveljavna oblika"
 
-#. Translators: The message displayed when trying to update an add-on that is not going to be compatible with the current version of NVDA.
-msgid ""
-"{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
-"version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
-msgstr ""
-"Dodatek {name} ni združljiv s to različico NVDA. Minimalna različica NVDA "
-"je: {minYear}.{minMajor}, zadnja testirana je: {testedYear}.{testedMajor}."
-
 #. Translators: The message displayed when the add-on requires a newer version of Windows.
+#, python-brace-format
 msgid "{name} add-on is not compatible with this version of Windows."
 msgstr "Dodatek {name} ni združljiv s to različico sistema Windows."
 
 #. Translators: The title of the dialog presented while an Addon is being updated.
+#, python-brace-format
 msgid "Updating {name}"
 msgstr "Posodabljanje {name}"
 
@@ -116,6 +133,7 @@ msgid "Please wait while the add-on is being updated."
 msgstr "Prosimo, počakajte med tem, ko se dodatek posodablja."
 
 #. Translators: The message displayed when an error occurs when installing an add-on package.
+#, python-brace-format
 msgid "Failed to update {name} add-on"
 msgstr "Spodletela posodobitev dodatka {name}"
 
@@ -127,3 +145,10 @@ msgid ""
 msgstr ""
 "Osnutek koncepta implementacije zmožnosti posodobitve dodatka (težava jedra "
 "NVDA 3208)"
+
+#~ msgid ""
+#~ "{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
+#~ "version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
+#~ msgstr ""
+#~ "Dodatek {name} ni združljiv s to različico NVDA. Minimalna različica NVDA "
+#~ "je: {minYear}.{minMajor}, zadnja testirana je: {testedYear}.{testedMajor}."

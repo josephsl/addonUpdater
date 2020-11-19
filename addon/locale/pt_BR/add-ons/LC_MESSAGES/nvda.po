@@ -21,6 +21,17 @@ msgstr ""
 "X-Generator: Poedit 1.6.11\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
+#. Translators: message displayed if legacy add-ons are found (add-ons with all features included in NVDA).
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using. Please "
+"disable or uninstall these add-ons by going to NVDA menu, Tools, Manage Add-"
+"ons.\n"
+msgstr ""
+
+msgid "Legacy add-ons found"
+msgstr ""
+
 msgid "Check for &add-on updates..."
 msgstr "Verifique se há &atualizações de complementos..."
 
@@ -29,7 +40,8 @@ msgstr "Verifique se há atualizações de complementos para o NVDA"
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
-#. Translators: Summary for this add-on to be shown on installation and add-on information.
+#. Translators: Summary for this add-on
+#. to be shown on installation and add-on information.
 msgid "Add-on Updater"
 msgstr "Atualizador de complementos"
 
@@ -39,7 +51,8 @@ msgid "Automatically check for add-on &updates"
 msgstr "Verificar a&utomaticamente se há atualizações de complementos"
 
 #. Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
-#. Some add-ons come with pretty badly formatted summary text, so try catching them and exclude them from this list.
+#. Some add-ons come with pretty badly formatted summary text,
+#. so try catching them and exclude them from this list.
 #. Also, Vocalizer add-on family should be excluded from this list (requested by add-on author).
 msgid "Do &not update add-ons:"
 msgstr "&Não atualizar os complementos:"
@@ -71,11 +84,13 @@ msgstr "{updateCount} atualizações de complementos estão disponíveis."
 msgid "1 add-on update is available."
 msgstr "1 atualização de complemento está disponível."
 
-#. Translators: The label for a column in add-ons list used to identify add-on's running status (example: status is running).
+#. Translators: The label for a column in add-ons updates list
+#. used to identify current add-on version (example: version is 0.3).
 msgid "Current version"
 msgstr "Versão atual"
 
-#. Translators: The label for a column in add-ons list used to identify add-on's version (example: version is 0.3).
+#. Translators: The label for a column in add-ons updates list
+#. used to identify new add-on version (example: version is 0.4).
 msgid "New version"
 msgstr "Nova versão"
 
@@ -101,7 +116,8 @@ msgstr "Baixando {name}"
 msgid "Error downloading update for {name}."
 msgstr "Erro ao baixar a atualização para {name}."
 
-#. Translators: The message displayed when an error occurs when trying to update an add-on package due to package problems.
+#. Translators: The message displayed when an error occurs
+#. when trying to update an add-on package due to package problems.
 #, python-brace-format
 msgid "Cannot update {name} - missing file or invalid file format"
 msgstr ""
