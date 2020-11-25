@@ -139,16 +139,19 @@ def detectLegacyAddons():
 # Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
 # This is the case when it becomes necessary to open another website.
 def fetchAddonInfo(info, results, addon, manifestInfo):
-	# Some add-ons require traversing another URL.
-	secondaryUrl = ("spl-dev", "w10-dev")
 	addonVersion = manifestInfo["version"]
 	addonKey = names2urls[addon]
 	# If "-dev" flag is on, switch to development channel if it exists.
 	channel = manifestInfo["channel"]
 	if channel is not None:
 		addonKey += "-" + channel
-	# Necessary duplication.
-	if addonKey in secondaryUrl:
+	try:
+		addonUrl = results[addonKey]
+	except:
+		return
+	# Necessary duplication if the URL doesn't end in ".nvda-addon".
+	# Some add-ons require traversing another URL.
+	if ".nvda-addon" not in addonUrl:
 		res = None
 		try:
 			res = urlopen(f"https://addons.nvda-project.org/files/get.php?file={addonKey}")
@@ -161,14 +164,10 @@ def fetchAddonInfo(info, results, addon, manifestInfo):
 				pass
 		finally:
 			if res is not None:
-				results[addonKey] = res.url
+				addonUrl = res.url
 				res.close()
 		if res is None or (res and res.code != 200):
 			return
-	try:
-		addonUrl = results[addonKey]
-	except:
-		return
 	# Note that some add-ons are hosted on community add-ons server directly.
 	if "/" not in addonUrl:
 		addonUrl = f"https://addons.nvda-project.org/files/{addonUrl}"
