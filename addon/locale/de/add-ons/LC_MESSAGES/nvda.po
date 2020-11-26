@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2019-12-15 13:29+0100\n"
+"PO-Revision-Date: 2020-11-25 00:56+0100\n"
 "Last-Translator: René Linke <rene.linke@hamburg.de>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #. Translators: message displayed if legacy add-ons are found (add-ons with all features included in NVDA).
 msgid ""
@@ -24,9 +24,14 @@ msgid ""
 "disable or uninstall these add-ons by going to NVDA menu, Tools, Manage Add-"
 "ons.\n"
 msgstr ""
+"Eine oder mehrere veraltete Erweiterungen wurden in der NVDA-Installation "
+"gefunden. Funktionen aus diesen Erweiterungen sind nun Teil der verwendeten "
+"NVDA-Version.\n"
+". Bitte deaktivieren oder deinstallieren Sie diese Erweiterungen, indem Sie "
+"zum NVDA-Menü, Werkzeuge, Erweiterungen verwalten gehen.\n"
 
 msgid "Legacy add-ons found"
-msgstr ""
+msgstr "Veraltete Erweiterungen gefunden"
 
 msgid "Check for &add-on updates..."
 msgstr "Nach &Updates für NVDA-Erweiterungen suchen..."
@@ -44,7 +49,7 @@ msgstr "Updater für NVDA-Erweiterungen"
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
 msgid "Automatically check for add-on &updates"
-msgstr "Automatisch nach &Updates für NVDA-Erweiterung suchen"
+msgstr "Automatisch nach &Updates für NVDA-Erweiterungen suchen"
 
 #. Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
 #. Some add-ons come with pretty badly formatted summary text,
