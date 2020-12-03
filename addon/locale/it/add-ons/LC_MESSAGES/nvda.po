@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12.2\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-12-14 01:00+1000\n"
-"PO-Revision-Date: 2020-02-18 11:51+0100\n"
-"Last-Translator: Simone Dal Maso <simone.dalmaso@gmail.com>\n"
+"PO-Revision-Date: 2020-11-30 23:32+0100\n"
+"Last-Translator: Fabrizio Marini <marini.carlo@fastwebnet.it>\n"
 "Language-Team: \n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #. Translators: message displayed if legacy add-ons are found (add-ons with all features included in NVDA).
 msgid ""
@@ -24,9 +24,14 @@ msgid ""
 "disable or uninstall these add-ons by going to NVDA menu, Tools, Manage Add-"
 "ons.\n"
 msgstr ""
+"Nella tua installazione di NVDA sono stati trovati uno o più componenti "
+"aggiuntivi obsoleti. Le funzionalità di questi componenti ora fanno parte "
+"della versione di NVDA che stai utilizzando. Disabilita o disinstalla questi "
+"add-on scegliendo Strumenti -> Gestione Componenti Aggiuntivi dal menù di "
+"NVDA.\n"
 
 msgid "Legacy add-ons found"
-msgstr ""
+msgstr "Trovati componenti aggiuntivi obsoleti"
 
 msgid "Check for &add-on updates..."
 msgstr "Controlla &aggiornamenti componenti aggiuntivi..."
@@ -53,7 +58,7 @@ msgstr ""
 #. so try catching them and exclude them from this list.
 #. Also, Vocalizer add-on family should be excluded from this list (requested by add-on author).
 msgid "Do &not update add-ons:"
-msgstr "&non aggiornare i componenti"
+msgstr "&non aggiornare i componenti:"
 
 msgid "Prefer development releases:"
 msgstr "Usa versioni in sviluppo:"
@@ -76,11 +81,11 @@ msgstr "Controllo aggiornamenti componenti aggiuntivi NVDA"
 #. Translators: Message displayed when add-on updates are available.
 #, python-brace-format
 msgid "{updateCount} add-on updates are available."
-msgstr "vi sono {updateCount} aggiornamenti di addon disponibili"
+msgstr "Vi sono {updateCount} componenti aggiuntivi da aggiornare."
 
 #. Translators: Message displayed when add-on updates are available.
 msgid "1 add-on update is available."
-msgstr "è disponibile un aggiornamento per un componente aggiuntivo"
+msgstr "C'è un componente aggiuntivo da aggiornare."
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify current add-on version (example: version is 0.3).
@@ -132,12 +137,12 @@ msgstr "Aggiornamento di {name}"
 
 #. Translators: The message displayed while an addon is being updated.
 msgid "Please wait while the add-on is being updated."
-msgstr "Si prega di Attendere mentre il componente viene aggiornato"
+msgstr "Si prega di Attendere mentre il componente viene aggiornato."
 
 #. Translators: The message displayed when an error occurs when installing an add-on package.
 #, python-brace-format
 msgid "Failed to update {name} add-on"
-msgstr "Impossibile aggiornare il componente aggiuntivo {name}."
+msgstr "Impossibile aggiornare il componente aggiuntivo {name}"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
