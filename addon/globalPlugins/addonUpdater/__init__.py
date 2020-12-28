@@ -1,5 +1,5 @@
 # Add-on Updater
-# Copyright 2018-2020 Joseph Lee, released under GPL.
+# Copyright 2018-2021 Joseph Lee, released under GPL.
 
 # Note: proof of concept implementation of NVDA Core issue 3208
 # URL: https://github.com/nvaccess/nvda/issues/3208

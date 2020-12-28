@@ -4,7 +4,7 @@
 # See the file COPYING for more details.
 # Copyright (C) 2012-2019 NV Access Limited, Beqa Gozalishvili, Joseph Lee, Babbage B.V., Ethan Holliger
 
-# Proof of concept user interface for add-on update dilaog (NVDA Core issue 3208)
+# Proof of concept user interface for add-on update dialog (NVDA Core issue 3208)
 
 from urllib.request import urlopen
 import os
