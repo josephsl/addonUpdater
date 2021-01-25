@@ -70,6 +70,7 @@ names2urls = {
 	"pcKbBrl": "pckbbrl",
 	"phoneticPunctuation": "phoneticpunc",
 	"placeMarkers": "pm",
+	"quickDictionary": "quickdictionary",
 	"readFeeds": "rf",
 	"remote": "nvdaremote",
 	"reportSymbols": "rsy",
