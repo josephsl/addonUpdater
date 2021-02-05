@@ -313,7 +313,13 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 				if minimumWindowsVersion is None:
 					minimumWindowsVersion = winVersion.getWinVer()
 				else:
-					minimumWindowsVersion =  winVersion.WinVersion.fromVersionText(minimumWindowsVersion)
+					minimumWindowsVersion = [int(data) for data in minimumWindowsVersion.split(".")]
+					minimumWinMajor, minimumWinMinor, minimumWinBuild = minimumWindowsVersion
+					minimumWindowsVersion =  winVersion.WinVersion(
+						major=minimumWinMajor,
+						minor=minimumWinMinor,
+						build=minimumWinBuild
+					)
 				winVersionUnsupported = winVersion.getWinVer() < minimumWindowsVersion
 			else:
 				if minimumWindowsVersion is None:
