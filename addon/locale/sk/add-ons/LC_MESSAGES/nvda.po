@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2020-02-29 17:48+0100\n"
+"PO-Revision-Date: 2021-02-09 10:58+0100\n"
 "Last-Translator: Ondrej Rosík <ondrej.rosik@gmail.com>\n"
 "Language-Team: \n"
 "Language: sk\n"
@@ -25,9 +25,12 @@ msgid ""
 "disable or uninstall these add-ons by going to NVDA menu, Tools, Manage Add-"
 "ons.\n"
 msgstr ""
+"Pri kontrole sa našli nepodporované doplnky. Funkcie z týchto doplnkov sú už "
+"súčasťou NVDA a preto sa samotné doplnky nevyvýjajú. Odstráňte ich cez "
+"správcu doplnkov (nvda. Otvorte ponuku NVDA > Nástroje > Spravovať doplnky.\n"
 
 msgid "Legacy add-ons found"
-msgstr ""
+msgstr "Nepodporované doplnky"
 
 msgid "Check for &add-on updates..."
 msgstr "Skontrolovať &aktualizácie doplnkov..."
@@ -40,7 +43,7 @@ msgstr "Skontrolovať aktualizácie doplnkov"
 #. Translators: Summary for this add-on
 #. to be shown on installation and add-on information.
 msgid "Add-on Updater"
-msgstr "Aktualizácie doplnkovAktualizačný nástroj pre doplnky NVDA"
+msgstr "Aktualizácie doplnkov"
 
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
@@ -79,7 +82,7 @@ msgstr "Dostupné aktualizácie: {updateCount}."
 
 #. Translators: Message displayed when add-on updates are available.
 msgid "1 add-on update is available."
-msgstr "K dispozícii je jedna aktualizácia"
+msgstr "K dispozícii je aktualizácia jedného doplnku."
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify current add-on version (example: version is 0.3).
@@ -106,7 +109,7 @@ msgstr "Sťahujem aktualizácie"
 #. Translators: The progress message indicating the name of the add-on being downloaded.
 #, python-brace-format
 msgid "Downloading {name}"
-msgstr "sťahovanie {name}"
+msgstr "sťahujem {name}"
 
 #. Translators: A message indicating that an error occurred while downloading an update to NVDA.
 #, python-brace-format
