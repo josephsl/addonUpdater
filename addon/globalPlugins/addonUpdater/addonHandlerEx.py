@@ -201,7 +201,9 @@ def checkForAddonUpdate(curAddons):
 				addonUtils._updateWindowsRootCertificates()
 				res = urlopen("https://addons.nvda-project.org/files/get.php?addonslist")
 			else:
-				pass
+				# Inform results dictionary that an error has occurred as this is running inside a thread.
+				log.debug("nvda3208: errors occurred while retrieving community add-ons", exc_info=True)
+				results["error"] = True
 		finally:
 			if res is not None:
 				results.update(json.load(res))
@@ -211,6 +213,9 @@ def checkForAddonUpdate(curAddons):
 	addonsFetcher.start()
 	# This internal thread must be joined, otherwise results will be lost.
 	addonsFetcher.join()
+	# Raise an error if results says so.
+	if "error" in results:
+		raise RuntimeError("Failed to retrieve community add-ons")
 	# The info dictionary will be passed in as a reference in individual threads below.
 	info = {}
 	updateThreads = [
@@ -251,7 +256,8 @@ def checkForAddonUpdates():
 	try:
 		info = checkForAddonUpdate(curAddons)
 	except:
-		info = {}
+		# Present an error dialog if manual add-on update check is in progress.
+		raise RuntimeError("Cannot check for community add-on updates")
 	# data = json.dumps(curAddons)
 	# Pseudocode:
 	"""try:
