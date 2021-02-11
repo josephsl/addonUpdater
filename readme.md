@@ -19,6 +19,10 @@ IMPORTANT NOTES:
 * If the new add-on updates specify a compatibility range (minimum and last tested NVDA versions) and if the NVDA version you are running does not fall within the compatibility range according to NVDA, add-on updating will not proceed.
 * Not all add-ons come with development releases. If you are not getting updates after choosing to install development versions of an add-on, switch to stable channel for affected add-ons.
 
+## Version 21.03
+
+* NVDA will present an error dialog if errors occur while checking for add-on updates such as loss of Internet connection.
+
 ## Version 20.11
 
 * NVDA 2020.3 or later is required.
