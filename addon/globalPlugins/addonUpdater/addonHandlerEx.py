@@ -36,6 +36,7 @@ names2urls = {
 	"clipspeak": "cs",
 	"clock": "cac",
 	"columnsReview": "cr",
+	"consoleToolkit": "consoletoolkit",
 	"controlUsageAssistant": "cua",
 	"dayOfTheWeek": "dw",
 	"debugHelper": "debughelper",
@@ -97,7 +98,9 @@ names2urls = {
 	"VLC": "vlc-18",
 	"winMag": "winmag",
 	"wintenApps": "w10",
+	"winWizard": "winwizard",
 	"wordCount": "wc",
+	"wordNav": "wordnav",
 	"zoomEnhancements": "zoom",
 }
 
