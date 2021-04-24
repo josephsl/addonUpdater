@@ -121,7 +121,7 @@ class AddonUpdatesDialog(wx.Dialog):
 		mainSizer.Add(addonsSizerHelper.sizer, border=guiHelper.BORDER_FOR_DIALOGS, flag=wx.ALL)
 		self.Sizer = mainSizer
 		mainSizer.Fit(self)
-		self.Center(wx.BOTH | wx.CENTER_ON_SCREEN)
+		self.CenterOnScreen()
 		wx.CallAfter(self.Show)
 
 	def onAddonsChecked(self, evt):
