@@ -6,16 +6,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
-"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
+"Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2021-05-06 15:09-0700\n"
-"Last-Translator: Stanley Chung <stanley@mail.com>\n"
-"Language-Team: \n"
-"Language: ko\n"
+"PO-Revision-Date: 2021-05-05 00:12+0200\n"
+"Last-Translator: Radek Žalud <radek.zalud@seznam.cz>\n"
+"Language-Team: cs\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.9\n"
+"X-Generator: Poedit 2.4.3\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
 
 #. Translators: message displayed if legacy add-ons are found (add-ons with all features included in NVDA).
 msgid ""
@@ -24,122 +25,138 @@ msgid ""
 "disable or uninstall these add-ons by going to NVDA menu, Tools, Manage Add-"
 "ons.\n"
 msgstr ""
+"Byly nalezeny nepodporované doplňky. Funkce z těchto doplňků jsou již "
+"součástí programu NVDA a proto se samotné doplňky dále nevyvýjí. Odstraňte "
+"je ve správci doplňků (nvda. Otevřete nabídku NVDA > Nástroje > Spravovat "
+"doplňky.\n"
 
 msgid "Legacy add-ons found"
-msgstr ""
+msgstr "Nepodporované doplňky"
 
 msgid "Check for &add-on updates..."
-msgstr "추가 기능 업데이트 확인 (&A)..."
+msgstr "Skontrolovat &aktualizace doplňků..."
 
 msgid "Check for NVDA add-on updates"
-msgstr "NVDA 추가 기능 업데이트 확인"
+msgstr "Skontrolovat aktualizace doplňků"
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
 #. Translators: Summary for this add-on
 #. to be shown on installation and add-on information.
 msgid "Add-on Updater"
-msgstr "Add-on Updater"
+msgstr "Aktualizace doplňků"
 
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
 msgid "Automatically check for add-on &updates"
-msgstr "추가 기능 업데이트 자동으로 확인 (&U)"
+msgstr "Automaticky kontrolovat &Aktualizace doplňků"
 
 #. Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
 #. Some add-ons come with pretty badly formatted summary text,
 #. so try catching them and exclude them from this list.
 #. Also, Vocalizer add-on family should be excluded from this list (requested by add-on author).
 msgid "Do &not update add-ons:"
-msgstr "업데이트 확인 않함 (&N)"
+msgstr "Neaktualizovat &doplňky:"
 
 msgid "Prefer development releases:"
-msgstr "개발 버전으로 업데이트:"
+msgstr "Preferovat vývojové verze:"
 
 #. Translators: The title of the dialog presented while checking for add-on updates.
 msgid "Add-on update check"
-msgstr "추가 기능 업데이트 확인중"
+msgstr "KOntrola aktualizací"
 
 #. Translators: The message displayed while checking for add-on updates.
 msgid "Checking for add-on updates..."
-msgstr "설치된 추가 기능들에 대한 업데이트를 확인하고 있습니다."
+msgstr "Kontrola aktualizací..."
 
 msgid "Error checking for add-on updates."
-msgstr "추가 기능 업데이트 확인중 오류가 발생하였습니다."
+msgstr "Chyba při kontrole aktualizací."
 
 #. Translators: The title of the add-on updates dialog.
 msgid "NVDA Add-on Updates"
-msgstr "NVDA 추가 기능 업데이트"
+msgstr "Aktualizace doplňků"
 
 #. Translators: Message displayed when add-on updates are available.
 #, python-brace-format
 msgid "{updateCount} add-on updates are available."
-msgstr "추가 기능 업데이트가 {updateCount}건 있습니다."
+msgstr "Dostupné aktualizace: {updateCount}."
 
 #. Translators: Message displayed when add-on updates are available.
 msgid "1 add-on update is available."
-msgstr "추가 기능 업데이트가 1건 있습니다."
+msgstr "Je dostupná aktualizace jednoho doplňku."
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify current add-on version (example: version is 0.3).
 msgid "Current version"
-msgstr "사용중인 버전"
+msgstr "Aktuální verze"
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify new add-on version (example: version is 0.4).
 msgid "New version"
-msgstr "업데이트 버전"
+msgstr "Nová verze"
 
 #. Translators: Message displayed when no add-on updates are available.
 msgid "No add-on update available."
-msgstr "추가 기능 업데이트가 없습니다."
+msgstr "Používáte nejnovější verze všech doplňků."
 
 #. Translators: The label of a button to update add-ons.
 msgid "&Update add-ons"
-msgstr "업데이트"
+msgstr "&Aktualizovat doplňky"
 
 #. Translators: The title of the dialog displayed while downloading add-on update.
 msgid "Downloading Add-on Update"
-msgstr "추가 기능 업데이트 다운로드 중"
+msgstr "Stahování aktualizací"
 
 #. Translators: The progress message indicating the name of the add-on being downloaded.
 #, python-brace-format
 msgid "Downloading {name}"
-msgstr "{name} 다운로드 중"
+msgstr "Stahuji {name}"
 
 #. Translators: A message indicating that an error occurred while downloading an update to NVDA.
 #, python-brace-format
 msgid "Error downloading update for {name}."
-msgstr "{name}에 대한 업데이트를 다운로드하던 중 오류가 발생했습니다."
+msgstr "Chyba při stahování aktualizace{name}."
 
 #. Translators: The message displayed when an error occurs
 #. when trying to update an add-on package due to package problems.
 #, python-brace-format
 msgid "Cannot update {name} - missing file or invalid file format"
-msgstr "{name}를 업데이트할 수 없습니다 - 파일이 누락됐거나 유효하지 않습니다"
+msgstr ""
+"Nelze aktualizovat {name} - chýbějící soubor neebo neplatný formát souboru"
 
 #. Translators: The message displayed when the add-on requires a newer version of Windows.
 #, python-brace-format
 msgid "{name} add-on is not compatible with this version of Windows."
-msgstr "추가 기능 {name}은 사용중인 윈도우 버전서 사용할 수 없습니다."
+msgstr ""
+"Doplněk {name} není kompatibilní s vaší verzí operačního systému Windows."
 
 #. Translators: The title of the dialog presented while an Addon is being updated.
 #, python-brace-format
 msgid "Updating {name}"
-msgstr "{name} 업데이트중"
+msgstr "Aktualizuji {name}"
 
 #. Translators: The message displayed while an addon is being updated.
 msgid "Please wait while the add-on is being updated."
-msgstr "추가 기능을 업데이트하고 있습니다. 잠시만 기다려 주십시오."
+msgstr "Počkejte prosím, než se doplněk aktualizuje."
 
 #. Translators: The message displayed when an error occurs when installing an add-on package.
 #, python-brace-format
 msgid "Failed to update {name} add-on"
-msgstr "{name} 추가 기능 업데이트에 실패했습니다"
+msgstr "Aktualizace doplňku {name} se nezdařila"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid ""
 "Proof of concept implementation of add-on update feature (NVDA Core issue "
 "3208)"
-msgstr "추가 기능 업데이트 기능의 시험적 구현 (NVDA Core issue 3208)"
+msgstr ""
+"Implementace aktualizačního mechanismu pro doplňky NVDA (Hledejte ticket "
+"3208)"
+
+#~ msgid ""
+#~ "{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
+#~ "version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
+#~ msgstr ""
+#~ "Doplnok {name} nie je kompatibilný s touto verziou NVDA. Potrebujete "
+#~ "verziu NVDA: {minYear}.{minMajor}, naposledy testovaná: {testedYear}."
+#~ "{testedMajor}."
