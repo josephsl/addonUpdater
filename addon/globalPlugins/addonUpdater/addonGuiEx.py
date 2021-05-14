@@ -11,7 +11,6 @@ import os
 import threading
 import tempfile
 import hashlib
-import gettext
 import wx
 import gui
 from gui import guiHelper
@@ -77,12 +76,8 @@ class AddonUpdatesDialog(wx.Dialog):
 
 		if addonUpdateInfo:
 			addonUpdateCount = len(addonUpdateInfo)
-			updateText = gettext.ngettext(
-				# Translators: Message displayed when add-on updates are available.
-				"1 add-on update is available.",
-				"{updateCount} add-on updates are available.".format(updateCount=addonUpdateCount),
-				addonUpdateCount
-			)
+			# Translators: Message displayed when add-on updates are available.
+			updateText = _("Add-on updates available: {updateCount}").format(updateCount=addonUpdateCount)
 			addonsSizerHelper.addItem(wx.StaticText(self, label=updateText))
 			entriesSizer = wx.BoxSizer(wx.VERTICAL)
 			self.addonsList = AutoWidthColumnCheckListCtrl(
