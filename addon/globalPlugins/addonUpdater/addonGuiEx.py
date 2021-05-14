@@ -313,7 +313,7 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 				else:
 					minimumWindowsVersion = [int(data) for data in minimumWindowsVersion.split(".")]
 					minimumWinMajor, minimumWinMinor, minimumWinBuild = minimumWindowsVersion
-					minimumWindowsVersion =  winVersion.WinVersion(
+					minimumWindowsVersion = winVersion.WinVersion(
 						major=minimumWinMajor,
 						minor=minimumWinMinor,
 						build=minimumWinBuild
