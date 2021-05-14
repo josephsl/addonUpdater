@@ -77,8 +77,12 @@ class AddonUpdatesDialog(wx.Dialog):
 
 		if addonUpdateInfo:
 			addonUpdateCount = len(addonUpdateInfo)
-			# Translators: Message displayed when add-on updates are available.
-			updateText = gettext.ngettext("1 add-on update is available.", "{updateCount} add-on updates are available.".format(updateCount=addonUpdateCount), addonUpdateCount)
+			updateText = gettext.ngettext(
+				# Translators: Message displayed when add-on updates are available.
+				"1 add-on update is available.",
+				"{updateCount} add-on updates are available.".format(updateCount=addonUpdateCount),
+				addonUpdateCount
+			)
 			addonsSizerHelper.addItem(wx.StaticText(self, label=updateText))
 			entriesSizer = wx.BoxSizer(wx.VERTICAL)
 			self.addonsList = AutoWidthColumnCheckListCtrl(
@@ -326,7 +330,9 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 					minimumWindowsVersion = [int(data) for data in minimumWindowsVersion.split(".")]
 				minimumWinMajor, minimumWinMinor, minimumWinBuild = minimumWindowsVersion
 				winMajor, winMinor, winBuild = winVersion.winVersion[:3]
-				winVersionUnsupported = (winMajor, winMinor, winBuild) < (minimumWinMajor, minimumWinMinor, minimumWinBuild)
+				winVersionUnsupported = (
+					(winMajor, winMinor, winBuild) < (minimumWinMajor, minimumWinMinor, minimumWinBuild)
+				)
 			if winVersionUnsupported:
 				gui.messageBox(
 					# Translators: The message displayed when the add-on requires a newer version of Windows.
