@@ -281,6 +281,8 @@ def autoAddonUpdateCheck():
 	t.daemon = True
 	t.start()
 
+# Only stored when update toast appears.
+_updateInfo = None
 
 def _showAddonUpdateUI():
 	def _showAddonUpdateUICallback(info):
@@ -295,4 +297,20 @@ def _showAddonUpdateUI():
 		info = None
 		raise
 	if info is not None:
-		wx.CallAfter(_showAddonUpdateUICallback, info)
+		# Show either the update notification toast (Windows 10) or the results dialog (other Windows releases).
+		# If toast is shown, checking for add-on updates from tools menu will merely show the results dialog.
+		# wxPython 4.1.0 (and consequently, wxWidges 3.1.0) simplifies this by
+		# allowing action handlers to be defined for toasts, which will then show the results dialog on the spot.
+		# However it doesn't work for desktop apps such as NVDA.
+		import sys
+		if sys.getwindowsversion().major == 10:
+			global _updateInfo
+			updateMessage = []
+			if len(info) == 1:
+				updateMessage.append("1 NVDA add-on update is available.")
+			else:
+				updateMessage.append("%s NVDA add-on updates are available."%len(info))
+			updateMessage.append("Go to NVDA menu, Tools, Check for add-on update to review them.")
+			wx.adv.NotificationMessage("NVDA add-on updates", " ".join(updateMessage)).Show(timeout=30)
+			_updateInfo = info
+		else: wx.CallAfter(_showAddonUpdateUICallback, info)
