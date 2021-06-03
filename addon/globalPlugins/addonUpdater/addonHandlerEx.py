@@ -105,7 +105,14 @@ names2urls = {
 }
 
 
-# Add-ons with all features integrated into NVDA.
+# Add-ons with all features integrated into NVDA or declared "legacy" by authors.
+# For the latter case, update check functionality will be disabled upon authors' request.
+
+# Translators: legacy add-on, features included in NVDA.
+LegacyAddonIncludedInNVDA = _("features included in NVDA")
+# Translators: legacy add-on, declared by add-on developers.
+LegacyAddonAuthorDeclaration = _("declared legacy by add-on developers")
+
 LegacyAddons = (
 	"enhancedAria",
 	# Advanced customizations are not implemented in NVDA yet, but legacy add-on in terms of functionality.
