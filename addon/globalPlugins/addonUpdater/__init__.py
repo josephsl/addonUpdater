@@ -67,8 +67,9 @@ if canUpdate:
 	addonGuiEx.AddonUpdaterManualUpdateCheck.register(endAutoUpdateCheck)
 
 
-# Check if legacy add-ons (add-ons with all features integrated into NVDA) are found,
-# and if yes, notify user and disable automatic add-on update checks.
+# Check if legacy add-ons are found, and if yes, notify user and disable automatic add-on update checks.
+# Legacy add-ons can include add-ons with all features integrated into NVDA
+# or declared as legacy by add-on authors.
 def legacyAddonsFound():
 	legacyAddons = addonHandlerEx.detectLegacyAddons()
 	# Installed add-ons marked "legacy" takes precedence (do set intersection).
@@ -80,14 +81,18 @@ def legacyAddonsFound():
 	if len(legacyAddonsFound):
 		legacyAddonsFoundMessage = [
 			_(
-				# Translators: message displayed if legacy add-ons are found (add-ons with all features included in NVDA).
+				# Translators: message displayed if legacy add-ons are found
+				# (add-ons with all features included in NVDA or declared as legacy by add-on authors).
 				"One or more legacy add-ons were found in your NVDA installation. "
-				"Features from these add-ons are now part of the NVDA version you are using. "
+				"Features from these add-ons are now part of the NVDA version you are using "
+				"or declared legacy by add-on developers. "
 				"Please disable or uninstall these add-ons by going to NVDA menu, Tools, Manage Add-ons.\n"
 			)
 		]
 		for addon in legacyAddonsFound:
-			legacyAddonsFoundMessage.append("* {0}".format(legacyAddons[addon]))
+			legacyAddonsFoundMessage.append("* {0}: {1}".format(
+				legacyAddons[addon], addonHandlerEx.LegacyAddons[addon]
+			))
 			addonUtils.updateState["legacyAddonsFound"].add(addon)
 		wx.CallAfter(gui.messageBox, "\n".join(legacyAddonsFoundMessage), _("Legacy add-ons found"))
 		return True
