@@ -113,12 +113,13 @@ LegacyAddonIncludedInNVDA = _("features included in NVDA")
 # Translators: legacy add-on, declared by add-on developers.
 LegacyAddonAuthorDeclaration = _("declared legacy by add-on developers")
 
-LegacyAddons = (
-	"enhancedAria",
-	# Advanced customizations are not implemented in NVDA yet, but legacy add-on in terms of functionality.
-	"focusHighlight",
-	"screenCurtain",
-)
+LegacyAddons = {
+	"enhancedAria": LegacyAddonIncludedInNVDA,
+	# Advanced focus highlight customizations are not implemented in NVDA yet,
+	# but legacy add-on in terms of functionality.
+	"focusHighlight": LegacyAddonIncludedInNVDA,
+	"screenCurtain": LegacyAddonIncludedInNVDA,
+}
 
 
 def shouldNotUpdate():
