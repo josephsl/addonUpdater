@@ -19,6 +19,11 @@ IMPORTANT NOTES:
 * If the new add-on updates specify a compatibility range (minimum and last tested NVDA versions) and if the NVDA version you are running does not fall within the compatibility range according to NVDA, add-on updating will not proceed.
 * Not all add-ons come with development releases. If you are not getting updates after choosing to install development versions of an add-on, switch to stable channel for affected add-ons.
 
+## Version 21.07
+
+* On Windows 10, a toast notification will be shown when add-on updates are available. Note that you cannot click this notification - you must open NvDA menu/Tools/Check for add-on updates to review updates.
+* When legacy add-ons dialog is shown at startup, you can now review legacy add-ons and reasons just like add-on updates.
+
 ## Version 21.05
 
 * NvDA will no longer play error tones if trying to check updates while using NVDA 2021.1 alpha snapshots, caused by changes to wxPython GUI toolkit.
