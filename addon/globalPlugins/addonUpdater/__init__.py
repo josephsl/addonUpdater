@@ -7,7 +7,7 @@
 import globalPluginHandler
 import time
 import gui
-from gui.nvdaControls import CustomCheckListBox
+from gui.nvdaControls import CustomCheckListBox, AutoWidthColumnListCtrl
 import wx
 # What if this is run from NVDA source?
 try:
@@ -24,6 +24,7 @@ try:
 except RuntimeError:
 	canUpdate = False
 from . import addonUtils
+from .skipTranslation import translate
 import addonHandler
 addonHandler.initTranslation()
 
@@ -196,3 +197,58 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 		if addonUtils.updateState["autoUpdate"]:
 			addonUtils.updateState["lastChecked"] = time.time()
 			wx.CallAfter(autoUpdateCheck)
+
+
+# Legacy add-ons (startup) dialog
+# Inspired by NVDA's incompatible add-ons dialog (credit: NV Access)
+# The ideal place is add-on GUI but is placed here since add-on GUI module might not be importable.
+class LegacyAddonsDialog(wx.Dialog):
+
+	def __init__(self, parent, legacyAddonInfo):
+		# Translators: The title of the legacy add-ons dialog.
+		super(LegacyAddonsDialog, self).__init__(parent, title=_("Legacy add-ons found"))
+		mainSizer = wx.BoxSizer(wx.VERTICAL)
+		settingsSizer = wx.BoxSizer(wx.VERTICAL)
+		addonsSizerHelper = gui.guiHelper.BoxSizerHelper(self, sizer=settingsSizer)
+
+		introText = _(
+			# Translators: message displayed if legacy add-ons are found
+			# (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+			"One or more legacy add-ons were found in your NVDA installation. "
+			"Features from these add-ons are now part of the NVDA version you are using "
+			"or declared legacy by add-on developers. "
+			"Please disable or uninstall these add-ons by going to NVDA menu, Tools, Manage Add-ons.\n"
+		)
+		legacyAddonsIntroLabel = wx.StaticText(self, label=introText)
+		legacyAddonsIntroLabel.Wrap(550)
+		addonsSizerHelper.addItem(legacyAddonsIntroLabel)
+		# Translators: the label for the legacy add-ons list.
+		entriesLabel = _("Legacy add-ons")
+		self.addonsList = addonsSizerHelper.addLabeledControl(
+			entriesLabel,
+			AutoWidthColumnListCtrl,
+			style=wx.LC_REPORT | wx.LC_SINGLE_SEL,
+		)
+		self.addonsList.InsertColumn(0, translate("Package"), width=150)
+		# Translators: The label for a column in legacy add-ons list used to show legacy add-on reason.
+		self.addonsList.InsertColumn(1, _("Legacy reason"), width=180)
+		# Unlike add-on updates dialog, legacy add-on info is a simple mapping of addon:legacyReason.
+		for addon, legacyReason in legacyAddonInfo.items():
+			self.addonsList.Append((addon, legacyReason))
+		self.addonsList.Select(0)
+		self.addonsList.SetItemState(0, wx.LIST_STATE_FOCUSED, wx.LIST_STATE_FOCUSED)
+
+		bHelper = addonsSizerHelper.addDialogDismissButtons(gui.guiHelper.ButtonHelper(wx.HORIZONTAL))
+		closeButton = bHelper.addButton(self, wx.ID_CLOSE, label=translate("&Close"))
+		closeButton.Bind(wx.EVT_BUTTON, self.onClose)
+		self.Bind(wx.EVT_CLOSE, lambda evt: self.onClose)
+		self.EscapeId = wx.ID_CLOSE
+
+		mainSizer.Add(settingsSizer, border=gui.guiHelper.BORDER_FOR_DIALOGS, flag=wx.ALL)
+		self.Sizer = mainSizer
+		mainSizer.Fit(self)
+		self.CenterOnScreen()
+		wx.CallAfter(self.Show)
+
+	def onClose(self, evt):
+		self.Destroy()
