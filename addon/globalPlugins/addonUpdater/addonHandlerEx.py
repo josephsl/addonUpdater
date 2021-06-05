@@ -153,7 +153,24 @@ def detectLegacyAddons():
 # Also, check add-on update eligibility based on what community add-ons metadata says if present.
 def fetchAddonInfo(info, results, addon, manifestInfo, addonsData):
 	addonVersion = manifestInfo["version"]
-	addonKey = names2urls[addon]
+	# Is this add-on's metadata present?
+	try:
+		addonMetadata = addonsData["active"][addon]
+		addonMetadataPresent = True
+	except KeyError:
+		addonMetadata = {}
+		addonMetadataPresent = False
+	# Add-ons metadata includes addon key in active/addonName/addonKey.
+	try:
+		addonKey = addonMetadata["addonKey"]
+	except KeyError:
+		# Add-on metadata is unusable or add-on key for this add-on was not assigned.
+		# Therefore use the add-on key map that ships with this add-on, although it may not record new add-ons.
+		# This involves an inner try block due to an unbound flag.
+		try:
+			addonKey = names2urls[addon]
+		except KeyError:
+			return
 	# If "-dev" flag is on, switch to development channel if it exists.
 	channel = manifestInfo["channel"]
 	if channel is not None:
