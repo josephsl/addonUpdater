@@ -105,6 +105,13 @@ names2urls = {
 }
 
 
+# Add-ons with built-in update feature.
+addonsWithUpdaters = [
+	"BrailleExtender",
+	"Weather Plus",
+]
+
+
 # Add-ons with all features integrated into NVDA or declared "legacy" by authors.
 # For the latter case, update check functionality will be disabled upon authors' request.
 
@@ -315,6 +322,10 @@ def checkForAddonUpdates():
 	curAddons = {}
 	addonSummaries = {}
 	for addon in addonHandler.getAvailableAddons():
+		# Skip add-ons that can update themselves.
+		# Add-on Updater is included, but is an exception as it updates other add-ons, too.
+		if addon.name in addonsWithUpdaters:
+			continue
 		# Sorry Nuance Vocalizer family, no update checks for you.
 		if "vocalizer" in addon.name.lower():
 			continue
