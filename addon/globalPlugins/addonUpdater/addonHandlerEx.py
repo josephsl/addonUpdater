@@ -150,13 +150,18 @@ def detectLegacyAddons():
 # Obtain update status for add-ons returned from community add-ons website.
 # Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
 # This is the case when it becomes necessary to open another website.
-def fetchAddonInfo(info, results, addon, manifestInfo):
+# Also, check add-on update eligibility based on what community add-ons metadata says if present.
+def fetchAddonInfo(info, results, addon, manifestInfo, addonsData):
 	addonVersion = manifestInfo["version"]
 	addonKey = names2urls[addon]
 	# If "-dev" flag is on, switch to development channel if it exists.
 	channel = manifestInfo["channel"]
 	if channel is not None:
 		addonKey += "-" + channel
+	# Can the add-on be updated based on community add-ons metadata?
+	if addonMetadataPresent:
+		if not canUpdateAddonWithAddonData(addon, addonMetadata):
+			return
 	try:
 		addonUrl = results[addonKey]
 	except:
@@ -258,9 +263,10 @@ def checkForAddonUpdate(curAddons):
 	else:
 		log.debug("nvda3208: add-ons metadata successfully retrieved")
 	# The info dictionary will be passed in as a reference in individual threads below.
+	# Don't forget to perform additional checks based on add-on metadata if present.
 	info = {}
 	updateThreads = [
-		threading.Thread(target=fetchAddonInfo, args=(info, results, addon, manifestInfo))
+		threading.Thread(target=fetchAddonInfo, args=(info, results, addon, manifestInfo, addonsData))
 		for addon, manifestInfo in curAddons.items()
 	]
 	for thread in updateThreads:
