@@ -146,6 +146,18 @@ def detectLegacyAddons():
 	}
 
 
+# Check add-on update eligibility with help from community add-ons metadata if present.
+def canUpdateAddonWithAddonData(addon, addonMetadata):
+	import addonAPIVersion
+	minimumNVDAVersion = tuple(addonMetadata["minimumNVDAVersion"])
+	lastTestedNVDAVersion = tuple(addonMetadata["lastTestedNVDAVersion"])
+	# Is the add-on update compatible with local NVDA version the user is using?
+	return (
+		minimumNVDAVersion <= addonAPIVersion.CURRENT
+		and lastTestedNVDAVersion >= addonAPIVersion.BACK_COMPAT_TO
+	)
+
+
 # Borrowed ideas from NVDA Core.
 # Obtain update status for add-ons returned from community add-ons website.
 # Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
