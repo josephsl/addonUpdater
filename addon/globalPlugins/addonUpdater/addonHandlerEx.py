@@ -309,8 +309,6 @@ def checkForAddonUpdates():
 	curAddons = {}
 	addonSummaries = {}
 	for addon in addonHandler.getAvailableAddons():
-		if addon.name not in names2urls:
-			continue
 		# Sorry Nuance Vocalizer family, no update checks for you.
 		if "vocalizer" in addon.name.lower():
 			continue
