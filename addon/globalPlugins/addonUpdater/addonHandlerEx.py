@@ -219,7 +219,7 @@ def checkForAddonUpdate(curAddons):
 			if res is not None:
 				results.update(json.load(res))
 				res.close()
-	# Similar to above except fetch ad-don metadata from a JSON file.
+	# Similar to above except fetch add-on metadata from a JSON file hosted by the NVDA add-ons community.
 	def _currentCommunityAddonsMetadata(addonsData):
 		res = None
 		try:
@@ -237,6 +237,7 @@ def checkForAddonUpdate(curAddons):
 			if res is not None:
 				addonsData.update(json.load(res))
 				res.close()
+	# NVDA community add-ons list is always retrieved for fallback reasons.
 	results = {}
 	addonsFetcher = threading.Thread(target=_currentCommunityAddons, args=(results,))
 	addonsFetcher.start()
@@ -245,6 +246,17 @@ def checkForAddonUpdate(curAddons):
 	# Raise an error if results says so.
 	if "error" in results:
 		raise RuntimeError("Failed to retrieve community add-ons")
+	# Enhanced with add-on metadata such as compatibility info maintained by the community.
+	addonsData = {}
+	addonsFetcher = threading.Thread(target=_currentCommunityAddonsMetadata, args=(addonsData,))
+	addonsFetcher.start()
+	# Just like the earlier thread, this thread too must be joined.
+	addonsFetcher.join()
+	# Fallback to add-ons list if metadata is unusable.
+	if len(addonsData) == 0:
+		log.debug("nvda3208: add-ons metadata unusable, using add-ons list from community add-ons website")
+	else:
+		log.debug("nvda3208: add-ons metadata successfully retrieved")
 	# The info dictionary will be passed in as a reference in individual threads below.
 	info = {}
 	updateThreads = [
