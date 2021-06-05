@@ -219,6 +219,24 @@ def checkForAddonUpdate(curAddons):
 			if res is not None:
 				results.update(json.load(res))
 				res.close()
+	# Similar to above except fetch ad-don metadata from a JSON file.
+	def _currentCommunityAddonsMetadata(addonsData):
+		res = None
+		try:
+			res = urlopen("https://nvdaaddons.github.io/data/addonsData.json")
+		except IOError as e:
+			# SSL issue (seen in NVDA Core earlier than 2014.1).
+			if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
+				addonUtils._updateWindowsRootCertificates()
+				res = urlopen("https://nvdaaddons.github.io/data/addonsData.json")
+			else:
+				# Clear addon metadata dictionary.
+				log.debug("nvda3208: errors occurred while retrieving community add-ons metadata", exc_info=True)
+				addonsData.clear()
+		finally:
+			if res is not None:
+				addonsData.update(json.load(res))
+				res.close()
 	results = {}
 	addonsFetcher = threading.Thread(target=_currentCommunityAddons, args=(results,))
 	addonsFetcher.start()
