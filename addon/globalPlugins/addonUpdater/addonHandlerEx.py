@@ -126,6 +126,8 @@ LegacyAddons = {
 	# but legacy add-on in terms of functionality.
 	"focusHighlight": LegacyAddonIncludedInNVDA,
 	"screenCurtain": LegacyAddonIncludedInNVDA,
+	# Team Viewer is no longer used by the add-on author.
+	"teamViewer": LegacyAddonAuthorDeclaration,
 }
 
 
