@@ -119,6 +119,8 @@ LegacyAddonIncludedInNVDA = _("features included in NVDA")
 LegacyAddonAuthorDeclaration = _("declared legacy by add-on developers")
 
 LegacyAddons = {
+	# Bit Che is no longer maintained as of 2021, therefore the add-on is unnecessary, according to the author.
+	"bitChe": LegacyAddonAuthorDeclaration,
 	"enhancedAria": LegacyAddonIncludedInNVDA,
 	# Advanced focus highlight customizations are not implemented in NVDA yet,
 	# but legacy add-on in terms of functionality.
