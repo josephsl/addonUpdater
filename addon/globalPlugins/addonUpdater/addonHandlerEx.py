@@ -368,13 +368,6 @@ def checkForAddonUpdates():
 	except:
 		# Present an error dialog if manual add-on update check is in progress.
 		raise RuntimeError("Cannot check for community add-on updates")
-	# data = json.dumps(curAddons)
-	# Pseudocode:
-	"""try:
-		res = urllib.open(someURL, data)
-		# Check SSL and what not.
-		res = json.loads(res)"""
-	# res = json.loads(data)
 	res = info
 	for addon in res:
 		res[addon]["summary"] = addonSummaries[addon]
