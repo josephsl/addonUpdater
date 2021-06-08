@@ -153,6 +153,24 @@ def detectLegacyAddons():
 	}
 
 
+# Validate a given add-on metadata, mostly involving type checks.
+def validateAddonMetadata(addonMetadata):
+	# Make sure that fields are of the right type.
+	metadataFieldTypes = {
+		"summary": str,
+		"author": str,
+		"minimumNVDAVersion": list,
+		"lastTestedNVDAVersion": list
+	}
+	metadataValid = [
+		isinstance(addonMetadata[field], fieldType)
+		for field, fieldType in metadataFieldTypes.items()
+	]
+	if "addonKey" in addonMetadata:
+		metadataValid.append(isinstance(addonMetadata["addonKey"], str))
+	return all(metadataValid)
+
+
 # Check add-on update eligibility with help from community add-ons metadata if present.
 def addonCompatibleAccordingToMetadata(addon, addonMetadata):
 	# Always return "yes" for development releases.
@@ -185,6 +203,9 @@ def fetchAddonInfo(info, results, addon, manifestInfo, addonsData):
 	except KeyError:
 		addonMetadata = {}
 		addonMetadataPresent = False
+	# Validate add-on metadata.
+	if addonMetadataPresent:
+		addonMetadataPresent = validateAddonMetadata(addonMetadata)
 	# Add-ons metadata includes addon key in active/addonName/addonKey.
 	addonKey = addonMetadata.get("addonKey")
 	# If add-on key is None, it can indicate Add-on metadata is unusable or add-on key was unassigned.
