@@ -288,8 +288,10 @@ def autoAddonUpdateCheck():
 	t.daemon = True
 	t.start()
 
+
 # Only stored when update toast appears.
 _updateInfo = None
+
 
 def _showAddonUpdateUI():
 	def _showAddonUpdateUICallback(info):
@@ -320,4 +322,5 @@ def _showAddonUpdateUI():
 			# Translators: title of the add-on update notificaiton message.
 			wx.adv.NotificationMessage(_("NVDA add-on updates"), updateMessage).Show(timeout=30)
 			_updateInfo = info
-		else: wx.CallAfter(_showAddonUpdateUICallback, info)
+		else:
+			wx.CallAfter(_showAddonUpdateUICallback, info)
