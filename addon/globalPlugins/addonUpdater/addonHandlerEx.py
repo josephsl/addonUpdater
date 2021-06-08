@@ -186,12 +186,10 @@ def fetchAddonInfo(info, results, addon, manifestInfo, addonsData):
 		addonMetadata = {}
 		addonMetadataPresent = False
 	# Add-ons metadata includes addon key in active/addonName/addonKey.
-	try:
-		addonKey = addonMetadata["addonKey"]
-	except KeyError:
-		# Add-on metadata is unusable or add-on key for this add-on was not assigned.
-		# Therefore use the add-on key map that ships with this add-on, although it may not record new add-ons.
-		# This involves an inner try block due to an unbound flag.
+	addonKey = addonMetadata.get("addonKey")
+	# If add-on key is None, it can indicate Add-on metadata is unusable or add-on key was unassigned.
+	# Therefore use the add-on key map that ships with this add-on, although it may not record new add-ons.
+	if addonKey is None:
 		try:
 			addonKey = names2urls[addon]
 		except KeyError:
