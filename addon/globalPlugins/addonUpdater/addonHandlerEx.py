@@ -154,7 +154,7 @@ def detectLegacyAddons():
 
 
 # Check add-on update eligibility with help from community add-ons metadata if present.
-def canUpdateAddonWithAddonData(addon, addonMetadata):
+def addonCompatibleAccordingToMetadata(addon, addonMetadata):
 	# Always return "yes" for development releases.
 	# The whole point of development releases is to send feedback to add-on developers across NVDA releases.
 	# Although possible, development releases should not be used to dodge around NVDA compatibility checks
@@ -200,7 +200,7 @@ def fetchAddonInfo(info, results, addon, manifestInfo, addonsData):
 		addonKey += "-" + channel
 	# Can the add-on be updated based on community add-ons metadata?
 	if addonMetadataPresent:
-		if not canUpdateAddonWithAddonData(addon, addonMetadata):
+		if not addonCompatibleAccordingToMetadata(addon, addonMetadata):
 			return
 	try:
 		addonUrl = results[addonKey]
