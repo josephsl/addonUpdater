@@ -284,6 +284,7 @@ def checkForAddonUpdate(curAddons):
 			if res is not None:
 				results.update(json.load(res))
 				res.close()
+
 	# Similar to above except fetch add-on metadata from a JSON file hosted by the NVDA add-ons community.
 	def _currentCommunityAddonsMetadata(addonsData):
 		res = None
