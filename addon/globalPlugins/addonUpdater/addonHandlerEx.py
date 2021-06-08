@@ -207,7 +207,7 @@ def fetchAddonInfo(info, results, addon, manifestInfo, addonsData):
 	if addonMetadataPresent:
 		addonMetadataPresent = validateAddonMetadata(addonMetadata)
 	# Add-ons metadata includes addon key in active/addonName/addonKey.
-	addonKey = addonMetadata.get("addonKey")
+	addonKey = addonMetadata.get("addonKey") if addonMetadataPresent else None
 	# If add-on key is None, it can indicate Add-on metadata is unusable or add-on key was unassigned.
 	# Therefore use the add-on key map that ships with this add-on, although it may not record new add-ons.
 	if addonKey is None:
