@@ -100,6 +100,13 @@ names2urls = {
 }
 
 
+# Add-ons with built-in update feature.
+addonsWithUpdaters = [
+	"BrailleExtender",
+	"Weather Plus",
+]
+
+
 # Add-ons with all features integrated into NVDA or declared "legacy" by authors.
 # For the latter case, update check functionality will be disabled upon authors' request.
 
@@ -145,17 +152,76 @@ def detectLegacyAddons():
 	}
 
 
+# Validate a given add-on metadata, mostly involving type checks.
+def validateAddonMetadata(addonMetadata):
+	# Make sure that fields are of the right type.
+	metadataFieldTypes = {
+		"summary": str,
+		"author": str,
+		"minimumNVDAVersion": list,
+		"lastTestedNVDAVersion": list
+	}
+	metadataValid = [
+		isinstance(addonMetadata[field], fieldType)
+		for field, fieldType in metadataFieldTypes.items()
+	]
+	if "addonKey" in addonMetadata:
+		metadataValid.append(isinstance(addonMetadata["addonKey"], str))
+	return all(metadataValid)
+
+
+# Check add-on update eligibility with help from community add-ons metadata if present.
+def addonCompatibleAccordingToMetadata(addon, addonMetadata):
+	# Always return "yes" for development releases.
+	# The whole point of development releases is to send feedback to add-on developers across NVDA releases.
+	# Although possible, development releases should not be used to dodge around NVDA compatibility checks
+	# as add-ons can break without notice.
+	if addon in addonUtils.updateState["devUpdates"]:
+		return True
+	import addonAPIVersion
+	minimumNVDAVersion = tuple(addonMetadata["minimumNVDAVersion"])
+	lastTestedNVDAVersion = tuple(addonMetadata["lastTestedNVDAVersion"])
+	# Is the add-on update compatible with local NVDA version the user is using?
+	return (
+		minimumNVDAVersion <= addonAPIVersion.CURRENT
+		and lastTestedNVDAVersion >= addonAPIVersion.BACK_COMPAT_TO
+	)
+
+
 # Borrowed ideas from NVDA Core.
 # Obtain update status for add-ons returned from community add-ons website.
 # Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
 # This is the case when it becomes necessary to open another website.
-def fetchAddonInfo(info, results, addon, manifestInfo):
+# Also, check add-on update eligibility based on what community add-ons metadata says if present.
+def fetchAddonInfo(info, results, addon, manifestInfo, addonsData):
 	addonVersion = manifestInfo["version"]
-	addonKey = names2urls[addon]
+	# Is this add-on's metadata present?
+	try:
+		addonMetadata = addonsData["active"][addon]
+		addonMetadataPresent = True
+	except KeyError:
+		addonMetadata = {}
+		addonMetadataPresent = False
+	# Validate add-on metadata.
+	if addonMetadataPresent:
+		addonMetadataPresent = validateAddonMetadata(addonMetadata)
+	# Add-ons metadata includes addon key in active/addonName/addonKey.
+	addonKey = addonMetadata.get("addonKey") if addonMetadataPresent else None
+	# If add-on key is None, it can indicate Add-on metadata is unusable or add-on key was unassigned.
+	# Therefore use the add-on key map that ships with this add-on, although it may not record new add-ons.
+	if addonKey is None:
+		try:
+			addonKey = names2urls[addon]
+		except KeyError:
+			return
 	# If "-dev" flag is on, switch to development channel if it exists.
 	channel = manifestInfo["channel"]
 	if channel is not None:
 		addonKey += "-" + channel
+	# Can the add-on be updated based on community add-ons metadata?
+	if addonMetadataPresent:
+		if not addonCompatibleAccordingToMetadata(addon, addonMetadata):
+			return
 	try:
 		addonUrl = results[addonKey]
 	except:
@@ -218,6 +284,25 @@ def checkForAddonUpdate(curAddons):
 			if res is not None:
 				results.update(json.load(res))
 				res.close()
+	# Similar to above except fetch add-on metadata from a JSON file hosted by the NVDA add-ons community.
+	def _currentCommunityAddonsMetadata(addonsData):
+		res = None
+		try:
+			res = urlopen("https://nvdaaddons.github.io/data/addonsData.json")
+		except IOError as e:
+			# SSL issue (seen in NVDA Core earlier than 2014.1).
+			if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
+				addonUtils._updateWindowsRootCertificates()
+				res = urlopen("https://nvdaaddons.github.io/data/addonsData.json")
+			else:
+				# Clear addon metadata dictionary.
+				log.debug("nvda3208: errors occurred while retrieving community add-ons metadata", exc_info=True)
+				addonsData.clear()
+		finally:
+			if res is not None:
+				addonsData.update(json.load(res))
+				res.close()
+	# NVDA community add-ons list is always retrieved for fallback reasons.
 	results = {}
 	addonsFetcher = threading.Thread(target=_currentCommunityAddons, args=(results,))
 	addonsFetcher.start()
@@ -226,10 +311,22 @@ def checkForAddonUpdate(curAddons):
 	# Raise an error if results says so.
 	if "error" in results:
 		raise RuntimeError("Failed to retrieve community add-ons")
+	# Enhanced with add-on metadata such as compatibility info maintained by the community.
+	addonsData = {}
+	addonsFetcher = threading.Thread(target=_currentCommunityAddonsMetadata, args=(addonsData,))
+	addonsFetcher.start()
+	# Just like the earlier thread, this thread too must be joined.
+	addonsFetcher.join()
+	# Fallback to add-ons list if metadata is unusable.
+	if len(addonsData) == 0:
+		log.debug("nvda3208: add-ons metadata unusable, using add-ons list from community add-ons website")
+	else:
+		log.debug("nvda3208: add-ons metadata successfully retrieved")
 	# The info dictionary will be passed in as a reference in individual threads below.
+	# Don't forget to perform additional checks based on add-on metadata if present.
 	info = {}
 	updateThreads = [
-		threading.Thread(target=fetchAddonInfo, args=(info, results, addon, manifestInfo))
+		threading.Thread(target=fetchAddonInfo, args=(info, results, addon, manifestInfo, addonsData))
 		for addon, manifestInfo in curAddons.items()
 	]
 	for thread in updateThreads:
@@ -243,7 +340,9 @@ def checkForAddonUpdates():
 	curAddons = {}
 	addonSummaries = {}
 	for addon in addonHandler.getAvailableAddons():
-		if addon.name not in names2urls:
+		# Skip add-ons that can update themselves.
+		# Add-on Updater is included, but is an exception as it updates other add-ons, too.
+		if addon.name in addonsWithUpdaters:
 			continue
 		# Sorry Nuance Vocalizer family, no update checks for you.
 		if "vocalizer" in addon.name.lower():
