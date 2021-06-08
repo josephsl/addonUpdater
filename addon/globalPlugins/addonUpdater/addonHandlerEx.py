@@ -387,8 +387,10 @@ def autoAddonUpdateCheck():
 	t.daemon = True
 	t.start()
 
+
 # Only stored when update toast appears.
 _updateInfo = None
+
 
 def _showAddonUpdateUI():
 	def _showAddonUpdateUICallback(info):
@@ -411,12 +413,13 @@ def _showAddonUpdateUI():
 		import sys
 		if sys.getwindowsversion().major == 10:
 			global _updateInfo
-			updateMessage = []
-			if len(info) == 1:
-				updateMessage.append("1 NVDA add-on update is available.")
-			else:
-				updateMessage.append("%s NVDA add-on updates are available."%len(info))
-			updateMessage.append("Go to NVDA menu, Tools, Check for add-on update to review them.")
-			wx.adv.NotificationMessage("NVDA add-on updates", " ".join(updateMessage)).Show(timeout=30)
+			updateMessage = _(
+				# Translators: presented as part of add-on update notification message.
+				"One or more add-on updates are available. "
+				"Go to NVDA menu, Tools, Check for add-on update to review them."
+			)
+			# Translators: title of the add-on update notificaiton message.
+			wx.adv.NotificationMessage(_("NVDA add-on updates"), updateMessage).Show(timeout=30)
 			_updateInfo = info
-		else: wx.CallAfter(_showAddonUpdateUICallback, info)
+		else:
+			wx.CallAfter(_showAddonUpdateUICallback, info)
