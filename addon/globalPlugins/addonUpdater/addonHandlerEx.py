@@ -317,9 +317,9 @@ def _showAddonUpdateUI():
 			updateMessage = _(
 				# Translators: presented as part of add-on update notification message.
 				"One or more add-on updates are available. "
-				"Go to NVDA menu, Tools, Check for add-on update to review them."
+				"Go to NVDA menu, Tools, Check for add-on updates to review them."
 			)
-			# Translators: title of the add-on update notificaiton message.
+			# Translators: title of the add-on update notification message.
 			wx.adv.NotificationMessage(_("NVDA add-on updates"), updateMessage).Show(timeout=30)
 			_updateInfo = info
 		else:
