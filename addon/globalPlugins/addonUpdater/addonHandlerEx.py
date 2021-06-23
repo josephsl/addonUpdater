@@ -197,7 +197,7 @@ def fetchAddonInfo(info, results, addon, manifestInfo, addonsData):
 	addonVersion = manifestInfo["version"]
 	# Is this add-on's metadata present?
 	try:
-		addonMetadata = addonsData["stable"][addon]
+		addonMetadata = addonsData["active"][addon]
 		addonMetadataPresent = True
 	except KeyError:
 		addonMetadata = {}
@@ -205,7 +205,7 @@ def fetchAddonInfo(info, results, addon, manifestInfo, addonsData):
 	# Validate add-on metadata.
 	if addonMetadataPresent:
 		addonMetadataPresent = validateAddonMetadata(addonMetadata)
-	# Add-ons metadata includes addon key in stable/addonName/addonKey.
+	# Add-ons metadata includes addon key in active/addonName/addonKey.
 	addonKey = addonMetadata.get("addonKey") if addonMetadataPresent else None
 	# If add-on key is None, it can indicate Add-on metadata is unusable or add-on key was unassigned.
 	# Therefore use the add-on key map that ships with this add-on, although it may not record new add-ons.
