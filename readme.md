@@ -21,7 +21,7 @@ IMPORTANT NOTES:
 
 ## Version 21.07
 
-* On Windows 10, a toast notification will be shown when add-on updates are available. Note that you cannot click this notification - you must open NvDA menu/Tools/Check for add-on updates to review updates.
+* On Windows 10 and later, a toast notification will be shown when add-on updates are available. Note that you cannot click this notification - you must open NvDA menu/Tools/Check for add-on updates to review updates.
 * When legacy add-ons dialog is shown at startup, you can now review legacy add-ons and reasons just like add-on updates.
 
 ## Version 21.05
