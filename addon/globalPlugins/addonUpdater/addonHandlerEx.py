@@ -219,6 +219,7 @@ def fetchAddonInfo(info, results, addon, manifestInfo, addonsData):
 	if channel is not None:
 		addonKey += "-" + channel
 	# Can the add-on be updated based on community add-ons metadata?
+	# What if a different update channel must be used if the stable channel update is not compatible?
 	if addonMetadataPresent:
 		if not addonCompatibleAccordingToMetadata(addon, addonMetadata):
 			return
