@@ -8,30 +8,14 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2020-12-17 11:55+0100\n"
-"Last-Translator: Bachir BENANOU <ben_bach@yahoo.fr>\n"
+"PO-Revision-Date: 2021-06-18 08:23+0200\n"
+"Last-Translator: Michel Such <michelsuch93@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
-
-#. Translators: message displayed if legacy add-ons are found (add-ons with all features included in NVDA).
-msgid ""
-"One or more legacy add-ons were found in your NVDA installation. Features "
-"from these add-ons are now part of the NVDA version you are using. Please "
-"disable or uninstall these add-ons by going to NVDA menu, Tools, Manage Add-"
-"ons.\n"
-msgstr ""
-"Une ou plusieurs extensions obsolètes ont été trouvées dans votre "
-"installation NVDA. Les fonctionnalités de ces extensions font maintenant "
-"partie de la version de NVDA que vous utilisez. Veuillez désactiver ou "
-"désinstaller ces extensions en allant dans le menu NVDA, Outils, Gérer les "
-"extensions.\n"
-
-msgid "Legacy add-ons found"
-msgstr "Extensions obsolètes trouvées"
+"X-Generator: Poedit 3.0\n"
 
 msgid "Check for &add-on updates..."
 msgstr "Rechercher les &mises à jour d'extensions..."
@@ -61,6 +45,32 @@ msgstr "&Ne pas mettre à jour les extensions :"
 msgid "Prefer development releases:"
 msgstr "Préférez les versions de développement:"
 
+#. Translators: The title of the legacy add-ons dialog.
+msgid "Legacy add-ons found"
+msgstr "Extensions obsolètes trouvées"
+
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Manage Add-ons.\n"
+msgstr ""
+"Une ou plusieurs extensions obsolètes ont été trouvées dans votre "
+"installation NVDA. Les fonctionnalités de ces extensions font maintenant "
+"partie de la version de NVDA que vous utilisez. Veuillez désactiver ou "
+"désinstaller ces extensions en allant dans le menu NVDA, Outils, Gérer les "
+"extensions.\n"
+
+#. Translators: the label for the legacy add-ons list.
+msgid "Legacy add-ons"
+msgstr "Extensions obsolètes"
+
+#. Translators: The label for a column in legacy add-ons list used to show legacy add-on reason.
+msgid "Legacy reason"
+msgstr "Raison de l'obsolescence"
+
 #. Translators: The title of the dialog presented while checking for add-on updates.
 msgid "Add-on update check"
 msgstr "Vérification de la mise à jour des extensions"
@@ -78,12 +88,8 @@ msgstr "Mises à jour des extensions NVDA"
 
 #. Translators: Message displayed when add-on updates are available.
 #, python-brace-format
-msgid "{updateCount} add-on updates are available."
-msgstr "{updateCount} mises à jours d'extension sont disponibles."
-
-#. Translators: Message displayed when add-on updates are available.
-msgid "1 add-on update is available."
-msgstr "1 mise à jour d'extension est disponible."
+msgid "Add-on updates available: {updateCount}"
+msgstr "Mises à jour d'extension disponibles: {updateCount}"
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify current add-on version (example: version is 0.3).
@@ -144,6 +150,30 @@ msgstr "Veuillez patienter durant la mise à jour de l'extension"
 msgid "Failed to update {name} add-on"
 msgstr "Échec de la mise à jour de l'extension {name}"
 
+#. Add-ons with all features integrated into NVDA or declared "legacy" by authors.
+#. For the latter case, update check functionality will be disabled upon authors' request.
+#. Translators: legacy add-on, features included in NVDA.
+msgid "features included in NVDA"
+msgstr "Fonctionnalités incluses dans NVDA"
+
+#. Translators: legacy add-on, declared by add-on developers.
+msgid "declared legacy by add-on developers"
+msgstr "déclaré obsolète par les développeurs d'extensions"
+
+#. Translators: presented as part of add-on update notification message.
+#, fuzzy
+msgid ""
+"One or more add-on updates are available. Go to NVDA menu, Tools, Check for "
+"add-on updates to review them."
+msgstr ""
+"Une ou plusieurs mises à jour d'extensions sont disponibles. Allez dans le "
+"menu NVDA, Outils, Rechercher les mises à jour d'extensions pour les "
+"consulter."
+
+#. Translators: title of the add-on update notification message.
+msgid "NVDA add-on updates"
+msgstr "Mises à jour des extensions NVDA"
+
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid ""
@@ -152,11 +182,3 @@ msgid ""
 msgstr ""
 "Implémentation de la preuve de concept de la fonctionnalité de mise à jour "
 "des extensions (Noyau de NVDA numéro 3208)"
-
-#~ msgid ""
-#~ "{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
-#~ "version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
-#~ msgstr ""
-#~ "L'extension {name} n'est pas compatible avec cette version de NVDA. "
-#~ "Version minimum de NVDA : {minYear}.{minMajor}, dernière version testée : "
-#~ "{testedYear}.{testedMajor}."

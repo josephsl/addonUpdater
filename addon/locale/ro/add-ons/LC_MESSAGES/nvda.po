@@ -17,22 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
 
-#. Translators: message displayed if legacy add-ons are found (add-ons with all features included in NVDA).
-msgid ""
-"One or more legacy add-ons were found in your NVDA installation. Features "
-"from these add-ons are now part of the NVDA version you are using. Please "
-"disable or uninstall these add-ons by going to NVDA menu, Tools, Manage Add-"
-"ons.\n"
-msgstr ""
-"A fost găsit un supliment tradițional, ori chiar mai multe, în configurația "
-"dumneavoastră de NVDA. Anumite caracteristici ale acestor suplimente vechi "
-"fac parte acum din versiunea de NVDA pe care o aveți instalată în acest "
-"moment. Dezactivați sau dezinstalați aceste suplimente mergând în meniul "
-"NVDA, Instrumente, Administrare suplimente.\n"
-
-msgid "Legacy add-ons found"
-msgstr "Au fost găsite suplimente tradiționale"
-
 msgid "Check for &add-on updates..."
 msgstr "Caută actualizări pentru &suplimente..."
 
@@ -61,6 +45,35 @@ msgstr "&exclude următoarele suplimente de la actualizare:"
 msgid "Prefer development releases:"
 msgstr "Preferă versiuni de dezvoltare:"
 
+#. Translators: The title of the legacy add-ons dialog.
+msgid "Legacy add-ons found"
+msgstr "Au fost găsite suplimente tradiționale"
+
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+#, fuzzy
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Manage Add-ons.\n"
+msgstr ""
+"A fost găsit un supliment tradițional, ori chiar mai multe, în configurația "
+"dumneavoastră de NVDA. Anumite caracteristici ale acestor suplimente vechi "
+"fac parte acum din versiunea de NVDA pe care o aveți instalată în acest "
+"moment. Dezactivați sau dezinstalați aceste suplimente mergând în meniul "
+"NVDA, Instrumente, Administrare suplimente.\n"
+
+#. Translators: the label for the legacy add-ons list.
+#, fuzzy
+msgid "Legacy add-ons"
+msgstr "Au fost găsite suplimente tradiționale"
+
+#. Translators: The label for a column in legacy add-ons list used to show legacy add-on reason.
+#, fuzzy
+msgid "Legacy reason"
+msgstr "Au fost găsite suplimente tradiționale"
+
 #. Translators: The title of the dialog presented while checking for add-on updates.
 msgid "Add-on update check"
 msgstr "Căutare de actualizări pentru Supliment"
@@ -77,12 +90,8 @@ msgid "NVDA Add-on Updates"
 msgstr "Actualizări pentru suplimente NVDA"
 
 #. Translators: Message displayed when add-on updates are available.
-#, python-brace-format
-msgid "{updateCount} add-on updates are available."
-msgstr "Sunt disponibile {updateCount} actualizări pentru acest supliment."
-
-#. Translators: Message displayed when add-on updates are available.
-msgid "1 add-on update is available."
+#, fuzzy, python-brace-format
+msgid "Add-on updates available: {updateCount}"
 msgstr "Este disponibilă o actualizare pentru acest supliment."
 
 #. Translators: The label for a column in add-ons updates list
@@ -144,6 +153,27 @@ msgstr "Așteptați până când suplimentul este actualizat."
 msgid "Failed to update {name} add-on"
 msgstr "Nu s-a putut actualiza suplimentul {name}"
 
+#. Add-ons with all features integrated into NVDA or declared "legacy" by authors.
+#. For the latter case, update check functionality will be disabled upon authors' request.
+#. Translators: legacy add-on, features included in NVDA.
+msgid "features included in NVDA"
+msgstr ""
+
+#. Translators: legacy add-on, declared by add-on developers.
+msgid "declared legacy by add-on developers"
+msgstr ""
+
+#. Translators: presented as part of add-on update notification message.
+msgid ""
+"One or more add-on updates are available. Go to NVDA menu, Tools, Check for "
+"add-on updates to review them."
+msgstr ""
+
+#. Translators: title of the add-on update notification message.
+#, fuzzy
+msgid "NVDA add-on updates"
+msgstr "Actualizări pentru suplimente NVDA"
+
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid ""
@@ -152,6 +182,9 @@ msgid ""
 msgstr ""
 "Concept experimental pentru implementarea actualizărilor automate pentru "
 "suplimente (NVDA Core issue 3208)"
+
+#~ msgid "{updateCount} add-on updates are available."
+#~ msgstr "Sunt disponibile {updateCount} actualizări pentru acest supliment."
 
 #~ msgid ""
 #~ "{name} add-on is not compatible with this version of NVDA. Minimum NVDA "

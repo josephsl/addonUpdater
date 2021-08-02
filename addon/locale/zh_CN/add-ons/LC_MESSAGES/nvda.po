@@ -18,20 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
 
-#. Translators: message displayed if legacy add-ons are found (add-ons with all features included in NVDA).
-msgid ""
-"One or more legacy add-ons were found in your NVDA installation. Features "
-"from these add-ons are now part of the NVDA version you are using. Please "
-"disable or uninstall these add-ons by going to NVDA menu, Tools, Manage Add-"
-"ons.\n"
-msgstr ""
-"当前的 NVDA 配置中安装了某些遗留插件。这些插件的功能现在是您正在使用的 NVDA "
-"版本的一部分。\n"
-"请转到 NVDA 菜单，工具，插件管理器以禁用或卸载这些插件。\n"
-
-msgid "Legacy add-ons found"
-msgstr "已发现遗留插件"
-
 msgid "Check for &add-on updates..."
 msgstr "检查插件更新(&U)..."
 
@@ -60,6 +46,33 @@ msgstr "不接收更新的插件(&N):"
 msgid "Prefer development releases:"
 msgstr "接收更新为开发板的插件："
 
+#. Translators: The title of the legacy add-ons dialog.
+msgid "Legacy add-ons found"
+msgstr "已发现遗留插件"
+
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+#, fuzzy
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Manage Add-ons.\n"
+msgstr ""
+"当前的 NVDA 配置中安装了某些遗留插件。这些插件的功能现在是您正在使用的 NVDA "
+"版本的一部分。\n"
+"请转到 NVDA 菜单，工具，插件管理器以禁用或卸载这些插件。\n"
+
+#. Translators: the label for the legacy add-ons list.
+#, fuzzy
+msgid "Legacy add-ons"
+msgstr "已发现遗留插件"
+
+#. Translators: The label for a column in legacy add-ons list used to show legacy add-on reason.
+#, fuzzy
+msgid "Legacy reason"
+msgstr "已发现遗留插件"
+
 #. Translators: The title of the dialog presented while checking for add-on updates.
 msgid "Add-on update check"
 msgstr "检查插件更新"
@@ -76,12 +89,8 @@ msgid "NVDA Add-on Updates"
 msgstr "NVDA插件更新"
 
 #. Translators: Message displayed when add-on updates are available.
-#, python-brace-format
-msgid "{updateCount} add-on updates are available."
-msgstr "{updateCount} 个插件可更新。"
-
-#. Translators: Message displayed when add-on updates are available.
-msgid "1 add-on update is available."
+#, fuzzy, python-brace-format
+msgid "Add-on updates available: {updateCount}"
 msgstr "1 个插件可更新。"
 
 #. Translators: The label for a column in add-ons updates list
@@ -141,6 +150,27 @@ msgstr "请等待插件更新。"
 msgid "Failed to update {name} add-on"
 msgstr "插件 {name} 无法更新"
 
+#. Add-ons with all features integrated into NVDA or declared "legacy" by authors.
+#. For the latter case, update check functionality will be disabled upon authors' request.
+#. Translators: legacy add-on, features included in NVDA.
+msgid "features included in NVDA"
+msgstr ""
+
+#. Translators: legacy add-on, declared by add-on developers.
+msgid "declared legacy by add-on developers"
+msgstr ""
+
+#. Translators: presented as part of add-on update notification message.
+msgid ""
+"One or more add-on updates are available. Go to NVDA menu, Tools, Check for "
+"add-on updates to review them."
+msgstr ""
+
+#. Translators: title of the add-on update notification message.
+#, fuzzy
+msgid "NVDA add-on updates"
+msgstr "NVDA插件更新"
+
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid ""
@@ -148,9 +178,12 @@ msgid ""
 "3208)"
 msgstr "插件更新功能的概念插件证明(NVDA Core issue 3208)"
 
+#~ msgid "{updateCount} add-on updates are available."
+#~ msgstr "{updateCount} 个插件可更新。"
+
 #~ msgid ""
 #~ "{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
 #~ "version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
 #~ msgstr ""
-#~ "插件 {name} 与此版本的 NVDA 不兼容。最低NVDA版本: {minYear}.{minMajor}, "
-#~ "最近测试: {testedYear}.{testedMajor}."
+#~ "插件 {name} 与此版本的 NVDA 不兼容。最低NVDA版本: {minYear}.{minMajor}, 最"
+#~ "近测试: {testedYear}.{testedMajor}."

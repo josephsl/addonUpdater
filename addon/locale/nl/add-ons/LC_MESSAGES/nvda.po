@@ -17,21 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.6.11\n"
 
-#. Translators: message displayed if legacy add-ons are found (add-ons with all features included in NVDA).
-msgid ""
-"One or more legacy add-ons were found in your NVDA installation. Features "
-"from these add-ons are now part of the NVDA version you are using. Please "
-"disable or uninstall these add-ons by going to NVDA menu, Tools, Manage Add-"
-"ons.\n"
-msgstr ""
-"Er zijn een of meer verouderde add-ons gevonden in uw NVDA-installatie. "
-"Functies van deze add-ons maken nu deel uit van de NVDA-versie die u "
-"gebruikt. Schakel deze add-ons uit of verwijder deze via het NVDA-menu, "
-"Extra, Add-ons beheren.\n"
-
-msgid "Legacy add-ons found"
-msgstr "Verouderde add-ons gevonden"
-
 msgid "Check for &add-on updates..."
 msgstr "Controleren op &add-on updates..."
 
@@ -60,6 +45,34 @@ msgstr "Add-ons &niet updaten:"
 msgid "Prefer development releases:"
 msgstr "Geef de voorkeur aan ontwikkelingsreleases:"
 
+#. Translators: The title of the legacy add-ons dialog.
+msgid "Legacy add-ons found"
+msgstr "Verouderde add-ons gevonden"
+
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+#, fuzzy
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Manage Add-ons.\n"
+msgstr ""
+"Er zijn een of meer verouderde add-ons gevonden in uw NVDA-installatie. "
+"Functies van deze add-ons maken nu deel uit van de NVDA-versie die u "
+"gebruikt. Schakel deze add-ons uit of verwijder deze via het NVDA-menu, "
+"Extra, Add-ons beheren.\n"
+
+#. Translators: the label for the legacy add-ons list.
+#, fuzzy
+msgid "Legacy add-ons"
+msgstr "Verouderde add-ons gevonden"
+
+#. Translators: The label for a column in legacy add-ons list used to show legacy add-on reason.
+#, fuzzy
+msgid "Legacy reason"
+msgstr "Verouderde add-ons gevonden"
+
 #. Translators: The title of the dialog presented while checking for add-on updates.
 msgid "Add-on update check"
 msgstr "Add-on updates zoeken"
@@ -76,12 +89,8 @@ msgid "NVDA Add-on Updates"
 msgstr "NVDA Add-on Updates"
 
 #. Translators: Message displayed when add-on updates are available.
-#, python-brace-format
-msgid "{updateCount} add-on updates are available."
-msgstr "{updateCount} add-on updates zijn beschikbaar."
-
-#. Translators: Message displayed when add-on updates are available.
-msgid "1 add-on update is available."
+#, fuzzy, python-brace-format
+msgid "Add-on updates available: {updateCount}"
 msgstr "Er is 1 add-on-update beschikbaar."
 
 #. Translators: The label for a column in add-ons updates list
@@ -142,6 +151,27 @@ msgstr "Een ogenblik geduld terwijl de add-on wordt bijgewerkt."
 msgid "Failed to update {name} add-on"
 msgstr "Bijwerken van de add-on {name} is mislukt"
 
+#. Add-ons with all features integrated into NVDA or declared "legacy" by authors.
+#. For the latter case, update check functionality will be disabled upon authors' request.
+#. Translators: legacy add-on, features included in NVDA.
+msgid "features included in NVDA"
+msgstr ""
+
+#. Translators: legacy add-on, declared by add-on developers.
+msgid "declared legacy by add-on developers"
+msgstr ""
+
+#. Translators: presented as part of add-on update notification message.
+msgid ""
+"One or more add-on updates are available. Go to NVDA menu, Tools, Check for "
+"add-on updates to review them."
+msgstr ""
+
+#. Translators: title of the add-on update notification message.
+#, fuzzy
+msgid "NVDA add-on updates"
+msgstr "NVDA Add-on Updates"
+
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid ""
@@ -150,6 +180,9 @@ msgid ""
 msgstr ""
 "Proof of concept implementatie van add-on updatefunctie (NVDA Core-issue "
 "3208)"
+
+#~ msgid "{updateCount} add-on updates are available."
+#~ msgstr "{updateCount} add-on updates zijn beschikbaar."
 
 #~ msgid ""
 #~ "{name} add-on is not compatible with this version of NVDA. Minimum NVDA "

@@ -8,30 +8,15 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2021-05-05 00:12+0200\n"
-"Last-Translator: Radek Žalud <radek.zalud@seznam.cz>\n"
+"PO-Revision-Date: 2021-06-11 13:12+0100\n"
+"Last-Translator: Martina <letochova@seznam.cz>\n"
 "Language-Team: cs\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.3\n"
+"X-Generator: Poedit 1.5.7\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
-
-#. Translators: message displayed if legacy add-ons are found (add-ons with all features included in NVDA).
-msgid ""
-"One or more legacy add-ons were found in your NVDA installation. Features "
-"from these add-ons are now part of the NVDA version you are using. Please "
-"disable or uninstall these add-ons by going to NVDA menu, Tools, Manage Add-"
-"ons.\n"
-msgstr ""
-"Byly nalezeny nepodporované doplňky. Funkce z těchto doplňků jsou již "
-"součástí programu NVDA a proto se samotné doplňky dále nevyvýjí. Odstraňte "
-"je ve správci doplňků (nvda. Otevřete nabídku NVDA > Nástroje > Spravovat "
-"doplňky.\n"
-
-msgid "Legacy add-ons found"
-msgstr "Nepodporované doplňky"
 
 msgid "Check for &add-on updates..."
 msgstr "Skontrolovat &aktualizace doplňků..."
@@ -61,6 +46,31 @@ msgstr "Neaktualizovat &doplňky:"
 msgid "Prefer development releases:"
 msgstr "Preferovat vývojové verze:"
 
+#. Translators: The title of the legacy add-ons dialog.
+msgid "Legacy add-ons found"
+msgstr "Nepodporované doplňky"
+
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Manage Add-ons.\n"
+msgstr ""
+"Byly nalezeny nepodporované doplňky. Funkce z těchto doplňků jsou již "
+"součástí programu NVDA a proto se samotné doplňky dále nevyvýjí. Odstraňte "
+"je ve správci doplňků (nvda. Otevřete nabídku NVDA > Nástroje > Spravovat "
+"doplňky.\n"
+
+#. Translators: the label for the legacy add-ons list.
+msgid "Legacy add-ons"
+msgstr "Nepodporované doplňky"
+
+#. Translators: The label for a column in legacy add-ons list used to show legacy add-on reason.
+msgid "Legacy reason"
+msgstr "Důvod"
+
 #. Translators: The title of the dialog presented while checking for add-on updates.
 msgid "Add-on update check"
 msgstr "KOntrola aktualizací"
@@ -78,12 +88,8 @@ msgstr "Aktualizace doplňků"
 
 #. Translators: Message displayed when add-on updates are available.
 #, python-brace-format
-msgid "{updateCount} add-on updates are available."
-msgstr "Dostupné aktualizace: {updateCount}."
-
-#. Translators: Message displayed when add-on updates are available.
-msgid "1 add-on update is available."
-msgstr "Je dostupná aktualizace jednoho doplňku."
+msgid "Add-on updates available: {updateCount}"
+msgstr "Jsou dostupné aktualizace: {updateCount}"
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify current add-on version (example: version is 0.3).
@@ -122,7 +128,7 @@ msgstr "Chyba při stahování aktualizace{name}."
 #, python-brace-format
 msgid "Cannot update {name} - missing file or invalid file format"
 msgstr ""
-"Nelze aktualizovat {name} - chýbějící soubor neebo neplatný formát souboru"
+"Nelze aktualizovat {name} - chybějící soubor nebo neplatný formát souboru"
 
 #. Translators: The message displayed when the add-on requires a newer version of Windows.
 #, python-brace-format
@@ -144,6 +150,29 @@ msgstr "Počkejte prosím, než se doplněk aktualizuje."
 msgid "Failed to update {name} add-on"
 msgstr "Aktualizace doplňku {name} se nezdařila"
 
+#. Add-ons with all features integrated into NVDA or declared "legacy" by authors.
+#. For the latter case, update check functionality will be disabled upon authors' request.
+#. Translators: legacy add-on, features included in NVDA.
+msgid "features included in NVDA"
+msgstr "funkce dostupné v NVDA"
+
+#. Translators: legacy add-on, declared by add-on developers.
+msgid "declared legacy by add-on developers"
+msgstr "nepodporované"
+
+#. Translators: presented as part of add-on update notification message.
+#, fuzzy
+msgid ""
+"One or more add-on updates are available. Go to NVDA menu, Tools, Check for "
+"add-on updates to review them."
+msgstr ""
+"Jsou dostupné aktualizace doplňků. Můžete je zkontrolovat v nabídce NVDA, "
+"nástroje, zkontrolovat aktualizace doplňků."
+
+#. Translators: title of the add-on update notification message.
+msgid "NVDA add-on updates"
+msgstr "Aktualizace doplňků"
+
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid ""
@@ -152,6 +181,9 @@ msgid ""
 msgstr ""
 "Implementace aktualizačního mechanismu pro doplňky NVDA (Hledejte ticket "
 "3208)"
+
+#~ msgid "{updateCount} add-on updates are available."
+#~ msgstr "Dostupné aktualizace: {updateCount}."
 
 #~ msgid ""
 #~ "{name} add-on is not compatible with this version of NVDA. Minimum NVDA "

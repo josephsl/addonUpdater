@@ -1,8 +1,8 @@
 # Brazilian Portuguese translation of addonUpdater.
-# Copyright (C) 2020 NVDA Contributors.
+# Copyright (C) 2020-2021 NVDA Contributors.
 # This file is distributed under the same license as the NVDA package.
 # Ângelo Abrantes <ampa4374@gmail.com>, 2018-2019.
-# Tiago Melo Casal <tcasal@intervox.nce.ufrj.br>, 2020.
+# Tiago Melo Casal <tcasal@intervox.nce.ufrj.br>, 2020-2021.
 # Cleverson Casarin Uliana <clever97@gmail.com>, 2020.
 #
 msgid ""
@@ -10,27 +10,16 @@ msgstr ""
 "Project-Id-Version: addonUpdater\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2020-03-06 01:00+1000\n"
-"PO-Revision-Date: 2020-03-08 19:48-0300\n"
-"Last-Translator: Cleverson Casarin Uliana <clever97@gmail.com>\n"
+"PO-Revision-Date: 2021-06-26 15:55-0300\n"
+"Last-Translator: Tiago Melo Casal <tcasal@intervox.nce.ufrj.br>\n"
 "Language-Team: NVDA Brazilian Portuguese translation team (Equipe de "
 "tradução do NVDA para Português Brasileiro) <clever97@gmail.com>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.11\n"
+"X-Generator: Poedit 3.0\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-
-#. Translators: message displayed if legacy add-ons are found (add-ons with all features included in NVDA).
-msgid ""
-"One or more legacy add-ons were found in your NVDA installation. Features "
-"from these add-ons are now part of the NVDA version you are using. Please "
-"disable or uninstall these add-ons by going to NVDA menu, Tools, Manage Add-"
-"ons.\n"
-msgstr ""
-
-msgid "Legacy add-ons found"
-msgstr ""
 
 msgid "Check for &add-on updates..."
 msgstr "Verifique se há &atualizações de complementos..."
@@ -43,7 +32,7 @@ msgstr "Verifique se há atualizações de complementos para o NVDA"
 #. Translators: Summary for this add-on
 #. to be shown on installation and add-on information.
 msgid "Add-on Updater"
-msgstr "Atualizador de complementos"
+msgstr "Atualizador de Complementos"
 
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
@@ -60,28 +49,52 @@ msgstr "&Não atualizar os complementos:"
 msgid "Prefer development releases:"
 msgstr "Preferir versões em desenvolvimento:"
 
+#. Translators: The title of the legacy add-ons dialog.
+msgid "Legacy add-ons found"
+msgstr "Complementos legados encontrados"
+
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+#, fuzzy
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Manage Add-ons.\n"
+msgstr ""
+"Um ou mais complementos legados foram encontrados em sua instalação do NVDA. "
+"Os recursos desses complementos agora fazem parte da versão do NVDA que você "
+"está usando. Desabilite ou desinstale esses complementos acessando o menu "
+"NVDA, Ferramentas, Gerir complementos.\n"
+
+#. Translators: the label for the legacy add-ons list.
+#, fuzzy
+msgid "Legacy add-ons"
+msgstr "Complementos legados encontrados"
+
+#. Translators: The label for a column in legacy add-ons list used to show legacy add-on reason.
+#, fuzzy
+msgid "Legacy reason"
+msgstr "Complementos legados encontrados"
+
 #. Translators: The title of the dialog presented while checking for add-on updates.
 msgid "Add-on update check"
-msgstr "Procura atualização de complementos"
+msgstr "Verifica atualização de complementos"
 
 #. Translators: The message displayed while checking for add-on updates.
 msgid "Checking for add-on updates..."
-msgstr "Procurando atualizações de complementos..."
+msgstr "Verificando atualizações de complementos..."
 
 msgid "Error checking for add-on updates."
-msgstr "Erro ao procurar atualizações de complementos."
+msgstr "Erro ao verificar atualizações de complementos."
 
 #. Translators: The title of the add-on updates dialog.
 msgid "NVDA Add-on Updates"
 msgstr "Atualizações de Complementos do NVDA"
 
 #. Translators: Message displayed when add-on updates are available.
-#, python-brace-format
-msgid "{updateCount} add-on updates are available."
-msgstr "{updateCount} atualizações de complementos estão disponíveis."
-
-#. Translators: Message displayed when add-on updates are available.
-msgid "1 add-on update is available."
+#, fuzzy, python-brace-format
+msgid "Add-on updates available: {updateCount}"
 msgstr "1 atualização de complemento está disponível."
 
 #. Translators: The label for a column in add-ons updates list
@@ -142,6 +155,27 @@ msgstr "Por favor aguarde enquanto o complemento está sendo atualizado."
 msgid "Failed to update {name} add-on"
 msgstr "Falha ao atualizar o complemento {name}"
 
+#. Add-ons with all features integrated into NVDA or declared "legacy" by authors.
+#. For the latter case, update check functionality will be disabled upon authors' request.
+#. Translators: legacy add-on, features included in NVDA.
+msgid "features included in NVDA"
+msgstr ""
+
+#. Translators: legacy add-on, declared by add-on developers.
+msgid "declared legacy by add-on developers"
+msgstr ""
+
+#. Translators: presented as part of add-on update notification message.
+msgid ""
+"One or more add-on updates are available. Go to NVDA menu, Tools, Check for "
+"add-on updates to review them."
+msgstr ""
+
+#. Translators: title of the add-on update notification message.
+#, fuzzy
+msgid "NVDA add-on updates"
+msgstr "Atualizações de Complementos do NVDA"
+
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid ""
@@ -150,3 +184,6 @@ msgid ""
 msgstr ""
 "Implementação de prova de conceito do recurso de atualização de complemento "
 "(NVDA Core issue 3208)"
+
+#~ msgid "{updateCount} add-on updates are available."
+#~ msgstr "{updateCount} atualizações de complementos estão disponíveis."
