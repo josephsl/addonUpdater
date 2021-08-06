@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 2018.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2021-06-25 06:43+0300\n"
+"PO-Revision-Date: 2021-08-04 10:34+0300\n"
 "Last-Translator: Çağrı Doğan <cagrid@hotmail.com>\n"
 "Language-Team: Turkish <cagrid@hotmail.comLL@li.org>\n"
 "Language: tr\n"
@@ -162,13 +162,12 @@ msgid "declared legacy by add-on developers"
 msgstr "eklenti, geliştiricileri tarafından \"eskimiş\" olarak ilan edildi"
 
 #. Translators: presented as part of add-on update notification message.
-#, fuzzy
 msgid ""
 "One or more add-on updates are available. Go to NVDA menu, Tools, Check for "
 "add-on updates to review them."
 msgstr ""
-"Bir veya daha fazla eklenti güncellemesi mevcut. Bunları incelemek için NVDA "
-"menüsü, Araçlar, eklenti güncelleme kontrolü komutunu verin."
+"Bir veya daha fazla eklenti için güncelleme mevcut. İncelemek için NVDA "
+"menüsü, Araçlar, Eklenti güncellemelerini kontrol et komutunu etkinleştirin."
 
 #. Translators: title of the add-on update notification message.
 msgid "NVDA add-on updates"

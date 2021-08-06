@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-12-01 04:05+1000\n"
-"PO-Revision-Date: 2020-12-24 09:14+0100\n"
+"PO-Revision-Date: 2021-08-03 16:20+0200\n"
 "Last-Translator: Ecaterina Jivaga <notka@gozaltech.org>\n"
 "Language-Team: ru <LL@li.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.10\n"
+"X-Generator: Poedit 3.0\n"
 
 msgid "Check for &add-on updates..."
 msgstr "Проверить наличие обновлений для &дополнений..."
@@ -51,26 +51,25 @@ msgstr "Найдено устаревшие дополнения"
 
 #. Translators: message displayed if legacy add-ons are found
 #. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
-#, fuzzy
 msgid ""
 "One or more legacy add-ons were found in your NVDA installation. Features "
 "from these add-ons are now part of the NVDA version you are using or "
 "declared legacy by add-on developers. Please disable or uninstall these add-"
 "ons by going to NVDA menu, Tools, Manage Add-ons.\n"
 msgstr ""
-"Найдено одно или больше устаревших дополнений. Функционал этих дополнений "
-"теперь является частью использоваемой версии NVDA. Просим выключить или "
-"удалить эти дополнения исьпользуя менеджер дополнений.\n"
+"В установке NVDA было найдено одно или несколько устаревших дополнений. "
+"Функции этих надстроек теперь являются частью версии NVDA, которую вы "
+"используете, или объявлены устаревшими разработчиками надстроек. Пожалуйста, "
+"отключите или удалите эти дополнения, перейдя в меню NVDA, Инструменты, "
+"Управление дополнениями.\n"
 
 #. Translators: the label for the legacy add-ons list.
-#, fuzzy
 msgid "Legacy add-ons"
-msgstr "Найдено устаревшие дополнения"
+msgstr "Устаревшие дополнения"
 
 #. Translators: The label for a column in legacy add-ons list used to show legacy add-on reason.
-#, fuzzy
 msgid "Legacy reason"
-msgstr "Найдено устаревшие дополнения"
+msgstr "Причина устарелости"
 
 #. Translators: The title of the dialog presented while checking for add-on updates.
 msgid "Add-on update check"
@@ -88,9 +87,9 @@ msgid "NVDA Add-on Updates"
 msgstr "Обновления Дополнений NVDA"
 
 #. Translators: Message displayed when add-on updates are available.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Add-on updates available: {updateCount}"
-msgstr "1 обновление дополнений доступно."
+msgstr "Доступные обновления дополнений: {updateCount}"
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify current add-on version (example: version is 0.3).
@@ -154,22 +153,23 @@ msgstr "Не удалось обновить дополнение {name}"
 #. For the latter case, update check functionality will be disabled upon authors' request.
 #. Translators: legacy add-on, features included in NVDA.
 msgid "features included in NVDA"
-msgstr ""
+msgstr "функции, включенные в NVDA"
 
 #. Translators: legacy add-on, declared by add-on developers.
 msgid "declared legacy by add-on developers"
-msgstr ""
+msgstr "объявленное устарелости разработчиками дополнений"
 
 #. Translators: presented as part of add-on update notification message.
 msgid ""
 "One or more add-on updates are available. Go to NVDA menu, Tools, Check for "
 "add-on updates to review them."
 msgstr ""
+"Доступно одно или несколько обновлений дополнений. Перейдите в меню NVDA, "
+"Инструменты, Проверьте наличие обновлений дополнений, чтобы просмотреть их."
 
 #. Translators: title of the add-on update notification message.
-#, fuzzy
 msgid "NVDA add-on updates"
-msgstr "Обновления Дополнений NVDA"
+msgstr "Обновления дополнений NVDA"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager

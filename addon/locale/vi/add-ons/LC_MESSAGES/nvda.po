@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2020-11-24 13:43+0700\n"
+"PO-Revision-Date: 2021-08-05 23:20+0700\n"
 "Last-Translator: Dang Manh Cuong <dangmanhcuong@gmail.com>\n"
 "Language-Team: \n"
 "Language: vi\n"
@@ -43,35 +43,32 @@ msgid "Do &not update add-ons:"
 msgstr "Không cập &nhật các add-on:"
 
 msgid "Prefer development releases:"
-msgstr "Ưu tiên các bản phát hành:"
+msgstr "Ưu tiên các bản phát hành thử nghiệm:"
 
 #. Translators: The title of the legacy add-ons dialog.
 msgid "Legacy add-ons found"
-msgstr "Có các add-on cũ"
+msgstr "Có các add-on lỗi thời"
 
 #. Translators: message displayed if legacy add-ons are found
 #. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
-#, fuzzy
 msgid ""
 "One or more legacy add-ons were found in your NVDA installation. Features "
 "from these add-ons are now part of the NVDA version you are using or "
 "declared legacy by add-on developers. Please disable or uninstall these add-"
 "ons by going to NVDA menu, Tools, Manage Add-ons.\n"
 msgstr ""
-"Đã tìm thấy một hoặc nhiều add-on cũ trong bản cài NVDA của bạn. Tính năng "
-"của các add-on này giờ đây đã được tích hợp vào phiên bản NVDA bạn đang "
-"dùng. Hãy vô hiệu hoặc gỡ các add-on này bằng cách vào trình đơn NVDA, Công "
-"cụ, Quản lý các add-on.\n"
+"Đã tìm thấy một hoặc nhiều add-on lỗi thời trong bản cài NVDA của bạn. Tính "
+"năng của các add-on này giờ đây đã được tích hợp vào phiên bản NVDA bạn đang "
+"dùng hoặc được tác giả khai báo là add-on lỗi thời. Hãy vô hiệu hoặc gỡ các "
+"add-on này bằng cách vào trình đơn NVDA, Công cụ, Quản lý các add-on.\n"
 
 #. Translators: the label for the legacy add-ons list.
-#, fuzzy
 msgid "Legacy add-ons"
-msgstr "Có các add-on cũ"
+msgstr "Có các add-on lỗi thời"
 
 #. Translators: The label for a column in legacy add-ons list used to show legacy add-on reason.
-#, fuzzy
 msgid "Legacy reason"
-msgstr "Có các add-on cũ"
+msgstr "Lí do lỗi thời"
 
 #. Translators: The title of the dialog presented while checking for add-on updates.
 msgid "Add-on update check"
@@ -89,9 +86,9 @@ msgid "NVDA Add-on Updates"
 msgstr "Cập nhật NVDA add-on"
 
 #. Translators: Message displayed when add-on updates are available.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Add-on updates available: {updateCount}"
-msgstr "Đã có 1 bản cập nhật add-on."
+msgstr "Đã có cập nhật add-on: {updateCount}"
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify current add-on version (example: version is 0.3).
@@ -155,20 +152,21 @@ msgstr "Không cập nhật được {name} add-on"
 #. For the latter case, update check functionality will be disabled upon authors' request.
 #. Translators: legacy add-on, features included in NVDA.
 msgid "features included in NVDA"
-msgstr ""
+msgstr "Các tính năng đã bao gồm trong NVDA"
 
 #. Translators: legacy add-on, declared by add-on developers.
 msgid "declared legacy by add-on developers"
-msgstr ""
+msgstr "Tác giả đã khai bao add-on lỗi thời"
 
 #. Translators: presented as part of add-on update notification message.
 msgid ""
 "One or more add-on updates are available. Go to NVDA menu, Tools, Check for "
 "add-on updates to review them."
 msgstr ""
+"Đã có bản cập nhật cho một hay nhiều add-on. Hãy vào trình đơn NVDA, Công "
+"cụ, Kiểm tra cập nhật add-on để xem."
 
 #. Translators: title of the add-on update notification message.
-#, fuzzy
 msgid "NVDA add-on updates"
 msgstr "Cập nhật NVDA add-on"
 

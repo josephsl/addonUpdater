@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2020-11-19 15:14+0100\n"
+"PO-Revision-Date: 2021-08-03 14:34+0100\n"
 "Last-Translator: Nikola Jović <wwenikola123@gmail.com>\n"
 "Language-Team: Serbian <wwenikola123@gmail.com>\n"
 "Language: sr\n"
@@ -51,7 +51,6 @@ msgstr "Zastareli dodaci pronađeni"
 
 #. Translators: message displayed if legacy add-ons are found
 #. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
-#, fuzzy
 msgid ""
 "One or more legacy add-ons were found in your NVDA installation. Features "
 "from these add-ons are now part of the NVDA version you are using or "
@@ -59,19 +58,18 @@ msgid ""
 "ons by going to NVDA menu, Tools, Manage Add-ons.\n"
 msgstr ""
 "U vašoj NVDA verziji su pronađeni zastareli dodaci. Opcije iz ovih dodataka "
-"su sada deo NVDA verzije koju koristite. Molimo onemogućite ili uklonite ove "
-"dodatke tako što ćete posetiti NVDA meni, izabrati opciju alati, a zatim "
-"opciju upravljanje dodacima.\n"
+"su sada deo NVDA verzije koju koristite ili su proglašeni kao zastareli od "
+"strane programera dodataka. Molimo onemogućite ili uklonite ove dodatke tako "
+"što ćete posetiti NVDA meni, izabrati opciju alati, a zatim opciju "
+"upravljanje dodacima.\n"
 
 #. Translators: the label for the legacy add-ons list.
-#, fuzzy
 msgid "Legacy add-ons"
-msgstr "Zastareli dodaci pronađeni"
+msgstr "Zastareli dodaci"
 
 #. Translators: The label for a column in legacy add-ons list used to show legacy add-on reason.
-#, fuzzy
 msgid "Legacy reason"
-msgstr "Zastareli dodaci pronađeni"
+msgstr "Razlog zastarelosti"
 
 #. Translators: The title of the dialog presented while checking for add-on updates.
 msgid "Add-on update check"
@@ -89,9 +87,9 @@ msgid "NVDA Add-on Updates"
 msgstr "Ažuriranja NVDA dodataka"
 
 #. Translators: Message displayed when add-on updates are available.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Add-on updates available: {updateCount}"
-msgstr "Jedno ažuriranje dodatka je dostupno."
+msgstr "{updateCount} dostupnih ažuriranja dodataka: "
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify current add-on version (example: version is 0.3).
@@ -156,20 +154,21 @@ msgstr "Nemoguće ažurirati dodatak {name}"
 #. For the latter case, update check functionality will be disabled upon authors' request.
 #. Translators: legacy add-on, features included in NVDA.
 msgid "features included in NVDA"
-msgstr ""
+msgstr "Opcije uključene u NVDA"
 
 #. Translators: legacy add-on, declared by add-on developers.
 msgid "declared legacy by add-on developers"
-msgstr ""
+msgstr "Označen kao zastareo od programera dodatka"
 
 #. Translators: presented as part of add-on update notification message.
 msgid ""
 "One or more add-on updates are available. Go to NVDA menu, Tools, Check for "
 "add-on updates to review them."
 msgstr ""
+"dostupna su ažuriranja za dodatke. Otvorite NVDA meni, alati, proveri "
+"dostupna ažuriranja dodataka da biste ih pregledali."
 
 #. Translators: title of the add-on update notification message.
-#, fuzzy
 msgid "NVDA add-on updates"
 msgstr "Ažuriranja NVDA dodataka"
 
