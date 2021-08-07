@@ -295,53 +295,16 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 				)
 				self.continueUpdatingAddons()
 				return
-			# Check compatibility with NVDA and/or Windows release.
 			# NVDA itself will check add-on compatibility range.
 			# As such, the below fragment was borrowed from NVDA Core (credit: NV Access).
 			from addonHandler import addonVersionCheck
 			from gui import addonGui
-			# Check compatibility with NVDA and/or Windows release.
 			if not addonVersionCheck.hasAddonGotRequiredSupport(bundle):
 				addonGui._showAddonRequiresNVDAUpdateDialog(gui.mainFrame, bundle)
 				self.continueUpdatingAddons()
 				return
 			elif not addonVersionCheck.isAddonTested(bundle):
 				addonGui._showAddonTooOldDialog(gui.mainFrame, bundle)
-				self.continueUpdatingAddons()
-				return
-			# Some add-ons require a specific Windows release or later.
-			# Prepare for winVersion.getWinVer function.
-			import winVersion
-			minimumWindowsVersion = bundle.manifest.get("minimumWindowsVersion", None)
-			if hasattr(winVersion, "getWinVer"):
-				if minimumWindowsVersion is None:
-					minimumWindowsVersion = winVersion.getWinVer()
-				else:
-					minimumWindowsVersion = [int(data) for data in minimumWindowsVersion.split(".")]
-					minimumWinMajor, minimumWinMinor, minimumWinBuild = minimumWindowsVersion
-					minimumWindowsVersion = winVersion.WinVersion(
-						major=minimumWinMajor,
-						minor=minimumWinMinor,
-						build=minimumWinBuild
-					)
-				winVersionUnsupported = winVersion.getWinVer() < minimumWindowsVersion
-			else:
-				if minimumWindowsVersion is None:
-					minimumWindowsVersion = winVersion.winVersion[:3]
-				else:
-					minimumWindowsVersion = [int(data) for data in minimumWindowsVersion.split(".")]
-				minimumWinMajor, minimumWinMinor, minimumWinBuild = minimumWindowsVersion
-				winMajor, winMinor, winBuild = winVersion.winVersion[:3]
-				winVersionUnsupported = (
-					(winMajor, winMinor, winBuild) < (minimumWinMajor, minimumWinMinor, minimumWinBuild)
-				)
-			if winVersionUnsupported:
-				gui.messageBox(
-					# Translators: The message displayed when the add-on requires a newer version of Windows.
-					_("{name} add-on is not compatible with this version of Windows.").format(name=self.addonName),
-					translate("Error"),
-					wx.OK | wx.ICON_ERROR
-				)
 				self.continueUpdatingAddons()
 				return
 			bundleName = bundle.manifest['name']
