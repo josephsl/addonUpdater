@@ -405,8 +405,8 @@ def _showAddonUpdateUI():
 		# wxPython 4.1.0 (and consequently, wxWidges 3.1.0) simplifies this by
 		# allowing action handlers to be defined for toasts, which will then show the results dialog on the spot.
 		# However it doesn't work for desktop apps such as NVDA.
-		import sys
-		if sys.getwindowsversion().major >= 10:
+		import winVersion
+		if winVersion.getWinVer() >= winVersion.WIN10:
 			global _updateInfo
 			updateMessage = _(
 				# Translators: presented as part of add-on update notification message.
