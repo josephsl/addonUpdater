@@ -32,7 +32,7 @@ AddonUpdaterManualUpdateCheck = extensionPoints.Action()
 _progressDialog = None
 
 
-# The following event handler comes from a combination of StationPlaylist and Windows 10 App Essentials.
+# The following event handler comes from a combination of StationPlaylist and Windows App Essentials.
 def onAddonUpdateCheck(evt):
 	# If toast was shown, this will launch the results dialog directly as there is already update info.
 	# Update info is valid only once, and this check will nullify it.
