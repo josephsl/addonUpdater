@@ -181,7 +181,7 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 		self.noAddonUpdates.SetSelection(0)
 
 		self.devAddonUpdates = sHelper.addLabeledControl(
-			_("Prefer development releases:"), CustomCheckListBox, choices=[
+			_("Prefer &development releases:"), CustomCheckListBox, choices=[
 				addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
 				if isinstance(addon.manifest['summary'], str) and "vocalizer" not in addon.name
 			]
