@@ -9,6 +9,7 @@ import time
 import gui
 from gui.nvdaControls import CustomCheckListBox, AutoWidthColumnListCtrl
 import wx
+import winVersion
 # What if this is run from NVDA source?
 try:
 	import updateCheck
@@ -151,6 +152,23 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 		)
 		self.autoUpdateCheckBox.SetValue(addonUtils.updateState["autoUpdate"])
 
+		if winVersion.getWinVer() >= winVersion.WIN10:
+			updateNotificationChoices = [
+				# Translators: one of the add-on update notification choices.
+				("toast", _("toast")),
+				# Translators: one of the add-on update notification choices.
+				("dialog", _("dialog")),
+			]
+			self.updateNotification = sHelper.addLabeledControl(
+				# Translators: This is the label for a combo box in the
+				# Add-on Updater settings panel.
+				_("&Add-on update notification:"), wx.Choice, choices=[x[1] for x in updateNotificationChoices]
+			)
+			self.updateNotification.SetSelection(
+				next((x for x, y in enumerate(updateNotificationChoices)
+				if y[0] == addonUtils.updateState["updateNotification"]))
+			)
+
 		# Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
 		# Some add-ons come with pretty badly formatted summary text,
 		# so try catching them and exclude them from this list.
@@ -183,6 +201,8 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 			if addon.manifest["summary"] in devAddonUpdateSummaries
 		]
 		addonUtils.updateState["autoUpdate"] = self.autoUpdateCheckBox.IsChecked()
+		if hasattr(self, "updateNotification"):
+			addonUtils.updateState["updateNotification"] = ["toast", "dialog"][self.updateNotification.GetSelection()]
 		global updateChecker
 		if updateChecker and updateChecker.IsRunning():
 			updateChecker.Stop()

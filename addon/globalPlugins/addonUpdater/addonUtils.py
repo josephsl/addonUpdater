@@ -19,6 +19,7 @@ def loadState():
 			updateState = pickle.load(f)
 	except (IOError, EOFError, NameError, ValueError, pickle.UnpicklingError):
 		updateState["autoUpdate"] = True
+		updateState["updateNotification"] = "toast"
 		updateState["lastChecked"] = 0
 		updateState["noUpdates"] = []
 		updateState["devUpdates"] = []
@@ -26,6 +27,8 @@ def loadState():
 	# Just to make sure...
 	if "autoUpdate" not in updateState:
 		updateState["autoUpdate"] = True
+	if "updateNotification" not in updateState:
+		updateState["updateNotification"] = "toast"
 	if "lastChecked" not in updateState:
 		updateState["lastChecked"] = 0
 	if "noUpdates" not in updateState:
@@ -54,6 +57,7 @@ def reload(factoryDefaults=False):
 	else:
 		updateState.clear()
 		updateState["autoUpdate"] = True
+		updateState["updateNotification"] = "toast"
 		updateState["lastChecked"] = 0
 		updateState["noUpdates"] = []
 		updateState["devUpdates"] = []
