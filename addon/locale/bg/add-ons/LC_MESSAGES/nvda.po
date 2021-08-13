@@ -35,6 +35,20 @@ msgstr "Обновяване на добавките"
 msgid "Automatically check for add-on &updates"
 msgstr "Автоматично проверявай за &обновления на добавките"
 
+#. Translators: one of the add-on update notification choices.
+msgid "toast"
+msgstr ""
+
+#. Translators: one of the add-on update notification choices.
+msgid "dialog"
+msgstr ""
+
+#. Translators: This is the label for a combo box in the
+#. Add-on Updater settings panel.
+#, fuzzy
+msgid "&Add-on update notification:"
+msgstr "Проверка за обновления на добавките"
+
 #. Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
 #. Some add-ons come with pretty badly formatted summary text,
 #. so try catching them and exclude them from this list.
@@ -42,7 +56,8 @@ msgstr "Автоматично проверявай за &обновления �
 msgid "Do &not update add-ons:"
 msgstr "Да &не се обновяват следните добавки:"
 
-msgid "Prefer development releases:"
+#, fuzzy
+msgid "Prefer &development releases:"
 msgstr "Обновяване до &тестови версии:"
 
 #. Translators: The title of the legacy add-ons dialog.
@@ -131,11 +146,6 @@ msgstr ""
 "Не може да се обнови добавката \"{name}\" – липсващ файл или невалиден "
 "файлов формат."
 
-#. Translators: The message displayed when the add-on requires a newer version of Windows.
-#, python-brace-format
-msgid "{name} add-on is not compatible with this version of Windows."
-msgstr "Добавката \"{name}\" не е съвместима с тази версия на Windows."
-
 #. Translators: The title of the dialog presented while an Addon is being updated.
 #, python-brace-format
 msgid "Updating {name}"
@@ -180,6 +190,9 @@ msgid ""
 msgstr ""
 "Имплементация на работеща концепция на функцията за обновяване на добавки "
 "(доклад за нова функция в NVDA с номер 3208)"
+
+#~ msgid "{name} add-on is not compatible with this version of Windows."
+#~ msgstr "Добавката \"{name}\" не е съвместима с тази версия на Windows."
 
 #~ msgid "{updateCount} add-on updates are available."
 #~ msgstr "Налични са обновления за {updateCount} добавки."

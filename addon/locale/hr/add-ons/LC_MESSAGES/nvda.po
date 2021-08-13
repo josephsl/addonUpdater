@@ -38,6 +38,20 @@ msgstr "Nadogradnja dodataka"
 msgid "Automatically check for add-on &updates"
 msgstr "Automatski provjeri &nadogradnje dodataka"
 
+#. Translators: one of the add-on update notification choices.
+msgid "toast"
+msgstr ""
+
+#. Translators: one of the add-on update notification choices.
+msgid "dialog"
+msgstr ""
+
+#. Translators: This is the label for a combo box in the
+#. Add-on Updater settings panel.
+#, fuzzy
+msgid "&Add-on update notification:"
+msgstr "Provjera nadogradnji dodataka"
+
 #. Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
 #. Some add-ons come with pretty badly formatted summary text,
 #. so try catching them and exclude them from this list.
@@ -45,7 +59,8 @@ msgstr "Automatski provjeri &nadogradnje dodataka"
 msgid "Do &not update add-ons:"
 msgstr "N&e nadograđuj dodatke:"
 
-msgid "Prefer development releases:"
+#, fuzzy
+msgid "Prefer &development releases:"
 msgstr "Preferiraj razvojna izdanja:"
 
 #. Translators: The title of the legacy add-ons dialog.
@@ -133,11 +148,6 @@ msgstr ""
 "Nije moguće nadograditi {name} – datoteka nedostaje ili je datotečni format "
 "neispravan"
 
-#. Translators: The message displayed when the add-on requires a newer version of Windows.
-#, python-brace-format
-msgid "{name} add-on is not compatible with this version of Windows."
-msgstr "{name} nije kompatibilan s ovom verzijom Windows sustava."
-
 #. Translators: The title of the dialog presented while an Addon is being updated.
 #, python-brace-format
 msgid "Updating {name}"
@@ -182,6 +192,9 @@ msgid ""
 msgstr ""
 "Koncept implementacije funkcije nadograđivanja dodataka (problem 3208 u NVDA "
 "jezgri)"
+
+#~ msgid "{name} add-on is not compatible with this version of Windows."
+#~ msgstr "{name} nije kompatibilan s ovom verzijom Windows sustava."
 
 #~ msgid "{updateCount} add-on updates are available."
 #~ msgstr "Broj dostupnih nadogradnji dodatka: {updateCount}."

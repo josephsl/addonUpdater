@@ -35,6 +35,20 @@ msgstr "Add-on Updater"
 msgid "Automatically check for add-on &updates"
 msgstr "추가 기능 업데이트 자동으로 확인 (&U)"
 
+#. Translators: one of the add-on update notification choices.
+msgid "toast"
+msgstr ""
+
+#. Translators: one of the add-on update notification choices.
+msgid "dialog"
+msgstr ""
+
+#. Translators: This is the label for a combo box in the
+#. Add-on Updater settings panel.
+#, fuzzy
+msgid "&Add-on update notification:"
+msgstr "추가 기능 업데이트 확인중"
+
 #. Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
 #. Some add-ons come with pretty badly formatted summary text,
 #. so try catching them and exclude them from this list.
@@ -42,7 +56,8 @@ msgstr "추가 기능 업데이트 자동으로 확인 (&U)"
 msgid "Do &not update add-ons:"
 msgstr "업데이트 확인 안함 (&N)"
 
-msgid "Prefer development releases:"
+#, fuzzy
+msgid "Prefer &development releases:"
 msgstr "개발 버전으로 업데이트:"
 
 #. Translators: The title of the legacy add-ons dialog.
@@ -57,10 +72,10 @@ msgid ""
 "declared legacy by add-on developers. Please disable or uninstall these add-"
 "ons by going to NVDA menu, Tools, Manage Add-ons.\n"
 msgstr ""
-"설치된 NVDA에서 필요없어진 추가 기능이 하나 이상 발견됐습니다. 이 기능들은 "
-"이제 사용하고 계시는 버전의 NVDA에 자체적으로 포함되어 있거나, 그 추가 기능"
-"의 개발자가 더이상 필요가 없다고 선언했습니다. NVDA 메뉴의 도구, 추가 기능 "
-"관리 항목에서 필요없어진 추가 기능들을 비활성화하거나 삭제해 주세요.\n"
+"설치된 NVDA에서 필요없어진 추가 기능이 하나 이상 발견됐습니다. 이 기능들은 이"
+"제 사용하고 계시는 버전의 NVDA에 자체적으로 포함되어 있거나, 그 추가 기능의 "
+"개발자가 더이상 필요가 없다고 선언했습니다. NVDA 메뉴의 도구, 추가 기능 관리 "
+"항목에서 필요없어진 추가 기능들을 비활성화하거나 삭제해 주세요.\n"
 
 #. Translators: the label for the legacy add-ons list.
 msgid "Legacy add-ons"
@@ -128,11 +143,6 @@ msgstr "{name}에 대한 업데이트를 다운로드하던 중 오류가 발생
 msgid "Cannot update {name} - missing file or invalid file format"
 msgstr "{name}를 업데이트할 수 없습니다 - 파일이 누락됐거나 유효하지 않습니다"
 
-#. Translators: The message displayed when the add-on requires a newer version of Windows.
-#, python-brace-format
-msgid "{name} add-on is not compatible with this version of Windows."
-msgstr "추가 기능 {name}은 사용중인 윈도우 버전에서 사용할 수 없습니다."
-
 #. Translators: The title of the dialog presented while an Addon is being updated.
 #, python-brace-format
 msgid "Updating {name}"
@@ -162,8 +172,8 @@ msgid ""
 "One or more add-on updates are available. Go to NVDA menu, Tools, Check for "
 "add-on updates to review them."
 msgstr ""
-"하나 이상의 추가 기능 업데이트가 있습니다. NVDA 메뉴의 도구, 추가 기능 업데"
-"이트 확인 항목을 통해서 검토할 수 있습니다."
+"하나 이상의 추가 기능 업데이트가 있습니다. NVDA 메뉴의 도구, 추가 기능 업데이"
+"트 확인 항목을 통해서 검토할 수 있습니다."
 
 #. Translators: title of the add-on update notification message.
 msgid "NVDA add-on updates"
@@ -175,6 +185,9 @@ msgid ""
 "Proof of concept implementation of add-on update feature (NVDA Core issue "
 "3208)"
 msgstr "추가 기능 업데이트 기능의 시험적 구현 (NVDA Core issue 3208)"
+
+#~ msgid "{name} add-on is not compatible with this version of Windows."
+#~ msgstr "추가 기능 {name}은 사용중인 윈도우 버전에서 사용할 수 없습니다."
 
 #~ msgid "{updateCount} add-on updates are available."
 #~ msgstr "추가 기능 업데이트가 {updateCount}건 있습니다."
