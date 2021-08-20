@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2021-08-03 14:34+0100\n"
+"PO-Revision-Date: 2021-08-13 03:41+0100\n"
 "Last-Translator: Nikola Jović <wwenikola123@gmail.com>\n"
 "Language-Team: Serbian <wwenikola123@gmail.com>\n"
 "Language: sr\n"
@@ -37,17 +37,16 @@ msgstr "Automatski proveravaj &ažuriranja dodataka"
 
 #. Translators: one of the add-on update notification choices.
 msgid "toast"
-msgstr ""
+msgstr "Obaveštenje"
 
 #. Translators: one of the add-on update notification choices.
 msgid "dialog"
-msgstr ""
+msgstr "Dijalog"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
-#, fuzzy
 msgid "&Add-on update notification:"
-msgstr "Provera ažuriranja dodataka"
+msgstr "&Obaveštenje o ažuriranju dodataka:Provera ažuriranja dodataka"
 
 #. Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
 #. Some add-ons come with pretty badly formatted summary text,
@@ -56,9 +55,8 @@ msgstr "Provera ažuriranja dodataka"
 msgid "Do &not update add-ons:"
 msgstr "&Ne ažuriraj dodatke:"
 
-#, fuzzy
 msgid "Prefer &development releases:"
-msgstr "Preferiraj razvojne verzije:"
+msgstr "Preferiraj &razvojne verzije:"
 
 #. Translators: The title of the legacy add-ons dialog.
 msgid "Legacy add-ons found"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2020-11-20 09:11+0100\n"
+"PO-Revision-Date: 2021-08-14 11:00+0100\n"
 "Last-Translator: Artin Dekker <vertalen@artindekker.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -35,6 +35,19 @@ msgstr "Add-on Updater"
 msgid "Automatically check for add-on &updates"
 msgstr "Controleer automatisch op add-on &updates"
 
+#. Translators: one of the add-on update notification choices.
+msgid "toast"
+msgstr "toast notificatie"
+
+#. Translators: one of the add-on update notification choices.
+msgid "dialog"
+msgstr "dialoogvenster"
+
+#. Translators: This is the label for a combo box in the
+#. Add-on Updater settings panel.
+msgid "&Add-on update notification:"
+msgstr "&Add-on update notificatie:"
+
 #. Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
 #. Some add-ons come with pretty badly formatted summary text,
 #. so try catching them and exclude them from this list.
@@ -42,8 +55,8 @@ msgstr "Controleer automatisch op add-on &updates"
 msgid "Do &not update add-ons:"
 msgstr "Add-ons &niet updaten:"
 
-msgid "Prefer development releases:"
-msgstr "Geef de voorkeur aan ontwikkelingsreleases:"
+msgid "Prefer &development releases:"
+msgstr "Geef de voorkeur aan &ontwikkelingsreleases:"
 
 #. Translators: The title of the legacy add-ons dialog.
 msgid "Legacy add-ons found"
@@ -51,7 +64,6 @@ msgstr "Verouderde add-ons gevonden"
 
 #. Translators: message displayed if legacy add-ons are found
 #. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
-#, fuzzy
 msgid ""
 "One or more legacy add-ons were found in your NVDA installation. Features "
 "from these add-ons are now part of the NVDA version you are using or "
@@ -60,18 +72,17 @@ msgid ""
 msgstr ""
 "Er zijn een of meer verouderde add-ons gevonden in uw NVDA-installatie. "
 "Functies van deze add-ons maken nu deel uit van de NVDA-versie die u "
-"gebruikt. Schakel deze add-ons uit of verwijder deze via het NVDA-menu, "
-"Extra, Add-ons beheren.\n"
+"gebruikt, of zijn verouderd verklaard door de ontwikkelaars van de add-on. "
+"Schakel deze add-ons uit of verwijder deze via het NVDA-menu, Extra, Add-ons "
+"beheren.\n"
 
 #. Translators: the label for the legacy add-ons list.
-#, fuzzy
 msgid "Legacy add-ons"
-msgstr "Verouderde add-ons gevonden"
+msgstr "Verouderde add-ons"
 
 #. Translators: The label for a column in legacy add-ons list used to show legacy add-on reason.
-#, fuzzy
 msgid "Legacy reason"
-msgstr "Verouderde add-ons gevonden"
+msgstr "Verouderd omdat"
 
 #. Translators: The title of the dialog presented while checking for add-on updates.
 msgid "Add-on update check"
@@ -89,9 +100,9 @@ msgid "NVDA Add-on Updates"
 msgstr "NVDA Add-on Updates"
 
 #. Translators: Message displayed when add-on updates are available.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Add-on updates available: {updateCount}"
-msgstr "Er is 1 add-on-update beschikbaar."
+msgstr "Beschikbare add-on updates: {updateCount}"
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify current add-on version (example: version is 0.3).
@@ -132,11 +143,6 @@ msgid "Cannot update {name} - missing file or invalid file format"
 msgstr ""
 "Kan {name} niet updaten - ontbrekend bestand of ongeldige bestandsindeling"
 
-#. Translators: The message displayed when the add-on requires a newer version of Windows.
-#, python-brace-format
-msgid "{name} add-on is not compatible with this version of Windows."
-msgstr "De add-on {name} is niet compatibel met deze versie van Windows."
-
 #. Translators: The title of the dialog presented while an Addon is being updated.
 #, python-brace-format
 msgid "Updating {name}"
@@ -155,22 +161,23 @@ msgstr "Bijwerken van de add-on {name} is mislukt"
 #. For the latter case, update check functionality will be disabled upon authors' request.
 #. Translators: legacy add-on, features included in NVDA.
 msgid "features included in NVDA"
-msgstr ""
+msgstr "functies opgenomen in NVDA"
 
 #. Translators: legacy add-on, declared by add-on developers.
 msgid "declared legacy by add-on developers"
-msgstr ""
+msgstr "verouderd verklaard door de ontwikkelaars van de add-on"
 
 #. Translators: presented as part of add-on update notification message.
 msgid ""
 "One or more add-on updates are available. Go to NVDA menu, Tools, Check for "
 "add-on updates to review them."
 msgstr ""
+"Één of meer add-on updates zijn beschikbaar. Ga naar het NVDA menu, Extra, "
+"Controleren op add-on updates om ze te bekijken."
 
 #. Translators: title of the add-on update notification message.
-#, fuzzy
 msgid "NVDA add-on updates"
-msgstr "NVDA Add-on Updates"
+msgstr "NVDA add-on updates"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
@@ -180,6 +187,9 @@ msgid ""
 msgstr ""
 "Proof of concept implementatie van add-on updatefunctie (NVDA Core-issue "
 "3208)"
+
+#~ msgid "{name} add-on is not compatible with this version of Windows."
+#~ msgstr "De add-on {name} is niet compatibel met deze versie van Windows."
 
 #~ msgid "{updateCount} add-on updates are available."
 #~ msgstr "{updateCount} add-on updates zijn beschikbaar."

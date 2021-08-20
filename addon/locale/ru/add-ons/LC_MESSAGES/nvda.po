@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-12-01 04:05+1000\n"
-"PO-Revision-Date: 2021-08-03 16:20+0200\n"
-"Last-Translator: Ecaterina Jivaga <notka@gozaltech.org>\n"
+"PO-Revision-Date: 2021-08-13 11:18+0200\n"
+"Last-Translator: zvonimir stanecic <zvonimirek222@yandex.com>\n"
 "Language-Team: ru <LL@li.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -37,17 +37,16 @@ msgstr "Автоматически проверять &обновления дл
 
 #. Translators: one of the add-on update notification choices.
 msgid "toast"
-msgstr ""
+msgstr "Уведомление"
 
 #. Translators: one of the add-on update notification choices.
 msgid "dialog"
-msgstr ""
+msgstr "диалоговое окно"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
-#, fuzzy
 msgid "&Add-on update notification:"
-msgstr "Проверка обновлений"
+msgstr "&Уведомление об обновленях дополнения:"
 
 #. Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
 #. Some add-ons come with pretty badly formatted summary text,
@@ -56,7 +55,6 @@ msgstr "Проверка обновлений"
 msgid "Do &not update add-ons:"
 msgstr "&Не обновлять дополнения:"
 
-#, fuzzy
 msgid "Prefer &development releases:"
 msgstr "Предпочитать разрабатываемые версии:"
 
