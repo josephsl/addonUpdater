@@ -21,6 +21,7 @@ IMPORTANT NOTES:
 
 ## Version 21.09
 
+* NVDA 2021.1 or later is required.
 * on Windows 10 and later, it is possible to select add-on update notification between a toast message and an update dialog. This can be configured from Add-on Updater settings found in NVDA Settings screen.
 * Add-on Updater will no longer check minimum Windows release information for add-ons as add-ons such as Windows App Essentials provide better Windows compatibility information.
 
