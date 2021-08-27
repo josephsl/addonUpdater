@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2021-06-18 08:23+0200\n"
+"PO-Revision-Date: 2021-08-20 08:41+0200\n"
 "Last-Translator: Michel Such <michelsuch93@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -33,21 +33,20 @@ msgstr "Mise à Jour des Extensions"
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
 msgid "Automatically check for add-on &updates"
-msgstr "&Vérifier automatiquement les mises à jour des extensions"
+msgstr "&Vérifier automatiquement les mises à jour d'extensions"
 
 #. Translators: one of the add-on update notification choices.
 msgid "toast"
-msgstr ""
+msgstr "toast"
 
 #. Translators: one of the add-on update notification choices.
 msgid "dialog"
-msgstr ""
+msgstr "dialogue"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
-#, fuzzy
 msgid "&Add-on update notification:"
-msgstr "Vérification de la mise à jour des extensions"
+msgstr "&Notification de mise à jour d'extension :"
 
 #. Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
 #. Some add-ons come with pretty badly formatted summary text,
@@ -56,9 +55,8 @@ msgstr "Vérification de la mise à jour des extensions"
 msgid "Do &not update add-ons:"
 msgstr "&Ne pas mettre à jour les extensions :"
 
-#, fuzzy
 msgid "Prefer &development releases:"
-msgstr "Préférez les versions de développement:"
+msgstr "Préférez les versions de &développement:"
 
 #. Translators: The title of the legacy add-ons dialog.
 msgid "Legacy add-ons found"
@@ -171,7 +169,6 @@ msgid "declared legacy by add-on developers"
 msgstr "déclaré obsolète par les développeurs d'extensions"
 
 #. Translators: presented as part of add-on update notification message.
-#, fuzzy
 msgid ""
 "One or more add-on updates are available. Go to NVDA menu, Tools, Check for "
 "add-on updates to review them."
@@ -192,7 +189,3 @@ msgid ""
 msgstr ""
 "Implémentation de la preuve de concept de la fonctionnalité de mise à jour "
 "des extensions (Noyau de NVDA numéro 3208)"
-
-#~ msgid "{name} add-on is not compatible with this version of Windows."
-#~ msgstr ""
-#~ "L'extension {name} n'est pas compatible avec cette version de Windows."
