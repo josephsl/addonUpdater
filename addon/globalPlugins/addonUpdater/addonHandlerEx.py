@@ -7,7 +7,7 @@
 
 # Proof of concept implementation of NVDA Core issue 3208.
 
-from urllib.request import urlopen
+from urllib.request import urlopen, Request
 import threading
 import wx
 import json
@@ -231,13 +231,22 @@ def fetchAddonInfo(info, results, addon, manifestInfo, addonsData):
 	# Some add-ons require traversing another URL.
 	if ".nvda-addon" not in addonUrl:
 		res = None
+		# Some hosting services block Python/urllib in hopes of avoding bots.
+		# Therefore spoof the user agent to say this is latest Microsoft Edge.
+		# Source: Stack Overflow, Google searches on Apache/mod_security
+		req = Request(
+			f"https://addons.nvda-project.org/files/get.php?file={addonKey}",
+			headers={
+				"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36 Edg/92.0.902.78"  # NOQA: E501
+			}
+		)
 		try:
-			res = urlopen(f"https://addons.nvda-project.org/files/get.php?file={addonKey}")
+			res = urlopen(req)
 		except IOError as e:
 			# SSL issue (seen in NVDA Core earlier than 2014.1).
 			if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
 				addonUtils._updateWindowsRootCertificates()
-				res = urlopen(f"https://addons.nvda-project.org/files/get.php?file={addonKey}")
+				res = urlopen(req)
 			else:
 				pass
 		finally:
