@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2021-07-17 09:59+0200\n"
+"PO-Revision-Date: 2021-09-01 09:11+0200\n"
 "Last-Translator: Nicolai Svendsen <chojiro1990@gmail.com>\n"
 "Language-Team: Dansk NVDA <dansk@nvda.dk>\n"
 "Language: da\n"
@@ -37,17 +37,16 @@ msgstr "Søg automatisk efter &opdateringer til tilføjelser"
 
 #. Translators: one of the add-on update notification choices.
 msgid "toast"
-msgstr ""
+msgstr "toast"
 
 #. Translators: one of the add-on update notification choices.
 msgid "dialog"
-msgstr ""
+msgstr "dialog"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
-#, fuzzy
 msgid "&Add-on update notification:"
-msgstr "Søgning af tilføjelsesopdateringer"
+msgstr "&Vis meddelelser om tilføjelsesopdateringer som:"
 
 #. Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
 #. Some add-ons come with pretty badly formatted summary text,
@@ -56,9 +55,8 @@ msgstr "Søgning af tilføjelsesopdateringer"
 msgid "Do &not update add-ons:"
 msgstr "Opdater &ikke disse tilføjelser:"
 
-#, fuzzy
 msgid "Prefer &development releases:"
-msgstr "Foretræk udviklingsversioner:"
+msgstr "Foretræk &udviklingsversioner:"
 
 #. Translators: The title of the legacy add-ons dialog.
 msgid "Legacy add-ons found"
@@ -72,11 +70,11 @@ msgid ""
 "declared legacy by add-on developers. Please disable or uninstall these add-"
 "ons by going to NVDA menu, Tools, Manage Add-ons.\n"
 msgstr ""
-"én eller flere forældede tilføjelser blev fundet i din NVDA-installation. "
-"Funktioner fra disse tilføjelser er nu en del af den NVDA-version, du bruger "
-"eller erklærede forældet af tilføjelsesudviklere. Deaktiver eller "
-"afinstaller disse tilføjelser ved at gå til NVDA-menuen, Værktøjer, "
-"Administrer tilføjelsesprogrammer.\n"
+"Et eller flere forældede tilføjelsesprogrammer blev fundet i din NVDA-"
+"installation. Funktioner fra disse tilføjelser er nu en del af den NVDA-"
+"version, du bruger eller erklærede forældet af tilføjelsesudviklere. "
+"Deaktiver eller afinstaller disse tilføjelser ved at gå til NVDA-menuen, "
+"Værktøjer, Administrer tilføjelsesprogrammer.\n"
 
 #. Translators: the label for the legacy add-ons list.
 msgid "Legacy add-ons"
