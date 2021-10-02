@@ -244,7 +244,7 @@ def fetchAddonInfo(info, results, addon, manifestInfo, addonsData):
 			res = urlopen(req)
 		except IOError as e:
 			# SSL issue (seen in NVDA Core earlier than 2014.1).
-			if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
+			if isinstance(e.reason, ssl.SSLCertVerificationError) and e.reason.reason == "CERTIFICATE_VERIFY_FAILED":
 				addonUtils._updateWindowsRootCertificates()
 				res = urlopen(req)
 			else:
@@ -283,7 +283,7 @@ def checkForAddonUpdate(curAddons):
 			res = urlopen("https://addons.nvda-project.org/files/get.php?addonslist")
 		except IOError as e:
 			# SSL issue (seen in NVDA Core earlier than 2014.1).
-			if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
+			if isinstance(e.reason, ssl.SSLCertVerificationError) and e.reason.reason == "CERTIFICATE_VERIFY_FAILED":
 				addonUtils._updateWindowsRootCertificates()
 				res = urlopen("https://addons.nvda-project.org/files/get.php?addonslist")
 			else:
@@ -302,7 +302,7 @@ def checkForAddonUpdate(curAddons):
 			res = urlopen("https://nvdaaddons.github.io/data/addonsData.json")
 		except IOError as e:
 			# SSL issue (seen in NVDA Core earlier than 2014.1).
-			if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
+			if isinstance(e.reason, ssl.SSLCertVerificationError) and e.reason.reason == "CERTIFICATE_VERIFY_FAILED":
 				addonUtils._updateWindowsRootCertificates()
 				res = urlopen("https://nvdaaddons.github.io/data/addonsData.json")
 			else:
