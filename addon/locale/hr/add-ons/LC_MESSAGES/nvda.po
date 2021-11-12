@@ -1,16 +1,17 @@
-# Hrvatska lokalizacija za NVDA.
-# Copyright (C) 2006-2019 NVDA contributors <https://www.nvda-project.org>
-# This file is distributed under the same license as the virtualRevision package.
+# Croatian translation for addonUpdater.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the addonUpdater package.
+# Translators:
 # Zvonimir Stanečić <zvonimirek222@yandex.com>, 2014.
-# Milo Ivir <mail@milotype.de>, 2019.
+# Milo Ivir <mail@milotype.de>, 2019., 2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2021-08-13 11:20+0200\n"
-"Last-Translator: zvonimir stanecic <zvonimirek222@yandex.com>\n"
+"PO-Revision-Date: 2021-11-08 01:29+0100\n"
+"Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: hr <LL@li.org>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
@@ -58,9 +59,8 @@ msgstr "Obavijest o ažuriranju dodatka:"
 msgid "Do &not update add-ons:"
 msgstr "N&e nadograđuj dodatke:"
 
-#, fuzzy
 msgid "Prefer &development releases:"
-msgstr "Preferiraj razvojna izdanja:"
+msgstr "Preferiraj razvojna iz&danja:"
 
 #. Translators: The title of the legacy add-ons dialog.
 msgid "Legacy add-ons found"
