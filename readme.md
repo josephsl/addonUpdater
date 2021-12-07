@@ -20,6 +20,11 @@ IMPORTANT NOTES:
 * Not all add-ons come with development releases. If you are not getting updates after choosing to install development versions of an add-on, switch to stable channel for affected add-ons.
 * On some systems (particularly computers joined to a corporate domain), add-on update check functionality may not work properly, therefore add-on updates must be downloaded manually.
 
+## Version 22.01
+
+* NVDA 2021.2 or later is required.
+* On server systems running Windows Server 2016 and later, add-on updates will be presented in a dialog instead of using toast notifications.
+
 ## Version 21.10
 
 * It is again possible to check for add-on updates on some systems, notably after a clean Windows installation.
