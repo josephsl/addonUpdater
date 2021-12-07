@@ -410,15 +410,16 @@ def _showAddonUpdateUI():
 		raise
 	if info is not None:
 		# Show either the update notification toast (Windows 10 and later)
-		# or the results dialog (other Windows releases).
-		# On Windows 10 and later, this behavior is configurable.
+		# or the results dialog (other Windows releases and server systems).
+		# On Windows 10 and later (client versions), this behavior is configurable.
 		# If toast is shown, checking for add-on updates from tools menu will merely show the results dialog.
 		# wxPython 4.1.0 (and consequently, wxWidges 3.1.0) simplifies this by
 		# allowing action handlers to be defined for toasts, which will then show the results dialog on the spot.
 		# However it doesn't work for desktop apps such as NVDA.
 		import winVersion
+		winVer = winVersion.getWinVer()
 		if (
-			winVersion.getWinVer() >= winVersion.WIN10
+			winVer >= winVersion.WIN10 and winVer.productType == "workstation"
 			and addonUtils.updateState["updateNotification"] == "toast"
 		):
 			global _updateInfo
