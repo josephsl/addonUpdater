@@ -152,7 +152,10 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 		)
 		self.autoUpdateCheckBox.SetValue(addonUtils.updateState["autoUpdate"])
 
-		if winVersion.getWinVer() >= winVersion.WIN10:
+		if (
+			winVersion.getWinVer() >= winVersion.WIN10
+			and winVersion.getWinVer().productType == "workstation"
+		):
 			updateNotificationChoices = [
 				# Translators: one of the add-on update notification choices.
 				("toast", _("toast")),
