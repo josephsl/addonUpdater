@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2020-12-22 21:51+0000\n"
+"PO-Revision-Date: 2021-10-29 21:54+0100\n"
 "Last-Translator: Ângelo Abrantes <ampa4374@gmail.com>\n"
 "Language-Team: Equipa portuguesa do NVDA <ampa4374@gmail.com; rui."
 "fontes@tiflotecnia.pt>\n"
@@ -16,28 +16,15 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 3.0\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-
-#. Translators: message displayed if legacy add-ons are found (add-ons with all features included in NVDA).
-msgid ""
-"One or more legacy add-ons were found in your NVDA installation. Features "
-"from these add-ons are now part of the NVDA version you are using. Please "
-"disable or uninstall these add-ons by going to NVDA menu, Tools, Manage Add-"
-"ons.\n"
-msgstr ""
-"Um ou mais extras desactualizados foram encontrados na sua instalação do "
-"NVDA. As funções desses extras encontram-se, agora, integradas no NVDA. "
-"Proceda à desinstalação dos mesmos. \n"
-
-msgid "Legacy add-ons found"
-msgstr "Foram encontrados extras desactualizados."
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Check for &add-on updates..."
 msgstr "Procurar por &actualizações de extras..."
 
 msgid "Check for NVDA add-on updates"
-msgstr "Procurar por actualizações de extras para o NVDA "
+msgstr "Procurar por actualizações de extras para o NVDA"
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -51,15 +38,52 @@ msgstr "Actualizador de extras"
 msgid "Automatically check for add-on &updates"
 msgstr "Procurar, a&utomaticamente, por actualizações de extras"
 
+#. Translators: one of the add-on update notification choices.
+msgid "toast"
+msgstr "postar"
+
+#. Translators: one of the add-on update notification choices.
+msgid "dialog"
+msgstr "diálogo"
+
+#. Translators: This is the label for a combo box in the
+#. Add-on Updater settings panel.
+msgid "&Add-on update notification:"
+msgstr "notificação de actualização do &Add-on:"
+
 #. Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
 #. Some add-ons come with pretty badly formatted summary text,
 #. so try catching them and exclude them from this list.
 #. Also, Vocalizer add-on family should be excluded from this list (requested by add-on author).
 msgid "Do &not update add-ons:"
-msgstr "&Não actualizar os extras"
+msgstr "&Não actualizar os extras:"
 
-msgid "Prefer development releases:"
-msgstr "Preferir versões de desenvolvimento"
+msgid "Prefer &development releases:"
+msgstr "Preferir versões de &desenvolvimento:"
+
+#. Translators: The title of the legacy add-ons dialog.
+msgid "Legacy add-ons found"
+msgstr "Foram encontrados extras desactualizados"
+
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Manage Add-ons.\n"
+msgstr ""
+"Um ou mais extras antigos foram encontrados na sua instalação do NVDA. As "
+"funções desses extras encontram-se, agora, integradas no NVDA. Proceda à "
+"desinstalação dos mesmos. \n"
+
+#. Translators: the label for the legacy add-ons list.
+msgid "Legacy add-ons"
+msgstr "Extras antigos"
+
+#. Translators: The label for a column in legacy add-ons list used to show legacy add-on reason.
+msgid "Legacy reason"
+msgstr "Razão da antiguidade"
 
 #. Translators: The title of the dialog presented while checking for add-on updates.
 msgid "Add-on update check"
@@ -70,7 +94,7 @@ msgid "Checking for add-on updates..."
 msgstr "A procurar actualizações de extras..."
 
 msgid "Error checking for add-on updates."
-msgstr "Erro, ao procurar actualizações de extras"
+msgstr "Erro, ao procurar actualizações de extras."
 
 #. Translators: The title of the add-on updates dialog.
 msgid "NVDA Add-on Updates"
@@ -78,12 +102,8 @@ msgstr "Actualizações de extras do NVDA"
 
 #. Translators: Message displayed when add-on updates are available.
 #, python-brace-format
-msgid "{updateCount} add-on updates are available."
-msgstr "{updateCount} Actualizações de extras estão disponíveis."
-
-#. Translators: Message displayed when add-on updates are available.
-msgid "1 add-on update is available."
-msgstr "Está disponível uma nova versão do extra."
+msgid "Add-on updates available: {updateCount}"
+msgstr "Actualizações de extras disponíveis: {updateCount}"
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify current add-on version (example: version is 0.3).
@@ -97,7 +117,7 @@ msgstr "Nova versão"
 
 #. Translators: Message displayed when no add-on updates are available.
 msgid "No add-on update available."
-msgstr "Sem actualizações disponíveis"
+msgstr "Sem actualizações disponíveis."
 
 #. Translators: The label of a button to update add-ons.
 msgid "&Update add-ons"
@@ -105,7 +125,7 @@ msgstr "Act&ualizar extras"
 
 #. Translators: The title of the dialog displayed while downloading add-on update.
 msgid "Downloading Add-on Update"
-msgstr "A baixar a actualização do extra "
+msgstr "A baixar a actualização do extra"
 
 #. Translators: The progress message indicating the name of the add-on being downloaded.
 #, python-brace-format
@@ -121,12 +141,7 @@ msgstr "Erro ao baixar actualização para {name}."
 #. when trying to update an add-on package due to package problems.
 #, python-brace-format
 msgid "Cannot update {name} - missing file or invalid file format"
-msgstr "Impossível actualizar {name} - ficheiro em falta ou formato inválido."
-
-#. Translators: The message displayed when the add-on requires a newer version of Windows.
-#, python-brace-format
-msgid "{name} add-on is not compatible with this version of Windows."
-msgstr "O extra {name} não é compatível com esta versão do windows."
+msgstr "Impossível actualizar {name} - ficheiro em falta ou formato inválido"
 
 #. Translators: The title of the dialog presented while an Addon is being updated.
 #, python-brace-format
@@ -142,6 +157,28 @@ msgstr "Por favor, espere, enquanto o extra está a ser actualizado."
 msgid "Failed to update {name} add-on"
 msgstr "Falha ao actualizar o extra {name}"
 
+#. Add-ons with all features integrated into NVDA or declared "legacy" by authors.
+#. For the latter case, update check functionality will be disabled upon authors' request.
+#. Translators: legacy add-on, features included in NVDA.
+msgid "features included in NVDA"
+msgstr "funcionalidades incluídas no NVDA"
+
+#. Translators: legacy add-on, declared by add-on developers.
+msgid "declared legacy by add-on developers"
+msgstr "antiguidade declarada pelos criadores de extras"
+
+#. Translators: presented as part of add-on update notification message.
+msgid ""
+"One or more add-on updates are available. Go to NVDA menu, Tools, Check for "
+"add-on updates to review them."
+msgstr ""
+"Uma ou mais actualizações de extras Estão disponíveis. Ir para o menu do "
+"NVDA, Ferramentas, Verificar actualizações de extras, para as rever."
+
+#. Translators: title of the add-on update notification message.
+msgid "NVDA add-on updates"
+msgstr "Actualizações de extras do NVDA"
+
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid ""
@@ -150,6 +187,12 @@ msgid ""
 msgstr ""
 "Implementação de teste do recurso de actualização de extra (edição principal "
 "do NVDA 3208)"
+
+#~ msgid "{name} add-on is not compatible with this version of Windows."
+#~ msgstr "O extra {name} não é compatível com esta versão do windows."
+
+#~ msgid "{updateCount} add-on updates are available."
+#~ msgstr "{updateCount} Actualizações de extras estão disponíveis."
 
 #~ msgid ""
 #~ "{name} add-on is not compatible with this version of NVDA. Minimum NVDA "

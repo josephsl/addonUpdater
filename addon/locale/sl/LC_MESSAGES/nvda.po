@@ -8,29 +8,14 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-12-01 04:05+1000\n"
-"PO-Revision-Date: 2021-01-15 12:36+0100\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2021-12-13 19:50+0100\n"
+"Last-Translator: Jožef Gregorc <jozko.gregorc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.7\n"
-
-#. Translators: message displayed if legacy add-ons are found (add-ons with all features included in NVDA).
-msgid ""
-"One or more legacy add-ons were found in your NVDA installation. Features "
-"from these add-ons are now part of the NVDA version you are using. Please "
-"disable or uninstall these add-ons by going to NVDA menu, Tools, Manage Add-"
-"ons.\n"
-msgstr ""
-"En ali več opuščenih dodatkov se je našlo v vaši NVDA namestitvi. Zmožnosti "
-"iz teh dodatkov so sedaj del različice NVDA, ki jo uporabljate. Prosimo, "
-"onemogočite ali odstranite te dodatke tako, da greste v meni NVDA, Orodja, "
-"Upravljaj Dodatke.\n"
-
-msgid "Legacy add-ons found"
-msgstr "Opuščeni dodatki so se našli"
 
 msgid "Check for &add-on updates..."
 msgstr "Preveri, če obstajajo &posodobitve dodatkov..."
@@ -50,6 +35,19 @@ msgstr "Posodobitev Dodatkov"
 msgid "Automatically check for add-on &updates"
 msgstr "Samodejno preveri, če obstajajo &posodobitve dodatkov"
 
+#. Translators: one of the add-on update notification choices.
+msgid "toast"
+msgstr "Pojavno obvestilo"
+
+#. Translators: one of the add-on update notification choices.
+msgid "dialog"
+msgstr "pogovorno okno"
+
+#. Translators: This is the label for a combo box in the
+#. Add-on Updater settings panel.
+msgid "&Add-on update notification:"
+msgstr "Obvestilo o &posodobitvi dodatka:"
+
 #. Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
 #. Some add-ons come with pretty badly formatted summary text,
 #. so try catching them and exclude them from this list.
@@ -57,8 +55,33 @@ msgstr "Samodejno preveri, če obstajajo &posodobitve dodatkov"
 msgid "Do &not update add-ons:"
 msgstr "&Ne posodobi dodatkov:"
 
-msgid "Prefer development releases:"
-msgstr "Željene razvojne izdaje:"
+msgid "Prefer &development releases:"
+msgstr "Željene &razvojne izdaje:"
+
+#. Translators: The title of the legacy add-ons dialog.
+msgid "Legacy add-ons found"
+msgstr "Opuščeni dodatki so se našli"
+
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Manage Add-ons.\n"
+msgstr ""
+"En ali več opuščenih dodatkov se je našlo v vaši NVDA namestitvi. Zmožnosti "
+"iz teh dodatkov so sedaj del različice NVDA, ki jo uporabljate ali pa so jih "
+"za take označili njihovi razvijalci. Prosimo, onemogočite ali odstranite te "
+"dodatke tako, da greste v meni NVDA, Orodja, Upravljaj Dodatke.\n"
+
+#. Translators: the label for the legacy add-ons list.
+msgid "Legacy add-ons"
+msgstr "Opuščeni dodatki"
+
+#. Translators: The label for a column in legacy add-ons list used to show legacy add-on reason.
+msgid "Legacy reason"
+msgstr "Razlog opustitve"
 
 #. Translators: The title of the dialog presented while checking for add-on updates.
 msgid "Add-on update check"
@@ -76,12 +99,8 @@ msgid "NVDA Add-on Updates"
 msgstr "Posodobitev NVDA Dodatka"
 
 #. Translators: Message displayed when add-on updates are available.
-msgid "{updateCount} add-on updates are available."
-msgstr "{updateCount} posodobitev dodatkov je na voljo."
-
-#. Translators: Message displayed when add-on updates are available.
-msgid "1 add-on update is available."
-msgstr "1 posodobitev dodatka je na voljo."
+msgid "Add-on updates available: {updateCount}"
+msgstr "Posodobitve dodatkov so na voljo: {updateCount}"
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify current add-on version (example: version is 0.3).
@@ -118,10 +137,6 @@ msgstr "Napaka pri prenosu posodobitve za {name}."
 msgid "Cannot update {name} - missing file or invalid file format"
 msgstr "Ni mogoče posodobiti {name} - manjka datoteka ali je neveljavna oblika"
 
-#. Translators: The message displayed when the add-on requires a newer version of Windows.
-msgid "{name} add-on is not compatible with this version of Windows."
-msgstr "Dodatek {name} ni združljiv s to različico sistema Windows."
-
 #. Translators: The title of the dialog presented while an Addon is being updated.
 msgid "Updating {name}"
 msgstr "Posodabljanje {name}"
@@ -134,6 +149,28 @@ msgstr "Prosimo, počakajte med tem, ko se dodatek posodablja."
 msgid "Failed to update {name} add-on"
 msgstr "Spodletela posodobitev dodatka {name}"
 
+#. Add-ons with all features integrated into NVDA or declared "legacy" by authors.
+#. For the latter case, update check functionality will be disabled upon authors' request.
+#. Translators: legacy add-on, features included in NVDA.
+msgid "features included in NVDA"
+msgstr "zmožnosti vključene v NVDA"
+
+#. Translators: legacy add-on, declared by add-on developers.
+msgid "declared legacy by add-on developers"
+msgstr "označeni kot opuščeni s strani razvijalcev dodatkov"
+
+#. Translators: presented as part of add-on update notification message.
+msgid ""
+"One or more add-on updates are available. Go to NVDA menu, Tools, Check for "
+"add-on updates to review them."
+msgstr ""
+"Ena ali več posodobitev dodatkov je na voljo. Pojdite v  meni NVDA, Orodja, "
+"Preveri, če obstajajo posodibitve dodatkov za pregled le teh."
+
+#. Translators: title of the add-on update notification message.
+msgid "NVDA add-on updates"
+msgstr "Posodobitev NVDA Dodatkov"
+
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid ""
@@ -142,6 +179,12 @@ msgid ""
 msgstr ""
 "Osnutek koncepta implementacije zmožnosti posodobitve dodatka (težava jedra "
 "NVDA 3208)"
+
+#~ msgid "{name} add-on is not compatible with this version of Windows."
+#~ msgstr "Dodatek {name} ni združljiv s to različico sistema Windows."
+
+#~ msgid "{updateCount} add-on updates are available."
+#~ msgstr "{updateCount} posodobitev dodatkov je na voljo."
 
 #~ msgid ""
 #~ "{name} add-on is not compatible with this version of NVDA. Minimum NVDA "

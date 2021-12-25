@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2020-11-19 19:42+0330\n"
+"PO-Revision-Date: 2021-08-14 01:10+0330\n"
 "Last-Translator: Mohammadreza Rashad <mohammadreza5712@gmail.com>\n"
 "Language-Team: NVDA Translation Team <nvda-translations@groups.io>\n"
 "Language: fa\n"
@@ -16,21 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.6.10\n"
-
-#. Translators: message displayed if legacy add-ons are found (add-ons with all features included in NVDA).
-msgid ""
-"One or more legacy add-ons were found in your NVDA installation. Features "
-"from these add-ons are now part of the NVDA version you are using. Please "
-"disable or uninstall these add-ons by going to NVDA menu, Tools, Manage Add-"
-"ons.\n"
-msgstr ""
-"یک یا چند افزونه‌ی قدیمی در نسخه‌ی NVDAِ نصب‌شده‌ی شما یافت شدند. امکاناتِ موجود "
-"در این افزونه‌ها، حالا بخشی از نگارشِ NVDA هستند که از آن استفاده میکنید. لطفا "
-"با رفتن به منوی NVDA، ابزارها، مدیرِ افزونه‌ها، این افزونه‌ها را غیرفعال یا حذف "
-"کنید.\n"
-
-msgid "Legacy add-ons found"
-msgstr "افزونه‌های قدیمی یافت شدند"
 
 msgid "Check for &add-on updates..."
 msgstr "بررسیِ به‌روزرسانیِ &افزونه‌ها..."
@@ -50,6 +35,19 @@ msgstr "به‌روزرسانِ افزونه‌ها"
 msgid "Automatically check for add-on &updates"
 msgstr "بررسیِ خودکارِ &به‌روزرسانی‌های افزونه‌ها"
 
+#. Translators: one of the add-on update notification choices.
+msgid "toast"
+msgstr "اعلانِ سریع"
+
+#. Translators: one of the add-on update notification choices.
+msgid "dialog"
+msgstr "پنجره‌ی محاوره‌ای"
+
+#. Translators: This is the label for a combo box in the
+#. Add-on Updater settings panel.
+msgid "&Add-on update notification:"
+msgstr "نوعِ اعلانِ به‌روزرسانِ افزونه‌ها"
+
 #. Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
 #. Some add-ons come with pretty badly formatted summary text,
 #. so try catching them and exclude them from this list.
@@ -57,8 +55,33 @@ msgstr "بررسیِ خودکارِ &به‌روزرسانی‌های افزون
 msgid "Do &not update add-ons:"
 msgstr "این افزونه‌ها را به‌روز &نکن:"
 
-msgid "Prefer development releases:"
-msgstr "انتشار‌های درحالِ توسعه را ترجیح بده:"
+msgid "Prefer &development releases:"
+msgstr "انتشار‌های درحالِ &توسعه را ترجیح بده:"
+
+#. Translators: The title of the legacy add-ons dialog.
+msgid "Legacy add-ons found"
+msgstr "افزونه‌های قدیمی یافت شدند"
+
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Manage Add-ons.\n"
+msgstr ""
+"یک یا چند افزونه‌ی قدیمی در نسخه‌ی NVDAِ نصب‌شده‌ی شما یافت شدند. امکاناتِ موجود "
+"در این افزونه‌ها، حالا بخشی از نگارشِ NVDA هستند که از آن استفاده میکنید؛ یا "
+"توسط نویسنده‌های افزونه‌ها قدیمی اعلام شده‌اند. لطفا با رفتن به منوی NVDA، "
+"ابزارها، مدیرِ افزونه‌ها، این افزونه‌ها را غیرفعال یا حذف کنید.\n"
+
+#. Translators: the label for the legacy add-ons list.
+msgid "Legacy add-ons"
+msgstr "افزونه‌های قدیمی"
+
+#. Translators: The label for a column in legacy add-ons list used to show legacy add-on reason.
+msgid "Legacy reason"
+msgstr "دلیلِ قدیمی بودن"
 
 #. Translators: The title of the dialog presented while checking for add-on updates.
 msgid "Add-on update check"
@@ -77,12 +100,8 @@ msgstr "به‌روزرسانی‌های افزونه‌های NVDA"
 
 #. Translators: Message displayed when add-on updates are available.
 #, python-brace-format
-msgid "{updateCount} add-on updates are available."
-msgstr "{updateCount} به‌روزرسانی موجود است."
-
-#. Translators: Message displayed when add-on updates are available.
-msgid "1 add-on update is available."
-msgstr "۱ به‌روزرسانی موجود است."
+msgid "Add-on updates available: {updateCount}"
+msgstr "به‌روزرسانیِ افزونه‌ها موجود است: {updateCount}"
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify current add-on version (example: version is 0.3).
@@ -123,11 +142,6 @@ msgid "Cannot update {name} - missing file or invalid file format"
 msgstr ""
 "نمیتوانم {name} را به‌روزرسانی کنم. فایل ناقص است یا فرمتِ آن معتبر نیست."
 
-#. Translators: The message displayed when the add-on requires a newer version of Windows.
-#, python-brace-format
-msgid "{name} add-on is not compatible with this version of Windows."
-msgstr "افزونه‌ی {name} با این نسخه از ویندوز سازگار نیست."
-
 #. Translators: The title of the dialog presented while an Addon is being updated.
 #, python-brace-format
 msgid "Updating {name}"
@@ -142,12 +156,40 @@ msgstr "لطفا شکیبا باشید تا افزونه به‌روز شود."
 msgid "Failed to update {name} add-on"
 msgstr "به‌روزرسانیِ افزونه‌ی {name} دچار خطا شد."
 
+#. Add-ons with all features integrated into NVDA or declared "legacy" by authors.
+#. For the latter case, update check functionality will be disabled upon authors' request.
+#. Translators: legacy add-on, features included in NVDA.
+msgid "features included in NVDA"
+msgstr "امکانات در NVDA موجود است."
+
+#. Translators: legacy add-on, declared by add-on developers.
+msgid "declared legacy by add-on developers"
+msgstr "توسط نویسنده‌های افزونه‌ها به عنوان افزونه‌های قدیمی اعلام شده‌اند."
+
+#. Translators: presented as part of add-on update notification message.
+msgid ""
+"One or more add-on updates are available. Go to NVDA menu, Tools, Check for "
+"add-on updates to review them."
+msgstr ""
+"به‌روزرسانیِ یک یا چند افزونه موجود است. برای بازبینیِ آن‌ها به منوی NVDA، "
+"ابزارها، بررسیِ به‌روزرسانیِ افزونه‌ها بروید."
+
+#. Translators: title of the add-on update notification message.
+msgid "NVDA add-on updates"
+msgstr "به‌روزرسانی‌های افزونه‌های NVDA"
+
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid ""
 "Proof of concept implementation of add-on update feature (NVDA Core issue "
 "3208)"
 msgstr "اجرای اثباتِ مفهومیِ ویژگیِ به‌روزرسانیِ افزونه‌ها (مسأله‌ی ۳۲۰۸)"
+
+#~ msgid "{name} add-on is not compatible with this version of Windows."
+#~ msgstr "افزونه‌ی {name} با این نسخه از ویندوز سازگار نیست."
+
+#~ msgid "{updateCount} add-on updates are available."
+#~ msgstr "{updateCount} به‌روزرسانی موجود است."
 
 #~ msgid ""
 #~ "{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
