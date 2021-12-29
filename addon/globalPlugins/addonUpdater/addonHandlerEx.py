@@ -16,6 +16,7 @@ import ssl
 import addonHandler
 from logHandler import log
 from . import addonUtils
+addonHandler.initTranslation()
 
 # The URL prefixes are same for add-ons listed below.
 names2urls = {
