@@ -20,6 +20,10 @@ IMPORTANT NOTES:
 * Not all add-ons come with development releases. If you are not getting updates after choosing to install development versions of an add-on, switch to stable channel for affected add-ons.
 * On some systems (particularly computers joined to a corporate domain), add-on update check functionality may not work properly, therefore add-on updates must be downloaded manually.
 
+## Version 22.03
+
+* Improved security by not loading the add-on when NVDA is running in secure mode.
+
 ## Version 22.02
 
 * NVDA 2021.3 or later is required.
