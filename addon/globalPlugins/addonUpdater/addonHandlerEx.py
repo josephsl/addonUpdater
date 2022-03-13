@@ -14,6 +14,7 @@ import json
 import re
 import ssl
 import addonHandler
+import globalVars
 from logHandler import log
 from . import addonUtils
 addonHandler.initTranslation()
@@ -349,6 +350,9 @@ def checkForAddonUpdate(curAddons):
 
 
 def checkForAddonUpdates():
+	# Don't even think about update checks if secure mode flag is set.
+	if globalVars.appArgs.secure:
+		return
 	curAddons = {}
 	addonSummaries = {}
 	for addon in addonHandler.getAvailableAddons():
