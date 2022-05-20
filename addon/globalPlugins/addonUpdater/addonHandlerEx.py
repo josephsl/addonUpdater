@@ -239,7 +239,7 @@ def fetchAddonInfo(info, results, addon, manifestInfo, addonsData):
 		req = Request(
 			f"https://addons.nvda-project.org/files/get.php?file={addonKey}",
 			headers={
-				"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36 Edg/99.0.1150.30"  # NOQA: E501
+				"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36 Edg/101.0.1210.47"  # NOQA: E501
 			}
 		)
 		try:
