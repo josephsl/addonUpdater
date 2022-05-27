@@ -1,53 +1,58 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the 'addonUpdater' package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 2018.12\n"
-"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
-"POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2021-08-15 17:26+0300\n"
-"Last-Translator: Çağrı Doğan <cagrid@hotmail.com>\n"
-"Language-Team: Turkish <cagrid@hotmail.comLL@li.org>\n"
+"Project-Id-Version: 'addonUpdater' '22.06'\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2022-05-22 12:06+0400\n"
+"PO-Revision-Date: 2022-05-22 12:25+0400\n"
+"Last-Translator: Dragan Ratkovich\n"
+"Language-Team: \n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-Basepath: ../../../globalPlugins/addonUpdater\n"
-"X-Poedit-SearchPath-0: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
 
+#: addon\globalPlugins\addonUpdater\__init__.py:116
 msgid "Check for &add-on updates..."
-msgstr "Eklenti &güncelleme kontrolü..."
+msgstr "&Eklenti güncelleme kontrolü..."
 
+#: addon\globalPlugins\addonUpdater\__init__.py:116
 msgid "Check for NVDA add-on updates"
-msgstr "NVDA eklenti güncelleme kontrolü"
+msgstr "NVDA eklenti güncellemelerini kontrol edin"
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
 #. Translators: Summary for this add-on
 #. to be shown on installation and add-on information.
+#: addon\globalPlugins\addonUpdater\__init__.py:150 buildVars.py:23
 msgid "Add-on Updater"
 msgstr "Eklenti Güncelleyici"
 
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
+#: addon\globalPlugins\addonUpdater\__init__.py:157
 msgid "Automatically check for add-on &updates"
-msgstr "Eklenti &güncellemelerini otomatik olarak control et"
+msgstr "Eklenti güncellemelerini otomatik olarak &kontrol et"
 
 #. Translators: one of the add-on update notification choices.
+#: addon\globalPlugins\addonUpdater\__init__.py:167
 msgid "toast"
-msgstr "Tost"
+msgstr "Bildirim"
 
 #. Translators: one of the add-on update notification choices.
+#: addon\globalPlugins\addonUpdater\__init__.py:169
 msgid "dialog"
-msgstr "İletişim kutusu"
+msgstr "iletişim kutusu"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
+#: addon\globalPlugins\addonUpdater\__init__.py:174
 msgid "&Add-on update notification:"
 msgstr "&Eklenti güncelleme bildirimi:"
 
@@ -55,18 +60,22 @@ msgstr "&Eklenti güncelleme bildirimi:"
 #. Some add-ons come with pretty badly formatted summary text,
 #. so try catching them and exclude them from this list.
 #. Also, Vocalizer add-on family should be excluded from this list (requested by add-on author).
+#: addon\globalPlugins\addonUpdater\__init__.py:185
 msgid "Do &not update add-ons:"
-msgstr "Bu eklentileri gü&ncelleme:"
+msgstr "Bu eklentileri güncelleme:"
 
+#: addon\globalPlugins\addonUpdater\__init__.py:193
 msgid "Prefer &development releases:"
-msgstr "&Geliştirme sürümlerini tercih et:"
+msgstr "Geliştirme sürümlerini tercih et:"
 
 #. Translators: The title of the legacy add-ons dialog.
+#: addon\globalPlugins\addonUpdater\__init__.py:231
 msgid "Legacy add-ons found"
 msgstr "Eski eklentiler bulundu"
 
 #. Translators: message displayed if legacy add-ons are found
 #. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+#: addon\globalPlugins\addonUpdater\__init__.py:239
 msgid ""
 "One or more legacy add-ons were found in your NVDA installation. Features "
 "from these add-ons are now part of the NVDA version you are using or "
@@ -75,130 +84,140 @@ msgid ""
 msgstr ""
 "NVDA kurulumunuzda bir veya daha fazla eski eklenti bulundu. Bu "
 "eklentilerdeki özellikler artık kullandığınız NVDA sürümünün bir parçası "
-"veya eklenti geliştiricileri tarafından eski olarak ilan edildi. Lütfen NVDA "
-"menüsü, Araçlar, Eklentileri Yönet'e giderek bu eklentileri devre dışı "
+"veya eklenti geliştiricileri tarafından eski olarak ilan edildi. Lütfen "
+"NVDA menüsü, Araçlar, Eklentileri Yönet'e giderek bu eklentileri devre dışı "
 "bırakın veya kaldırın.\n"
 
 #. Translators: the label for the legacy add-ons list.
+#: addon\globalPlugins\addonUpdater\__init__.py:248
 msgid "Legacy add-ons"
 msgstr "Eski eklentiler"
 
 #. Translators: The label for a column in legacy add-ons list used to show legacy add-on reason.
+#: addon\globalPlugins\addonUpdater\__init__.py:256
 msgid "Legacy reason"
 msgstr "Eskime açıklaması"
 
 #. Translators: The title of the dialog presented while checking for add-on updates.
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:49
 msgid "Add-on update check"
 msgstr "Eklenti güncelleme kontrolü"
 
 #. Translators: The message displayed while checking for add-on updates.
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:51
 msgid "Checking for add-on updates..."
-msgstr "Eklenti güncellemeleri araştırılıyor..."
+msgstr "Eklenti güncellemeleri kontrol ediliyor..."
 
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:67
 msgid "Error checking for add-on updates."
-msgstr "Eklenti güncelleme kontrolünde hata."
+msgstr "Eklenti güncellemeleri denetlenirken hata oluştu."
 
 #. Translators: The title of the add-on updates dialog.
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:78
 msgid "NVDA Add-on Updates"
 msgstr "NVDA Eklenti Güncellemeleri"
 
 #. Translators: Message displayed when add-on updates are available.
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:87
 #, python-brace-format
 msgid "Add-on updates available: {updateCount}"
 msgstr "Eklenti güncellemeleri mevcut: {updateCount}"
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify current add-on version (example: version is 0.3).
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:97
 msgid "Current version"
 msgstr "Geçerli sürüm"
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify new add-on version (example: version is 0.4).
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:100
 msgid "New version"
 msgstr "Yeni sürüm"
 
 #. Translators: Message displayed when no add-on updates are available.
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:111
 msgid "No add-on update available."
-msgstr "Eklenti güncellemesi mevcut değil"
+msgstr "Eklenti güncellemesi mevcut değil."
 
 #. Translators: The label of a button to update add-ons.
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:116
 msgid "&Update add-ons"
-msgstr "Eklentileri &güncelle"
+msgstr "&Eklentileri güncelle"
 
 #. Translators: The title of the dialog displayed while downloading add-on update.
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:225
 msgid "Downloading Add-on Update"
 msgstr "Eklenti güncellemesi indiriliyor"
 
 #. Translators: The progress message indicating the name of the add-on being downloaded.
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:227
 #, python-brace-format
 msgid "Downloading {name}"
-msgstr "{name} indiriliyor"
+msgstr "indiriliyor {name}"
 
 #. Translators: A message indicating that an error occurred while downloading an update to NVDA.
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:242
 #, python-brace-format
 msgid "Error downloading update for {name}."
-msgstr "{name} güncellemesi indirilirken hata oluştu."
+msgstr "{name} için güncelleme indirilirken hata oluştu."
 
 #. Translators: The message displayed when an error occurs
 #. when trying to update an add-on package due to package problems.
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:292
 #, python-brace-format
 msgid "Cannot update {name} - missing file or invalid file format"
-msgstr "{name} güncellenemiyor - eksik ya da geçersiz dosya formatı"
+msgstr "{name} güncellenemiyor - eksik dosya veya geçersiz dosya biçimi"
 
 #. Translators: The title of the dialog presented while an Addon is being updated.
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:325
 #, python-brace-format
 msgid "Updating {name}"
 msgstr "{name} güncelleniyor"
 
 #. Translators: The message displayed while an addon is being updated.
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:327
 msgid "Please wait while the add-on is being updated."
 msgstr "Eklenti güncellenirken lütfen bekleyin."
 
 #. Translators: The message displayed when an error occurs when installing an add-on package.
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:338
 #, python-brace-format
 msgid "Failed to update {name} add-on"
-msgstr "{name} eklentisi güncellemesi başarısız"
+msgstr "{name} eklentisi güncellenemedi"
 
 #. Add-ons with all features integrated into NVDA or declared "legacy" by authors.
 #. For the latter case, update check functionality will be disabled upon authors' request.
 #. Translators: legacy add-on, features included in NVDA.
+#: addon\globalPlugins\addonUpdater\addonHandlerEx.py:116
 msgid "features included in NVDA"
-msgstr "Özellikler NVDA'ya eklendi"
+msgstr "NVDA'da bulunan özellikler"
 
 #. Translators: legacy add-on, declared by add-on developers.
+#: addon\globalPlugins\addonUpdater\addonHandlerEx.py:118
 msgid "declared legacy by add-on developers"
-msgstr "eklenti, geliştiricileri tarafından \"eskimiş\" olarak ilan edildi"
+msgstr "eklenti geliştiriciler tarafından eski olarak ilan edildi"
 
 #. Translators: presented as part of add-on update notification message.
+#: addon\globalPlugins\addonUpdater\addonHandlerEx.py:433
 msgid ""
 "One or more add-on updates are available. Go to NVDA menu, Tools, Check for "
 "add-on updates to review them."
 msgstr ""
-"Bir veya daha fazla eklenti için güncelleme mevcut. İncelemek için NVDA "
-"menüsü, Araçlar, Eklenti güncellemelerini kontrol et komutunu etkinleştirin."
+"Bir veya daha fazla eklenti güncellemesi mevcut. İncelemek için NVDA "
+"menüsü, Araçlar, Eklenti güncelleme kontrolü seçeneğine gidin."
 
 #. Translators: title of the add-on update notification message.
+#: addon\globalPlugins\addonUpdater\addonHandlerEx.py:437
 msgid "NVDA add-on updates"
-msgstr "NVDA Eklenti Güncellemeleri"
+msgstr "NVDA eklenti güncellemeleri"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#: buildVars.py:26
 msgid ""
 "Proof of concept implementation of add-on update feature (NVDA Core issue "
 "3208)"
 msgstr ""
-"NVDA'nın sahip olması beklenen eklenti güncelleme özelliği (NVDA Core issue "
-"3208)"
-
-#~ msgid "{name} add-on is not compatible with this version of Windows."
-#~ msgstr "{name} eklentisi Windows'un bu sürümü ile uyumlu değil."
-
-#~ msgid "{updateCount} add-on updates are available."
-#~ msgstr "{updateCount} Eklenti için güncelleme var."
-
-#~ msgid ""
-#~ "{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
-#~ "version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
-#~ msgstr ""
-#~ "{name} eklentisi NVDA'nın bu sürümüyle uyumlu değil. Minimum NVDA sürümü: "
-#~ "{minYear}.{minMajor}, sınanan son sürüm: {testedYear}.{testedMajor}."
+"Eklenti güncelleme özelliğinin konsept uygulamasının kanıtı (NVDA Core "
+"issue 3208)"
