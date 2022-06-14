@@ -7,6 +7,7 @@ import ctypes
 import ssl
 import os
 import globalVars
+from .urls import URLs
 
 updateState = {}
 
@@ -74,7 +75,7 @@ def _updateWindowsRootCertificates():
 	crypt = ctypes.windll.crypt32
 	# Get the server certificate.
 	sslCont = ssl._create_unverified_context()
-	u = urlopen("https://addons.nvda-project.org", context=sslCont)
+	u = urlopen(URLs.communitySite, context=sslCont)
 	cert = u.fp._sock.getpeercert(True)
 	u.close()
 	# Convert to a form usable by Windows.

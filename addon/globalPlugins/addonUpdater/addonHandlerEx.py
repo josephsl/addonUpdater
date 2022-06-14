@@ -16,6 +16,7 @@ import ssl
 import addonHandler
 import globalVars
 from logHandler import log
+from .urls import URLs
 from . import addonUtils
 addonHandler.initTranslation()
 
@@ -237,7 +238,7 @@ def fetchAddonInfo(info, results, addon, manifestInfo, addonsData):
 		# Therefore spoof the user agent to say this is latest Microsoft Edge.
 		# Source: Stack Overflow, Google searches on Apache/mod_security
 		req = Request(
-			f"https://addons.nvda-project.org/files/get.php?file={addonKey}",
+			f"{URLs.communityFileGetter}{addonKey}",
 			headers={
 				"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36 Edg/101.0.1210.47"  # NOQA: E501
 			}
@@ -259,7 +260,7 @@ def fetchAddonInfo(info, results, addon, manifestInfo, addonsData):
 			return
 	# Note that some add-ons are hosted on community add-ons server directly.
 	if "/" not in addonUrl:
-		addonUrl = f"https://addons.nvda-project.org/files/{addonUrl}"
+		addonUrl = f"{URLs.communityHostedFile}{addonUrl}"
 	# Announce add-on URL for debugging purposes.
 	log.debug(f"nvda3208: add-on URL is {addonUrl}")
 	# Build emulated add-on update dictionary if there is indeed a new version.
@@ -282,12 +283,12 @@ def checkForAddonUpdate(curAddons):
 	def _currentCommunityAddons(results):
 		res = None
 		try:
-			res = urlopen("https://addons.nvda-project.org/files/get.php?addonslist")
+			res = urlopen(URLs.communityAddonsList)
 		except IOError as e:
 			# SSL issue (seen in NVDA Core earlier than 2014.1).
 			if isinstance(e.reason, ssl.SSLCertVerificationError) and e.reason.reason == "CERTIFICATE_VERIFY_FAILED":
 				addonUtils._updateWindowsRootCertificates()
-				res = urlopen("https://addons.nvda-project.org/files/get.php?addonslist")
+				res = urlopen(URLs.communityAddonsList)
 			else:
 				# Inform results dictionary that an error has occurred as this is running inside a thread.
 				log.debug("nvda3208: errors occurred while retrieving community add-ons", exc_info=True)
@@ -301,12 +302,12 @@ def checkForAddonUpdate(curAddons):
 	def _currentCommunityAddonsMetadata(addonsData):
 		res = None
 		try:
-			res = urlopen("https://nvdaaddons.github.io/data/addonsData.json")
+			res = urlopen(URLs.metadata)
 		except IOError as e:
 			# SSL issue (seen in NVDA Core earlier than 2014.1).
 			if isinstance(e.reason, ssl.SSLCertVerificationError) and e.reason.reason == "CERTIFICATE_VERIFY_FAILED":
 				addonUtils._updateWindowsRootCertificates()
-				res = urlopen("https://nvdaaddons.github.io/data/addonsData.json")
+				res = urlopen(URLs.metadata)
 			else:
 				# Clear addon metadata dictionary.
 				log.debug("nvda3208: errors occurred while retrieving community add-ons metadata", exc_info=True)
