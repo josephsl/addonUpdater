@@ -2,12 +2,8 @@
 # Copyright 2018-2022 Joseph Lee, released under GPL.
 
 import pickle
-from urllib.request import urlopen
-import ctypes
-import ssl
 import os
 import globalVars
-from .urls import URLs
 
 updateState = {}
 
