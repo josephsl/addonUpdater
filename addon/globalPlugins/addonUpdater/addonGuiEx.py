@@ -230,6 +230,7 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 			style=wx.PD_CAN_ABORT | wx.PD_ELAPSED_TIME | wx.PD_REMAINING_TIME | wx.PD_AUTO_HIDE,
 			parent=gui.mainFrame
 		)
+		self._progressDialog.CentreOnScreen()
 		self._progressDialog.Raise()
 		t = threading.Thread(target=self._bg)
 		t.daemon = True
