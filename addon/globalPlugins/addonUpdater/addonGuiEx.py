@@ -246,12 +246,12 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 		self.continueUpdatingAddons()
 
 	def _download(self, url):
-		remote = urlopen(url, timeout=120)
-		if remote.code != 200:
-			raise RuntimeError("Download failed with code %d" % remote.code)
 		# #2352: Some security scanners such as Eset NOD32 HTTP Scanner
 		# cause huge read delays while downloading.
 		# Therefore, set a higher timeout.
+		remote = urlopen(url, timeout=120)
+		if remote.code != 200:
+			raise RuntimeError("Download failed with code %d" % remote.code)
 		size = int(remote.headers["content-length"])
 		with open(self.destPath, "wb") as local:
 			if self.fileHash:
