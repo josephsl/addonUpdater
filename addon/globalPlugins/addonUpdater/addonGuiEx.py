@@ -218,7 +218,7 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 		"""
 		self._shouldCancel = False
 		# Use a timer because timers aren't re-entrant.
-		self._guiExecTimer = wx.PyTimer(self._guiExecNotify)
+		self._guiExecTimer = gui.NonReEntrantTimer(self._guiExecNotify)
 		gui.mainFrame.prePopup()
 		self._progressDialog = wx.ProgressDialog(
 			# Translators: The title of the dialog displayed while downloading add-on update.
