@@ -2,10 +2,12 @@
 # A part of NonVisual Desktop Access (NVDA)
 # This file is covered by the GNU General Public License.
 # See the file COPYING for more details.
-# Copyright (C) 2012-2022 NV Access Limited, Beqa Gozalishvili, Joseph Lee, Babbage B.V., Ethan Holliger, Luke Davis
+# Copyright (C) 2012-2022 NV Access Limited, Beqa Gozalishvili, Joseph Lee,
+# Babbage B.V., Ethan Holliger, Luke Davis
 
 # Centralized URL constants.
-# Primary purpose is to make debugging easier, by allowing test builds to change source locations without effecting main repositories.
+# Primary purpose is to make debugging easier, by allowing test builds to change source locations
+# without effecting main repositories.
 # Secondary purpose is to make it unnecessary to search code when URLs need to be located/updated.
 
 # The _URLAccessors class is a pseudo-singleton that provides property-based accessors.
@@ -13,7 +15,7 @@
 # The URLs object is what should be imported by consumers. I.E. "from .urls import URLs"
 # Individual URLs may then be accessed, for example, as: "URLs.communityFileGetter".
 
-class _URLAccessors:
+class _URLAccessors(object):
 	"""Public accessors for the URL constants in the urls module."""
 
 	@property
