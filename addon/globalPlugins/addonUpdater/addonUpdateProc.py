@@ -619,64 +619,6 @@ def updateAddonsGenerator(addons, auto=True):
 	yield
 
 
-class AddonUpdateDownloader(updateCheck.UpdateDownloader):
-	"""Same as downloader class for NVDA screen reader updates.
-	No hash checking for now, and URL's and temp file paths are different.
-	"""
-
-	def __init__(self, urls, addonName, fileHash=None, addonsToBeUpdated=None, auto=True):
-		"""Constructor.
-		@param urls: URLs to try for the update file.
-		@type urls: list of str
-		@param addonName: Name of the add-on being downloaded.
-		@type addonName: str
-		@param fileHash: The SHA-1 hash of the file as a hex string.
-		@type fileHash: basestring
-		@param addonsToBeUpdated: a list of add-ons that needs updating.
-		@type addonsToBeUpdated: list of str
-		@param auto: Automatic add-on updates or not.
-		@type auto: bool
-		"""
-		self.urls = urls
-		self.addonName = addonName
-		self.destPath = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
-		self.fileHash = fileHash
-		self.addonsToBeUpdated = addonsToBeUpdated
-		self.auto = auto
-
-	def start(self):
-		"""Start the download.
-		"""
-		self._shouldCancel = False
-		# Use a timer because timers aren't re-entrant.
-		self._guiExecTimer = gui.NonReEntrantTimer(self._guiExecNotify)
-		gui.mainFrame.prePopup()
-		self._progressDialog = wx.ProgressDialog(
-			# Translators: The title of the dialog displayed while downloading add-on update.
-			_("Downloading Add-on Update"),
-			# Translators: The progress message indicating the name of the add-on being downloaded.
-			_("Downloading {name}").format(name=self.addonName),
-			# PD_AUTO_HIDE is required because ProgressDialog.Update blocks at 100%
-			# and waits for the user to press the Close button.
-			style=wx.PD_CAN_ABORT | wx.PD_ELAPSED_TIME | wx.PD_REMAINING_TIME | wx.PD_AUTO_HIDE,
-			parent=gui.mainFrame
-		)
-		self._progressDialog.CentreOnScreen()
-		self._progressDialog.Raise()
-		t = threading.Thread(target=self._bg)
-		t.daemon = True
-		t.start()
-
-	def _error(self):
-		self._stopped()
-		gui.messageBox(
-			# Translators: A message indicating that an error occurred while downloading an update to NVDA.
-			_("Error downloading update for {name}.").format(name=self.addonName),
-			translate("Error"),
-			wx.OK | wx.ICON_ERROR)
-		self.continueUpdatingAddons()
-
-
 def downloadAddonUpdate(url, destPath, fileHash):
 	# #2352: Some security scanners such as Eset NOD32 HTTP Scanner
 	# cause huge read delays while downloading.
