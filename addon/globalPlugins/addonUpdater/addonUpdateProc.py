@@ -647,6 +647,15 @@ def downloadAddonUpdate(url, destPath, fileHash):
 		if fileHash and hasher.hexdigest() != fileHash:
 			raise RuntimeError("Content has incorrect file hash")
 
+
+# Record install status.
+AddonInstallSuccess = 0
+AddonInstallGenericError = 1
+AddonReadBundleFailed = 2
+AddonMinVersionNotMet = 3
+AddonNotTested = 4
+
+
 def installAddonUpdate(destPath, addonName):
 	try:
 		bundle = addonHandler.AddonBundle(destPath)
