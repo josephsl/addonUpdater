@@ -661,17 +661,15 @@ def installAddonUpdate(destPath, addonName):
 		bundle = addonHandler.AddonBundle(destPath)
 	except:
 		log.error(f"Error opening addon bundle from {destPath}", exc_info=True)
-		return
+		return AddonReadBundleFailed
 	# NVDA itself will check add-on compatibility range.
 	# As such, the below fragment was borrowed from NVDA Core (credit: NV Access).
 	from addonHandler import addonVersionCheck
 	from gui import addonGui
 	if not addonVersionCheck.hasAddonGotRequiredSupport(bundle):
-		addonGui._showAddonRequiresNVDAUpdateDialog(gui.mainFrame, bundle)
-		return
+		return AddonMinVersionNotMet
 	elif not addonVersionCheck.isAddonTested(bundle):
-		addonGui._showAddonTooOldDialog(gui.mainFrame, bundle)
-		return
+		return AddonNotTested
 	bundleName = bundle.manifest['name']
 	# Optimization (future): it is better to remove would-be add-ons all at once
 	# instead of doing it each time a bundle is opened.
@@ -684,5 +682,5 @@ def installAddonUpdate(destPath, addonName):
 		gui.ExecAndPump(addonHandler.installAddonBundle, bundle)
 	except:
 		log.error(f"Error installing  addon bundle from {destPath}", exc_info=True)
-		return
-	return
+		return AddonInstallGenericError
+	return AddonInstallSuccess
