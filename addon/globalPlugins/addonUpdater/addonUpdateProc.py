@@ -10,7 +10,6 @@
 # From extended add-on handler module
 from urllib.request import urlopen, Request
 import threading
-import wx
 import json
 import re
 import ssl
@@ -19,20 +18,8 @@ import globalVars
 from logHandler import log
 from .urls import URLs
 from . import addonUtils
-# From extended add-on GUI module
-import os
-import tempfile
 import hashlib
 import gui
-from gui import guiHelper
-try:
-	import updateCheck
-except RuntimeError:
-	raise RuntimeError("Update check module cannot be imported")
-import core
-import extensionPoints
-from gui.nvdaControls import AutoWidthColumnCheckListCtrl
-from .skipTranslation import translate
 addonHandler.initTranslation()
 
 # The URL prefixes are same for add-ons listed below.
@@ -453,7 +440,6 @@ def installAddonUpdate(destPath, addonName):
 	# NVDA itself will check add-on compatibility range.
 	# As such, the below fragment was borrowed from NVDA Core (credit: NV Access).
 	from addonHandler import addonVersionCheck
-	from gui import addonGui
 	if not addonVersionCheck.hasAddonGotRequiredSupport(bundle):
 		return AddonMinVersionNotMet
 	elif not addonVersionCheck.isAddonTested(bundle):
