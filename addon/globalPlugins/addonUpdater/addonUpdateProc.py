@@ -688,29 +688,22 @@ def downloadAddonUpdate(url, destPath, fileHash):
 	with open(destPath, "wb") as local:
 		if fileHash:
 			hasher = hashlib.sha1()
-		self._guiExec(self._downloadReport, 0, size)
 		read = 0
 		chunk = 8192
 		while True:
-			if self._shouldCancel:
-				return
 			if size - read < chunk:
 				chunk = size - read
 			block = remote.read(chunk)
 			if not block:
 				break
 			read += len(block)
-			if self._shouldCancel:
-				return
 			local.write(block)
 			if fileHash:
 				hasher.update(block)
-			self._guiExec(self._downloadReport, read, size)
 		if read < size:
 			raise RuntimeError("Content too short")
 		if fileHash and hasher.hexdigest() != fileHash:
 			raise RuntimeError("Content has incorrect file hash")
-	self._guiExec(self._downloadReport, read, size)
 
 def installAddonUpdate(destPath, addonName):
 	self._stopped()
