@@ -730,31 +730,12 @@ def installAddonUpdate(destPath, addonName):
 				if not addon.isPendingRemove:
 					addon.requestRemove()
 				break
-		progressDialog = gui.IndeterminateProgressDialog(
-			gui.mainFrame,
-			# Translators: The title of the dialog presented while an Addon is being updated.
-			_("Updating {name}").format(name=addonName),
-			# Translators: The message displayed while an addon is being updated.
-			_("Please wait while the add-on is being updated.")
-		)
 		try:
 			gui.ExecAndPump(addonHandler.installAddonBundle, bundle)
 		except:
 			log.error(f"Error installing  addon bundle from {destPath}", exc_info=True)
-			progressDialog.done()
-			progressDialog.Hide()
-			progressDialog.Destroy()
-			gui.messageBox(
-				# Translators: The message displayed when an error occurs when installing an add-on package.
-				_("Failed to update {name} add-on").format(name=addonName),
-				translate("Error"),
-				wx.OK | wx.ICON_ERROR
-			)
 			return
 		else:
-			progressDialog.done()
-			progressDialog.Hide()
-			progressDialog.Destroy()
 			_updatedAddons.append(bundleName)
 	finally:
 		try:
