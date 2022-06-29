@@ -706,20 +706,11 @@ def downloadAddonUpdate(url, destPath, fileHash):
 			raise RuntimeError("Content has incorrect file hash")
 
 def installAddonUpdate(destPath, addonName):
-	self._stopped()
 	try:
 		try:
 			bundle = addonHandler.AddonBundle(destPath)
 		except:
 			log.error(f"Error opening addon bundle from {destPath}", exc_info=True)
-			gui.messageBox(
-				# Translators: The message displayed when an error occurs
-				# when trying to update an add-on package due to package problems.
-				_("Cannot update {name} - missing file or invalid file format").format(name=addonName),
-				translate("Error"),
-				wx.OK | wx.ICON_ERROR
-			)
-			self.continueUpdatingAddons()
 			return
 		# NVDA itself will check add-on compatibility range.
 		# As such, the below fragment was borrowed from NVDA Core (credit: NV Access).
@@ -727,11 +718,9 @@ def installAddonUpdate(destPath, addonName):
 		from gui import addonGui
 		if not addonVersionCheck.hasAddonGotRequiredSupport(bundle):
 			addonGui._showAddonRequiresNVDAUpdateDialog(gui.mainFrame, bundle)
-			self.continueUpdatingAddons()
 			return
 		elif not addonVersionCheck.isAddonTested(bundle):
 			addonGui._showAddonTooOldDialog(gui.mainFrame, bundle)
-			self.continueUpdatingAddons()
 			return
 		bundleName = bundle.manifest['name']
 		# Optimization (future): it is better to remove would-be add-ons all at once
@@ -761,7 +750,6 @@ def installAddonUpdate(destPath, addonName):
 				translate("Error"),
 				wx.OK | wx.ICON_ERROR
 			)
-			self.continueUpdatingAddons()
 			return
 		else:
 			progressDialog.done()
