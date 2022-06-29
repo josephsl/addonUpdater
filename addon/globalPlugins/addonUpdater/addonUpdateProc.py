@@ -456,52 +456,6 @@ def _showAddonUpdateUI():
 			wx.CallAfter(_showAddonUpdateUICallback, info)
 
 
-# Content from extended add-on GUI module
-
-AddonUpdaterManualUpdateCheck = extensionPoints.Action()
-
-_progressDialog = None
-
-
-# The following event handler comes from a combination of StationPlaylist and Windows App Essentials.
-def onAddonUpdateCheck(evt):
-	# If toast was shown, this will launch the results dialog directly as there is already update info.
-	# Update info is valid only once, and this check will nullify it.
-	from . import addonHandlerEx
-	if addonHandlerEx._updateInfo is not None:
-		wx.CallAfter(AddonUpdatesDialog, gui.mainFrame, dict(addonHandlerEx._updateInfo), auto=False)
-		addonHandlerEx._updateInfo = None
-		return
-	AddonUpdaterManualUpdateCheck.notify()
-	global _progressDialog
-	_progressDialog = gui.IndeterminateProgressDialog(
-		gui.mainFrame,
-		# Translators: The title of the dialog presented while checking for add-on updates.
-		_("Add-on update check"),
-		# Translators: The message displayed while checking for add-on updates.
-		_("Checking for add-on updates...")
-	)
-	t = threading.Thread(target=addonUpdateCheck)
-	t.daemon = True
-	t.start()
-
-
-def addonUpdateCheck():
-	from . import addonHandlerEx
-	global _progressDialog
-	try:
-		info = addonHandlerEx.checkForAddonUpdates()
-	except:
-		info = None
-		wx.CallAfter(_progressDialog.done)
-		_progressDialog = None
-		wx.CallAfter(gui.messageBox, _("Error checking for add-on updates."), translate("Error"), wx.ICON_ERROR)
-		raise
-	wx.CallAfter(_progressDialog.done)
-	_progressDialog = None
-	wx.CallAfter(AddonUpdatesDialog, gui.mainFrame, info, auto=False)
-
-
 def downloadAddonUpdate(url, destPath, fileHash):
 	# #2352: Some security scanners such as Eset NOD32 HTTP Scanner
 	# cause huge read delays while downloading.
