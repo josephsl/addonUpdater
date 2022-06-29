@@ -761,15 +761,3 @@ def installAddonUpdate(destPath, addonName):
 			os.remove(destPath)
 		except OSError:
 			pass
-	self.continueUpdatingAddons()
-
-def continueUpdatingAddons(self):
-	# Do not leave add-on update installers in the temp directory.
-	try:
-		os.remove(self.destPath)
-	except OSError:
-		pass
-	try:
-		next(updateAddonsGenerator(self.addonsToBeUpdated, auto=self.auto))
-	except StopIteration:
-		pass
