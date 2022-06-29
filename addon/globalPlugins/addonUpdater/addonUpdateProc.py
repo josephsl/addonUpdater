@@ -676,118 +676,119 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 			wx.OK | wx.ICON_ERROR)
 		self.continueUpdatingAddons()
 
-	def _download(self, url):
-		# #2352: Some security scanners such as Eset NOD32 HTTP Scanner
-		# cause huge read delays while downloading.
-		# Therefore, set a higher timeout.
-		remote = urlopen(url, timeout=120)
-		if remote.code != 200:
-			raise RuntimeError("Download failed with code %d" % remote.code)
-		size = int(remote.headers["content-length"])
-		with open(self.destPath, "wb") as local:
+
+def downloadAddonUpdate(self, url):
+	# #2352: Some security scanners such as Eset NOD32 HTTP Scanner
+	# cause huge read delays while downloading.
+	# Therefore, set a higher timeout.
+	remote = urlopen(url, timeout=120)
+	if remote.code != 200:
+		raise RuntimeError("Download failed with code %d" % remote.code)
+	size = int(remote.headers["content-length"])
+	with open(self.destPath, "wb") as local:
+		if self.fileHash:
+			hasher = hashlib.sha1()
+		self._guiExec(self._downloadReport, 0, size)
+		read = 0
+		chunk = 8192
+		while True:
+			if self._shouldCancel:
+				return
+			if size - read < chunk:
+				chunk = size - read
+			block = remote.read(chunk)
+			if not block:
+				break
+			read += len(block)
+			if self._shouldCancel:
+				return
+			local.write(block)
 			if self.fileHash:
-				hasher = hashlib.sha1()
-			self._guiExec(self._downloadReport, 0, size)
-			read = 0
-			chunk = 8192
-			while True:
-				if self._shouldCancel:
-					return
-				if size - read < chunk:
-					chunk = size - read
-				block = remote.read(chunk)
-				if not block:
-					break
-				read += len(block)
-				if self._shouldCancel:
-					return
-				local.write(block)
-				if self.fileHash:
-					hasher.update(block)
-				self._guiExec(self._downloadReport, read, size)
-			if read < size:
-				raise RuntimeError("Content too short")
-			if self.fileHash and hasher.hexdigest() != self.fileHash:
-				raise RuntimeError("Content has incorrect file hash")
-		self._guiExec(self._downloadReport, read, size)
+				hasher.update(block)
+			self._guiExec(self._downloadReport, read, size)
+		if read < size:
+			raise RuntimeError("Content too short")
+		if self.fileHash and hasher.hexdigest() != self.fileHash:
+			raise RuntimeError("Content has incorrect file hash")
+	self._guiExec(self._downloadReport, read, size)
 
-	def _downloadSuccess(self):
-		self._stopped()
+def installAddonUpdate(self):
+	self._stopped()
+	try:
 		try:
-			try:
-				bundle = addonHandler.AddonBundle(self.destPath)
-			except:
-				log.error(f"Error opening addon bundle from {self.destPath}", exc_info=True)
-				gui.messageBox(
-					# Translators: The message displayed when an error occurs
-					# when trying to update an add-on package due to package problems.
-					_("Cannot update {name} - missing file or invalid file format").format(name=self.addonName),
-					translate("Error"),
-					wx.OK | wx.ICON_ERROR
-				)
-				self.continueUpdatingAddons()
-				return
-			# NVDA itself will check add-on compatibility range.
-			# As such, the below fragment was borrowed from NVDA Core (credit: NV Access).
-			from addonHandler import addonVersionCheck
-			from gui import addonGui
-			if not addonVersionCheck.hasAddonGotRequiredSupport(bundle):
-				addonGui._showAddonRequiresNVDAUpdateDialog(gui.mainFrame, bundle)
-				self.continueUpdatingAddons()
-				return
-			elif not addonVersionCheck.isAddonTested(bundle):
-				addonGui._showAddonTooOldDialog(gui.mainFrame, bundle)
-				self.continueUpdatingAddons()
-				return
-			bundleName = bundle.manifest['name']
-			# Optimization (future): it is better to remove would-be add-ons all at once
-			# instead of doing it each time a bundle is opened.
-			for addon in addonHandler.getAvailableAddons():
-				if bundleName == addon.manifest['name']:
-					if not addon.isPendingRemove:
-						addon.requestRemove()
-					break
-			progressDialog = gui.IndeterminateProgressDialog(
-				gui.mainFrame,
-				# Translators: The title of the dialog presented while an Addon is being updated.
-				_("Updating {name}").format(name=self.addonName),
-				# Translators: The message displayed while an addon is being updated.
-				_("Please wait while the add-on is being updated.")
+			bundle = addonHandler.AddonBundle(self.destPath)
+		except:
+			log.error(f"Error opening addon bundle from {self.destPath}", exc_info=True)
+			gui.messageBox(
+				# Translators: The message displayed when an error occurs
+				# when trying to update an add-on package due to package problems.
+				_("Cannot update {name} - missing file or invalid file format").format(name=self.addonName),
+				translate("Error"),
+				wx.OK | wx.ICON_ERROR
 			)
-			try:
-				gui.ExecAndPump(addonHandler.installAddonBundle, bundle)
-			except:
-				log.error(f"Error installing  addon bundle from {self.destPath}", exc_info=True)
-				progressDialog.done()
-				progressDialog.Hide()
-				progressDialog.Destroy()
-				gui.messageBox(
-					# Translators: The message displayed when an error occurs when installing an add-on package.
-					_("Failed to update {name} add-on").format(name=self.addonName),
-					translate("Error"),
-					wx.OK | wx.ICON_ERROR
-				)
-				self.continueUpdatingAddons()
-				return
-			else:
-				progressDialog.done()
-				progressDialog.Hide()
-				progressDialog.Destroy()
-				_updatedAddons.append(bundleName)
-		finally:
-			try:
-				os.remove(self.destPath)
-			except OSError:
-				pass
-		self.continueUpdatingAddons()
-
-	def continueUpdatingAddons(self):
-		# Do not leave add-on update installers in the temp directory.
+			self.continueUpdatingAddons()
+			return
+		# NVDA itself will check add-on compatibility range.
+		# As such, the below fragment was borrowed from NVDA Core (credit: NV Access).
+		from addonHandler import addonVersionCheck
+		from gui import addonGui
+		if not addonVersionCheck.hasAddonGotRequiredSupport(bundle):
+			addonGui._showAddonRequiresNVDAUpdateDialog(gui.mainFrame, bundle)
+			self.continueUpdatingAddons()
+			return
+		elif not addonVersionCheck.isAddonTested(bundle):
+			addonGui._showAddonTooOldDialog(gui.mainFrame, bundle)
+			self.continueUpdatingAddons()
+			return
+		bundleName = bundle.manifest['name']
+		# Optimization (future): it is better to remove would-be add-ons all at once
+		# instead of doing it each time a bundle is opened.
+		for addon in addonHandler.getAvailableAddons():
+			if bundleName == addon.manifest['name']:
+				if not addon.isPendingRemove:
+					addon.requestRemove()
+				break
+		progressDialog = gui.IndeterminateProgressDialog(
+			gui.mainFrame,
+			# Translators: The title of the dialog presented while an Addon is being updated.
+			_("Updating {name}").format(name=self.addonName),
+			# Translators: The message displayed while an addon is being updated.
+			_("Please wait while the add-on is being updated.")
+		)
+		try:
+			gui.ExecAndPump(addonHandler.installAddonBundle, bundle)
+		except:
+			log.error(f"Error installing  addon bundle from {self.destPath}", exc_info=True)
+			progressDialog.done()
+			progressDialog.Hide()
+			progressDialog.Destroy()
+			gui.messageBox(
+				# Translators: The message displayed when an error occurs when installing an add-on package.
+				_("Failed to update {name} add-on").format(name=self.addonName),
+				translate("Error"),
+				wx.OK | wx.ICON_ERROR
+			)
+			self.continueUpdatingAddons()
+			return
+		else:
+			progressDialog.done()
+			progressDialog.Hide()
+			progressDialog.Destroy()
+			_updatedAddons.append(bundleName)
+	finally:
 		try:
 			os.remove(self.destPath)
 		except OSError:
 			pass
-		try:
-			next(updateAddonsGenerator(self.addonsToBeUpdated, auto=self.auto))
-		except StopIteration:
-			pass
+	self.continueUpdatingAddons()
+
+def continueUpdatingAddons(self):
+	# Do not leave add-on update installers in the temp directory.
+	try:
+		os.remove(self.destPath)
+	except OSError:
+		pass
+	try:
+		next(updateAddonsGenerator(self.addonsToBeUpdated, auto=self.auto))
+	except StopIteration:
+		pass
