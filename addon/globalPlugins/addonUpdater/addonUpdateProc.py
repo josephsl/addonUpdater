@@ -649,38 +649,31 @@ def downloadAddonUpdate(url, destPath, fileHash):
 
 def installAddonUpdate(destPath, addonName):
 	try:
-		try:
-			bundle = addonHandler.AddonBundle(destPath)
-		except:
-			log.error(f"Error opening addon bundle from {destPath}", exc_info=True)
-			return
-		# NVDA itself will check add-on compatibility range.
-		# As such, the below fragment was borrowed from NVDA Core (credit: NV Access).
-		from addonHandler import addonVersionCheck
-		from gui import addonGui
-		if not addonVersionCheck.hasAddonGotRequiredSupport(bundle):
-			addonGui._showAddonRequiresNVDAUpdateDialog(gui.mainFrame, bundle)
-			return
-		elif not addonVersionCheck.isAddonTested(bundle):
-			addonGui._showAddonTooOldDialog(gui.mainFrame, bundle)
-			return
-		bundleName = bundle.manifest['name']
-		# Optimization (future): it is better to remove would-be add-ons all at once
-		# instead of doing it each time a bundle is opened.
-		for addon in addonHandler.getAvailableAddons():
-			if bundleName == addon.manifest['name']:
-				if not addon.isPendingRemove:
-					addon.requestRemove()
-				break
-		try:
-			gui.ExecAndPump(addonHandler.installAddonBundle, bundle)
-		except:
-			log.error(f"Error installing  addon bundle from {destPath}", exc_info=True)
-			return
-		else:
-			_updatedAddons.append(bundleName)
-	finally:
-		try:
-			os.remove(destPath)
-		except OSError:
-			pass
+		bundle = addonHandler.AddonBundle(destPath)
+	except:
+		log.error(f"Error opening addon bundle from {destPath}", exc_info=True)
+		return
+	# NVDA itself will check add-on compatibility range.
+	# As such, the below fragment was borrowed from NVDA Core (credit: NV Access).
+	from addonHandler import addonVersionCheck
+	from gui import addonGui
+	if not addonVersionCheck.hasAddonGotRequiredSupport(bundle):
+		addonGui._showAddonRequiresNVDAUpdateDialog(gui.mainFrame, bundle)
+		return
+	elif not addonVersionCheck.isAddonTested(bundle):
+		addonGui._showAddonTooOldDialog(gui.mainFrame, bundle)
+		return
+	bundleName = bundle.manifest['name']
+	# Optimization (future): it is better to remove would-be add-ons all at once
+	# instead of doing it each time a bundle is opened.
+	for addon in addonHandler.getAvailableAddons():
+		if bundleName == addon.manifest['name']:
+			if not addon.isPendingRemove:
+				addon.requestRemove()
+			break
+	try:
+		gui.ExecAndPump(addonHandler.installAddonBundle, bundle)
+	except:
+		log.error(f"Error installing  addon bundle from {destPath}", exc_info=True)
+		return
+	return
