@@ -395,6 +395,9 @@ def checkForAddonUpdates():
 
 
 def downloadAddonUpdate(url, destPath, fileHash):
+	if not destPath:
+		import tempfile
+		destPath = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
 	# #2352: Some security scanners such as Eset NOD32 HTTP Scanner
 	# cause huge read delays while downloading.
 	# Therefore, set a higher timeout.
