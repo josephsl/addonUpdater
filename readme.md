@@ -21,6 +21,15 @@ IMPORTANT NOTES:
 * Not all add-ons come with development releases. If you are not getting updates after choosing to install development versions of an add-on, switch to stable channel for affected add-ons.
 * On some systems (particularly computers joined to a corporate domain), add-on update check functionality may not work properly, therefore add-on updates must be downloaded manually.
 
+## Add-on settings
+
+You can configure Add-on Updater settings from NVDA Settings screen (NVDA menu, Preferences, Settings) under Add-on Updater category. Add-on settings are as follows:
+
+* Automatically check for add-on updates: if checked, NVDA will check for add-on updates once a day.
+* Add-on update notification (Windows 10 and later): you can choose to receive update notification as a dialog or a toast. On Windows releases earlier than 10 and on server systems, update notification will be shown as a dialog.
+* Do not update add-ons: you can choose add-ons that should not be updated.
+* Prefer development releases: any add-ons checked in this list will receive development (prerelease) releases.
+
 ## Version 22.07
 
 * URL's used by the add-on are now constants hosted inside a new module (contributed by Luke Davis).
