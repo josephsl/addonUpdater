@@ -1,6 +1,6 @@
 # Add-on Updater
 
-* Author: Joseph Lee
+* Author: Joseph Lee, Luke Davis
 * Download [stable version][1]
 * NVDA compatibility: 2021.3 and later
 
