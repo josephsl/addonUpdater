@@ -403,6 +403,7 @@ def downloadAddonUpdate(url, destPath, fileHash):
 	# Therefore, set a higher timeout.
 	remote = urlopen(url, timeout=120)
 	if remote.code != 200:
+		remote.close()
 		raise RuntimeError("Download failed with code %d" % remote.code)
 	size = int(remote.headers["content-length"])
 	with open(destPath, "wb") as local:
@@ -420,6 +421,7 @@ def downloadAddonUpdate(url, destPath, fileHash):
 			local.write(block)
 			if fileHash:
 				hasher.update(block)
+		remote.close()
 		if read < size:
 			raise RuntimeError("Content too short")
 		if fileHash and hasher.hexdigest() != fileHash:
