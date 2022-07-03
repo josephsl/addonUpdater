@@ -53,6 +53,22 @@ class AddonUpdateRecord(object):
 		self.lastTestedNVDAVersion = lastTestedNVDAVersion
 		self.updateChannel = updateChannel
 
+	def updateDict(self):
+		return {
+			"name": self.name,
+			"summary": self.summary,
+			"version": self.version,
+			"installedVersion": self.installedVersion,
+			"url": self.url,
+			"hash": self.hash,
+			"minimumNVDAVersion": self.minimumNVDAVersion,
+			"lastTestedNVDAVersion": self.lastTestedNVDAVersion,
+			"updateChannel": self.updateChannel
+		}
+
+	@property
+	def updateAvailable(self):
+		return self.version != self.installedVersion
 
 # The URL prefixes are same for add-ons listed below.
 names2urls = {
