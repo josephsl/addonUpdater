@@ -13,6 +13,7 @@ import threading
 import json
 import re
 import ssl
+import enum
 import addonHandler
 import globalVars
 from logHandler import log
@@ -429,11 +430,12 @@ def downloadAddonUpdate(url, destPath, fileHash):
 
 
 # Record install status.
-AddonInstallSuccess = 0
-AddonInstallGenericError = 1
-AddonReadBundleFailed = 2
-AddonMinVersionNotMet = 3
-AddonNotTested = 4
+class AddonInstallStatus(enum.IntEnum):
+	AddonInstallSuccess = 0
+	AddonInstallGenericError = 1
+	AddonReadBundleFailed = 2
+	AddonMinVersionNotMet = 3
+	AddonNotTested = 4
 
 
 def installAddonUpdate(destPath, addonName):
@@ -441,14 +443,14 @@ def installAddonUpdate(destPath, addonName):
 		bundle = addonHandler.AddonBundle(destPath)
 	except:
 		log.error(f"Error opening addon bundle from {destPath}", exc_info=True)
-		return AddonReadBundleFailed
+		return AddonInstallStatus.AddonReadBundleFailed
 	# NVDA itself will check add-on compatibility range.
 	# As such, the below fragment was borrowed from NVDA Core (credit: NV Access).
 	from addonHandler import addonVersionCheck
 	if not addonVersionCheck.hasAddonGotRequiredSupport(bundle):
-		return AddonMinVersionNotMet
+		return AddonInstallStatus.AddonMinVersionNotMet
 	elif not addonVersionCheck.isAddonTested(bundle):
-		return AddonNotTested
+		return AddonInstallStatus.AddonNotTested
 	bundleName = bundle.manifest['name']
 	# Optimization (future): it is better to remove would-be add-ons all at once
 	# instead of doing it each time a bundle is opened.
@@ -461,5 +463,5 @@ def installAddonUpdate(destPath, addonName):
 		gui.ExecAndPump(addonHandler.installAddonBundle, bundle)
 	except:
 		log.error(f"Error installing  addon bundle from {destPath}", exc_info=True)
-		return AddonInstallGenericError
-	return AddonInstallSuccess
+		return AddonInstallStatus.AddonInstallGenericError
+	return AddonInstallStatus.AddonInstallSuccess
