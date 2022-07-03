@@ -21,6 +21,7 @@ from .urls import URLs
 from . import addonUtils
 import hashlib
 import gui
+import extensionPoints
 addonHandler.initTranslation()
 
 
@@ -425,6 +426,8 @@ def checkForAddonUpdates():
 	return res if len(res) else None
 
 
+AddonDownloadNotifier = extensionPoints.Action()
+
 def downloadAddonUpdate(url, destPath, fileHash):
 	if not destPath:
 		import tempfile
@@ -441,6 +444,7 @@ def downloadAddonUpdate(url, destPath, fileHash):
 		if fileHash:
 			hasher = hashlib.sha1()
 		read = 0
+		AddonDownloadNotifier.notify(read=read, size=size)
 		chunk = 8192
 		while True:
 			if size - read < chunk:
@@ -452,6 +456,7 @@ def downloadAddonUpdate(url, destPath, fileHash):
 			local.write(block)
 			if fileHash:
 				hasher.update(block)
+			AddonDownloadNotifier.notify(read=read, size=size)
 		remote.close()
 		if read < size:
 			raise RuntimeError("Content too short")
