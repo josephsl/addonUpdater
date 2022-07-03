@@ -23,6 +23,36 @@ import hashlib
 import gui
 addonHandler.initTranslation()
 
+
+# Record add-on update information, resembling NVDA add-on manifest.
+class AddonUpdateRecord(object):
+	"""Resembles add-on manifests but optimized for updates.
+	In addition to add-on name, summary, and version, this class records download URL and other data.
+	"""
+
+	def __init__(
+		self,
+		name = "",
+		summary = "",
+		version = "",
+		installedVersion = "",
+		url = "",
+		hash = None,
+		minimumNVDAVersion = [0, 0, 0],
+		lastTestedNVDAVersion = [0, 0, 0],
+		updateChannel = ""
+	):
+		self.name = name
+		self.summary = summary
+		self.version = version
+		self.installedVersion = installedVersion
+		self.url = url
+		self.hash = hash
+		self.minimumNVDAVersion = minimumNVDAVersion
+		self.lastTestedNVDAVersion = lastTestedNVDAVersion
+		self.updateChannel = updateChannel
+
+
 # The URL prefixes are same for add-ons listed below.
 names2urls = {
 	"addonUpdater": "nvda3208",
