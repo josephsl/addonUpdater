@@ -432,6 +432,7 @@ def downloadAddonUpdate(url, destPath, fileHash):
 	if not destPath:
 		import tempfile
 		destPath = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
+	log.debug(f"nvda3208: dest path is {destPath}")
 	# #2352: Some security scanners such as Eset NOD32 HTTP Scanner
 	# cause huge read delays while downloading.
 	# Therefore, set a higher timeout.
@@ -440,6 +441,7 @@ def downloadAddonUpdate(url, destPath, fileHash):
 		remote.close()
 		raise RuntimeError("Download failed with code %d" % remote.code)
 	size = int(remote.headers["content-length"])
+	log.debug(f"nvda3208: remote size is {size} bytes")
 	with open(destPath, "wb") as local:
 		if fileHash:
 			hasher = hashlib.sha1()
@@ -462,6 +464,8 @@ def downloadAddonUpdate(url, destPath, fileHash):
 			raise RuntimeError("Content too short")
 		if fileHash and hasher.hexdigest() != fileHash:
 			raise RuntimeError("Content has incorrect file hash")
+	log.debug("nvda3208: download complete")
+	AddonDownloadNotifier.notify(read=read, size=size)
 
 
 # Record install status.
