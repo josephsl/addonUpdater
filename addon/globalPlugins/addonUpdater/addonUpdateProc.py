@@ -460,7 +460,11 @@ def downloadAddonUpdate(url, destPath, fileHash):
 	# #2352: Some security scanners such as Eset NOD32 HTTP Scanner
 	# cause huge read delays while downloading.
 	# Therefore, set a higher timeout.
-	remote = urlopen(url, timeout=120)
+	try:
+		remote = urlopen(url, timeout=120)
+	except:
+		log.debug("Could not access download URL")
+		raise RuntimeError("Could not access download URL")
 	if remote.code != 200:
 		remote.close()
 		raise RuntimeError("Download failed with code %d" % remote.code)
