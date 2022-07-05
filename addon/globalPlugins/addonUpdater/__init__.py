@@ -119,6 +119,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.append(AddonUpdaterPanel)
 		config.post_configSave.register(addonUtils.save)
 		config.post_configReset.register(addonUtils.reload)
+		addonHandlerEx.updateSuccess.register(self.updateMenuItemLabel)
 		if legacyAddonsFound():
 			return
 		if addonUtils.updateState["autoUpdate"]:
@@ -131,6 +132,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# #4: no, do not go through all this if this is a source code copy of NVDA.
 		if not canUpdate:
 			return
+		addonHandlerEx.updateSuccess.unregister(self.updateMenuItemLabel)
 		config.post_configSave.unregister(addonUtils.save)
 		config.post_configReset.unregister(addonUtils.reload)
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.remove(AddonUpdaterPanel)
@@ -144,6 +146,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		updateChecker = None
 		addonUtils.saveState()
 
+	def updateMenuItemLabel(self, label=_("Check for &add-on updates...")):
+		self.addonUpdater.SetItemLabel(label)
 
 class AddonUpdaterPanel(gui.SettingsPanel):
 	# Translators: This is the label for the Add-on Updater settings panel.
