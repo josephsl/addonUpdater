@@ -14,6 +14,7 @@ import json
 import re
 import ssl
 import addonHandler
+import extensionPoints
 import globalVars
 from logHandler import log
 from .urls import URLs
@@ -400,7 +401,7 @@ def autoAddonUpdateCheck():
 
 # Only stored when update toast appears.
 _updateInfo = None
-
+updateSuccess = extensionPoints.Action()
 
 def _showAddonUpdateUI():
 	def _showAddonUpdateUICallback(info):
