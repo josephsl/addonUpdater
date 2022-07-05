@@ -430,6 +430,7 @@ def _showAddonUpdateUI():
 			and addonUtils.updateState["updateNotification"] == "toast"
 		):
 			global _updateInfo
+			updateSuccess.notify(label=_("Review &add-on updates..."))
 			updateMessage = _(
 				# Translators: presented as part of add-on update notification message.
 				"One or more add-on updates are available. "
