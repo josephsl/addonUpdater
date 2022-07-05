@@ -34,6 +34,8 @@ _progressDialog = None
 
 # The following event handler comes from a combination of StationPlaylist and Windows App Essentials.
 def onAddonUpdateCheck(evt):
+	from . import addonHandlerEx
+	addonHandlerEx.updateSuccess.notify()
 	# If toast was shown, this will launch the results dialog directly as there is already update info.
 	# Update info is valid only once, and this check will nullify it.
 	from . import addonHandlerEx
