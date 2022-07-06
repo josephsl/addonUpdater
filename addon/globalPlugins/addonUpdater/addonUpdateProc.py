@@ -70,6 +70,7 @@ class AddonUpdateRecord(object):
 	def updateAvailable(self):
 		return self.version != self.installedVersion
 
+
 # The URL prefixes are same for add-ons listed below.
 names2urls = {
 	"addonUpdater": "nvda3208",
@@ -451,6 +452,7 @@ def checkForAddonUpdates():
 
 
 AddonDownloadNotifier = extensionPoints.Action()
+
 
 def downloadAddonUpdate(url, destPath, fileHash):
 	if not destPath:
