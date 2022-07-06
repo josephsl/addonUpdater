@@ -32,16 +32,16 @@ class AddonUpdateRecord(object):
 	"""
 
 	def __init__(
-		self,
-		name="",
-		summary="",
-		version="",
-		installedVersion="",
-		url="",
-		hash=None,
-		minimumNVDAVersion=[0, 0, 0],
-		lastTestedNVDAVersion=[0, 0, 0],
-		updateChannel=""
+			self,
+			name="",
+			summary="",
+			version="",
+			installedVersion="",
+			url="",
+			hash=None,
+			minimumNVDAVersion=[0, 0, 0],
+			lastTestedNVDAVersion=[0, 0, 0],
+			updateChannel=""
 	):
 		self.name = name
 		self.summary = summary
