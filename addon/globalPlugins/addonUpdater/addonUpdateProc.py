@@ -33,15 +33,15 @@ class AddonUpdateRecord(object):
 
 	def __init__(
 		self,
-		name = "",
-		summary = "",
-		version = "",
-		installedVersion = "",
-		url = "",
-		hash = None,
-		minimumNVDAVersion = [0, 0, 0],
-		lastTestedNVDAVersion = [0, 0, 0],
-		updateChannel = ""
+		name="",
+		summary="",
+		version="",
+		installedVersion="",
+		url="",
+		hash=None,
+		minimumNVDAVersion=[0, 0, 0],
+		lastTestedNVDAVersion=[0, 0, 0],
+		updateChannel=""
 	):
 		self.name = name
 		self.summary = summary
@@ -446,7 +446,7 @@ def checkForAddonUpdates():
 			version=updateInfo["version"],
 			installedVersion=updateInfo["curVersion"],
 			url=updateInfo["path"],
-			updateChannel= curAddons[addon]["channel"]
+			updateChannel=curAddons[addon]["channel"]
 		))
 	return res
 
