@@ -113,6 +113,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		addonUtils.loadState()
 		self.toolsMenu = gui.mainFrame.sysTrayIcon.toolsMenu
 		self.addonUpdater = self.toolsMenu.Append(
+			# Translators: menu item label for checking add-on updates.
 			wx.ID_ANY, _("Check for &add-on updates..."), _("Check for NVDA add-on updates")
 		)
 		gui.mainFrame.sysTrayIcon.Bind(wx.EVT_MENU, addonGuiEx.onAddonUpdateCheck, self.addonUpdater)

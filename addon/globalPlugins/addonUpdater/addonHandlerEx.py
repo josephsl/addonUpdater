@@ -431,6 +431,7 @@ def _showAddonUpdateUI():
 			and addonUtils.updateState["updateNotification"] == "toast"
 		):
 			global _updateInfo
+			# Translators: menu item label for reviewing add-on updates.
 			updateSuccess.notify(label=_("Review &add-on updates ({updateCount})...").format(updateCount=len(info)))
 			updateMessage = _(
 				# Translators: presented as part of add-on update notification message.
