@@ -161,51 +161,6 @@ addonsWithUpdaters = [
 ]
 
 
-# Add-ons with all features integrated into NVDA or declared "legacy" by authors.
-# For the latter case, update check functionality will be disabled upon authors' request.
-
-# Translators: legacy add-on, features included in NVDA.
-LegacyAddonIncludedInNVDA = _("features included in NVDA")
-# Translators: legacy add-on, declared by add-on developers.
-LegacyAddonAuthorDeclaration = _("declared legacy by add-on developers")
-
-LegacyAddons = {
-	# Bit Che is no longer maintained as of 2021, therefore the add-on is unnecessary, according to the author.
-	"bitChe": LegacyAddonAuthorDeclaration,
-	"enhancedAria": LegacyAddonIncludedInNVDA,
-	# Advanced focus highlight customizations are not implemented in NVDA yet,
-	# but legacy add-on in terms of functionality.
-	"focusHighlight": LegacyAddonIncludedInNVDA,
-	"screenCurtain": LegacyAddonIncludedInNVDA,
-	# Team Viewer is no longer used by the add-on author.
-	"teamViewer": LegacyAddonAuthorDeclaration,
-}
-
-
-def shouldNotUpdate():
-	# Returns a list of descriptions for add-ons that should not update.
-	return [
-		addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
-		if addon.name in addonUtils.updateState["noUpdates"]
-	]
-
-
-def preferDevUpdates():
-	# Returns a list of descriptions for add-ons that prefers development releases.
-	return [
-		addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
-		if addon.name in addonUtils.updateState["devUpdates"]
-	]
-
-
-def detectLegacyAddons():
-	# Returns a dictionary of add-on name and summary for legacy add-ons.
-	return {
-		addon.name: addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
-		if addon.name in LegacyAddons
-	}
-
-
 # Validate a given add-on metadata, mostly involving type checks.
 def validateAddonMetadata(addonMetadata):
 	# Make sure that fields are of the right type.
