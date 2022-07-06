@@ -403,6 +403,7 @@ def autoAddonUpdateCheck():
 _updateInfo = None
 updateSuccess = extensionPoints.Action()
 
+
 def _showAddonUpdateUI():
 	def _showAddonUpdateUICallback(info):
 		import gui
