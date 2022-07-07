@@ -169,34 +169,6 @@ class AddonUpdatesDialog(wx.Dialog):
 _updatedAddons = []
 
 
-def updateAddonsGenerator(addons, auto=True):
-	"""Updates one add-on after the other.
-	The auto parameter is used to show add-ons manager after all add-ons were updated.
-	"""
-	if not len(addons):
-		# Only present messages if add-osn were actually updated.
-		if len(_updatedAddons):
-			# This is possible because all add-ons were updated.
-			if gui.messageBox(
-				translate(
-					"Changes were made to add-ons. You must restart NVDA for these changes to take effect. "
-					"Would you like to restart now?"
-				),
-				translate("Restart NVDA"),
-				wx.YES | wx.NO | wx.ICON_WARNING
-			) == wx.YES:
-				core.restart()
-		return
-	# #3208: Update (download and install) add-ons one after the other,
-	# done by retrieving the first item (as far as current add-ons container is concerned).
-	addonInfo = addons.pop(0)
-	downloader = AddonUpdateDownloader(
-		[addonInfo["urls"]], addonInfo["summary"], addonsToBeUpdated=addons, auto=auto
-	)
-	downloader.start()
-	yield
-
-
 class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 	"""Same as downloader class for NVDA screen reader updates.
 	No hash checking for now, and URL's and temp file paths are different.
