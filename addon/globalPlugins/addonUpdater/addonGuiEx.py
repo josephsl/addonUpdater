@@ -154,12 +154,12 @@ class AddonUpdatesDialog(wx.Dialog):
 			for addon in range(self.addonsList.GetItemCount()):
 				if not self.addonsList.IsChecked(addon):
 					del self.addonUpdateInfo[availableAddons[addon]]
-			next(updateAddonsGenerator(list(self.addonUpdateInfo.values()), auto=self.auto))
+			updateAddons(list(self.addonUpdateInfo.values()), auto=self.auto)
 		except NameError:
 			for addon in range(self.addonsList.GetItemCount()):
 				if not self.addonsList.IsChecked(addon):
 					del self.addonUpdateInfo[availableAddons[addon]]
-			next(updateAddonsGenerator(list(self.addonUpdateInfo.values()), auto=self.auto))
+			updateAddons(list(self.addonUpdateInfo.values()), auto=self.auto)
 
 	def onClose(self, evt):
 		self.Destroy()
@@ -402,3 +402,19 @@ def downloadAndInstallAddonUpdate(url, summary):
 	_downloadProgressDialog = None
 	gui.mainFrame.postPopup()
 	updateAddon(destPath, summary)
+
+def updateAddons(addons, auto=True):
+	for addon in addons:
+		downloadAndInstallAddonUpdate(addon["path"], addon["summary"])
+	# Only present messages if add-ons were actually updated.
+	if len(_updatedAddons):
+		# This is possible because all add-ons were updated.
+		if gui.messageBox(
+			translate(
+				"Changes were made to add-ons. You must restart NVDA for these changes to take effect. "
+				"Would you like to restart now?"
+			),
+			translate("Restart NVDA"),
+			wx.YES | wx.NO | wx.ICON_WARNING
+		) == wx.YES:
+			core.restart()
