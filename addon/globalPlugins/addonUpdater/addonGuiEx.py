@@ -167,39 +167,6 @@ class AddonUpdatesDialog(wx.Dialog):
 
 _downloadProgressDialog = None
 
-def downloadAndInstallAddonUpdate(addon):
-	from . import addonUpdateProc
-	global _downloadProgressDialog
-	gui.mainFrame.prePopup()
-	_downloadProgressDialog = wx.ProgressDialog(
-		# Translators: The title of the dialog displayed while downloading add-on update.
-		_("Downloading Add-on Update"),
-		# Translators: The progress message indicating the name of the add-on being downloaded.
-		_("Downloading {name}").format(name=addon.summary),
-		# PD_AUTO_HIDE is required because ProgressDialog.Update blocks at 100%
-		# and waits for the user to press the Close button.
-		style=wx.PD_CAN_ABORT | wx.PD_ELAPSED_TIME | wx.PD_REMAINING_TIME | wx.PD_AUTO_HIDE,
-		parent=gui.mainFrame
-	)
-	_downloadProgressDialog.CentreOnScreen()
-	_downloadProgressDialog.Raise()
-	destPath = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
-	try:
-		addonUpdateProc.downloadAddonUpdate(addon.url, destPath, addon.hash)
-	except RuntimeError:
-		gui.messageBox(
-			# Translators: A message indicating that an error occurred while downloading an update to NVDA.
-			_("Error downloading update for {name}.").format(name=addon.summary),
-			translate("Error"),
-			wx.OK | wx.ICON_ERROR)
-	_downloadProgressDialog.Update(100, "Downloading add-on updates")
-	_downloadProgressDialog.Hide()
-	_downloadProgressDialog.Destroy()
-	_downloadProgressDialog = None
-	gui.mainFrame.postPopup()
-	updateAddon(destPath, addon.summary)
-
-
 def downloadAndInstallAddonUpdates(addons):
 	from . import addonUpdateProc
 	global _downloadProgressDialog
@@ -239,59 +206,6 @@ def downloadAndInstallAddonUpdates(addons):
 # Keep an eye on successful add-on updates.
 _updatedAddons = []
 
-
-def updateAddon(destPath, addonName):
-	from . import addonUpdateProc
-	progressDialog = gui.IndeterminateProgressDialog(
-		gui.mainFrame,
-		# Translators: The title of the dialog presented while an Addon is being updated.
-		_("Updating {name}").format(name=addonName),
-		# Translators: The message displayed while an addon is being updated.
-		_("Please wait while the add-on is being updated.")
-	)
-	installStatus = addonUpdateProc.installAddonUpdate(destPath, addonName)
-	if installStatus == addonUpdateProc.AddonInstallStatus.AddonReadBundleFailed:
-		log.error(f"Error opening addon bundle from {destPath}", exc_info=True)
-		gui.messageBox(
-			# Translators: The message displayed when an error occurs
-			# when trying to update an add-on package due to package problems.
-			_("Cannot update {name} - missing file or invalid file format").format(name=addonName),
-			translate("Error"),
-			wx.OK | wx.ICON_ERROR
-		)
-		return
-	# NVDA itself will check add-on compatibility range.
-	# As such, the below fragment was borrowed from NVDA Core (credit: NV Access).
-	from addonHandler import addonVersionCheck
-	from gui import addonGui
-	bundle = addonHandler.AddonBundle(destPath)
-	if installStatus == addonUpdateProc.AddonInstallStatus.AddonMinVersionNotMet:
-		addonGui._showAddonRequiresNVDAUpdateDialog(gui.mainFrame, bundle)
-		return
-	if installStatus == addonUpdateProc.AddonInstallStatus.AddonNotTested:
-		addonGui._showAddonTooOldDialog(gui.mainFrame, bundle)
-		return
-	if installStatus == addonUpdateProc.AddonInstallStatus.AddonInstallGenericError:
-		log.error(f"Error installing  addon bundle from {destPath}", exc_info=True)
-		progressDialog.done()
-		progressDialog.Hide()
-		progressDialog.Destroy()
-		gui.messageBox(
-			# Translators: The message displayed when an error occurs when installing an add-on package.
-			_("Failed to update {name} add-on").format(name=addonName),
-			translate("Error"),
-			wx.OK | wx.ICON_ERROR
-		)
-		return
-	else:
-		progressDialog.done()
-		progressDialog.Hide()
-		progressDialog.Destroy()
-		_updatedAddons.append(addonName)
-	try:
-		os.remove(destPath)
-	except OSError:
-		pass
 
 def installAddons(addons):
 	from . import addonUpdateProc
