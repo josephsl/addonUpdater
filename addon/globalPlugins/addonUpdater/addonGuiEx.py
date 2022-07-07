@@ -291,6 +291,9 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 
 	def _downloadSuccess(self):
 		self._stopped()
+		wx.CallLater(100, self.updateAddon)
+
+	def updateAddon(self):
 		try:
 			try:
 				bundle = addonHandler.AddonBundle(self.destPath)
