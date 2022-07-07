@@ -171,19 +171,6 @@ def downloadAndInstallAddonUpdates(addons):
 	from . import addonUpdateProc
 	global _downloadProgressDialog
 	downloadedAddons = []
-	gui.mainFrame.prePopup()
-	_downloadProgressDialog = wx.ProgressDialog(
-		# Translators: The title of the dialog displayed while downloading add-on update.
-		_("Downloading Add-on Update"),
-		# Translators: The progress message indicating the name of the add-on being downloaded.
-		_("Downloading add-on updates"),
-		# PD_AUTO_HIDE is required because ProgressDialog.Update blocks at 100%
-		# and waits for the user to press the Close button.
-		style=wx.PD_CAN_ABORT | wx.PD_ELAPSED_TIME | wx.PD_REMAINING_TIME | wx.PD_AUTO_HIDE,
-		parent=gui.mainFrame
-	)
-	_downloadProgressDialog.CentreOnScreen()
-	_downloadProgressDialog.Raise()
 	for addon in addons:
 		destPath = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
 		try:
@@ -201,7 +188,7 @@ def downloadAndInstallAddonUpdates(addons):
 	_downloadProgressDialog.Destroy()
 	_downloadProgressDialog = None
 	gui.mainFrame.postPopup()
-	installAddons(downloadedAddons)
+	wx.CallAfter(installAddons, downloadedAddons)
 
 # Keep an eye on successful add-on updates.
 _updatedAddons = []
@@ -271,7 +258,21 @@ def updateAddons(addons, auto=True):
 			url=addon["path"],
 			updateChannel= addon["updateChannel"] if "updateChannel" in addon else ""
 		))
-	downloadAndInstallAddonUpdates(meteorInfo)
+	global _downloadProgressDialog
+	gui.mainFrame.prePopup()
+	_downloadProgressDialog = wx.ProgressDialog(
+		# Translators: The title of the dialog displayed while downloading add-on update.
+		_("Downloading Add-on Update"),
+		# Translators: The progress message indicating the name of the add-on being downloaded.
+		_("Downloading add-on updates"),
+		# PD_AUTO_HIDE is required because ProgressDialog.Update blocks at 100%
+		# and waits for the user to press the Close button.
+		style=wx.PD_CAN_ABORT | wx.PD_ELAPSED_TIME | wx.PD_REMAINING_TIME | wx.PD_AUTO_HIDE,
+		parent=gui.mainFrame
+	)
+	_downloadProgressDialog.CentreOnScreen()
+	_downloadProgressDialog.Raise()
+	threading.Thread(target=downloadAndInstallAddonUpdates, args=[meteorInfo]).start()
 	# Only present messages if add-ons were actually updated.
 	if len(_updatedAddons):
 		# This is possible because all add-ons were updated.
