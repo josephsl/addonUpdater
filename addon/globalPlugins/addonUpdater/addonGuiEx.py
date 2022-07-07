@@ -175,12 +175,15 @@ def downloadAndInstallAddonUpdates(addons):
 	totalCount = len(addons)
 	for addon in addons:
 		destPath = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
+		log.debug(f"nvda3208: downloading {addon.summary}, URL is {addon.url}, destpath is {destPath}")
 		downloadPercent = int((currentPos/totalCount) * 100)
+		log.debug(f"nvda3208: download percent: {downloadPercent}")
 		wx.CallAfter(_downloadProgressDialog.Update, downloadPercent, _("Downloading {addonName}").format(addonName=addon.summary))
 		wx.CallAfter(_downloadProgressDialog.Fit)
 		try:
 			addonUpdateProc.downloadAddonUpdate(addon.url, destPath, addon.hash)
 		except RuntimeError:
+			log.debug(f"nvda3208: failed to download {addon.summary}", exc_info=True)
 			gui.messageBox(
 				# Translators: A message indicating that an error occurred while downloading an update to NVDA.
 				_("Error downloading update for {name}.").format(name=addon.summary),
@@ -209,6 +212,7 @@ def installAddons(addons):
 	)
 	successfullyInstalledCount = 0
 	for addon in addons:
+		log.debug(f"nvda3208: installing {addon[1]} from {addon[0]}")
 		# Handle errors first.
 		installStatus = addonUpdateProc.installAddonUpdate(addon[0], addon[1])
 		if installStatus == addonUpdateProc.AddonInstallStatus.AddonReadBundleFailed:
@@ -241,6 +245,7 @@ def installAddons(addons):
 			)
 		else:
 			successfullyInstalledCount += 1
+		log.debug(f"nvda3208: add-on install status is {installStatus}")
 		try:
 			os.remove(addon[0])
 		except OSError:
@@ -248,6 +253,8 @@ def installAddons(addons):
 	progressDialog.done()
 	progressDialog.Hide()
 	progressDialog.Destroy()
+	progressDialog = None
+	log.debug(f"nvda3208: install success count: {successfullyInstalledCount}")
 	# Only present messages if add-ons were actually updated.
 	if successfullyInstalledCount:
 		if gui.messageBox(
