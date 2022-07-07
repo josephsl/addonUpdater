@@ -256,8 +256,17 @@ def updateAddon(destPath, addonName):
 		pass
 
 def updateAddons(addons, auto=True):
+	from . import addonUpdateProc
 	for addon in addons:
-		downloadAndInstallAddonUpdate(addon["path"], addon["summary"])
+		updateRecord = addonUpdateProc.AddonUpdateRecord(
+			name=addon["name"] if "name" in addon else "",
+			summary=addon["summary"],
+			version=addon["version"],
+			installedVersion=addon["curVersion"],
+			url=addon["path"],
+			updateChannel= addon["updateChannel"] if "updateChannel" in addon else ""
+		)
+		downloadAndInstallAddonUpdate(updateRecord)
 	# Only present messages if add-ons were actually updated.
 	if len(_updatedAddons):
 		# This is possible because all add-ons were updated.
