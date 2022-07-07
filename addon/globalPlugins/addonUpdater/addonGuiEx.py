@@ -347,16 +347,17 @@ def installAddons(addons):
 
 def updateAddons(addons, auto=True):
 	from . import addonUpdateProc
+	meteorInfo = []
 	for addon in addons:
-		updateRecord = addonUpdateProc.AddonUpdateRecord(
+		meteorInfo.append(addonUpdateProc.AddonUpdateRecord(
 			name=addon["name"] if "name" in addon else "",
 			summary=addon["summary"],
 			version=addon["version"],
 			installedVersion=addon["curVersion"],
 			url=addon["path"],
 			updateChannel= addon["updateChannel"] if "updateChannel" in addon else ""
-		)
-		downloadAndInstallAddonUpdate(updateRecord)
+		))
+	downloadAndInstallAddonUpdates(meteorInfo)
 	# Only present messages if add-ons were actually updated.
 	if len(_updatedAddons):
 		# This is possible because all add-ons were updated.
