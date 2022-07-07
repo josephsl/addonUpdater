@@ -213,10 +213,10 @@ def installAddons(addons):
 	successfullyInstalledCount = 0
 	for addon in addons:
 		log.debug(f"nvda3208: installing {addon[1]} from {addon[0]}")
-		# Handle errors first.
 		installStatus = addonUpdateProc.installAddonUpdate(addon[0], addon[1])
+		log.debug(f"nvda3208: install status is {installStatus}")
+		# Handle errors first.
 		if installStatus == addonUpdateProc.AddonInstallStatus.AddonReadBundleFailed:
-			log.error(f"Error opening addon bundle from {addon[0]}", exc_info=True)
 			gui.messageBox(
 				# Translators: The message displayed when an error occurs
 				# when trying to update an add-on package due to package problems.
