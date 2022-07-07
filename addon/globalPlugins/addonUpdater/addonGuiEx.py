@@ -190,9 +190,6 @@ def downloadAndInstallAddonUpdates(addons):
 	gui.mainFrame.postPopup()
 	wx.CallAfter(installAddons, downloadedAddons)
 
-# Keep an eye on successful add-on updates.
-_updatedAddons = []
-
 
 def installAddons(addons):
 	from . import addonUpdateProc
@@ -203,7 +200,9 @@ def installAddons(addons):
 		# Translators: The message displayed while an addon is being updated.
 		_("Please wait while add-ons are being updated.")
 	)
+	successfullyInstalledCount = 0
 	for addon in addons:
+		# Handle errors first.
 		installStatus = addonUpdateProc.installAddonUpdate(addon[0], addon[1])
 		if installStatus == addonUpdateProc.AddonInstallStatus.AddonReadBundleFailed:
 			log.error(f"Error opening addon bundle from {addon[0]}", exc_info=True)
@@ -214,29 +213,27 @@ def installAddons(addons):
 				translate("Error"),
 				wx.OK | wx.ICON_ERROR
 			)
-			continue
-		# NVDA itself will check add-on compatibility range.
-		# As such, the below fragment was borrowed from NVDA Core (credit: NV Access).
-		from addonHandler import addonVersionCheck
-		from gui import addonGui
-		bundle = addonHandler.AddonBundle(addon[0])
-		if installStatus == addonUpdateProc.AddonInstallStatus.AddonMinVersionNotMet:
-			addonGui._showAddonRequiresNVDAUpdateDialog(gui.mainFrame, bundle)
-			continue
-		if installStatus == addonUpdateProc.AddonInstallStatus.AddonNotTested:
-			addonGui._showAddonTooOldDialog(gui.mainFrame, bundle)
-			continue
-		if installStatus == addonUpdateProc.AddonInstallStatus.AddonInstallGenericError:
-			log.error(f"Error installing  addon bundle from {addon[0]}", exc_info=True)
+		elif installStatus in (addonUpdateProc.AddonInstallStatus.AddonMinVersionNotMet, addonUpdateProc.AddonInstallStatus.AddonNotTested):
+			# NVDA itself will check add-on compatibility range.
+			# As such, the below fragment was borrowed from NVDA Core (credit: NV Access).
+			from addonHandler import addonVersionCheck
+			from gui import addonGui
+			# Assuming that tempfile is readable, open the bundle again
+			# so NVDA can actually show compatibility dialog.
+			bundle = addonHandler.AddonBundle(addon[0])
+			if installStatus == addonUpdateProc.AddonInstallStatus.AddonMinVersionNotMet:
+				addonGui._showAddonRequiresNVDAUpdateDialog(gui.mainFrame, bundle)
+			elif installStatus == addonUpdateProc.AddonInstallStatus.AddonNotTested:
+				addonGui._showAddonTooOldDialog(gui.mainFrame, bundle)
+		elif installStatus == addonUpdateProc.AddonInstallStatus.AddonInstallGenericError:
 			gui.messageBox(
 				# Translators: The message displayed when an error occurs when installing an add-on package.
 				_("Failed to update {name} add-on").format(name=addon[1]),
 				translate("Error"),
 				wx.OK | wx.ICON_ERROR
 			)
-			continue
 		else:
-			_updatedAddons.append(addon[1])
+			successfullyInstalledCount += 1
 		try:
 			os.remove(addon[0])
 		except OSError:
@@ -245,8 +242,7 @@ def installAddons(addons):
 	progressDialog.Hide()
 	progressDialog.Destroy()
 	# Only present messages if add-ons were actually updated.
-	if len(_updatedAddons):
-		# This is possible because all add-ons were updated.
+	if successfullyInstalledCount:
 		if gui.messageBox(
 			translate(
 				"Changes were made to add-ons. You must restart NVDA for these changes to take effect. "
