@@ -141,17 +141,17 @@ class AddonUpdatesDialog(wx.Dialog):
 		# Also, Skip the below step if this is an automatic update check.
 		if not self.auto:
 			self.Parent.Hide()
-		availableAddons = sorted(self.addonUpdateInfo.keys())
+		addonsToBeUpdated = []
 		try:
 			for addon in range(self.addonsList.GetItemCount()):
-				if not self.addonsList.IsChecked(addon):
-					del self.addonUpdateInfo[availableAddons[addon]]
-			updateAddons(list(self.addonUpdateInfo.values()), auto=self.auto)
+				if self.addonsList.IsChecked(addon):
+					addonsToBeUpdated.append(self.addonUpdateInfo[addon])
+			updateAddons(addonsToBeUpdated)
 		except NameError:
 			for addon in range(self.addonsList.GetItemCount()):
-				if not self.addonsList.IsChecked(addon):
-					del self.addonUpdateInfo[availableAddons[addon]]
-			updateAddons(list(self.addonUpdateInfo.values()), auto=self.auto)
+				if self.addonsList.IsChecked(addon):
+					addonsToBeUpdated.append(self.addonUpdateInfo[addon])
+			updateAddons(addonsToBeUpdated)
 
 	def onClose(self, evt):
 		self.Destroy()
