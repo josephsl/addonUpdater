@@ -165,6 +165,40 @@ class AddonUpdatesDialog(wx.Dialog):
 		self.Destroy()
 
 
+_downloadProgressDialog = None
+
+def downloadAndInstallAddonUpdate(url, summary):
+	from . import addonUpdateProc
+	global _downloadProgressDialog
+	gui.mainFrame.prePopup()
+	_downloadProgressDialog = wx.ProgressDialog(
+		# Translators: The title of the dialog displayed while downloading add-on update.
+		_("Downloading Add-on Update"),
+		# Translators: The progress message indicating the name of the add-on being downloaded.
+		_("Downloading {name}").format(name=summary),
+		# PD_AUTO_HIDE is required because ProgressDialog.Update blocks at 100%
+		# and waits for the user to press the Close button.
+		style=wx.PD_CAN_ABORT | wx.PD_ELAPSED_TIME | wx.PD_REMAINING_TIME | wx.PD_AUTO_HIDE,
+		parent=gui.mainFrame
+	)
+	_downloadProgressDialog.CentreOnScreen()
+	_downloadProgressDialog.Raise()
+	destPath = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
+	try:
+		addonUpdateProc.downloadAddonUpdate(url, destPath, None)
+	except RuntimeError:
+		gui.messageBox(
+			# Translators: A message indicating that an error occurred while downloading an update to NVDA.
+			_("Error downloading update for {name}.").format(name=summary),
+			translate("Error"),
+			wx.OK | wx.ICON_ERROR)
+	_downloadProgressDialog.Update(100, "Downloading add-on updates")
+	_downloadProgressDialog.Hide()
+	_downloadProgressDialog.Destroy()
+	_downloadProgressDialog = None
+	gui.mainFrame.postPopup()
+	updateAddon(destPath, summary)
+
 # Keep an eye on successful add-on updates.
 _updatedAddons = []
 
@@ -220,40 +254,6 @@ def updateAddon(destPath, addonName):
 		os.remove(destPath)
 	except OSError:
 		pass
-
-_downloadProgressDialog = None
-
-def downloadAndInstallAddonUpdate(url, summary):
-	from . import addonUpdateProc
-	global _downloadProgressDialog
-	gui.mainFrame.prePopup()
-	_downloadProgressDialog = wx.ProgressDialog(
-		# Translators: The title of the dialog displayed while downloading add-on update.
-		_("Downloading Add-on Update"),
-		# Translators: The progress message indicating the name of the add-on being downloaded.
-		_("Downloading {name}").format(name=summary),
-		# PD_AUTO_HIDE is required because ProgressDialog.Update blocks at 100%
-		# and waits for the user to press the Close button.
-		style=wx.PD_CAN_ABORT | wx.PD_ELAPSED_TIME | wx.PD_REMAINING_TIME | wx.PD_AUTO_HIDE,
-		parent=gui.mainFrame
-	)
-	_downloadProgressDialog.CentreOnScreen()
-	_downloadProgressDialog.Raise()
-	destPath = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
-	try:
-		addonUpdateProc.downloadAddonUpdate(url, destPath, None)
-	except RuntimeError:
-		gui.messageBox(
-			# Translators: A message indicating that an error occurred while downloading an update to NVDA.
-			_("Error downloading update for {name}.").format(name=summary),
-			translate("Error"),
-			wx.OK | wx.ICON_ERROR)
-	_downloadProgressDialog.Update(100, "Downloading add-on updates")
-	_downloadProgressDialog.Hide()
-	_downloadProgressDialog.Destroy()
-	_downloadProgressDialog = None
-	gui.mainFrame.postPopup()
-	updateAddon(destPath, summary)
 
 def updateAddons(addons, auto=True):
 	for addon in addons:
