@@ -194,7 +194,8 @@ def downloadAndInstallAddonUpdates(addons):
 	_downloadProgressDialog.Destroy()
 	_downloadProgressDialog = None
 	gui.mainFrame.postPopup()
-	wx.CallAfter(installAddons, downloadedAddons)
+	if len(downloadedAddons):
+		wx.CallAfter(installAddons, downloadedAddons)
 
 
 def installAddons(addons):
