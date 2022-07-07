@@ -418,15 +418,6 @@ def _showAddonUpdateUI():
 		info = None
 		raise
 	if info is not None:
-		# Transform add-on update records to update dictionary entries for compatibility.
-		# This will be removed once add-on updates dialog is modified to work directly with update records.
-		# Meteor refers to Project Meteor.
-		meteorInfo = {}
-		for addon in info:
-			meteorInfo[addon.name] = addon.updateDict()
-			meteorInfo[addon.name]["curVersion"] = addon.installedVersion
-			meteorInfo[addon.name]["path"] = addon.url
-			meteorInfo[addon.name]["urls"] = addon.url
 		# Show either the update notification toast (Windows 10 and later)
 		# or the results dialog (other Windows releases and server systems).
 		# On Windows 10 and later (client versions), this behavior is configurable.
@@ -450,6 +441,6 @@ def _showAddonUpdateUI():
 			)
 			# Translators: title of the add-on update notification message.
 			wx.adv.NotificationMessage(_("NVDA add-on updates"), updateMessage).Show(timeout=30)
-			_updateInfo = meteorInfo
+			_updateInfo = info
 		else:
-			wx.CallAfter(_showAddonUpdateUICallback, meteorInfo)
+			wx.CallAfter(_showAddonUpdateUICallback, info)
