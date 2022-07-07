@@ -80,14 +80,7 @@ class AddonUpdatesDialog(wx.Dialog):
 		super(AddonUpdatesDialog, self).__init__(parent, title=_("NVDA Add-on Updates"))
 		mainSizer = wx.BoxSizer(wx.VERTICAL)
 		addonsSizerHelper = guiHelper.BoxSizerHelper(self, orientation=wx.VERTICAL)
-		# Transform add-on update records to update dictionary entries for compatibility.
-		meteorInfo = {}
-		for addon in addonUpdateInfo:
-			meteorInfo[addon.name] = addon.updateDict()
-			meteorInfo[addon.name]["curVersion"] = addon.installedVersion
-			meteorInfo[addon.name]["path"] = addon.url
-			meteorInfo[addon.name]["urls"] = addon.url
-		self.addonUpdateInfo = meteorInfo
+		self.addonUpdateInfo = addonUpdateInfo
 		self.auto = auto
 
 		if addonUpdateInfo:
@@ -108,9 +101,8 @@ class AddonUpdatesDialog(wx.Dialog):
 			# used to identify new add-on version (example: version is 0.4).
 			self.addonsList.InsertColumn(2, _("New version"), width=50)
 			entriesSizer.Add(self.addonsList, proportion=8)
-			for entry in sorted(self.addonUpdateInfo.keys()):
-				addon = self.addonUpdateInfo[entry]
-				self.addonsList.Append((addon['summary'], addon['curVersion'], addon['version']))
+			for addon in self.addonUpdateInfo:
+				self.addonsList.Append((addon.summary, addon.installedVersion, addon.version))
 				self.addonsList.CheckItem(self.addonsList.GetItemCount() - 1)
 			self.addonsList.Select(0)
 			self.addonsList.SetItemState(0, wx.LIST_STATE_FOCUSED, wx.LIST_STATE_FOCUSED)
