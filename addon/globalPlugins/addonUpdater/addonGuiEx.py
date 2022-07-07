@@ -358,21 +358,10 @@ def updateAddon(destPath, addonName):
 		pass
 
 _downloadProgressDialog = None
-_downloadPercentCache = 0
-
-def downloadNotify(read=0, size=0):
-	global _downloadProgressDialog
-	percent = int((read / size) * 100)
-	global _downloadPercentCache
-	if percent != _downloadPercentCache:
-		_downloadPercentCache = percent
-		log.debug(f"nvda3208: add-on download percent is {percent}")
-		wx.CallAfter(_downloadProgressDialog.Update, percent, _("Downloading"))
 
 def downloadAndInstallAddonUpdate(url, summary):
 	from . import addonUpdateProc
 	global _downloadProgressDialog
-	addonUpdateProc.AddonDownloadNotifier.register(downloadNotify)
 	gui.mainFrame.prePopup()
 	_downloadProgressDialog = wx.ProgressDialog(
 		# Translators: The title of the dialog displayed while downloading add-on update.
@@ -396,7 +385,6 @@ def downloadAndInstallAddonUpdate(url, summary):
 			translate("Error"),
 			wx.OK | wx.ICON_ERROR)
 	_downloadProgressDialog.Update(100, "Downloading add-on updates")
-	addonUpdateProc.AddonDownloadNotifier.unregister(downloadNotify)
 	_downloadProgressDialog.Hide()
 	_downloadProgressDialog.Destroy()
 	_downloadProgressDialog = None
