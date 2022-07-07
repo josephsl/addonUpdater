@@ -260,6 +260,9 @@ def installAddons(addons):
 
 def updateAddons(addons, auto=True):
 	from . import addonUpdateProc
+	if not len(addons):
+		return
+	global _downloadProgressDialog
 	meteorInfo = []
 	for addon in addons:
 		meteorInfo.append(addonUpdateProc.AddonUpdateRecord(
@@ -270,7 +273,6 @@ def updateAddons(addons, auto=True):
 			url=addon["path"],
 			updateChannel= addon["updateChannel"] if "updateChannel" in addon else ""
 		))
-	global _downloadProgressDialog
 	gui.mainFrame.prePopup()
 	_downloadProgressDialog = wx.ProgressDialog(
 		# Translators: The title of the dialog displayed while downloading add-on update.
