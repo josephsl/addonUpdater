@@ -179,7 +179,7 @@ def downloadAndInstallAddonUpdates(addons):
 		wx.CallAfter(_downloadProgressDialog.Update, downloadPercent, _("Downloading {addonName}").format(addonName=addon.summary))
 		wx.CallAfter(_downloadProgressDialog.Fit)
 		try:
-			addonUpdateProc.downloadAddonUpdate(addon.url, destPath, None)
+			addonUpdateProc.downloadAddonUpdate(addon.url, destPath, addon.hash)
 		except RuntimeError:
 			gui.messageBox(
 				# Translators: A message indicating that an error occurred while downloading an update to NVDA.
