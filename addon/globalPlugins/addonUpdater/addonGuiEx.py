@@ -224,7 +224,6 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 			_("Error downloading update for {name}.").format(name=self.addonName),
 			translate("Error"),
 			wx.OK | wx.ICON_ERROR)
-		self.continueUpdatingAddons()
 
 	def _download(self, url):
 		# #2352: Some security scanners such as Eset NOD32 HTTP Scanner
@@ -264,18 +263,7 @@ class AddonUpdateDownloader(updateCheck.UpdateDownloader):
 	def _downloadSuccess(self):
 		self._stopped()
 		updateAddon(self.destPath, self.addonName)
-		self.continueUpdatingAddons()
 
-	def continueUpdatingAddons(self):
-		# Do not leave add-on update installers in the temp directory.
-		try:
-			os.remove(self.destPath)
-		except OSError:
-			pass
-		try:
-			next(updateAddonsGenerator(self.addonsToBeUpdated, auto=self.auto))
-		except StopIteration:
-			pass
 
 def updateAddon(destPath, addonName):
 	from . import addonUpdateProc
