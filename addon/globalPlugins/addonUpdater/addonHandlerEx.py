@@ -411,8 +411,9 @@ def _showAddonUpdateUI():
 		gui.mainFrame.prePopup()
 		AddonUpdatesDialog(gui.mainFrame, info).Show()
 		gui.mainFrame.postPopup()
+	from . import addonUpdateProc
 	try:
-		info = checkForAddonUpdates()
+		info = addonUpdateProc.checkForAddonUpdates()
 	except:
 		info = None
 		raise
