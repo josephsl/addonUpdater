@@ -58,10 +58,10 @@ def onAddonUpdateCheck(evt):
 
 
 def addonUpdateCheck():
-	from . import addonHandlerEx
+	from . import addonUpdateProc
 	global _progressDialog
 	try:
-		info = addonHandlerEx.checkForAddonUpdates()
+		info = addonUpdateProc.checkForAddonUpdates()
 	except:
 		info = None
 		wx.CallAfter(_progressDialog.done)
