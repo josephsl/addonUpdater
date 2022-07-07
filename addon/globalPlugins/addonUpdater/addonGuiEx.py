@@ -171,8 +171,13 @@ def downloadAndInstallAddonUpdates(addons):
 	from . import addonUpdateProc
 	global _downloadProgressDialog
 	downloadedAddons = []
+	currentPos = 0
+	totalCount = len(addons)
 	for addon in addons:
 		destPath = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
+		downloadPercent = int((currentPos/totalCount) * 100)
+		wx.CallAfter(_downloadProgressDialog.Update, downloadPercent, _("Downloading {addonName}").format(addonName=addon.summary))
+		wx.CallAfter(_downloadProgressDialog.Fit)
 		try:
 			addonUpdateProc.downloadAddonUpdate(addon.url, destPath, None)
 		except RuntimeError:
@@ -183,6 +188,7 @@ def downloadAndInstallAddonUpdates(addons):
 				wx.OK | wx.ICON_ERROR)
 		else:
 			downloadedAddons.append((destPath, addon.summary))
+		currentPos += 1
 	_downloadProgressDialog.Update(100, "Downloading add-on updates")
 	_downloadProgressDialog.Hide()
 	_downloadProgressDialog.Destroy()
