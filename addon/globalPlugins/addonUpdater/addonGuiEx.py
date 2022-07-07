@@ -227,6 +227,7 @@ def updateAddon(destPath, addonName):
 	# As such, the below fragment was borrowed from NVDA Core (credit: NV Access).
 	from addonHandler import addonVersionCheck
 	from gui import addonGui
+	bundle = addonHandler.AddonBundle(destPath)
 	if installStatus == addonUpdateProc.AddonInstallStatus.AddonMinVersionNotMet:
 		addonGui._showAddonRequiresNVDAUpdateDialog(gui.mainFrame, bundle)
 		return
