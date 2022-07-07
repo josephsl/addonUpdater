@@ -70,7 +70,14 @@ def addonUpdateCheck():
 		raise
 	wx.CallAfter(_progressDialog.done)
 	_progressDialog = None
-	wx.CallAfter(AddonUpdatesDialog, gui.mainFrame, info, auto=False)
+	# Transform add-on update records to update dictionary entries for compatibility.
+	meteorInfo = {}
+	for addon in info:
+		meteorInfo[addon.name] = addon.updateDict()
+		meteorInfo[addon.name]["curVersion"] = addon.installedVersion
+		meteorInfo[addon.name]["path"] = addon.url
+		meteorInfo[addon.name]["urls"] = addon.url
+	wx.CallAfter(AddonUpdatesDialog, gui.mainFrame, meteorInfo, auto=False)
 
 
 class AddonUpdatesDialog(wx.Dialog):
