@@ -495,9 +495,11 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 				break
 		# Can the add-on be updated based on community add-ons metadata?
 		# What if a different update channel must be used if the stable channel update is not compatible?
-		"""if addonMetadataPresent:
-			if not self.addonCompatibleAccordingToMetadata(addon, addonMetadata):
-				return"""
+		# Compatibility information must be converted from strings to integer tuple.
+		addonMetadata["minimumNVDAVersion"] = tuple(int(component) for component in addonMetadata["minimum"].split("."))
+		addonMetadata["lastTestedNVDAVersion"] = tuple(int(component) for component in addonMetadata["lasttested"].split("."))
+		if not self.addonCompatibleAccordingToMetadata(addon, addonMetadata):
+			return
 		addonUrl = addonMetadata["link"]
 		# Announce add-on URL for debugging purposes.
 		log.debug(f"nvda3208: add-on URL is {addonUrl}")
