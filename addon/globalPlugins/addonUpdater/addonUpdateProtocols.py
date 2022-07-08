@@ -155,9 +155,16 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		The JSON file returns a dictionary of add-on keys and download links.
 		Only version check is possible.
 		"""
+		# Don't even think about update checks if secure mode flag is set.
+		if globalVars.appArgs.secure:
+			return
 		curAddons = {}
 		addonSummaries = {}
 		for addon in addonHandler.getAvailableAddons():
+			# Skip add-ons that can update themselves.
+			# Add-on Updater is included, but is an exception as it updates other add-ons, too.
+			if addon.name in addonsWithUpdaters:
+				continue
 			if addon.name not in names2urls:
 				continue
 			# Sorry Nuance Vocalizer family, no update checks for you.
@@ -183,19 +190,20 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		except:
 			# Present an error dialog if manual add-on update check is in progress.
 			raise RuntimeError("Cannot check for community add-on updates")
-		# data = json.dumps(curAddons)
-		# Pseudocode:
-		"""try:
-			res = urllib.open(someURL, data)
-			# Check SSL and what not.
-			res = json.loads(res)"""
-		# res = json.loads(data)
-		res = info
-		for addon in res:
-			res[addon]["summary"] = addonSummaries[addon]
-			# In reality, it'll be a list of URL's to try.
-			res[addon]["urls"] = res[addon]["path"]
-		return res if len(res) else None
+		# Build a list of add-on update records if present.
+		if not len(info):
+			return None
+		res = []
+		for addon, updateInfo in info.items():
+			res.append(AddonUpdateRecord(
+				name=addon,
+				summary=addonSummaries[addon],
+				version=updateInfo["version"],
+				installedVersion=updateInfo["curVersion"],
+				url=updateInfo["path"],
+				updateChannel=curAddons[addon]["channel"]
+			))
+		return res
 
 
 class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
