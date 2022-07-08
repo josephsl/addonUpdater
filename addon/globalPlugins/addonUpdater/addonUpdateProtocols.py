@@ -66,6 +66,28 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		return []
 
 
+class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
+	"""Protocol 2: NVDA community add-ons website with compatibility information supplied by the community.
+	This protocol uses a combination of community add-ons get.php JSON and compatibility data provided by the community.
+	While similar to protocol 1, addons.nvda-project.org JSON is consulted only to retrieve download links.
+	Version and compatibility range (minimum and last tested NVDA versions) checks are possible.
+	This resembles Add-on Updater 21.07 and later and is the default protocol.
+	"""
+
+	protocol = 2
+	protocolName = "nvdaprojectcompatinfo"
+	protocolDescription = "NVDA Community Add-ons website with compatibility information"
+
+	def checkForAddonUpdates(self, installedAddons):
+		"""Retrieves a JSON file hosted on addons.nvda-project.org
+		as well as a JSON from NVDA add-ons community containing add-on compatibility data.
+		The first JSON file returns a dictionary of add-on keys and download links.
+		The second JSON returns add-on key and other metadata.
+		Version and compatibility range checks are possible.
+		"""
+		return []
+
+
 # Record add-on update information, resembling NVDA add-on manifest.
 class AddonUpdateRecord(object):
 	"""Resembles add-on manifests but optimized for updates.
