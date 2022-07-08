@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.0\n"
 
+#. Translators: menu item label for checking add-on updates.
 msgid "Check for &add-on updates..."
 msgstr "Sprawdź &aktualizacje dodatków..."
 
@@ -121,19 +122,24 @@ msgstr "Brak dostępnych aktualizacji."
 msgid "&Update add-ons"
 msgstr "&Aktualizuj"
 
-#. Translators: The title of the dialog displayed while downloading add-on update.
-msgid "Downloading Add-on Update"
-msgstr "Pobieranie aktualizacji"
-
-#. Translators: The progress message indicating the name of the add-on being downloaded.
-#, python-brace-format
-msgid "Downloading {name}"
+#, fuzzy, python-brace-format
+msgid "Downloading {addonName}"
 msgstr "Pobieranie {name}"
 
 #. Translators: A message indicating that an error occurred while downloading an update to NVDA.
 #, python-brace-format
 msgid "Error downloading update for {name}."
 msgstr "Błąd pobierania aktualizacji {name}."
+
+#. Translators: The title of the dialog presented while an Addon is being updated.
+#, fuzzy
+msgid "Updating add-ons"
+msgstr "&Aktualizuj"
+
+#. Translators: The message displayed while an addon is being updated.
+#, fuzzy
+msgid "Please wait while add-ons are being updated."
+msgstr "Proszę czekać, trwa aktualizowanie dodatku."
 
 #. Translators: The message displayed when an error occurs
 #. when trying to update an add-on package due to package problems.
@@ -143,19 +149,19 @@ msgstr ""
 "Nie można pobrać {name} - plik nie istnieje lub jego format jest "
 "nieprawidłowy"
 
-#. Translators: The title of the dialog presented while an Addon is being updated.
-#, python-brace-format
-msgid "Updating {name}"
-msgstr "Aktualizowanie {name}"
-
-#. Translators: The message displayed while an addon is being updated.
-msgid "Please wait while the add-on is being updated."
-msgstr "Proszę czekać, trwa aktualizowanie dodatku."
-
 #. Translators: The message displayed when an error occurs when installing an add-on package.
 #, python-brace-format
 msgid "Failed to update {name} add-on"
 msgstr "Nie można zaktualizować {name}"
+
+#. Translators: The title of the dialog displayed while downloading add-on update.
+msgid "Downloading Add-on Update"
+msgstr "Pobieranie aktualizacji"
+
+#. Translators: The progress message indicating the name of the add-on being downloaded.
+#, fuzzy
+msgid "Downloading add-on updates"
+msgstr "Pobieranie aktualizacji"
 
 #. Add-ons with all features integrated into NVDA or declared "legacy" by authors.
 #. For the latter case, update check functionality will be disabled upon authors' request.
@@ -167,10 +173,16 @@ msgstr "funkcje zawarte w NVDA"
 msgid "declared legacy by add-on developers"
 msgstr "zadeklarowany jako przestarzały przez programistów dodatków"
 
+#. Translators: menu item label for reviewing add-on updates.
+#, fuzzy, python-brace-format
+msgid "Review &add-on updates ({updateCount})..."
+msgstr "Dostępne aktualizacje dodatków: {updateCount}"
+
 #. Translators: presented as part of add-on update notification message.
+#, fuzzy
 msgid ""
-"One or more add-on updates are available. Go to NVDA menu, Tools, Check for "
-"add-on updates to review them."
+"One or more add-on updates are available. Go to NVDA menu, Tools, Review add-"
+"on updates to review them."
 msgstr ""
 "Dostępna jest co najmniej jedna aktualizacja dodatku. Przejdź do menu NVDA, "
 "Narzędzia, Sprawdź aktualizacje dodatków, aby je przejrzeć."
@@ -186,6 +198,9 @@ msgid ""
 "3208)"
 msgstr ""
 "wdrożenie prototypu funkcji aktualizowania dodatków (rdzeń NVDA, temat 3208)"
+
+#~ msgid "Updating {name}"
+#~ msgstr "Aktualizowanie {name}"
 
 #~ msgid "{name} add-on is not compatible with this version of Windows."
 #~ msgstr "dodatek {name} nie jest zgodny z tą wersją Windows."

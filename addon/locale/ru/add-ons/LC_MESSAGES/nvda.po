@@ -19,11 +19,10 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 3.0.1\n"
 
-#: addon\globalPlugins\addonUpdater\__init__.py:116
+#. Translators: menu item label for checking add-on updates.
 msgid "Check for &add-on updates..."
 msgstr "Проверить наличие обновлений для &дополнений..."
 
-#: addon\globalPlugins\addonUpdater\__init__.py:116
 msgid "Check for NVDA add-on updates"
 msgstr "Проверить наличие обновлений дополнения NVDA"
 
@@ -31,29 +30,24 @@ msgstr "Проверить наличие обновлений дополнен�
 #. Add-on summary, usually the user visible name of the addon.
 #. Translators: Summary for this add-on
 #. to be shown on installation and add-on information.
-#: addon\globalPlugins\addonUpdater\__init__.py:150 buildVars.py:23
 msgid "Add-on Updater"
 msgstr "Обновление дополнений"
 
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
-#: addon\globalPlugins\addonUpdater\__init__.py:157
 msgid "Automatically check for add-on &updates"
 msgstr "Автоматически проверять наличие обновлений &дополнений"
 
 #. Translators: one of the add-on update notification choices.
-#: addon\globalPlugins\addonUpdater\__init__.py:167
 msgid "toast"
 msgstr "уведомление"
 
 #. Translators: one of the add-on update notification choices.
-#: addon\globalPlugins\addonUpdater\__init__.py:169
 msgid "dialog"
 msgstr "диалог"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
-#: addon\globalPlugins\addonUpdater\__init__.py:174
 msgid "&Add-on update notification:"
 msgstr "Уведомление об обновлении &дополнения:"
 
@@ -61,22 +55,18 @@ msgstr "Уведомление об обновлении &дополнения:"
 #. Some add-ons come with pretty badly formatted summary text,
 #. so try catching them and exclude them from this list.
 #. Also, Vocalizer add-on family should be excluded from this list (requested by add-on author).
-#: addon\globalPlugins\addonUpdater\__init__.py:185
 msgid "Do &not update add-ons:"
 msgstr "Не обновлять дополнения:"
 
-#: addon\globalPlugins\addonUpdater\__init__.py:193
 msgid "Prefer &development releases:"
 msgstr "Предпочитать &разрабатываемые версии:"
 
 #. Translators: The title of the legacy add-ons dialog.
-#: addon\globalPlugins\addonUpdater\__init__.py:231
 msgid "Legacy add-ons found"
 msgstr "Обнаружены устаревшие дополнения"
 
 #. Translators: message displayed if legacy add-ons are found
 #. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
-#: addon\globalPlugins\addonUpdater\__init__.py:239
 msgid ""
 "One or more legacy add-ons were found in your NVDA installation. Features "
 "from these add-ons are now part of the NVDA version you are using or "
@@ -90,137 +80,128 @@ msgstr ""
 "Сервис, Менеджер дополнений.\n"
 
 #. Translators: the label for the legacy add-ons list.
-#: addon\globalPlugins\addonUpdater\__init__.py:248
 msgid "Legacy add-ons"
 msgstr "Устаревшие дополнения"
 
 #. Translators: The label for a column in legacy add-ons list used to show legacy add-on reason.
-#: addon\globalPlugins\addonUpdater\__init__.py:256
 msgid "Legacy reason"
 msgstr "Причина"
 
 #. Translators: The title of the dialog presented while checking for add-on updates.
-#: addon\globalPlugins\addonUpdater\addonGuiEx.py:49
 msgid "Add-on update check"
 msgstr "Проверка обновлений дополнения"
 
 #. Translators: The message displayed while checking for add-on updates.
-#: addon\globalPlugins\addonUpdater\addonGuiEx.py:51
 msgid "Checking for add-on updates..."
 msgstr "Проверка обновлений дополнений..."
 
-#: addon\globalPlugins\addonUpdater\addonGuiEx.py:67
 msgid "Error checking for add-on updates."
 msgstr "Ошибка при проверке обновлений дополнения."
 
 #. Translators: The title of the add-on updates dialog.
-#: addon\globalPlugins\addonUpdater\addonGuiEx.py:78
 msgid "NVDA Add-on Updates"
 msgstr "Обновления дополнений NVDA"
 
 #. Translators: Message displayed when add-on updates are available.
-#: addon\globalPlugins\addonUpdater\addonGuiEx.py:87
 #, python-brace-format
 msgid "Add-on updates available: {updateCount}"
 msgstr "Доступно обновлений дополнений: {updateCount}"
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify current add-on version (example: version is 0.3).
-#: addon\globalPlugins\addonUpdater\addonGuiEx.py:97
 msgid "Current version"
 msgstr "Текущая версия"
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify new add-on version (example: version is 0.4).
-#: addon\globalPlugins\addonUpdater\addonGuiEx.py:100
 msgid "New version"
 msgstr "Новая версия"
 
 #. Translators: Message displayed when no add-on updates are available.
-#: addon\globalPlugins\addonUpdater\addonGuiEx.py:111
 msgid "No add-on update available."
 msgstr "Нет доступных обновлений дополнений."
 
 #. Translators: The label of a button to update add-ons.
-#: addon\globalPlugins\addonUpdater\addonGuiEx.py:116
 msgid "&Update add-ons"
 msgstr "&Обновить дополнения"
 
-#. Translators: The title of the dialog displayed while downloading add-on update.
-#: addon\globalPlugins\addonUpdater\addonGuiEx.py:225
-msgid "Downloading Add-on Update"
-msgstr "Загрузка обновления дополнения"
-
-#. Translators: The progress message indicating the name of the add-on being downloaded.
-#: addon\globalPlugins\addonUpdater\addonGuiEx.py:227
-#, python-brace-format
-msgid "Downloading {name}"
+#, fuzzy, python-brace-format
+msgid "Downloading {addonName}"
 msgstr "Загрузка {name}"
 
 #. Translators: A message indicating that an error occurred while downloading an update to NVDA.
-#: addon\globalPlugins\addonUpdater\addonGuiEx.py:242
 #, python-brace-format
 msgid "Error downloading update for {name}."
 msgstr "Ошибка загрузки обновления для {name}."
 
+#. Translators: The title of the dialog presented while an Addon is being updated.
+#, fuzzy
+msgid "Updating add-ons"
+msgstr "&Обновить дополнения"
+
+#. Translators: The message displayed while an addon is being updated.
+#, fuzzy
+msgid "Please wait while add-ons are being updated."
+msgstr "Пожалуйста, подождите, пока дополнение обновляется."
+
 #. Translators: The message displayed when an error occurs
 #. when trying to update an add-on package due to package problems.
-#: addon\globalPlugins\addonUpdater\addonGuiEx.py:292
 #, python-brace-format
 msgid "Cannot update {name} - missing file or invalid file format"
 msgstr ""
 "Не удалось обновить {name} - отсутствует файл или неверный формат файла"
 
-#. Translators: The title of the dialog presented while an Addon is being updated.
-#: addon\globalPlugins\addonUpdater\addonGuiEx.py:325
-#, python-brace-format
-msgid "Updating {name}"
-msgstr "Обновление {name}"
-
-#. Translators: The message displayed while an addon is being updated.
-#: addon\globalPlugins\addonUpdater\addonGuiEx.py:327
-msgid "Please wait while the add-on is being updated."
-msgstr "Пожалуйста, подождите, пока дополнение обновляется."
-
 #. Translators: The message displayed when an error occurs when installing an add-on package.
-#: addon\globalPlugins\addonUpdater\addonGuiEx.py:338
 #, python-brace-format
 msgid "Failed to update {name} add-on"
 msgstr "Не удалось обновить дополнение {name}"
 
+#. Translators: The title of the dialog displayed while downloading add-on update.
+msgid "Downloading Add-on Update"
+msgstr "Загрузка обновления дополнения"
+
+#. Translators: The progress message indicating the name of the add-on being downloaded.
+#, fuzzy
+msgid "Downloading add-on updates"
+msgstr "Загрузка обновления дополнения"
+
 #. Add-ons with all features integrated into NVDA or declared "legacy" by authors.
 #. For the latter case, update check functionality will be disabled upon authors' request.
 #. Translators: legacy add-on, features included in NVDA.
-#: addon\globalPlugins\addonUpdater\addonHandlerEx.py:116
 msgid "features included in NVDA"
 msgstr "функции включены в NVDA"
 
 #. Translators: legacy add-on, declared by add-on developers.
-#: addon\globalPlugins\addonUpdater\addonHandlerEx.py:118
 msgid "declared legacy by add-on developers"
 msgstr "объявлен старым разработчиками дополнения"
 
+#. Translators: menu item label for reviewing add-on updates.
+#, fuzzy, python-brace-format
+msgid "Review &add-on updates ({updateCount})..."
+msgstr "Доступно обновлений дополнений: {updateCount}"
+
 #. Translators: presented as part of add-on update notification message.
-#: addon\globalPlugins\addonUpdater\addonHandlerEx.py:433
+#, fuzzy
 msgid ""
-"One or more add-on updates are available. Go to NVDA menu, Tools, Check for "
-"add-on updates to review them."
+"One or more add-on updates are available. Go to NVDA menu, Tools, Review add-"
+"on updates to review them."
 msgstr ""
 "Для дополнений доступно одно или несколько обновлений. Перейдите в меню "
 "NVDA, Сервис, Проверить наличие обновлений для дополнений..., чтобы "
 "просмотреть их."
 
 #. Translators: title of the add-on update notification message.
-#: addon\globalPlugins\addonUpdater\addonHandlerEx.py:437
 msgid "NVDA add-on updates"
 msgstr "Обновления дополнений NVDA"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
-#: buildVars.py:26
 msgid ""
 "Proof of concept implementation of add-on update feature (NVDA Core issue "
 "3208)"
 msgstr ""
-"Доказательство концепции реализации функции обновления дополнений (NVDA "
-"Core issue 3208)"
+"Доказательство концепции реализации функции обновления дополнений (NVDA Core "
+"issue 3208)"
+
+#~ msgid "Updating {name}"
+#~ msgstr "Обновление {name}"

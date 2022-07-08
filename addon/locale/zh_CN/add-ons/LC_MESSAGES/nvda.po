@@ -18,6 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.3\n"
 
+#. Translators: menu item label for checking add-on updates.
 msgid "Check for &add-on updates..."
 msgstr "检查插件更新(&U)..."
 
@@ -121,13 +122,8 @@ msgstr "无可用插件更新。"
 msgid "&Update add-ons"
 msgstr "更新插件(&U)"
 
-#. Translators: The title of the dialog displayed while downloading add-on update.
-msgid "Downloading Add-on Update"
-msgstr "正在下载插件更新"
-
-#. Translators: The progress message indicating the name of the add-on being downloaded.
-#, python-brace-format
-msgid "Downloading {name}"
+#, fuzzy, python-brace-format
+msgid "Downloading {addonName}"
 msgstr "正在下载{name}"
 
 #. Translators: A message indicating that an error occurred while downloading an update to NVDA.
@@ -135,25 +131,35 @@ msgstr "正在下载{name}"
 msgid "Error downloading update for {name}."
 msgstr "下载 {name} 更新时出错。"
 
+#. Translators: The title of the dialog presented while an Addon is being updated.
+#, fuzzy
+msgid "Updating add-ons"
+msgstr "更新插件(&U)"
+
+#. Translators: The message displayed while an addon is being updated.
+#, fuzzy
+msgid "Please wait while add-ons are being updated."
+msgstr "请等待插件更新。"
+
 #. Translators: The message displayed when an error occurs
 #. when trying to update an add-on package due to package problems.
 #, python-brace-format
 msgid "Cannot update {name} - missing file or invalid file format"
 msgstr "无法更新 {name}，丢失文件或文件格式无效"
 
-#. Translators: The title of the dialog presented while an Addon is being updated.
-#, python-brace-format
-msgid "Updating {name}"
-msgstr "正在更新{name}"
-
-#. Translators: The message displayed while an addon is being updated.
-msgid "Please wait while the add-on is being updated."
-msgstr "请等待插件更新。"
-
 #. Translators: The message displayed when an error occurs when installing an add-on package.
 #, python-brace-format
 msgid "Failed to update {name} add-on"
 msgstr "插件 {name} 无法更新"
+
+#. Translators: The title of the dialog displayed while downloading add-on update.
+msgid "Downloading Add-on Update"
+msgstr "正在下载插件更新"
+
+#. Translators: The progress message indicating the name of the add-on being downloaded.
+#, fuzzy
+msgid "Downloading add-on updates"
+msgstr "正在下载插件更新"
 
 #. Add-ons with all features integrated into NVDA or declared "legacy" by authors.
 #. For the latter case, update check functionality will be disabled upon authors' request.
@@ -165,10 +171,16 @@ msgstr "功能包含在 NVDA 中"
 msgid "declared legacy by add-on developers"
 msgstr "插件开发者申报为遗留插件"
 
+#. Translators: menu item label for reviewing add-on updates.
+#, fuzzy, python-brace-format
+msgid "Review &add-on updates ({updateCount})..."
+msgstr "{updateCount} 个插件可更新。"
+
 #. Translators: presented as part of add-on update notification message.
+#, fuzzy
 msgid ""
-"One or more add-on updates are available. Go to NVDA menu, Tools, Check for "
-"add-on updates to review them."
+"One or more add-on updates are available. Go to NVDA menu, Tools, Review add-"
+"on updates to review them."
 msgstr "有新版本的插件可用。转到 NVDA 菜单、工具、检查插件更新查看详细信息。"
 
 #. Translators: title of the add-on update notification message.
@@ -182,6 +194,9 @@ msgid ""
 "3208)"
 msgstr "插件更新功能的概念插件证明(NVDA Core issue 3208)"
 
+#~ msgid "Updating {name}"
+#~ msgstr "正在更新{name}"
+
 #~ msgid "{name} add-on is not compatible with this version of Windows."
 #~ msgstr "插件 {name} 与此版本的 Windows 不兼容。"
 
@@ -192,5 +207,5 @@ msgstr "插件更新功能的概念插件证明(NVDA Core issue 3208)"
 #~ "{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
 #~ "version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
 #~ msgstr ""
-#~ "插件 {name} 与此版本的 NVDA 不兼容。最低NVDA版本: {minYear}.{minMajor}, "
-#~ "最近测试: {testedYear}.{testedMajor}."
+#~ "插件 {name} 与此版本的 NVDA 不兼容。最低NVDA版本: {minYear}.{minMajor}, 最"
+#~ "近测试: {testedYear}.{testedMajor}."

@@ -21,6 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 
+#. Translators: menu item label for checking add-on updates.
 msgid "Check for &add-on updates..."
 msgstr "Provjeri ima li ažuriranja dodataka..."
 
@@ -125,19 +126,24 @@ msgstr "Nema novih nadogradnji dodataka."
 msgid "&Update add-ons"
 msgstr "&Nadogradi dodatke"
 
-#. Translators: The title of the dialog displayed while downloading add-on update.
-msgid "Downloading Add-on Update"
-msgstr "Preuzimanje nadogradnje dodatka"
-
-#. Translators: The progress message indicating the name of the add-on being downloaded.
-#, python-brace-format
-msgid "Downloading {name}"
+#, fuzzy, python-brace-format
+msgid "Downloading {addonName}"
 msgstr "Preuzima se {name}"
 
 #. Translators: A message indicating that an error occurred while downloading an update to NVDA.
 #, python-brace-format
 msgid "Error downloading update for {name}."
 msgstr "Greška prilikom preuzimanja nadogradnje za {name}."
+
+#. Translators: The title of the dialog presented while an Addon is being updated.
+#, fuzzy
+msgid "Updating add-ons"
+msgstr "&Nadogradi dodatke"
+
+#. Translators: The message displayed while an addon is being updated.
+#, fuzzy
+msgid "Please wait while add-ons are being updated."
+msgstr "Pričekaj dok se dodatak nadograđuje."
 
 #. Translators: The message displayed when an error occurs
 #. when trying to update an add-on package due to package problems.
@@ -147,19 +153,19 @@ msgstr ""
 "Nije moguće nadograditi {name} – datoteka nedostaje ili je datotečni format "
 "neispravan"
 
-#. Translators: The title of the dialog presented while an Addon is being updated.
-#, python-brace-format
-msgid "Updating {name}"
-msgstr "Nadograđuje se {name}"
-
-#. Translators: The message displayed while an addon is being updated.
-msgid "Please wait while the add-on is being updated."
-msgstr "Pričekaj dok se dodatak nadograđuje."
-
 #. Translators: The message displayed when an error occurs when installing an add-on package.
 #, python-brace-format
 msgid "Failed to update {name} add-on"
 msgstr "Neuspjela nadogradnja dodatka {name}"
+
+#. Translators: The title of the dialog displayed while downloading add-on update.
+msgid "Downloading Add-on Update"
+msgstr "Preuzimanje nadogradnje dodatka"
+
+#. Translators: The progress message indicating the name of the add-on being downloaded.
+#, fuzzy
+msgid "Downloading add-on updates"
+msgstr "Preuzimanje nadogradnje dodatka"
 
 #. Add-ons with all features integrated into NVDA or declared "legacy" by authors.
 #. For the latter case, update check functionality will be disabled upon authors' request.
@@ -171,10 +177,16 @@ msgstr "Značajke koje su uvedene u NVDA"
 msgid "declared legacy by add-on developers"
 msgstr "Razvojni programeri NVDA dodataka označili su ga kao stari dodatak"
 
+#. Translators: menu item label for reviewing add-on updates.
+#, fuzzy, python-brace-format
+msgid "Review &add-on updates ({updateCount})..."
+msgstr "Nadogradnje dodataka su dostupne: {updateCount}"
+
 #. Translators: presented as part of add-on update notification message.
+#, fuzzy
 msgid ""
-"One or more add-on updates are available. Go to NVDA menu, Tools, Check for "
-"add-on updates to review them."
+"One or more add-on updates are available. Go to NVDA menu, Tools, Review add-"
+"on updates to review them."
 msgstr ""
 "Jedna ili više nadogradnji su dostupne. Otvorite NVDA izbornik, alati, "
 "provjeri za nadogradnje dodataka kako biste pregledali dostupne nadogradnje."
@@ -191,6 +203,9 @@ msgid ""
 msgstr ""
 "Koncept implementacije funkcije nadograđivanja dodataka (problem 3208 u NVDA "
 "jezgri)"
+
+#~ msgid "Updating {name}"
+#~ msgstr "Nadograđuje se {name}"
 
 #~ msgid "{name} add-on is not compatible with this version of Windows."
 #~ msgstr "{name} nije kompatibilan s ovom verzijom Windows sustava."
