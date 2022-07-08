@@ -104,13 +104,6 @@ names2urls = {
 }
 
 
-# Add-ons with built-in update feature.
-addonsWithUpdaters = [
-	"BrailleExtender",
-	"Weather Plus",
-]
-
-
 # Add-ons with all features integrated into NVDA or declared "legacy" by authors.
 # For the latter case, update check functionality will be disabled upon authors' request.
 
