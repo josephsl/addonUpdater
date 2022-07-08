@@ -6,20 +6,14 @@
 
 # Proof of concept user interface for add-on update dialog (NVDA Core issue 3208)
 
-from urllib.request import urlopen
 import os
 import threading
 import tempfile
-import hashlib
 import wx
 import gui
 from gui import guiHelper
 from logHandler import log
 import addonHandler
-try:
-	import updateCheck
-except RuntimeError:
-	raise RuntimeError("Update check module cannot be imported")
 import core
 import extensionPoints
 from gui.nvdaControls import AutoWidthColumnCheckListCtrl
@@ -220,7 +214,6 @@ def installAddons(addons):
 		):
 			# NVDA itself will check add-on compatibility range.
 			# As such, the below fragment was borrowed from NVDA Core (credit: NV Access).
-			from addonHandler import addonVersionCheck
 			from gui import addonGui
 			# Assuming that tempfile is readable, open the bundle again
 			# so NVDA can actually show compatibility dialog.
@@ -261,7 +254,6 @@ def installAddons(addons):
 
 
 def updateAddons(addons, auto=True):
-	from . import addonUpdateProc
 	if not len(addons):
 		return
 	global _downloadProgressDialog
