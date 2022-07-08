@@ -40,6 +40,43 @@ class AddonUpdateCheckProtocol(object):
 	protocolDescription = "No add-on updates"
 	sourceUrl = ""
 
+	def getAddonsData(self, results, url=None, differentUserAgent=False):
+		"""Accesses and returns add-ons data from a predefined add-on source URL.
+		As this function blocks the main thread, it should be run from a different thread.
+		Therefore, the results argument passed in should be a dictionary that can be accessed
+		after calling join function on this thread.
+		Subclasses can override this method.
+		differentUserAgent: used to report a user agent other than Python as some websites block Python.
+		"""
+		if url is None:
+			url = self.sourceUrl
+		if differentUserAgent:
+			# Some hosting services block Python/urllib in hopes of avoding bots.
+			# Therefore spoof the user agent to say this is latest Microsoft Edge.
+			# Source: Stack Overflow, Google searches on Apache/mod_security
+			url = Request(
+				url,
+				headers={
+					"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36 Edg/101.0.1210.47"  # NOQA: E501
+				}
+			)
+		res = None
+		try:
+			res = urlopen(url)
+		except IOError as e:
+			# SSL issue (seen in NVDA Core earlier than 2014.1).
+			if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
+				addonUtils._updateWindowsRootCertificates()
+				res = urlopen(url)
+			else:
+				# Inform results dictionary that an error has occurred as this is running inside a thread.
+				log.debug("nvda3208: errors occurred while retrieving add-ons data", exc_info=True)
+				results["error"] = True
+		finally:
+			if res is not None:
+				results.update(json.load(res))
+				res.close()
+
 	def checkForAddonUpdates(self):
 		"""Checks and returns add-on update metadata (update records) if any.
 		Update record includes name, summary, update URL, compaitbility information and other attributes.
