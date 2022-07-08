@@ -455,45 +455,52 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 				results["results"] = json.load(res)
 				res.close()
 
-	def fetchAddonInfo(self, info, results, addon, manifestInfo, addonsData):
-		# Borrowed ideas from NVDA Core.
-		# Obtain update status for add-ons returned from community add-ons website.
-		# Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
-		# This is the case when it becomes necessary to open another website.
-		# Also, check add-on update eligibility based on what community add-ons metadata says if present.
+	def addonCompatibleAccordingToMetadata(self, addon, addonMetadata):
+		# Check add-on update eligibility with help from community add-ons metadata if present.
+		# Always return "yes" for development releases.
+		# The whole point of development releases is to send feedback to add-on developers across NVDA releases.
+		# Although possible, development releases should not be used to dodge around NVDA compatibility checks
+		# as add-ons can break without notice.
+		if addon in addonUtils.updateState["devUpdates"]:
+			return True
+		import addonAPIVersion
+		minimumNVDAVersion = tuple(addonMetadata["minimumNVDAVersion"])
+		lastTestedNVDAVersion = tuple(addonMetadata["lastTestedNVDAVersion"])
+		# Is the add-on update compatible with local NVDA version the user is using?
+		return (
+			minimumNVDAVersion <= addonAPIVersion.CURRENT
+			and lastTestedNVDAVersion >= addonAPIVersion.BACK_COMPAT_TO
+		)
+
+	def fetchAddonInfo(self, info, results, addon, manifestInfo):
+		# Spanish community catalog contains version, channel, URL, and compatibility information.
+		# This eliminates the need to access additional sources just for obtaining data.
 		addonVersion = manifestInfo["version"]
 		# Is this add-on's metadata present?
-		try:
-			addonMetadata = addonsData["active"][addon]
-			addonMetadataPresent = True
-		except KeyError:
-			addonMetadata = {}
-			addonMetadataPresent = False
-		# Validate add-on metadata.
-		if addonMetadataPresent:
-			addonMetadataPresent = self.validateAddonMetadata(addonMetadata)
-		# Add-ons metadata includes addon key in active/addonName/addonKey.
-		addonKey = addonMetadata.get("addonKey") if addonMetadataPresent else None
-		# If add-on key is None, it can indicate Add-on metadata is unusable or add-on key was unassigned.
-		# Therefore use the add-on key map that ships with this add-on, although it may not record new add-ons.
-		if addonKey is None:
-			try:
-				addonKey = names2urls[addon]
-			except KeyError:
-				return
-		# If "-dev" flag is on, switch to development channel if it exists.
+		# Without this, update checking is impossible.
+		addonMetadataPresent = addon in results
+		if not addonMetadataPresent:
+			return
+		# Compatibility, version, and URL are recorded as entries inside links list grouped by channel.
+		# Stable channel is recorded as "stable".
 		channel = manifestInfo["channel"]
-		if channel is not None:
-			addonKey += "-" + channel
+		if channel is None:
+			channel = "stable"
+		channelEntries = results[addon]["links"]
+		# Assume at least one update channel exists.
+		addonMetadata = channelEntries[0]
+		for entry in channelEntries:
+			if entry["channel"] == channel:
+				addonMetadata = entry
+				break
 		# Can the add-on be updated based on community add-ons metadata?
 		# What if a different update channel must be used if the stable channel update is not compatible?
-		if addonMetadataPresent:
+		"""if addonMetadataPresent:
 			if not self.addonCompatibleAccordingToMetadata(addon, addonMetadata):
-				return
-		try:
-			addonUrl = results[addonKey]
-		except:
-			return
+				return"""
+		addonUrl = addonMetadata["link"]
+		# Announce add-on URL for debugging purposes.
+		log.debug(f"nvda3208: add-on URL is {addonUrl}")
 		# Necessary duplication if the URL doesn't end in ".nvda-addon".
 		# Some add-ons require traversing another URL.
 		if ".nvda-addon" not in addonUrl:
@@ -502,7 +509,7 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 			# Therefore spoof the user agent to say this is latest Microsoft Edge.
 			# Source: Stack Overflow, Google searches on Apache/mod_security
 			req = Request(
-				f"{URLs.communityFileGetter}{addonKey}",
+				addonUrl,
 				headers={
 					"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36 Edg/101.0.1210.47"  # NOQA: E501
 				}
@@ -522,22 +529,7 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 					res.close()
 			if res is None or (res and res.code != 200):
 				return
-		# Note that some add-ons are hosted on community add-ons server directly.
-		if "/" not in addonUrl:
-			addonUrl = f"{URLs.communityHostedFile}{addonUrl}"
-		# Announce add-on URL for debugging purposes.
-		log.debug(f"nvda3208: add-on URL is {addonUrl}")
-		# Build emulated add-on update dictionary if there is indeed a new version.
-		# All the info we need for add-on version check is after the last slash.
-		# Sometimes, regular expression fails, and if so, treat it as though there is no update for this add-on.
-		try:
-			version = re.search("(?P<name>)-(?P<version>.*).nvda-addon", addonUrl.split("/")[-1]).groupdict()["version"]
-		except:
-			log.debug("nvda3208: could not retrieve version info for an add-on from its URL", exc_info=True)
-			return
-		# If hosted on places other than add-ons server, an unexpected URL might be returned, so parse this further.
-		if addon in version:
-			version = version.split(addon)[1][1:]
+		version = addonMetadata["version"]
 		if addonVersion != version:
 			info[addon] = {"curVersion": addonVersion, "version": version, "path": addonUrl}
 
