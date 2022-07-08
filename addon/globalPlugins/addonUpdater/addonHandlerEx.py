@@ -7,17 +7,10 @@
 
 # Proof of concept implementation of NVDA Core issue 3208.
 
-from urllib.request import urlopen, Request
 import threading
 import wx
-import json
-import re
-import ssl
 import addonHandler
 import extensionPoints
-import globalVars
-from logHandler import log
-from .urls import URLs
 from . import addonUtils
 addonHandler.initTranslation()
 
