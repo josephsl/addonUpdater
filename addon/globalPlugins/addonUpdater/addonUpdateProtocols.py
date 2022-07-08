@@ -384,14 +384,18 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 					addonsData.update(json.load(res))
 					res.close()
 		# NVDA community add-ons list is always retrieved for fallback reasons.
+		# It is also supposed to be the first fallback collection.
 		results = {}
-		addonsFetcher = threading.Thread(target=_currentCommunityAddons, args=(results,))
-		addonsFetcher.start()
-		# This internal thread must be joined, otherwise results will be lost.
-		addonsFetcher.join()
-		# Raise an error if results says so.
-		if "error" in results:
-			raise RuntimeError("Failed to retrieve community add-ons")
+		if fallbackData is None:
+			addonsFetcher = threading.Thread(target=_currentCommunityAddons, args=(results,))
+			addonsFetcher.start()
+			# This internal thread must be joined, otherwise results will be lost.
+			addonsFetcher.join()
+			# Raise an error if results says so.
+			if "error" in results:
+				raise RuntimeError("Failed to retrieve community add-ons")
+		else:
+			results = fallbackData
 		# Enhanced with add-on metadata such as compatibility info maintained by the community.
 		addonsData = {}
 		addonsFetcher = threading.Thread(target=_currentCommunityAddonsMetadata, args=(addonsData,))
@@ -401,6 +405,8 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 		# Fallback to add-ons list if metadata is unusable.
 		if len(addonsData) == 0:
 			log.debug("nvda3208: add-ons metadata unusable, using add-ons list from community add-ons website")
+			# Resort to using protocol 1.
+			return AddonUpdateCheckProtocolNVDAProject().checkForAddonUpdate(curAddons, fallbackData=results)
 		else:
 			log.debug("nvda3208: add-ons metadata successfully retrieved")
 		# The info dictionary will be passed in as a reference in individual threads below.
