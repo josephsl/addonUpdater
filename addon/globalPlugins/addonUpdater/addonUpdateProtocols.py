@@ -28,6 +28,25 @@ import extensionPoints
 addonHandler.initTranslation()
 
 
+# Define various add-on update check protocols, beginning with protocol 0 (do nothing/abstract protocol).
+class AddonUpdateCheckProtocol(object):
+	"""The default update check protocol, also known as protocol 0.
+	The purpose of this class is to provide a base implementation for other protocols.
+	While this protocol can be instantiated, subclasses (other protocols) should be used.
+	"""
+
+	protocol = 0
+	protocolName = "base"
+	protocolDescription = "No add-on updates"
+
+	def checkForAddonUpdates(self, installedAddons):
+		"""Checks and returns add-on update metadata if any.
+		This method takes a dictionary of installed add-ons and returns a list of add-on update records.
+		Update record includes name, summary, update URL, compaitbility information and other attributes.
+		"""
+		return []
+
+
 # Record add-on update information, resembling NVDA add-on manifest.
 class AddonUpdateRecord(object):
 	"""Resembles add-on manifests but optimized for updates.
