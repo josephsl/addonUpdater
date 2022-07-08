@@ -58,6 +58,9 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 	protocolDescription = "NVDA Community Add-ons website"
 
 	def fetchAddonInfo(self, info, results, addon, manifestInfo):
+		# Not all released add-ons are recorded in names to URLs dictionary.
+		if addon not in names2urls:
+			return
 		# Borrowed ideas from NVDA Core.
 		# Obtain update status for add-ons returned from community add-ons website.
 		# Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
