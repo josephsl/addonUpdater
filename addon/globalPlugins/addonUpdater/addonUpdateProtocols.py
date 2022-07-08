@@ -208,7 +208,7 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		return res
 
 
-class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
+class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProject):
 	"""Protocol 2: NVDA community add-ons website with compatibility information supplied by the community.
 	This protocol uses a combination of community add-ons get.php JSON and compatibility data provided by the community.
 	While similar to protocol 1, addons.nvda-project.org JSON is consulted only to retrieve download links.
