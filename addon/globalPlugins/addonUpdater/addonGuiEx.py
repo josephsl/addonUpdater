@@ -153,6 +153,7 @@ class AddonUpdatesDialog(wx.Dialog):
 
 _downloadProgressDialog = None
 
+
 def downloadAndInstallAddonUpdates(addons):
 	from . import addonUpdateProc
 	global _downloadProgressDialog
@@ -162,9 +163,12 @@ def downloadAndInstallAddonUpdates(addons):
 	for addon in addons:
 		destPath = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
 		log.debug(f"nvda3208: downloading {addon.summary}, URL is {addon.url}, destpath is {destPath}")
-		downloadPercent = int((currentPos/totalCount) * 100)
+		downloadPercent = int((currentPos / totalCount) * 100)
 		log.debug(f"nvda3208: download percent: {downloadPercent}")
-		wx.CallAfter(_downloadProgressDialog.Update, downloadPercent, _("Downloading {addonName}").format(addonName=addon.summary))
+		wx.CallAfter(
+			_downloadProgressDialog.Update, downloadPercent,
+			_("Downloading {addonName}").format(addonName=addon.summary)
+		)
 		wx.CallAfter(_downloadProgressDialog.Fit)
 		try:
 			addonUpdateProc.downloadAddonUpdate(addon.url, destPath, addon.hash)
@@ -210,7 +214,10 @@ def installAddons(addons):
 				translate("Error"),
 				wx.OK | wx.ICON_ERROR
 			)
-		elif installStatus in (addonUpdateProc.AddonInstallStatus.AddonMinVersionNotMet, addonUpdateProc.AddonInstallStatus.AddonNotTested):
+		elif installStatus in (
+			addonUpdateProc.AddonInstallStatus.AddonMinVersionNotMet,
+			addonUpdateProc.AddonInstallStatus.AddonNotTested
+		):
 			# NVDA itself will check add-on compatibility range.
 			# As such, the below fragment was borrowed from NVDA Core (credit: NV Access).
 			from addonHandler import addonVersionCheck
@@ -231,7 +238,6 @@ def installAddons(addons):
 			)
 		else:
 			successfullyInstalledCount += 1
-		log.debug(f"nvda3208: add-on install status is {installStatus}")
 		try:
 			os.remove(addon[0])
 		except OSError:
