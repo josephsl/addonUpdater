@@ -40,13 +40,14 @@ class AddonUpdateCheckProtocol(object):
 	protocolDescription = "No add-on updates"
 	sourceUrl = ""
 
-	def getAddonsData(self, results, url=None, differentUserAgent=False):
+	def getAddonsData(self, results, url=None, differentUserAgent=False, errorText=None):
 		"""Accesses and returns add-ons data from a predefined add-on source URL.
 		As this function blocks the main thread, it should be run from a different thread.
 		Therefore, the results argument passed in should be a dictionary that can be accessed
 		after calling join function on this thread.
 		Subclasses can override this method.
 		differentUserAgent: used to report a user agent other than Python as some websites block Python.
+		errorText: logs specified text to the NVDA og.
 		"""
 		if url is None:
 			url = self.sourceUrl
@@ -60,6 +61,8 @@ class AddonUpdateCheckProtocol(object):
 					"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36 Edg/101.0.1210.47"  # NOQA: E501
 				}
 			)
+		if errorText is None:
+			errorText = "nvda3208: errors occurred while retrieving add-ons data"
 		res = None
 		try:
 			res = urlopen(url)
@@ -70,7 +73,7 @@ class AddonUpdateCheckProtocol(object):
 				res = urlopen(url)
 			else:
 				# Inform results dictionary that an error has occurred as this is running inside a thread.
-				log.debug("nvda3208: errors occurred while retrieving add-ons data", exc_info=True)
+				log.debug(errorText, exc_info=True)
 				results["error"] = True
 		finally:
 			if res is not None:
