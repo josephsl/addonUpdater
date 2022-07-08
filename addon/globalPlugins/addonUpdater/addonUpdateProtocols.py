@@ -38,6 +38,7 @@ class AddonUpdateCheckProtocol(object):
 	protocol = 0
 	protocolName = "base"
 	protocolDescription = "No add-on updates"
+	sourceUrl = ""
 
 	def checkForAddonUpdates(self):
 		"""Checks and returns add-on update metadata (update records) if any.
@@ -56,6 +57,7 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 	protocol = 1
 	protocolName = "nvdaproject"
 	protocolDescription = "NVDA Community Add-ons website"
+	sourceUrl = URLs.communityAddonsList
 
 	def fetchAddonInfo(self, info, results, addon, manifestInfo):
 		# Not all released add-ons are recorded in names to URLs dictionary.
@@ -224,6 +226,7 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 	protocol = 2
 	protocolName = "nvdaprojectcompatinfo"
 	protocolDescription = "NVDA Community Add-ons website with compatibility information"
+	sourceUrl = URLs.metadata
 
 	# Validate a given add-on metadata, mostly involving type checks.
 	def validateAddonMetadata(self, addonMetadata):
@@ -487,6 +490,7 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 	protocol = 3
 	protocolName = "nvdaes"
 	protocolDescription = "NVDA Spanish Community Add-ons website"
+	sourceUrl = "https://nvda.es/files/get.php?addonslist"
 
 	def fetchAddonInfo(self, info, results, addon, manifestInfo):
 		# Not all released add-ons are recorded in names to URLs dictionary.
