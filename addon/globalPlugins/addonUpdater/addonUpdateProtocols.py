@@ -157,27 +157,10 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 
 	def checkForAddonUpdate(self, curAddons, fallbackData=None):
 		# First, fetch current community add-ons via an internal thread.
-		def _currentCommunityAddons(results):
-			res = None
-			try:
-				res = urlopen("https://addons.nvda-project.org/files/get.php?addonslist")
-			except IOError as e:
-				# SSL issue (seen in NVDA Core earlier than 2014.1).
-				if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
-					addonUtils._updateWindowsRootCertificates()
-					res = urlopen("https://addons.nvda-project.org/files/get.php?addonslist")
-				else:
-					# Inform results dictionary that an error has occurred as this is running inside a thread.
-					log.debug("nvda3208: errors occurred while retrieving community add-ons", exc_info=True)
-					results["error"] = True
-			finally:
-				if res is not None:
-					results.update(json.load(res))
-					res.close()
 		results = {}
 		# Only do this if no fallback data is specified.
 		if fallbackData is None:
-			addonsFetcher = threading.Thread(target=_currentCommunityAddons, args=(results,))
+			addonsFetcher = threading.Thread(target=self.getAddonsData, args=(results,), kwargs={"errorText": "nvda3208: errors occurred while retrieving community add-ons"})
 			addonsFetcher.start()
 			# This internal thread must be joined, otherwise results will be lost.
 			addonsFetcher.join()
@@ -389,48 +372,11 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 			info[addon] = {"curVersion": addonVersion, "version": version, "path": addonUrl}
 
 	def checkForAddonUpdate(self, curAddons, fallbackData=None):
-		# First, fetch current community add-ons via an internal thread.
-		def _currentCommunityAddons(results):
-			res = None
-			try:
-				res = urlopen(URLs.communityAddonsList)
-			except IOError as e:
-				# SSL issue (seen in NVDA Core earlier than 2014.1).
-				if isinstance(e.reason, ssl.SSLCertVerificationError) and e.reason.reason == "CERTIFICATE_VERIFY_FAILED":
-					addonUtils._updateWindowsRootCertificates()
-					res = urlopen(URLs.communityAddonsList)
-				else:
-					# Inform results dictionary that an error has occurred as this is running inside a thread.
-					log.debug("nvda3208: errors occurred while retrieving community add-ons", exc_info=True)
-					results["error"] = True
-			finally:
-				if res is not None:
-					results.update(json.load(res))
-					res.close()
-
-		# Similar to above except fetch add-on metadata from a JSON file hosted by the NVDA add-ons community.
-		def _currentCommunityAddonsMetadata(addonsData):
-			res = None
-			try:
-				res = urlopen(URLs.metadata)
-			except IOError as e:
-				# SSL issue (seen in NVDA Core earlier than 2014.1).
-				if isinstance(e.reason, ssl.SSLCertVerificationError) and e.reason.reason == "CERTIFICATE_VERIFY_FAILED":
-					addonUtils._updateWindowsRootCertificates()
-					res = urlopen(URLs.metadata)
-				else:
-					# Clear addon metadata dictionary.
-					log.debug("nvda3208: errors occurred while retrieving community add-ons metadata", exc_info=True)
-					addonsData.clear()
-			finally:
-				if res is not None:
-					addonsData.update(json.load(res))
-					res.close()
 		# NVDA community add-ons list is always retrieved for fallback reasons.
 		# It is also supposed to be the first fallback collection.
 		results = {}
 		if fallbackData is None:
-			addonsFetcher = threading.Thread(target=_currentCommunityAddons, args=(results,))
+			addonsFetcher = threading.Thread(target=self.getAddonsData, args=(results,), kwargs={"url": URLs.communityAddonsList, "errorText": "nvda3208: errors occurred while retrieving community add-ons"})
 			addonsFetcher.start()
 			# This internal thread must be joined, otherwise results will be lost.
 			addonsFetcher.join()
@@ -441,7 +387,7 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 			results = fallbackData
 		# Enhanced with add-on metadata such as compatibility info maintained by the community.
 		addonsData = {}
-		addonsFetcher = threading.Thread(target=_currentCommunityAddonsMetadata, args=(addonsData,))
+		addonsFetcher = threading.Thread(target=self.getAddonsData, args=(addonsData,), kwargs={"errorText": "nvda3208: errors occurred while retrieving community add-ons metadata"})
 		addonsFetcher.start()
 		# Just like the earlier thread, this thread too must be joined.
 		addonsFetcher.join()
@@ -589,34 +535,10 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 			info[addon] = {"curVersion": addonVersion, "version": version, "path": addonUrl}
 
 	def checkForAddonUpdate(self, curAddons, fallbackData=None):
-		# First, fetch current community add-ons via an internal thread.
-		def _currentCommunityAddons(results):
-			res = None
-			req = Request(
-				"https://nvda.es/files/get.php?addonslist",
-				headers={
-					"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36 Edg/101.0.1210.47"  # NOQA: E501
-				}
-			)
-			try:
-				res = urlopen(req)
-			except IOError as e:
-				# SSL issue (seen in NVDA Core earlier than 2014.1).
-				if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
-					addonUtils._updateWindowsRootCertificates()
-					res = urlopen("https://nvda.es/files/get.php?addonslist")
-				else:
-					# Inform results dictionary that an error has occurred as this is running inside a thread.
-					log.debug("nvda3208: errors occurred while retrieving community add-ons", exc_info=True)
-					results["error"] = True
-			finally:
-				if res is not None:
-					results.update(json.load(res))
-					res.close()
 		results = {}
 		# Only do this if no fallback data is specified.
 		if fallbackData is None:
-			addonsFetcher = threading.Thread(target=_currentCommunityAddons, args=(results,))
+			addonsFetcher = threading.Thread(target=self.getAddonsData, args=(results,), kwargs={"differentUserAgent": True, "errorText": "nvda3208: errors occurred while retrieving Spanish community add-ons catalog"})
 			addonsFetcher.start()
 			# This internal thread must be joined, otherwise results will be lost.
 			addonsFetcher.join()
