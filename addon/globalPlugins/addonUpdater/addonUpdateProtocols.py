@@ -213,7 +213,7 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 	protocolDescription = "NVDA Community Add-ons website with compatibility information"
 
 	# Validate a given add-on metadata, mostly involving type checks.
-	def validateAddonMetadata(addonMetadata):
+	def validateAddonMetadata(self, addonMetadata):
 		# Make sure that fields are of the right type.
 		metadataFieldTypes = {
 			"summary": str,
@@ -231,7 +231,7 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 
 
 	# Check add-on update eligibility with help from community add-ons metadata if present.
-	def addonCompatibleAccordingToMetadata(addon, addonMetadata):
+	def addonCompatibleAccordingToMetadata(self, addon, addonMetadata):
 		# Always return "yes" for development releases.
 		# The whole point of development releases is to send feedback to add-on developers across NVDA releases.
 		# Although possible, development releases should not be used to dodge around NVDA compatibility checks
@@ -253,7 +253,7 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 	# Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
 	# This is the case when it becomes necessary to open another website.
 	# Also, check add-on update eligibility based on what community add-ons metadata says if present.
-	def fetchAddonInfo(info, results, addon, manifestInfo, addonsData):
+	def fetchAddonInfo(self, info, results, addon, manifestInfo, addonsData):
 		addonVersion = manifestInfo["version"]
 		# Is this add-on's metadata present?
 		try:
@@ -335,7 +335,7 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 			info[addon] = {"curVersion": addonVersion, "version": version, "path": addonUrl}
 
 
-	def checkForAddonUpdate(curAddons):
+	def checkForAddonUpdate(self, curAddons):
 		# First, fetch current community add-ons via an internal thread.
 		def _currentCommunityAddons(results):
 			res = None
