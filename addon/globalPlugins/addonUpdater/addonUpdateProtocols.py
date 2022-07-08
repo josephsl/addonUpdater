@@ -39,9 +39,8 @@ class AddonUpdateCheckProtocol(object):
 	protocolName = "base"
 	protocolDescription = "No add-on updates"
 
-	def checkForAddonUpdates(self, installedAddons):
-		"""Checks and returns add-on update metadata if any.
-		This method takes a dictionary of installed add-ons and returns a list of add-on update records.
+	def checkForAddonUpdates(self):
+		"""Checks and returns add-on update metadata (update records) if any.
 		Update record includes name, summary, update URL, compaitbility information and other attributes.
 		"""
 		return []
@@ -150,7 +149,7 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 			thread.join()
 		return info
 
-	def checkForAddonUpdates(self, installedAddons):
+	def checkForAddonUpdates(self):
 		"""Retrieves a JSON file hosted on addons.nvda-project.org.
 		The JSON file returns a dictionary of add-on keys and download links.
 		Only version check is possible.
@@ -409,7 +408,7 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 			thread.join()
 		return info
 
-	def checkForAddonUpdates(self, installedAddons):
+	def checkForAddonUpdates(self):
 		"""Retrieves a JSON file hosted on addons.nvda-project.org
 		as well as a JSON from NVDA add-ons community containing add-on compatibility data.
 		The first JSON file returns a dictionary of add-on keys and download links.
