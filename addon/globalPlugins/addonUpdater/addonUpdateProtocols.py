@@ -525,10 +525,16 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 		# Perhaps a newer protocol sent a fallback data if the protocol URL fails somehow.
 		else:
 			results = fallbackData
+		# Transform results dictionary inside results key to proper update dictionary.
+		# Spanish community catalog uses add-on ID's (integer) as opposed to name string.
+		# Therefore, metadata inside ID's will be stored under add-on name.
+		metadataDictionary = {}
+		for addon in results["results"]:
+			metadataDictionary[addon["name"]] = addon
 		# The info dictionary will be passed in as a reference in individual threads below.
 		info = {}
 		updateThreads = [
-			threading.Thread(target=self.fetchAddonInfo, args=(info, results, addon, manifestInfo))
+			threading.Thread(target=self.fetchAddonInfo, args=(info, metadataDictionary, addon, manifestInfo))
 			for addon, manifestInfo in curAddons.items()
 		]
 		for thread in updateThreads:
