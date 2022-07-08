@@ -141,7 +141,7 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		# The info dictionary will be passed in as a reference in individual threads below.
 		info = {}
 		updateThreads = [
-			threading.Thread(target=fetchAddonInfo, args=(info, results, addon, manifestInfo))
+			threading.Thread(target=self.fetchAddonInfo, args=(info, results, addon, manifestInfo))
 			for addon, manifestInfo in curAddons.items()
 		]
 		for thread in updateThreads:
@@ -186,7 +186,7 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 			curAddons[name] = {"summary": manifest["summary"], "version": curVersion, "channel": updateChannel}
 			addonSummaries[name] = manifest["summary"]
 		try:
-			info = checkForAddonUpdate(curAddons)
+			info = self.checkForAddonUpdate(curAddons)
 		except:
 			# Present an error dialog if manual add-on update check is in progress.
 			raise RuntimeError("Cannot check for community add-on updates")
@@ -268,7 +268,7 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 			addonMetadataPresent = False
 		# Validate add-on metadata.
 		if addonMetadataPresent:
-			addonMetadataPresent = validateAddonMetadata(addonMetadata)
+			addonMetadataPresent = self.validateAddonMetadata(addonMetadata)
 		# Add-ons metadata includes addon key in active/addonName/addonKey.
 		addonKey = addonMetadata.get("addonKey") if addonMetadataPresent else None
 		# If add-on key is None, it can indicate Add-on metadata is unusable or add-on key was unassigned.
@@ -285,7 +285,7 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 		# Can the add-on be updated based on community add-ons metadata?
 		# What if a different update channel must be used if the stable channel update is not compatible?
 		if addonMetadataPresent:
-			if not addonCompatibleAccordingToMetadata(addon, addonMetadata):
+			if not self.addonCompatibleAccordingToMetadata(addon, addonMetadata):
 				return
 		try:
 			addonUrl = results[addonKey]
@@ -400,7 +400,7 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 		# Don't forget to perform additional checks based on add-on metadata if present.
 		info = {}
 		updateThreads = [
-			threading.Thread(target=fetchAddonInfo, args=(info, results, addon, manifestInfo, addonsData))
+			threading.Thread(target=self.fetchAddonInfo, args=(info, results, addon, manifestInfo, addonsData))
 			for addon, manifestInfo in curAddons.items()
 		]
 		for thread in updateThreads:
@@ -445,7 +445,7 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 			curAddons[name] = {"summary": manifest["summary"], "version": curVersion, "channel": updateChannel}
 			addonSummaries[name] = manifest["summary"]
 		try:
-			info = checkForAddonUpdate(curAddons)
+			info = self.checkForAddonUpdate(curAddons)
 		except:
 			# Present an error dialog if manual add-on update check is in progress.
 			raise RuntimeError("Cannot check for community add-on updates")
