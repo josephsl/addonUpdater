@@ -478,6 +478,178 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 		return res
 
 
+class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
+	"""Protocol 3: Spanish community add-ons catalog protocol
+	In addition to community add-ons website, NVDA Spanish community hosts add-ons data.
+	Version, compatibility, and update channel checks are available.
+	"""
+
+	protocol = 3
+	protocolName = "nvdaes"
+	protocolDescription = "NVDA Spanish Community Add-ons website"
+
+	def fetchAddonInfo(self, info, results, addon, manifestInfo):
+		# Not all released add-ons are recorded in names to URLs dictionary.
+		if addon not in names2urls:
+			return
+		# Borrowed ideas from NVDA Core.
+		# Obtain update status for add-ons returned from community add-ons website.
+		# Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
+		# This is the case when it becomes necessary to open another website.
+		addonVersion = manifestInfo["version"]
+		addonKey = names2urls[addon]
+		# If "-dev" flag is on, switch to development channel if it exists.
+		channel = manifestInfo["channel"]
+		if channel is not None:
+			addonKey += "-" + channel
+		try:
+			addonUrl = results[addonKey]
+		except:
+			return
+		# Necessary duplication if the URL doesn't end in ".nvda-addon".
+		# Some add-ons require traversing another URL.
+		if ".nvda-addon" not in addonUrl:
+			res = None
+			try:
+				res = urlopen(f"https://addons.nvda-project.org/files/get.php?file={addonKey}")
+			except IOError as e:
+				# SSL issue (seen in NVDA Core earlier than 2014.1).
+				if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
+					addonUtils._updateWindowsRootCertificates()
+					res = urlopen(f"https://addons.nvda-project.org/files/get.php?file={addonKey}")
+				else:
+					pass
+			finally:
+				if res is not None:
+					addonUrl = res.url
+					res.close()
+			if res is None or (res and res.code != 200):
+				return
+		# Note that some add-ons are hosted on community add-ons server directly.
+		if "/" not in addonUrl:
+			addonUrl = f"https://addons.nvda-project.org/files/{addonUrl}"
+		# Announce add-on URL for debugging purposes.
+		log.debug(f"nvda3208: add-on URL is {addonUrl}")
+		# Build emulated add-on update dictionary if there is indeed a new version.
+		# All the info we need for add-on version check is after the last slash.
+		# Sometimes, regular expression fails, and if so, treat it as though there is no update for this add-on.
+		try:
+			version = re.search("(?P<name>)-(?P<version>.*).nvda-addon", addonUrl.split("/")[-1]).groupdict()["version"]
+		except:
+			log.debug("nvda3208: could not retrieve version info for an add-on from its URL", exc_info=True)
+			return
+		# If hosted on places other than add-ons server, an unexpected URL might be returned, so parse this further.
+		if addon in version:
+			version = version.split(addon)[1][1:]
+		if addonVersion != version:
+			info[addon] = {"curVersion": addonVersion, "version": version, "path": addonUrl}
+
+	def checkForAddonUpdate(self, curAddons, fallbackData=None):
+		# First, fetch current community add-ons via an internal thread.
+		def _currentCommunityAddons(results):
+			res = None
+			req = Request(
+				"https://nvda.es/files/get.php?addonslist",
+				headers={
+					"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36 Edg/101.0.1210.47"  # NOQA: E501
+				}
+			)
+			try:
+				res = urlopen(req)
+			except IOError as e:
+				# SSL issue (seen in NVDA Core earlier than 2014.1).
+				if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
+					addonUtils._updateWindowsRootCertificates()
+					res = urlopen("https://nvda.es/files/get.php?addonslist")
+				else:
+					# Inform results dictionary that an error has occurred as this is running inside a thread.
+					log.debug("nvda3208: errors occurred while retrieving community add-ons", exc_info=True)
+					results["error"] = True
+			finally:
+				if res is not None:
+					results.update(json.load(res))
+					res.close()
+		results = {}
+		# Only do this if no fallback data is specified.
+		if fallbackData is None:
+			addonsFetcher = threading.Thread(target=_currentCommunityAddons, args=(results,))
+			addonsFetcher.start()
+			# This internal thread must be joined, otherwise results will be lost.
+			addonsFetcher.join()
+			# Raise an error if results says so.
+			if "error" in results:
+				raise RuntimeError("Failed to retrieve community add-ons")
+		# Perhaps a newer protocol sent a fallback data if the protocol URL fails somehow.
+		else:
+			results = fallbackData
+		# The info dictionary will be passed in as a reference in individual threads below.
+		info = {}
+		updateThreads = [
+			threading.Thread(target=self.fetchAddonInfo, args=(info, results, addon, manifestInfo))
+			for addon, manifestInfo in curAddons.items()
+		]
+		for thread in updateThreads:
+			thread.start()
+		for thread in updateThreads:
+			thread.join()
+		return info
+
+	def checkForAddonUpdates(self):
+		"""Retrieves a JSON file hosted on addons.nvda-project.org.
+		The JSON file returns a dictionary of add-on keys and download links.
+		Only version check is possible.
+		"""
+		# Don't even think about update checks if secure mode flag is set.
+		if globalVars.appArgs.secure:
+			return
+		curAddons = {}
+		addonSummaries = {}
+		for addon in addonHandler.getAvailableAddons():
+			# Skip add-ons that can update themselves.
+			# Add-on Updater is included, but is an exception as it updates other add-ons, too.
+			if addon.name in addonsWithUpdaters:
+				continue
+			if addon.name not in names2urls:
+				continue
+			# Sorry Nuance Vocalizer family, no update checks for you.
+			if "vocalizer" in addon.name.lower():
+				continue
+			manifest = addon.manifest
+			name = addon.name
+			if name in addonUtils.updateState["noUpdates"]:
+				continue
+			curVersion = manifest["version"]
+			# Check different channels if appropriate.
+			updateChannel = manifest.get("updateChannel")
+			if updateChannel == "None":
+				updateChannel = None
+			if updateChannel != "dev" and name in addonUtils.updateState["devUpdates"]:
+				updateChannel = "dev"
+			elif updateChannel == "dev" and name not in addonUtils.updateState["devUpdates"]:
+				updateChannel = None
+			curAddons[name] = {"summary": manifest["summary"], "version": curVersion, "channel": updateChannel}
+			addonSummaries[name] = manifest["summary"]
+		try:
+			info = self.checkForAddonUpdate(curAddons)
+		except:
+			# Present an error dialog if manual add-on update check is in progress.
+			raise RuntimeError("Cannot check for community add-on updates")
+		# Build a list of add-on update records if present.
+		if not len(info):
+			return None
+		res = []
+		for addon, updateInfo in info.items():
+			res.append(AddonUpdateRecord(
+				name=addon,
+				summary=addonSummaries[addon],
+				version=updateInfo["version"],
+				installedVersion=updateInfo["curVersion"],
+				url=updateInfo["path"],
+				updateChannel=curAddons[addon]["channel"]
+			))
+		return res
+
+
 # Record add-on update information, resembling NVDA add-on manifest.
 class AddonUpdateRecord(object):
 	"""Resembles add-on manifests but optimized for updates.
