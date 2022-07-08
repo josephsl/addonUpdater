@@ -133,13 +133,18 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 					results.update(json.load(res))
 					res.close()
 		results = {}
-		addonsFetcher = threading.Thread(target=_currentCommunityAddons, args=(results,))
-		addonsFetcher.start()
-		# This internal thread must be joined, otherwise results will be lost.
-		addonsFetcher.join()
-		# Raise an error if results says so.
-		if "error" in results:
-			raise RuntimeError("Failed to retrieve community add-ons")
+		# Only do this if no fallback data is specified.
+		if fallbackData is None:
+			addonsFetcher = threading.Thread(target=_currentCommunityAddons, args=(results,))
+			addonsFetcher.start()
+			# This internal thread must be joined, otherwise results will be lost.
+			addonsFetcher.join()
+			# Raise an error if results says so.
+			if "error" in results:
+				raise RuntimeError("Failed to retrieve community add-ons")
+		# Perhaps a newer protocol sent a fallback data if the protocol URL fails somehow.
+		else:
+			results = fallbackData
 		# The info dictionary will be passed in as a reference in individual threads below.
 		info = {}
 		updateThreads = [
