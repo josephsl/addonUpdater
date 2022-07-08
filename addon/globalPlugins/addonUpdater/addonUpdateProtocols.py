@@ -197,8 +197,6 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 			# Add-on Updater is included, but is an exception as it updates other add-ons, too.
 			if addon.name in addonsWithUpdaters:
 				continue
-			if addon.name not in names2urls:
-				continue
 			# Sorry Nuance Vocalizer family, no update checks for you.
 			if "vocalizer" in addon.name.lower():
 				continue
