@@ -111,7 +111,6 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		if addonVersion != version:
 			info[addon] = {"curVersion": addonVersion, "version": version, "path": addonUrl}
 
-
 	def checkForAddonUpdate(self, curAddons):
 		# First, fetch current community add-ons via an internal thread.
 		def _currentCommunityAddons(results):
@@ -150,7 +149,6 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		for thread in updateThreads:
 			thread.join()
 		return info
-
 
 	def checkForAddonUpdates(self, installedAddons):
 		"""Retrieves a JSON file hosted on addons.nvda-project.org.
@@ -229,9 +227,8 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 			metadataValid.append(isinstance(addonMetadata["addonKey"], str))
 		return all(metadataValid)
 
-
-	# Check add-on update eligibility with help from community add-ons metadata if present.
 	def addonCompatibleAccordingToMetadata(self, addon, addonMetadata):
+		# Check add-on update eligibility with help from community add-ons metadata if present.
 		# Always return "yes" for development releases.
 		# The whole point of development releases is to send feedback to add-on developers across NVDA releases.
 		# Although possible, development releases should not be used to dodge around NVDA compatibility checks
@@ -247,13 +244,12 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 			and lastTestedNVDAVersion >= addonAPIVersion.BACK_COMPAT_TO
 		)
 
-
-	# Borrowed ideas from NVDA Core.
-	# Obtain update status for add-ons returned from community add-ons website.
-	# Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
-	# This is the case when it becomes necessary to open another website.
-	# Also, check add-on update eligibility based on what community add-ons metadata says if present.
 	def fetchAddonInfo(self, info, results, addon, manifestInfo, addonsData):
+		# Borrowed ideas from NVDA Core.
+		# Obtain update status for add-ons returned from community add-ons website.
+		# Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
+		# This is the case when it becomes necessary to open another website.
+		# Also, check add-on update eligibility based on what community add-ons metadata says if present.
 		addonVersion = manifestInfo["version"]
 		# Is this add-on's metadata present?
 		try:
@@ -333,7 +329,6 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 			version = version.split(addon)[1][1:]
 		if addonVersion != version:
 			info[addon] = {"curVersion": addonVersion, "version": version, "path": addonUrl}
-
 
 	def checkForAddonUpdate(self, curAddons):
 		# First, fetch current community add-ons via an internal thread.
@@ -596,4 +591,3 @@ addonsWithUpdaters = [
 	"BrailleExtender",
 	"Weather Plus",
 ]
-
