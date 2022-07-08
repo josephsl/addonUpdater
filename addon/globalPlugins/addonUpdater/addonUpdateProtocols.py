@@ -113,7 +113,7 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		if addonVersion != version:
 			info[addon] = {"curVersion": addonVersion, "version": version, "path": addonUrl}
 
-	def checkForAddonUpdate(self, curAddons):
+	def checkForAddonUpdate(self, curAddons, fallbackData=None):
 		# First, fetch current community add-ons via an internal thread.
 		def _currentCommunityAddons(results):
 			res = None
@@ -340,7 +340,7 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 		if addonVersion != version:
 			info[addon] = {"curVersion": addonVersion, "version": version, "path": addonUrl}
 
-	def checkForAddonUpdate(self, curAddons):
+	def checkForAddonUpdate(self, curAddons, fallbackData=None):
 		# First, fetch current community add-ons via an internal thread.
 		def _currentCommunityAddons(results):
 			res = None
