@@ -565,61 +565,6 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 			thread.join()
 		return info
 
-	def checkForAddonUpdates(self):
-		"""Retrieves a JSON file hosted on addons.nvda-project.org.
-		The JSON file returns a dictionary of add-on keys and download links.
-		Only version check is possible.
-		"""
-		# Don't even think about update checks if secure mode flag is set.
-		if globalVars.appArgs.secure:
-			return
-		curAddons = {}
-		addonSummaries = {}
-		for addon in addonHandler.getAvailableAddons():
-			# Skip add-ons that can update themselves.
-			# Add-on Updater is included, but is an exception as it updates other add-ons, too.
-			if addon.name in addonsWithUpdaters:
-				continue
-			if addon.name not in names2urls:
-				continue
-			# Sorry Nuance Vocalizer family, no update checks for you.
-			if "vocalizer" in addon.name.lower():
-				continue
-			manifest = addon.manifest
-			name = addon.name
-			if name in addonUtils.updateState["noUpdates"]:
-				continue
-			curVersion = manifest["version"]
-			# Check different channels if appropriate.
-			updateChannel = manifest.get("updateChannel")
-			if updateChannel == "None":
-				updateChannel = None
-			if updateChannel != "dev" and name in addonUtils.updateState["devUpdates"]:
-				updateChannel = "dev"
-			elif updateChannel == "dev" and name not in addonUtils.updateState["devUpdates"]:
-				updateChannel = None
-			curAddons[name] = {"summary": manifest["summary"], "version": curVersion, "channel": updateChannel}
-			addonSummaries[name] = manifest["summary"]
-		try:
-			info = self.checkForAddonUpdate(curAddons)
-		except:
-			# Present an error dialog if manual add-on update check is in progress.
-			raise RuntimeError("Cannot check for community add-on updates")
-		# Build a list of add-on update records if present.
-		if not len(info):
-			return None
-		res = []
-		for addon, updateInfo in info.items():
-			res.append(AddonUpdateRecord(
-				name=addon,
-				summary=addonSummaries[addon],
-				version=updateInfo["version"],
-				installedVersion=updateInfo["curVersion"],
-				url=updateInfo["path"],
-				updateChannel=curAddons[addon]["channel"]
-			))
-		return res
-
 
 # Record add-on update information, resembling NVDA add-on manifest.
 class AddonUpdateRecord(object):
