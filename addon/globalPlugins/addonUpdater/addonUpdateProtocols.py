@@ -392,6 +392,8 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 		# Just like the earlier thread, this thread too must be joined.
 		addonsFetcher.join()
 		# Fallback to add-ons list if metadata is unusable.
+		if "error" in addonsData:
+			addonsData.clear()
 		if len(addonsData) == 0:
 			log.debug("nvda3208: add-ons metadata unusable, using add-ons list from community add-ons website")
 			# Resort to using protocol 1.
