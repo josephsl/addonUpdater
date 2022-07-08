@@ -455,20 +455,41 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 				results["results"] = json.load(res)
 				res.close()
 
-	def fetchAddonInfo(self, info, results, addon, manifestInfo):
-		# Not all released add-ons are recorded in names to URLs dictionary.
-		if addon not in names2urls:
-			return
+	def fetchAddonInfo(self, info, results, addon, manifestInfo, addonsData):
 		# Borrowed ideas from NVDA Core.
 		# Obtain update status for add-ons returned from community add-ons website.
 		# Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
 		# This is the case when it becomes necessary to open another website.
+		# Also, check add-on update eligibility based on what community add-ons metadata says if present.
 		addonVersion = manifestInfo["version"]
-		addonKey = names2urls[addon]
+		# Is this add-on's metadata present?
+		try:
+			addonMetadata = addonsData["active"][addon]
+			addonMetadataPresent = True
+		except KeyError:
+			addonMetadata = {}
+			addonMetadataPresent = False
+		# Validate add-on metadata.
+		if addonMetadataPresent:
+			addonMetadataPresent = self.validateAddonMetadata(addonMetadata)
+		# Add-ons metadata includes addon key in active/addonName/addonKey.
+		addonKey = addonMetadata.get("addonKey") if addonMetadataPresent else None
+		# If add-on key is None, it can indicate Add-on metadata is unusable or add-on key was unassigned.
+		# Therefore use the add-on key map that ships with this add-on, although it may not record new add-ons.
+		if addonKey is None:
+			try:
+				addonKey = names2urls[addon]
+			except KeyError:
+				return
 		# If "-dev" flag is on, switch to development channel if it exists.
 		channel = manifestInfo["channel"]
 		if channel is not None:
 			addonKey += "-" + channel
+		# Can the add-on be updated based on community add-ons metadata?
+		# What if a different update channel must be used if the stable channel update is not compatible?
+		if addonMetadataPresent:
+			if not self.addonCompatibleAccordingToMetadata(addon, addonMetadata):
+				return
 		try:
 			addonUrl = results[addonKey]
 		except:
@@ -477,13 +498,22 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 		# Some add-ons require traversing another URL.
 		if ".nvda-addon" not in addonUrl:
 			res = None
+			# Some hosting services block Python/urllib in hopes of avoding bots.
+			# Therefore spoof the user agent to say this is latest Microsoft Edge.
+			# Source: Stack Overflow, Google searches on Apache/mod_security
+			req = Request(
+				f"{URLs.communityFileGetter}{addonKey}",
+				headers={
+					"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36 Edg/101.0.1210.47"  # NOQA: E501
+				}
+			)
 			try:
-				res = urlopen(f"https://addons.nvda-project.org/files/get.php?file={addonKey}")
+				res = urlopen(req)
 			except IOError as e:
 				# SSL issue (seen in NVDA Core earlier than 2014.1).
-				if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
+				if isinstance(e.reason, ssl.SSLCertVerificationError) and e.reason.reason == "CERTIFICATE_VERIFY_FAILED":
 					addonUtils._updateWindowsRootCertificates()
-					res = urlopen(f"https://addons.nvda-project.org/files/get.php?file={addonKey}")
+					res = urlopen(req)
 				else:
 					pass
 			finally:
@@ -494,7 +524,7 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 				return
 		# Note that some add-ons are hosted on community add-ons server directly.
 		if "/" not in addonUrl:
-			addonUrl = f"https://addons.nvda-project.org/files/{addonUrl}"
+			addonUrl = f"{URLs.communityHostedFile}{addonUrl}"
 		# Announce add-on URL for debugging purposes.
 		log.debug(f"nvda3208: add-on URL is {addonUrl}")
 		# Build emulated add-on update dictionary if there is indeed a new version.
