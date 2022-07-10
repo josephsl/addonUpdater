@@ -11,6 +11,7 @@ import threading
 import wx
 import addonHandler
 import extensionPoints
+from logHandler import log
 from . import addonUtils
 addonHandler.initTranslation()
 
@@ -115,3 +116,32 @@ def _showAddonUpdateUI():
 			_updateInfo = info
 		else:
 			wx.CallAfter(_showAddonUpdateUICallback, info)
+
+
+# Download and install add-ons in the background.
+def downloadAndInstallAddonUpdates(addons):
+	import tempfile
+	import os
+	from . import addonUpdateProc
+	downloadedAddons = []
+	for addon in addons:
+		destPath = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
+		log.debug(f"nvda3208: downloading {addon.summary}, URL is {addon.url}, destpath is {destPath}")
+		try:
+			addonUpdateProc.downloadAddonUpdate(addon.url, destPath, addon.hash)
+		except RuntimeError:
+			log.debug(f"nvda3208: failed to download {addon.summary}", exc_info=True)
+		else:
+			downloadedAddons.append((destPath, addon.summary))
+	successfullyInstalledCount = 0
+	for addon in downloadedAddons:
+		log.debug(f"nvda3208: installing {addon[1]} from {addon[0]}")
+		installStatus = addonUpdateProc.installAddonUpdate(addon[0], addon[1])
+		if installStatus == addonUpdateProc.AddonInstallStatus.AddonInstallSuccess:
+			successfullyInstalledCount += 1
+		log.debug(f"nvda3208: add-on install status is {installStatus}")
+		try:
+			os.remove(addon[0])
+		except OSError:
+			pass
+	log.debug(f"nvda3208: install success count: {successfullyInstalledCount}")
