@@ -89,10 +89,11 @@ class AddonUpdateCheckProtocol(object):
 		# Don't even think about update checks if secure mode flag is set.
 		if globalVars.appArgs.secure:
 			return
+		# Build a list of preliminary update records based on installed add-ons.
 		if installedAddons is not None:
 			curAddons = installedAddons
 		else:
-			curAddons = {}
+			curAddons = []
 			addonSummaries = {}
 			for addon in addonHandler.getAvailableAddons():
 				manifest = addon.manifest
@@ -106,27 +107,21 @@ class AddonUpdateCheckProtocol(object):
 					updateChannel = "dev"
 				elif updateChannel == "dev" and name not in addonUtils.updateState["devUpdates"]:
 					updateChannel = None
-				curAddons[name] = {"summary": manifest["summary"], "version": curVersion, "channel": updateChannel}
-				addonSummaries[name] = manifest["summary"]
+				# Note that version (update) and installed version will be the same for now.
+				curAddons.append(AddonUpdateRecord(
+					name=name,
+					summary=manifest["summary"],
+					version=curVersion,
+					installedVersion=curVersion,
+					updateChannel=updateChannel
+				))
 		try:
 			info = self.checkForAddonUpdate(curAddons)
 		except:
 			# Present an error dialog if manual add-on update check is in progress.
 			raise RuntimeError("Cannot check for community add-on updates")
 		# Build a list of add-on update records if present.
-		if not len(info):
-			return None
-		res = []
-		for addon, updateInfo in info.items():
-			res.append(AddonUpdateRecord(
-				name=addon,
-				summary=addonSummaries[addon],
-				version=updateInfo["version"],
-				installedVersion=updateInfo["curVersion"],
-				url=updateInfo["path"],
-				updateChannel=curAddons[addon]["channel"]
-			))
-		return res
+		return info
 
 
 class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
