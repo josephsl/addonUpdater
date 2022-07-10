@@ -141,18 +141,18 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 	protocolDescription = "NVDA Community Add-ons website"
 	sourceUrl = URLs.communityAddonsList
 
-	def fetchAddonInfo(self, info, results, addon, manifestInfo):
+	def fetchAddonInfo(self, addon, results):
 		# Not all released add-ons are recorded in names to URLs dictionary.
-		if addon not in names2urls:
+		if addon.name not in names2urls:
 			return
 		# Borrowed ideas from NVDA Core.
 		# Obtain update status for add-ons returned from community add-ons website.
 		# Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
 		# This is the case when it becomes necessary to open another website.
-		addonVersion = manifestInfo["version"]
-		addonKey = names2urls[addon]
+		addonVersion = addon.installedVersion
+		addonKey = names2urls[addon.name]
 		# If "-dev" flag is on, switch to development channel if it exists.
-		channel = manifestInfo["channel"]
+		channel = addon.updateChannel
 		if channel is not None:
 			addonKey += "-" + channel
 		try:
@@ -183,7 +183,7 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 			addonUrl = f"https://addons.nvda-project.org/files/{addonUrl}"
 		# Announce add-on URL for debugging purposes.
 		log.debug(f"nvda3208: add-on URL is {addonUrl}")
-		# Build emulated add-on update dictionary if there is indeed a new version.
+		# Update add-on update record if there is indeed a new version.
 		# All the info we need for add-on version check is after the last slash.
 		# Sometimes, regular expression fails, and if so, treat it as though there is no update for this add-on.
 		try:
@@ -192,10 +192,10 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 			log.debug("nvda3208: could not retrieve version info for an add-on from its URL", exc_info=True)
 			return
 		# If hosted on places other than add-ons server, an unexpected URL might be returned, so parse this further.
-		if addon in version:
-			version = version.split(addon)[1][1:]
-		if addonVersion != version:
-			info[addon] = {"curVersion": addonVersion, "version": version, "path": addonUrl}
+		if addon.name in version:
+			version = version.split(addon.name)[1][1:]
+		addon.version = version
+		addon.url = addonUrl
 
 	def checkForAddonUpdate(self, curAddons, fallbackData=None):
 		# First, fetch current community add-ons via an internal thread.
@@ -270,16 +270,16 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 			and lastTestedNVDAVersion >= addonAPIVersion.BACK_COMPAT_TO
 		)
 
-	def fetchAddonInfo(self, info, results, addon, manifestInfo, addonsData):
+	def fetchAddonInfo(self, addon, results, addonsData):
 		# Borrowed ideas from NVDA Core.
 		# Obtain update status for add-ons returned from community add-ons website.
 		# Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
 		# This is the case when it becomes necessary to open another website.
 		# Also, check add-on update eligibility based on what community add-ons metadata says if present.
-		addonVersion = manifestInfo["version"]
+		addonVersion = addon.installedVersion
 		# Is this add-on's metadata present?
 		try:
-			addonMetadata = addonsData["active"][addon]
+			addonMetadata = addonsData["active"][addon.name]
 			addonMetadataPresent = True
 		except KeyError:
 			addonMetadata = {}
@@ -297,13 +297,13 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 			except KeyError:
 				return
 		# If "-dev" flag is on, switch to development channel if it exists.
-		channel = manifestInfo["channel"]
+		channel = addon.updateChannel
 		if channel is not None:
 			addonKey += "-" + channel
 		# Can the add-on be updated based on community add-ons metadata?
 		# What if a different update channel must be used if the stable channel update is not compatible?
 		if addonMetadataPresent:
-			if not self.addonCompatibleAccordingToMetadata(addon, addonMetadata):
+			if not self.addonCompatibleAccordingToMetadata(addon.name, addonMetadata):
 				return
 		try:
 			addonUrl = results[addonKey]
@@ -342,7 +342,6 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 			addonUrl = f"{URLs.communityHostedFile}{addonUrl}"
 		# Announce add-on URL for debugging purposes.
 		log.debug(f"nvda3208: add-on URL is {addonUrl}")
-		# Build emulated add-on update dictionary if there is indeed a new version.
 		# All the info we need for add-on version check is after the last slash.
 		# Sometimes, regular expression fails, and if so, treat it as though there is no update for this add-on.
 		try:
@@ -351,10 +350,10 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 			log.debug("nvda3208: could not retrieve version info for an add-on from its URL", exc_info=True)
 			return
 		# If hosted on places other than add-ons server, an unexpected URL might be returned, so parse this further.
-		if addon in version:
-			version = version.split(addon)[1][1:]
-		if addonVersion != version:
-			info[addon] = {"curVersion": addonVersion, "version": version, "path": addonUrl}
+		if addon.name in version:
+			version = version.split(addon.name)[1][1:]
+		addon.version = version
+		addon.url = addonUrl
 
 	def checkForAddonUpdate(self, curAddons, fallbackData=None):
 		# NVDA community add-ons list is always retrieved for fallback reasons.
@@ -463,21 +462,21 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 			and lastTestedNVDAVersion >= addonAPIVersion.BACK_COMPAT_TO
 		)
 
-	def fetchAddonInfo(self, info, results, addon, manifestInfo):
+	def fetchAddonInfo(self, addon, results):
 		# Spanish community catalog contains version, channel, URL, and compatibility information.
 		# This eliminates the need to access additional sources just for obtaining data.
-		addonVersion = manifestInfo["version"]
+		addonVersion = addon.installedVersion
 		# Is this add-on's metadata present?
 		# Without this, update checking is impossible.
-		addonMetadataPresent = addon in results
+		addonMetadataPresent = addon.name in results
 		if not addonMetadataPresent:
 			return
 		# Compatibility, version, and URL are recorded as entries inside links list grouped by channel.
 		# Stable channel is recorded as "stable".
-		channel = manifestInfo["channel"]
+		channel = addon.updateChannel
 		if channel is None:
 			channel = "stable"
-		channelEntries = results[addon]["links"]
+		channelEntries = results[addon.name]["links"]
 		# Assume at least one update channel exists.
 		addonMetadata = channelEntries[0]
 		for entry in channelEntries:
@@ -489,7 +488,7 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 		# Compatibility information must be converted from strings to integer tuple.
 		addonMetadata["minimumNVDAVersion"] = tuple(int(component) for component in addonMetadata["minimum"].split("."))
 		addonMetadata["lastTestedNVDAVersion"] = tuple(int(component) for component in addonMetadata["lasttested"].split("."))
-		if not self.addonCompatibleAccordingToMetadata(addon, addonMetadata):
+		if not self.addonCompatibleAccordingToMetadata(addon.name, addonMetadata):
 			return
 		addonUrl = addonMetadata["link"]
 		# Announce add-on URL for debugging purposes.
@@ -523,8 +522,8 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 			if res is None or (res and res.code != 200):
 				return
 		version = addonMetadata["version"]
-		if addonVersion != version:
-			info[addon] = {"curVersion": addonVersion, "version": version, "path": addonUrl}
+		addon.version = version
+		addon.url = addonUrl
 
 	def checkForAddonUpdate(self, curAddons, fallbackData=None):
 		results = {}
