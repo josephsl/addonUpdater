@@ -271,7 +271,9 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		# All the info we need for add-on version check is after the last slash.
 		# Sometimes, regular expression fails, and if so, treat it as though there is no update for this add-on.
 		try:
-			version = re.search("(?P<name>)-(?P<version>.*).nvda-addon", addonUrl.split("/")[-1]).groupdict()["version"]
+			version = re.search(
+				"(?P<name>)-(?P<version>.*).nvda-addon", addonUrl.split("/")[-1]
+			).groupdict()["version"]
 		except:
 			log.debug("nvda3208: could not retrieve version info for an add-on from its URL", exc_info=True)
 			return
@@ -286,7 +288,13 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		results = {}
 		# Only do this if no fallback data is specified.
 		if fallbackData is None:
-			addonsFetcher = threading.Thread(target=self.getAddonsData, args=(results,), kwargs={"errorText": "nvda3208: errors occurred while retrieving community add-ons"})
+			addonsFetcher = threading.Thread(
+				target=self.getAddonsData,
+				args=(results,),
+				kwargs={
+					"errorText": "nvda3208: errors occurred while retrieving community add-ons"
+				}
+			)
 			addonsFetcher.start()
 			# This internal thread must be joined, otherwise results will be lost.
 			addonsFetcher.join()
@@ -313,7 +321,8 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 
 class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProject):
 	"""Protocol 2: NVDA community add-ons website with compatibility information supplied by the community.
-	This protocol uses a combination of community add-ons get.php JSON and compatibility data provided by the community.
+	This protocol uses a combination of community add-ons get.php JSON
+	and compatibility data provided by the community.
 	While similar to protocol 1, addons.nvda-project.org JSON is consulted only to retrieve download links.
 	Version and compatibility range (minimum and last tested NVDA versions) checks are possible.
 	This resembles Add-on Updater 21.07 and later and is the default protocol.
@@ -433,7 +442,9 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 		# All the info we need for add-on version check is after the last slash.
 		# Sometimes, regular expression fails, and if so, treat it as though there is no update for this add-on.
 		try:
-			version = re.search("(?P<name>)-(?P<version>.*).nvda-addon", addonUrl.split("/")[-1]).groupdict()["version"]
+			version = re.search(
+				"(?P<name>)-(?P<version>.*).nvda-addon", addonUrl.split("/")[-1]
+			).groupdict()["version"]
 		except:
 			log.debug("nvda3208: could not retrieve version info for an add-on from its URL", exc_info=True)
 			return
@@ -448,7 +459,14 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 		# It is also supposed to be the first fallback collection.
 		results = {}
 		if fallbackData is None:
-			addonsFetcher = threading.Thread(target=self.getAddonsData, args=(results,), kwargs={"url": URLs.communityAddonsList, "errorText": "nvda3208: errors occurred while retrieving community add-ons"})
+			addonsFetcher = threading.Thread(
+				target=self.getAddonsData,
+				args=(results,),
+				kwargs={
+					"url": URLs.communityAddonsList,
+					"errorText": "nvda3208: errors occurred while retrieving community add-ons"
+				}
+			)
 			addonsFetcher.start()
 			# This internal thread must be joined, otherwise results will be lost.
 			addonsFetcher.join()
@@ -459,7 +477,13 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 			results = fallbackData
 		# Enhanced with add-on metadata such as compatibility info maintained by the community.
 		addonsData = {}
-		addonsFetcher = threading.Thread(target=self.getAddonsData, args=(addonsData,), kwargs={"errorText": "nvda3208: errors occurred while retrieving community add-ons metadata"})
+		addonsFetcher = threading.Thread(
+			target=self.getAddonsData,
+			args=(addonsData,),
+			kwargs={
+				"errorText": "nvda3208: errors occurred while retrieving community add-ons metadata"
+			}
+		)
 		addonsFetcher.start()
 		# Just like the earlier thread, this thread too must be joined.
 		addonsFetcher.join()
@@ -578,8 +602,12 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 		# Can the add-on be updated based on community add-ons metadata?
 		# What if a different update channel must be used if the stable channel update is not compatible?
 		# Compatibility information must be converted from strings to integer tuple.
-		addonMetadata["minimumNVDAVersion"] = tuple(int(component) for component in addonMetadata["minimum"].split("."))
-		addonMetadata["lastTestedNVDAVersion"] = tuple(int(component) for component in addonMetadata["lasttested"].split("."))
+		addonMetadata["minimumNVDAVersion"] = tuple(
+			int(component) for component in addonMetadata["minimum"].split(".")
+		)
+		addonMetadata["lastTestedNVDAVersion"] = tuple(
+			int(component) for component in addonMetadata["lasttested"].split(".")
+		)
 		if not self.addonCompatibleAccordingToMetadata(addon.name, addonMetadata):
 			return
 		addonUrl = addonMetadata["link"]
@@ -621,7 +649,14 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 		results = {}
 		# Only do this if no fallback data is specified.
 		if fallbackData is None:
-			addonsFetcher = threading.Thread(target=self.getAddonsData, args=(results,), kwargs={"differentUserAgent": True, "errorText": "nvda3208: errors occurred while retrieving Spanish community add-ons catalog"})
+			addonsFetcher = threading.Thread(
+				target=self.getAddonsData,
+				args=(results,),
+				kwargs={
+					"differentUserAgent": True,
+					"errorText": "nvda3208: errors occurred while retrieving Spanish community add-ons catalog"
+				}
+			)
 			addonsFetcher.start()
 			# This internal thread must be joined, otherwise results will be lost.
 			addonsFetcher.join()

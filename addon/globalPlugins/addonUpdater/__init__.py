@@ -232,7 +232,9 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 			if addon.manifest["summary"] in devAddonUpdateSummaries
 		]
 		addonUtils.updateState["autoUpdate"] = self.autoUpdateCheckBox.IsChecked()
-		addonUtils.updateState["updateSource"] = ["nvdaprojectcompatinfo", "nvdaes"][self.updateSource.GetSelection()]
+		addonUtils.updateState["updateSource"] = (
+			["nvdaprojectcompatinfo", "nvdaes"][self.updateSource.GetSelection()]
+		)
 		if hasattr(self, "updateNotification"):
 			addonUtils.updateState["updateNotification"] = ["toast", "dialog"][self.updateNotification.GetSelection()]
 		global updateChecker
