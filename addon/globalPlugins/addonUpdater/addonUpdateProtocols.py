@@ -10,7 +10,6 @@
 # Specifically, update check routines found in update proc module are now class methods.
 
 
-# From extended add-on handler module
 from urllib.request import urlopen, Request
 import threading
 import json
@@ -42,7 +41,7 @@ class AddonUpdateCheckProtocol(object):
 
 	def getAddonsData(self, results, url=None, differentUserAgent=False, errorText=None):
 		"""Accesses and returns add-ons data from a predefined add-on source URL.
-		As this function blocks the main thread, it should be run from a different thread.
+		As this function blocks the main thread, it should be run from a separate thread.
 		Therefore, the results argument passed in should be a dictionary that can be accessed
 		after calling join function on this thread.
 		Subclasses can override this method.
@@ -80,9 +79,11 @@ class AddonUpdateCheckProtocol(object):
 				results.update(json.load(res))
 				res.close()
 
-	def checkForAddonUpdates(self):
+	def checkForAddonUpdates(self, installedAddons=None):
 		"""Checks and returns add-on update metadata (update records) if any.
 		Update record includes name, summary, update URL, compatibility information and other attributes.
+		In some cases, a list of preliminary update records based on instaled add-ons will be used.
+		Note that in this case, all installed add-ons will be subject to update checks.
 		Subclasses can override this method.
 		"""
 		# Don't even think about update checks if secure mode flag is set.
@@ -91,17 +92,8 @@ class AddonUpdateCheckProtocol(object):
 		curAddons = {}
 		addonSummaries = {}
 		for addon in addonHandler.getAvailableAddons():
-			# Skip add-ons that can update themselves.
-			# Add-on Updater is included, but is an exception as it updates other add-ons, too.
-			if addon.name in addonsWithUpdaters:
-				continue
-			# Sorry Nuance Vocalizer family, no update checks for you.
-			if "vocalizer" in addon.name.lower():
-				continue
 			manifest = addon.manifest
 			name = addon.name
-			if name in addonUtils.updateState["noUpdates"]:
-				continue
 			curVersion = manifest["version"]
 			# Check different channels if appropriate.
 			updateChannel = manifest.get("updateChannel")
