@@ -360,6 +360,13 @@ def checkForAddonUpdates():
 	# Don't even think about update checks if secure mode flag is set.
 	if globalVars.appArgs.secure:
 		return
+	from . import addonUpdateProtocols
+	updateProtocols = {
+		"nvdaprojectcompatinfo": "AddonUpdateCheckProtocolNVDAAddonsGitHub",
+		"nvdaes": "AddonUpdateCheckProtocolNVDAEs"
+	}
+	updateChecker = getattr(addonUpdateProtocols, updateProtocols[addonUtils.updateState["updateSource"]])
+	return updateChecker().checkForAddonUpdates()
 	curAddons = {}
 	addonSummaries = {}
 	for addon in addonHandler.getAvailableAddons():
