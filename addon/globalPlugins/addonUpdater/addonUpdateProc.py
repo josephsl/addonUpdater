@@ -89,7 +89,6 @@ def checkForAddonUpdates():
 		"nvdaes": "AddonUpdateCheckProtocolNVDAEs"
 	}
 	updateChecker = getattr(addonUpdateProtocols, updateProtocols[addonUtils.updateState["updateSource"]])
-	return updateChecker().checkForAddonUpdates()
 	curAddons = {}
 	addonSummaries = {}
 	for addon in addonHandler.getAvailableAddons():
@@ -116,7 +115,7 @@ def checkForAddonUpdates():
 		curAddons[name] = {"summary": manifest["summary"], "version": curVersion, "channel": updateChannel}
 		addonSummaries[name] = manifest["summary"]
 	try:
-		info = checkForAddonUpdate(curAddons)
+		info = updateChecker().checkForAddonUpdates(installedAddons=curAddons)
 	except:
 		# Present an error dialog if manual add-on update check is in progress.
 		raise RuntimeError("Cannot check for community add-on updates")
