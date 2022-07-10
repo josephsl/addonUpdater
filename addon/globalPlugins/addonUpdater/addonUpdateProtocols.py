@@ -79,6 +79,14 @@ class AddonUpdateCheckProtocol(object):
 				results.update(json.load(res))
 				res.close()
 
+	def checkForAddonUpdate(self, curAddons):
+		"""Coordinates add-on update check facility based on update recorded provided.
+		After retrieving add-on update metadata from sources, fetch update info is called on each record
+		to see if updates are available, returning a list of updatable add-on records.
+		Subclasses must implement this method.
+		"""
+		raise NotImplementedError
+
 	def checkForAddonUpdates(self, installedAddons=None):
 		"""Checks and returns add-on update metadata (update records) if any.
 		Update record includes name, summary, update URL, compatibility information and other attributes.
