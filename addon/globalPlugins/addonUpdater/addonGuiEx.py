@@ -40,7 +40,7 @@ def onAddonUpdateCheck(evt):
 	# Update info is valid only once, and this check will nullify it.
 	from . import addonHandlerEx
 	if addonHandlerEx._updateInfo is not None:
-		wx.CallAfter(AddonUpdatesDialog, gui.mainFrame, dict(addonHandlerEx._updateInfo), auto=False)
+		wx.CallAfter(AddonUpdatesDialog, gui.mainFrame, addonHandlerEx._updateInfo, auto=False)
 		addonHandlerEx._updateInfo = None
 		return
 	AddonUpdaterManualUpdateCheck.notify()
