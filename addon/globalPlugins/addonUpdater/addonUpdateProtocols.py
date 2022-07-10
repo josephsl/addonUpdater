@@ -89,22 +89,25 @@ class AddonUpdateCheckProtocol(object):
 		# Don't even think about update checks if secure mode flag is set.
 		if globalVars.appArgs.secure:
 			return
-		curAddons = {}
-		addonSummaries = {}
-		for addon in addonHandler.getAvailableAddons():
-			manifest = addon.manifest
-			name = addon.name
-			curVersion = manifest["version"]
-			# Check different channels if appropriate.
-			updateChannel = manifest.get("updateChannel")
-			if updateChannel == "None":
-				updateChannel = None
-			if updateChannel != "dev" and name in addonUtils.updateState["devUpdates"]:
-				updateChannel = "dev"
-			elif updateChannel == "dev" and name not in addonUtils.updateState["devUpdates"]:
-				updateChannel = None
-			curAddons[name] = {"summary": manifest["summary"], "version": curVersion, "channel": updateChannel}
-			addonSummaries[name] = manifest["summary"]
+		if installedAddons is not None:
+			curAddons = installedAddons
+		else:
+			curAddons = {}
+			addonSummaries = {}
+			for addon in addonHandler.getAvailableAddons():
+				manifest = addon.manifest
+				name = addon.name
+				curVersion = manifest["version"]
+				# Check different channels if appropriate.
+				updateChannel = manifest.get("updateChannel")
+				if updateChannel == "None":
+					updateChannel = None
+				if updateChannel != "dev" and name in addonUtils.updateState["devUpdates"]:
+					updateChannel = "dev"
+				elif updateChannel == "dev" and name not in addonUtils.updateState["devUpdates"]:
+					updateChannel = None
+				curAddons[name] = {"summary": manifest["summary"], "version": curVersion, "channel": updateChannel}
+				addonSummaries[name] = manifest["summary"]
 		try:
 			info = self.checkForAddonUpdate(curAddons)
 		except:
