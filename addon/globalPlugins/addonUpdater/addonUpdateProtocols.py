@@ -94,7 +94,6 @@ class AddonUpdateCheckProtocol(object):
 			curAddons = installedAddons
 		else:
 			curAddons = []
-			addonSummaries = {}
 			for addon in addonHandler.getAvailableAddons():
 				manifest = addon.manifest
 				name = addon.name
@@ -120,7 +119,6 @@ class AddonUpdateCheckProtocol(object):
 		except:
 			# Present an error dialog if manual add-on update check is in progress.
 			raise RuntimeError("Cannot check for community add-on updates")
-		# Build a list of add-on update records if present.
 		return info
 
 

@@ -91,7 +91,6 @@ def checkForAddonUpdates():
 	updateChecker = getattr(addonUpdateProtocols, updateProtocols[addonUtils.updateState["updateSource"]])
 	# Build a list of preliminary update records based on installed add-ons.
 	curAddons = []
-	addonSummaries = {}
 	for addon in addonHandler.getAvailableAddons():
 		# Skip add-ons that can update themselves.
 		# Add-on Updater is included, but is an exception as it updates other add-ons, too.
@@ -126,7 +125,6 @@ def checkForAddonUpdates():
 	except:
 		# Present an error dialog if manual add-on update check is in progress.
 		raise RuntimeError("Cannot check for community add-on updates")
-	# Build a list of add-on update records if present.
 	return info
 
 
