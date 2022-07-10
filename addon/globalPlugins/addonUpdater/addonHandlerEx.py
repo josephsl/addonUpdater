@@ -101,11 +101,15 @@ def _showAddonUpdateUI():
 			global _updateInfo
 			# Translators: menu item label for reviewing add-on updates.
 			updateSuccess.notify(label=_("Review &add-on updates ({updateCount})...").format(updateCount=len(info)))
+			updateSources = {
+				"nvdaprojectcompatinfo": _("NVDA community add-ons website"),
+				"nvdaes": _("Spanish community add-ons catalog"),
+			}
 			updateMessage = _(
 				# Translators: presented as part of add-on update notification message.
-				"One or more add-on updates are available. "
+				"One or more add-on updates are available from {updateSource}. "
 				"Go to NVDA menu, Tools, Review add-on updates to review them."
-			)
+			).format(updateSource=updateSources[addonUtils.updateState["updateSource"]])
 			# Translators: title of the add-on update notification message.
 			wx.adv.NotificationMessage(_("NVDA add-on updates"), updateMessage).Show(timeout=30)
 			_updateInfo = info
