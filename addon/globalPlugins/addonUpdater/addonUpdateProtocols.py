@@ -15,15 +15,11 @@ import threading
 import json
 import re
 import ssl
-import enum
 import addonHandler
 import globalVars
 from logHandler import log
 from .urls import URLs
 from . import addonUtils
-import hashlib
-import gui
-import extensionPoints
 addonHandler.initTranslation()
 
 

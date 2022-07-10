@@ -9,16 +9,11 @@
 # Note that add-on update record class is striclty part of update procedures/processes.
 # Parts will resemble that of extended add-on handler and GUI modules.
 
-from urllib.request import urlopen, Request
-import threading
-import json
-import re
-import ssl
+from urllib.request import urlopen
 import enum
 import addonHandler
 import globalVars
 from logHandler import log
-from .urls import URLs
 from . import addonUtils
 import hashlib
 import gui
