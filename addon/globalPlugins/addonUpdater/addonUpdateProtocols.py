@@ -212,11 +212,9 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		# Perhaps a newer protocol sent a fallback data if the protocol URL fails somehow.
 		else:
 			results = fallbackData
-		# The info dictionary will be passed in as a reference in individual threads below.
-		info = {}
 		updateThreads = [
-			threading.Thread(target=self.fetchAddonInfo, args=(info, results, addon, manifestInfo))
-			for addon, manifestInfo in curAddons.items()
+			threading.Thread(target=self.fetchAddonInfo, args=(addon, results))
+			for addon in curAddons
 		]
 		for thread in updateThreads:
 			thread.start()
@@ -387,12 +385,10 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 			return AddonUpdateCheckProtocolNVDAProject().checkForAddonUpdate(curAddons, fallbackData=results)
 		else:
 			log.debug("nvda3208: add-ons metadata successfully retrieved")
-		# The info dictionary will be passed in as a reference in individual threads below.
 		# Don't forget to perform additional checks based on add-on metadata if present.
-		info = {}
 		updateThreads = [
-			threading.Thread(target=self.fetchAddonInfo, args=(info, results, addon, manifestInfo, addonsData))
-			for addon, manifestInfo in curAddons.items()
+			threading.Thread(target=self.fetchAddonInfo, args=(addon, results, addonsData))
+			for addon in curAddons
 		]
 		for thread in updateThreads:
 			thread.start()
@@ -553,8 +549,8 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 		# The info dictionary will be passed in as a reference in individual threads below.
 		info = {}
 		updateThreads = [
-			threading.Thread(target=self.fetchAddonInfo, args=(info, metadataDictionary, addon, manifestInfo))
-			for addon, manifestInfo in curAddons.items()
+			threading.Thread(target=self.fetchAddonInfo, args=(addon, metadataDictionary))
+			for addon in curAddons
 		]
 		for thread in updateThreads:
 			thread.start()
