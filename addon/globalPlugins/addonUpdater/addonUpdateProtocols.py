@@ -687,10 +687,3 @@ names2urls = {
 	"wordNav": "wordnav",
 	"zoomEnhancements": "zoom",
 }
-
-
-# Add-ons with built-in update feature.
-addonsWithUpdaters = [
-	"BrailleExtender",
-	"Weather Plus",
-]
