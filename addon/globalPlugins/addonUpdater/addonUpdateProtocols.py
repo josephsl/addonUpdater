@@ -89,6 +89,8 @@ class AddonUpdateCheckProtocol(object):
 		# Don't even think about update checks if secure mode flag is set.
 		if globalVars.appArgs.secure:
 			return
+		# Update record class is defined in update proc module, so import it here to avoid circular import.
+		from .addonUpdateProc import AddonUpdateRecord
 		# Build a list of preliminary update records based on installed add-ons.
 		if installedAddons is not None:
 			curAddons = installedAddons
@@ -646,49 +648,3 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 			addon for addon in curAddons
 			if addon.updateAvailable
 		]
-
-
-# Record add-on update information, resembling NVDA add-on manifest.
-class AddonUpdateRecord(object):
-	"""Resembles add-on manifests but optimized for updates.
-	In addition to add-on name, summary, and version, this class records download URL and other data.
-	"""
-
-	def __init__(
-			self,
-			name="",
-			summary="",
-			version="",
-			installedVersion="",
-			url="",
-			hash=None,
-			minimumNVDAVersion=[0, 0, 0],
-			lastTestedNVDAVersion=[0, 0, 0],
-			updateChannel=""
-	):
-		self.name = name
-		self.summary = summary
-		self.version = version
-		self.installedVersion = installedVersion
-		self.url = url
-		self.hash = hash
-		self.minimumNVDAVersion = minimumNVDAVersion
-		self.lastTestedNVDAVersion = lastTestedNVDAVersion
-		self.updateChannel = updateChannel
-
-	def updateDict(self):
-		return {
-			"name": self.name,
-			"summary": self.summary,
-			"version": self.version,
-			"installedVersion": self.installedVersion,
-			"url": self.url,
-			"hash": self.hash,
-			"minimumNVDAVersion": self.minimumNVDAVersion,
-			"lastTestedNVDAVersion": self.lastTestedNVDAVersion,
-			"updateChannel": self.updateChannel
-		}
-
-	@property
-	def updateAvailable(self):
-		return self.version != self.installedVersion
