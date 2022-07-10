@@ -204,6 +204,22 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 		self.devAddonUpdates.SetCheckedStrings(addonHandlerEx.preferDevUpdates())
 		self.devAddonUpdates.SetSelection(0)
 
+		updateSourceChoices = [
+			# Translators: one of the add-on update source choices.
+			("nvdaprojectcompatinfo", _("NVDA community add-ons website")),
+			# Translators: one of the add-on update source choices.
+			("nvdaes", _("Spanish community add-ons catalog")),
+		]
+		self.updateSource = sHelper.addLabeledControl(
+			# Translators: This is the label for a combo box in the
+			# Add-on Updater settings panel.
+			_("Add-on update &source:"), wx.Choice, choices=[x[1] for x in updateSourceChoices]
+		)
+		self.updateSource.SetSelection(
+			next((x for x, y in enumerate(updateSourceChoices)
+			if y[0] == addonUtils.updateState["updateSource"]))
+		)
+
 	def onSave(self):
 		noAddonUpdateSummaries = self.noAddonUpdates.GetCheckedStrings()
 		addonUtils.updateState["noUpdates"] = [
@@ -216,6 +232,7 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 			if addon.manifest["summary"] in devAddonUpdateSummaries
 		]
 		addonUtils.updateState["autoUpdate"] = self.autoUpdateCheckBox.IsChecked()
+		addonUtils.updateState["updateSource"] = ["nvdaprojectcompatinfo", "nvdaes"][self.updateSource.GetSelection()]
 		if hasattr(self, "updateNotification"):
 			addonUtils.updateState["updateNotification"] = ["toast", "dialog"][self.updateNotification.GetSelection()]
 		global updateChecker
