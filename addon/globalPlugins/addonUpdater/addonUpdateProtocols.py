@@ -233,7 +233,6 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		# Obtain update status for add-ons returned from community add-ons website.
 		# Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
 		# This is the case when it becomes necessary to open another website.
-		addonVersion = addon.installedVersion
 		addonKey = names2urls[addon.name]
 		# If "-dev" flag is on, switch to development channel if it exists.
 		channel = addon.updateChannel
@@ -373,7 +372,6 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 		# Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
 		# This is the case when it becomes necessary to open another website.
 		# Also, check add-on update eligibility based on what community add-ons metadata says if present.
-		addonVersion = addon.installedVersion
 		# Is this add-on's metadata present?
 		try:
 			addonMetadata = addonsData["active"][addon.name]
@@ -581,7 +579,6 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 	def fetchAddonInfo(self, addon, results):
 		# Spanish community catalog contains version, channel, URL, and compatibility information.
 		# This eliminates the need to access additional sources just for obtaining data.
-		addonVersion = addon.installedVersion
 		# Is this add-on's metadata present?
 		# Without this, update checking is impossible.
 		addonMetadataPresent = addon.name in results
@@ -672,8 +669,6 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 		metadataDictionary = {}
 		for addon in results["results"]:
 			metadataDictionary[addon["name"]] = addon
-		# The info dictionary will be passed in as a reference in individual threads below.
-		info = {}
 		updateThreads = [
 			threading.Thread(target=self.fetchAddonInfo, args=(addon, metadataDictionary))
 			for addon in curAddons
