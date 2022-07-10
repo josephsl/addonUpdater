@@ -18,12 +18,18 @@ import core
 import extensionPoints
 from gui.nvdaControls import AutoWidthColumnCheckListCtrl
 from .skipTranslation import translate
+from . import addonUtils
 # Temporary
 addonHandler.initTranslation()
 
 AddonUpdaterManualUpdateCheck = extensionPoints.Action()
 
 _progressDialog = None
+updateSources = {
+	"nvdaprojectcompatinfo": _("NVDA community add-ons website"),
+	"nvdaes": _("Spanish community add-ons catalog"),
+}
+
 
 
 # The following event handler comes from a combination of StationPlaylist and Windows App Essentials.
@@ -44,7 +50,9 @@ def onAddonUpdateCheck(evt):
 		# Translators: The title of the dialog presented while checking for add-on updates.
 		_("Add-on update check"),
 		# Translators: The message displayed while checking for add-on updates.
-		_("Checking for add-on updates...")
+		_("Checking for add-on updates from {updateSource}...").format(
+			updateSource=updateSources[addonUtils.updateState["updateSource"]]
+		)
 	)
 	t = threading.Thread(target=addonUpdateCheck)
 	t.daemon = True
@@ -71,7 +79,10 @@ class AddonUpdatesDialog(wx.Dialog):
 
 	def __init__(self, parent, addonUpdateInfo, auto=True):
 		# Translators: The title of the add-on updates dialog.
-		super(AddonUpdatesDialog, self).__init__(parent, title=_("NVDA Add-on Updates"))
+		title = _("NVDA Add-on Updates ({updateSource})").format(
+			updateSource=updateSources[addonUtils.updateState["updateSource"]]
+		)
+		super(AddonUpdatesDialog, self).__init__(parent, title=title)
 		mainSizer = wx.BoxSizer(wx.VERTICAL)
 		addonsSizerHelper = guiHelper.BoxSizerHelper(self, orientation=wx.VERTICAL)
 		self.addonUpdateInfo = addonUpdateInfo
