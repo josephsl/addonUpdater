@@ -220,7 +220,11 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 			thread.start()
 		for thread in updateThreads:
 			thread.join()
-		return info
+		# Build an update info list based on update availability.
+		return [
+			addon for addon in curAddons
+			if addon.updateAvailable
+		]
 
 
 class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProject):
@@ -393,7 +397,11 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 			thread.start()
 		for thread in updateThreads:
 			thread.join()
-		return info
+		# Build an update info list based on update availability.
+		return [
+			addon for addon in curAddons
+			if addon.updateAvailable
+		]
 
 
 class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
@@ -555,7 +563,11 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 			thread.start()
 		for thread in updateThreads:
 			thread.join()
-		return info
+		# Build an update info list based on update availability.
+		return [
+			addon for addon in curAddons
+			if addon.updateAvailable
+		]
 
 
 # Record add-on update information, resembling NVDA add-on manifest.
