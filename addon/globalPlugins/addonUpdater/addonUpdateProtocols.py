@@ -23,6 +23,18 @@ from . import addonUtils
 addonHandler.initTranslation()
 
 
+def getUrlViaMSEdgeUserAgent(url):
+	# Some hosting services block Python/urllib in hopes of avoding bots.
+	# Therefore spoof the user agent to say this is latest Microsoft Edge.
+	# Source: Stack Overflow, Google searches on Apache/mod_security
+	return Request(
+		url,
+		headers={
+			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36 Edg/101.0.1210.47"  # NOQA: E501
+		}
+	)
+
+
 # Define various add-on update check protocols, beginning with protocol 0 (do nothing/abstract protocol).
 class AddonUpdateCheckProtocol(object):
 	"""The default update check protocol, also known as protocol 0.
