@@ -355,23 +355,6 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 	protocolDescription = "NVDA Community Add-ons website with compatibility information"
 	sourceUrl = URLs.metadata
 
-	# Validate a given add-on metadata, mostly involving type checks.
-	def validateAddonMetadata(self, addonMetadata):
-		# Make sure that fields are of the right type.
-		metadataFieldTypes = {
-			"summary": str,
-			"author": str,
-			"minimumNVDAVersion": list,
-			"lastTestedNVDAVersion": list
-		}
-		metadataValid = [
-			isinstance(addonMetadata[field], fieldType)
-			for field, fieldType in metadataFieldTypes.items()
-		]
-		if "addonKey" in addonMetadata:
-			metadataValid.append(isinstance(addonMetadata["addonKey"], str))
-		return all(metadataValid)
-
 	def fetchAddonInfo(self, addon, results, addonsData):
 		# Borrowed ideas from NVDA Core.
 		# Obtain update status for add-ons returned from community add-ons website.
@@ -385,9 +368,6 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 		except KeyError:
 			addonMetadata = {}
 			addonMetadataPresent = False
-		# Validate add-on metadata.
-		if addonMetadataPresent:
-			addonMetadataPresent = self.validateAddonMetadata(addonMetadata)
 		# Add-ons metadata includes addon key in active/addonName/addonKey.
 		addonKey = addonMetadata.get("addonKey") if addonMetadataPresent else None
 		# If "-dev" flag is on, switch to development channel if it exists.
