@@ -130,7 +130,7 @@ class AddonUpdatesDialog(wx.Dialog):
 			addonsSizerHelper.addItem(wx.StaticText(self, label=_("No add-on update available.")))
 
 		bHelper = addonsSizerHelper.addDialogDismissButtons(guiHelper.ButtonHelper(wx.HORIZONTAL))
-		if addonUpdateInfo:
+		if addonUpdateInfo and not updatesInstalled:
 			# Translators: The label of a button to update add-ons.
 			label = _("&Update add-ons")
 			self.updateButton = bHelper.addButton(self, label=label)
