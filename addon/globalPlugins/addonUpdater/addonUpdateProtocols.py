@@ -270,13 +270,14 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		# Some add-ons require traversing another URL.
 		if ".nvda-addon" not in addonUrl:
 			res = None
+			req = getUrlViaMSEdgeUserAgent(f"{URLs.communityFileGetter}{addonKey}")
 			try:
-				res = urlopen(f"https://addons.nvda-project.org/files/get.php?file={addonKey}")
+				res = urlopen(req)
 			except IOError as e:
 				# SSL issue (seen in NVDA Core earlier than 2014.1).
 				if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
 					addonUtils._updateWindowsRootCertificates()
-					res = urlopen(f"https://addons.nvda-project.org/files/get.php?file={addonKey}")
+					res = urlopen(req)
 				else:
 					pass
 			finally:
