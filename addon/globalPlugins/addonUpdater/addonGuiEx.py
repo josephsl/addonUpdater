@@ -16,7 +16,7 @@ from logHandler import log
 import addonHandler
 import core
 import extensionPoints
-from gui.nvdaControls import AutoWidthColumnCheckListCtrl
+from gui.nvdaControls import AutoWidthColumnCheckListCtrl, AutoWidthColumnListCtrl
 from .skipTranslation import translate
 from . import addonUtils
 # Temporary
@@ -87,17 +87,29 @@ class AddonUpdatesDialog(wx.Dialog):
 		addonsSizerHelper = guiHelper.BoxSizerHelper(self, orientation=wx.VERTICAL)
 		self.addonUpdateInfo = addonUpdateInfo
 		self.auto = auto
+		self.updatesInstalled = updatesInstalled
 
 		if addonUpdateInfo:
 			addonUpdateCount = len(addonUpdateInfo)
-			# Translators: Message displayed when add-on updates are available.
-			updateText = _("Add-on updates available: {updateCount}").format(updateCount=addonUpdateCount)
+			if not updatesInstalled:
+				# Translators: Message displayed when add-on updates are available.
+				updateText = _("Add-on updates available: {updateCount}").format(updateCount=addonUpdateCount)
+			else:
+				# Translators: Message displayed when add-on updates were installed.
+				updateText = _("Add-ons pending install: {updateCount}").format(updateCount=addonUpdateCount)
 			addonsSizerHelper.addItem(wx.StaticText(self, label=updateText))
 			entriesSizer = wx.BoxSizer(wx.VERTICAL)
-			self.addonsList = AutoWidthColumnCheckListCtrl(
-				self, -1, style=wx.LC_REPORT | wx.LC_SINGLE_SEL, size=(550, 350)
-			)
-			self.addonsList.Bind(wx.EVT_CHECKLISTBOX, self.onAddonsChecked)
+			# Present checkboxes if add-ons were not downloaded yet,
+			# a regular list control if pending install.
+			if not updatesInstalled:
+				self.addonsList = AutoWidthColumnCheckListCtrl(
+					self, -1, style=wx.LC_REPORT | wx.LC_SINGLE_SEL, size=(550, 350)
+				)
+				self.addonsList.Bind(wx.EVT_CHECKLISTBOX, self.onAddonsChecked)
+			else:
+				self.addonsList = AutoWidthColumnListCtrl(
+					self, -1, style=wx.LC_REPORT | wx.LC_SINGLE_SEL, size=(550, 350)
+				)
 			self.addonsList.InsertColumn(0, translate("Package"), width=150)
 			# Translators: The label for a column in add-ons updates list
 			# used to identify current add-on version (example: version is 0.3).
@@ -108,7 +120,8 @@ class AddonUpdatesDialog(wx.Dialog):
 			entriesSizer.Add(self.addonsList, proportion=8)
 			for addon in self.addonUpdateInfo:
 				self.addonsList.Append((addon.summary, addon.installedVersion, addon.version))
-				self.addonsList.CheckItem(self.addonsList.GetItemCount() - 1)
+				if not updatesInstalled:
+					self.addonsList.CheckItem(self.addonsList.GetItemCount() - 1)
 			self.addonsList.Select(0)
 			self.addonsList.SetItemState(0, wx.LIST_STATE_FOCUSED, wx.LIST_STATE_FOCUSED)
 			addonsSizerHelper.addItem(entriesSizer)
