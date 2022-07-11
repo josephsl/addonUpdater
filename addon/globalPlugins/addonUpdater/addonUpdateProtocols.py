@@ -249,14 +249,15 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 	sourceUrl = URLs.communityAddonsList
 
 	def fetchAddonInfo(self, addon, results):
-		# Not all released add-ons are recorded in names to URLs dictionary.
-		if addon.name not in names2urls:
-			return
 		# Borrowed ideas from NVDA Core.
 		# Obtain update status for add-ons returned from community add-ons website.
 		# Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
 		# This is the case when it becomes necessary to open another website.
-		addonKey = names2urls[addon.name]
+		# Not all released add-ons are recorded in names to URLs dictionary.
+		try:
+			addonKey = names2urls[addon.name]
+		except KeyError:
+			return
 		# If "-dev" flag is on, switch to development channel if it exists.
 		channel = addon.updateChannel
 		if channel is not None:
