@@ -361,13 +361,11 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 		# Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
 		# This is the case when it becomes necessary to open another website.
 		# Also, check add-on update eligibility based on what community add-ons metadata says if present.
-		# Is this add-on's metadata present?
+		# Is this add-on's metadata present? If not, update check cannot proceed.
 		try:
 			addonMetadata = addonsData["active"][addon.name]
-			addonMetadataPresent = True
 		except KeyError:
-			addonMetadata = {}
-			addonMetadataPresent = False
+			return
 		# Add-ons metadata includes addon key in active/addonName/addonKey.
 		addonKey = addonMetadata.get("addonKey") if addonMetadataPresent else None
 		# If "-dev" flag is on, switch to development channel if it exists.
