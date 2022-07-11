@@ -167,6 +167,16 @@ class AddonUpdatesDialog(wx.Dialog):
 
 	def onClose(self, evt):
 		self.Destroy()
+		if self.updatesInstalled:
+			if gui.messageBox(
+				translate(
+					"Changes were made to add-ons. You must restart NVDA for these changes to take effect. "
+					"Would you like to restart now?"
+				),
+				translate("Restart NVDA"),
+				wx.YES | wx.NO | wx.ICON_WARNING
+			) == wx.YES:
+				core.restart()
 
 
 _downloadProgressDialog = None
