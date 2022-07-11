@@ -19,6 +19,7 @@ import extensionPoints
 from gui.nvdaControls import AutoWidthColumnCheckListCtrl, AutoWidthColumnListCtrl
 from .skipTranslation import translate
 from . import addonUtils
+from . import addonUpdateProc
 # Temporary
 addonHandler.initTranslation()
 
@@ -67,7 +68,6 @@ def onAddonUpdateCheck(evt):
 
 
 def addonUpdateCheck():
-	from . import addonUpdateProc
 	global _progressDialog
 	try:
 		info = addonUpdateProc.checkForAddonUpdates()
@@ -190,7 +190,6 @@ _downloadProgressDialog = None
 
 
 def downloadAndInstallAddonUpdates(addons):
-	from . import addonUpdateProc
 	global _downloadProgressDialog
 	downloadedAddons = []
 	currentPos = 0
@@ -227,7 +226,6 @@ def downloadAndInstallAddonUpdates(addons):
 
 
 def installAddons(addons):
-	from . import addonUpdateProc
 	progressDialog = gui.IndeterminateProgressDialog(
 		gui.mainFrame,
 		# Translators: The title of the dialog presented while an Addon is being updated.

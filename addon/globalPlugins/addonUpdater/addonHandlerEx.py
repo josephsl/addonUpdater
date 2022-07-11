@@ -13,6 +13,7 @@ import addonHandler
 import extensionPoints
 from logHandler import log
 from . import addonUtils
+from . import addonUpdateProc
 addonHandler.initTranslation()
 
 
@@ -79,7 +80,6 @@ def _showAddonUpdateUI():
 		gui.mainFrame.prePopup()
 		AddonUpdatesDialog(gui.mainFrame, info).Show()
 		gui.mainFrame.postPopup()
-	from . import addonUpdateProc
 	try:
 		info = addonUpdateProc.checkForAddonUpdates()
 	except:
@@ -136,7 +136,6 @@ _backgroundUpdate = False
 def downloadAndInstallAddonUpdates(addons):
 	import tempfile
 	import os
-	from . import addonUpdateProc
 	global _updateInfo, _backgroundUpdate
 	downloadedAddons = []
 	for addon in addons:
