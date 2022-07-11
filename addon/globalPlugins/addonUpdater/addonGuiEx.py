@@ -31,7 +31,6 @@ updateSources = {
 }
 
 
-
 # The following event handler comes from a combination of StationPlaylist and Windows App Essentials.
 def onAddonUpdateCheck(evt):
 	from . import addonHandlerEx
@@ -41,7 +40,13 @@ def onAddonUpdateCheck(evt):
 	# Also nullify background update flag.
 	from . import addonHandlerEx
 	if addonHandlerEx._updateInfo is not None:
-		wx.CallAfter(AddonUpdatesDialog, gui.mainFrame, addonHandlerEx._updateInfo, auto=False, updatesInstalled=addonHandlerEx._backgroundUpdate)
+		wx.CallAfter(
+			AddonUpdatesDialog,
+			gui.mainFrame,
+			addonHandlerEx._updateInfo,
+			auto=False,
+			updatesInstalled=addonHandlerEx._backgroundUpdate
+		)
 		addonHandlerEx._updateInfo = None
 		addonHandlerEx._backgroundUpdate = False
 		return
