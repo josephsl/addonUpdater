@@ -143,13 +143,21 @@ def downloadAndInstallAddonUpdates(addons):
 		except RuntimeError:
 			log.debug(f"nvda3208: failed to download {addon.summary}", exc_info=True)
 		else:
-			downloadedAddons.append((destPath, addon.summary))
+			downloadedAddons.append((destPath, addon.summary, addon.name, addon.installedVersion, addon.version))
 	successfullyInstalledCount = 0
+	# Gather successful update records for presentation later.
+	_updateInfo = []
 	for addon in downloadedAddons:
 		log.debug(f"nvda3208: installing {addon[1]} from {addon[0]}")
 		installStatus = addonUpdateProc.installAddonUpdate(addon[0], addon[1])
 		if installStatus == addonUpdateProc.AddonInstallStatus.AddonInstallSuccess:
 			successfullyInstalledCount += 1
+			_updateInfo.append(addonUpdateProc.AddonUpdateRecord(
+				name=addon[2],
+				summary=addon[1],
+				version=addon[4],
+				installedVersion=addon[3]
+			))
 		log.debug(f"nvda3208: add-on install status is {installStatus}")
 		try:
 			os.remove(addon[0])
