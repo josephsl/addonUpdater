@@ -183,6 +183,12 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 				next((x for x, y in enumerate(updateNotificationChoices)
 				if y[0] == addonUtils.updateState["updateNotification"]))
 			)
+			self.backgroundUpdateCheckBox = sHelper.addItem(
+				# Translators: This is the label for a checkbox in the
+				# Add-on Updater settings panel.
+				wx.CheckBox(self, label=_("Update add-ons in the &background"))
+			)
+			self.backgroundUpdateCheckBox.SetValue(addonUtils.updateState["backgroundUpdate"])
 
 		# Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
 		# Some add-ons come with pretty badly formatted summary text,
@@ -237,6 +243,8 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 		)
 		if hasattr(self, "updateNotification"):
 			addonUtils.updateState["updateNotification"] = ["toast", "dialog"][self.updateNotification.GetSelection()]
+		if hasattr(self, "backgroundUpdateCheckBox"):
+			addonUtils.updateState["backgroundUpdate"] = self.backgroundUpdateCheckBox.IsChecked()
 		global updateChecker
 		if updateChecker and updateChecker.IsRunning():
 			updateChecker.Stop()
