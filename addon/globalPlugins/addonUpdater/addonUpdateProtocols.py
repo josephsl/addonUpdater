@@ -59,15 +59,7 @@ class AddonUpdateCheckProtocol(object):
 		if url is None:
 			url = self.sourceUrl
 		if differentUserAgent:
-			# Some hosting services block Python/urllib in hopes of avoding bots.
-			# Therefore spoof the user agent to say this is latest Microsoft Edge.
-			# Source: Stack Overflow, Google searches on Apache/mod_security
-			url = Request(
-				url,
-				headers={
-					"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36 Edg/101.0.1210.47"  # NOQA: E501
-				}
-			)
+			url = getUrlViaMSEdgeUserAgent(url)
 		if errorText is None:
 			errorText = "nvda3208: errors occurred while retrieving add-ons data"
 		res = None
@@ -422,15 +414,7 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 		# Some add-ons require traversing another URL.
 		if ".nvda-addon" not in addonUrl:
 			res = None
-			# Some hosting services block Python/urllib in hopes of avoding bots.
-			# Therefore spoof the user agent to say this is latest Microsoft Edge.
-			# Source: Stack Overflow, Google searches on Apache/mod_security
-			req = Request(
-				f"{URLs.communityFileGetter}{addonKey}",
-				headers={
-					"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36 Edg/101.0.1210.47"  # NOQA: E501
-				}
-			)
+			req = getUrlViaMSEdgeUserAgent(f"{URLs.communityFileGetter}{addonKey}")
 			try:
 				res = urlopen(req)
 			except IOError as e:
@@ -545,15 +529,7 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 		if url is None:
 			url = self.sourceUrl
 		if differentUserAgent:
-			# Some hosting services block Python/urllib in hopes of avoding bots.
-			# Therefore spoof the user agent to say this is latest Microsoft Edge.
-			# Source: Stack Overflow, Google searches on Apache/mod_security
-			url = Request(
-				url,
-				headers={
-					"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36 Edg/101.0.1210.47"  # NOQA: E501
-				}
-			)
+			url = getUrlViaMSEdgeUserAgent(url)
 		if errorText is None:
 			errorText = "nvda3208: errors occurred while retrieving add-ons data"
 		res = None
@@ -611,15 +587,7 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 		# Some add-ons require traversing another URL.
 		if ".nvda-addon" not in addonUrl:
 			res = None
-			# Some hosting services block Python/urllib in hopes of avoding bots.
-			# Therefore spoof the user agent to say this is latest Microsoft Edge.
-			# Source: Stack Overflow, Google searches on Apache/mod_security
-			req = Request(
-				addonUrl,
-				headers={
-					"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36 Edg/101.0.1210.47"  # NOQA: E501
-				}
-			)
+			req = getUrlViaMSEdgeUserAgent(addonUrl)
 			try:
 				res = urlopen(req)
 			except IOError as e:
