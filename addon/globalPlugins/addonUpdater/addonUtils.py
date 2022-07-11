@@ -16,6 +16,7 @@ def loadState():
 			updateState = pickle.load(f)
 	except (IOError, EOFError, NameError, ValueError, pickle.UnpicklingError):
 		updateState["autoUpdate"] = True
+		updateState["backgroundUpdate"] = False
 		updateState["updateNotification"] = "toast"
 		updateState["updateSource"] = "nvdaprojectcompatinfo"
 		updateState["lastChecked"] = 0
@@ -25,6 +26,8 @@ def loadState():
 	# Just to make sure...
 	if "autoUpdate" not in updateState:
 		updateState["autoUpdate"] = True
+	if "backgroundUpdate" not in updateState:
+		updateState["backgroundUpdate"] = False
 	if "updateNotification" not in updateState:
 		updateState["updateNotification"] = "toast"
 	if "updateSource" not in updateState:
@@ -57,6 +60,7 @@ def reload(factoryDefaults=False):
 	else:
 		updateState.clear()
 		updateState["autoUpdate"] = True
+		updateState["backgroundUpdate"] = False
 		updateState["updateNotification"] = "toast"
 		updateState["updateSource"] = "nvdaprojectcompatinfo"
 		updateState["lastChecked"] = 0
