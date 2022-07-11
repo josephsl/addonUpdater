@@ -38,10 +38,12 @@ def onAddonUpdateCheck(evt):
 	addonHandlerEx.updateSuccess.notify()
 	# If toast was shown, this will launch the results dialog directly as there is already update info.
 	# Update info is valid only once, and this check will nullify it.
+	# Also nullify background update flag.
 	from . import addonHandlerEx
 	if addonHandlerEx._updateInfo is not None:
-		wx.CallAfter(AddonUpdatesDialog, gui.mainFrame, addonHandlerEx._updateInfo, auto=False)
+		wx.CallAfter(AddonUpdatesDialog, gui.mainFrame, addonHandlerEx._updateInfo, auto=False, updatesInstalled=addonHandlerEx._backgroundUpdate)
 		addonHandlerEx._updateInfo = None
+		addonHandlerEx._backgroundUpdate = False
 		return
 	AddonUpdaterManualUpdateCheck.notify()
 	global _progressDialog
