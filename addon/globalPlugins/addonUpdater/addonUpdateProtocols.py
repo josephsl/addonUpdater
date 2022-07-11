@@ -367,16 +367,14 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 		except KeyError:
 			return
 		# Add-ons metadata includes addon key in active/addonName/addonKey.
-		addonKey = addonMetadata.get("addonKey") if addonMetadataPresent else None
+		addonKey = addonMetadata.get("addonKey")
+		# Can the add-on be updated based on community add-ons metadata?
+		if not self.addonCompatibleAccordingToMetadata(addon.name, addonMetadata):
+			return
 		# If "-dev" flag is on, switch to development channel if it exists.
 		channel = addon.updateChannel
 		if channel is not None:
 			addonKey += "-" + channel
-		# Can the add-on be updated based on community add-ons metadata?
-		# What if a different update channel must be used if the stable channel update is not compatible?
-		if addonMetadataPresent:
-			if not self.addonCompatibleAccordingToMetadata(addon.name, addonMetadata):
-				return
 		try:
 			addonUrl = results[addonKey]
 		except:
