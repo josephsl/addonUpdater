@@ -525,7 +525,7 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 		# This eliminates the need to access additional sources just for obtaining data.
 		# Is this add-on's metadata present?
 		# Without this, update checking is impossible.
-		if not addon.name in results
+		if addon.name not in results:
 			return
 		# Compatibility, version, and URL are recorded as entries inside links list grouped by channel.
 		# Stable channel is recorded as "stable".
