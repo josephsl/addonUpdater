@@ -75,6 +75,25 @@ class AddonUpdateCheckProtocol(object):
 				results.update(json.load(res))
 				res.close()
 
+	def addonCompatibleAccordingToMetadata(self, addon, addonMetadata):
+		"""Checks if a given add-on update is compatible with the running version of NVDA.
+		"""
+		# Check add-on update eligibility with help from community add-ons metadata if present.
+		# Always return "yes" for development releases.
+		# The whole point of development releases is to send feedback to add-on developers across NVDA releases.
+		# Although possible, development releases should not be used to dodge around NVDA compatibility checks
+		# as add-ons can break without notice.
+		if addon in addonUtils.updateState["devUpdates"]:
+			return True
+		import addonAPIVersion
+		minimumNVDAVersion = tuple(addonMetadata["minimumNVDAVersion"])
+		lastTestedNVDAVersion = tuple(addonMetadata["lastTestedNVDAVersion"])
+		# Is the add-on update compatible with local NVDA version the user is using?
+		return (
+			minimumNVDAVersion <= addonAPIVersion.CURRENT
+			and lastTestedNVDAVersion >= addonAPIVersion.BACK_COMPAT_TO
+		)
+
 	def checkForAddonUpdate(self, curAddons):
 		"""Coordinates add-on update check facility based on update recorded provided.
 		After retrieving add-on update metadata from sources, fetch update info is called on each record
@@ -349,23 +368,6 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 			metadataValid.append(isinstance(addonMetadata["addonKey"], str))
 		return all(metadataValid)
 
-	def addonCompatibleAccordingToMetadata(self, addon, addonMetadata):
-		# Check add-on update eligibility with help from community add-ons metadata if present.
-		# Always return "yes" for development releases.
-		# The whole point of development releases is to send feedback to add-on developers across NVDA releases.
-		# Although possible, development releases should not be used to dodge around NVDA compatibility checks
-		# as add-ons can break without notice.
-		if addon in addonUtils.updateState["devUpdates"]:
-			return True
-		import addonAPIVersion
-		minimumNVDAVersion = tuple(addonMetadata["minimumNVDAVersion"])
-		lastTestedNVDAVersion = tuple(addonMetadata["lastTestedNVDAVersion"])
-		# Is the add-on update compatible with local NVDA version the user is using?
-		return (
-			minimumNVDAVersion <= addonAPIVersion.CURRENT
-			and lastTestedNVDAVersion >= addonAPIVersion.BACK_COMPAT_TO
-		)
-
 	def fetchAddonInfo(self, addon, results, addonsData):
 		# Borrowed ideas from NVDA Core.
 		# Obtain update status for add-ons returned from community add-ons website.
@@ -558,23 +560,6 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 			if res is not None:
 				results["results"] = json.load(res)
 				res.close()
-
-	def addonCompatibleAccordingToMetadata(self, addon, addonMetadata):
-		# Check add-on update eligibility with help from community add-ons metadata if present.
-		# Always return "yes" for development releases.
-		# The whole point of development releases is to send feedback to add-on developers across NVDA releases.
-		# Although possible, development releases should not be used to dodge around NVDA compatibility checks
-		# as add-ons can break without notice.
-		if addon in addonUtils.updateState["devUpdates"]:
-			return True
-		import addonAPIVersion
-		minimumNVDAVersion = tuple(addonMetadata["minimumNVDAVersion"])
-		lastTestedNVDAVersion = tuple(addonMetadata["lastTestedNVDAVersion"])
-		# Is the add-on update compatible with local NVDA version the user is using?
-		return (
-			minimumNVDAVersion <= addonAPIVersion.CURRENT
-			and lastTestedNVDAVersion >= addonAPIVersion.BACK_COMPAT_TO
-		)
 
 	def fetchAddonInfo(self, addon, results):
 		# Spanish community catalog contains version, channel, URL, and compatibility information.
