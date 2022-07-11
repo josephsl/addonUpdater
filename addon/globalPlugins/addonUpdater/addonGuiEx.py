@@ -77,7 +77,7 @@ def addonUpdateCheck():
 
 class AddonUpdatesDialog(wx.Dialog):
 
-	def __init__(self, parent, addonUpdateInfo, auto=True):
+	def __init__(self, parent, addonUpdateInfo, auto=True, updatesInstalled=False):
 		# Translators: The title of the add-on updates dialog.
 		title = _("NVDA Add-on Updates ({updateSource})").format(
 			updateSource=updateSources[addonUtils.updateState["updateSource"]]
