@@ -390,13 +390,6 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 			addonMetadataPresent = self.validateAddonMetadata(addonMetadata)
 		# Add-ons metadata includes addon key in active/addonName/addonKey.
 		addonKey = addonMetadata.get("addonKey") if addonMetadataPresent else None
-		# If add-on key is None, it can indicate Add-on metadata is unusable or add-on key was unassigned.
-		# Therefore use the add-on key map that ships with this add-on, although it may not record new add-ons.
-		if addonKey is None:
-			try:
-				addonKey = names2urls[addon]
-			except KeyError:
-				return
 		# If "-dev" flag is on, switch to development channel if it exists.
 		channel = addon.updateChannel
 		if channel is not None:
