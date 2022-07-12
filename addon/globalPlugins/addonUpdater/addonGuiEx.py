@@ -20,16 +20,14 @@ from gui.nvdaControls import AutoWidthColumnCheckListCtrl, AutoWidthColumnListCt
 from .skipTranslation import translate
 from . import addonUtils
 from . import addonUpdateProc
+from .addonUpdateProtocols import AvailableUpdateProtocols
 # Temporary
 addonHandler.initTranslation()
 
 AddonUpdaterManualUpdateCheck = extensionPoints.Action()
 
 _progressDialog = None
-updateSources = {
-	"nvdaprojectcompatinfo": _("NVDA community add-ons website"),
-	"nvdaes": _("Spanish community add-ons catalog"),
-}
+updateSources = {protocol.key: protocol.description for protocol in AvailableUpdateProtocols}
 
 
 # The following event handler comes from a combination of StationPlaylist and Windows App Essentials.
