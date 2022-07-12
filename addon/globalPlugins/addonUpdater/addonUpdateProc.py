@@ -80,8 +80,7 @@ def checkForAddonUpdates():
 		return
 	from . import addonUpdateProtocols
 	updateProtocols = {
-		"nvdaprojectcompatinfo": "AddonUpdateCheckProtocolNVDAAddonsGitHub",
-		"nvdaes": "AddonUpdateCheckProtocolNVDAEs"
+		protocol.key: protocol.protocol for protocol in addonUpdateProtocols.AvailableUpdateProtocols
 	}
 	updateChecker = getattr(addonUpdateProtocols, updateProtocols[addonUtils.updateState["updateSource"]])
 	# Build a list of preliminary update records based on installed add-ons.
