@@ -14,6 +14,7 @@ import extensionPoints
 from logHandler import log
 from . import addonUtils
 from . import addonUpdateProc
+from .addonUpdateProtocols import AvailableUpdateProtocols
 addonHandler.initTranslation()
 
 
@@ -71,6 +72,7 @@ def autoAddonUpdateCheck():
 # Only stored when update toast appears.
 _updateInfo = None
 updateSuccess = extensionPoints.Action()
+updateSources = {protocol.key: protocol.description for protocol in AvailableUpdateProtocols}
 
 
 def _showAddonUpdateUI():
@@ -104,10 +106,6 @@ def _showAddonUpdateUI():
 			global _updateInfo
 			# Translators: menu item label for reviewing add-on updates.
 			updateSuccess.notify(label=_("Review &add-on updates ({updateCount})...").format(updateCount=len(info)))
-			updateSources = {
-				"nvdaprojectcompatinfo": _("NVDA community add-ons website"),
-				"nvdaes": _("Spanish community add-ons catalog"),
-			}
 			if not addonUtils.updateState["backgroundUpdate"]:
 				updateMessage = _(
 					# Translators: presented as part of add-on update notification message.
@@ -169,10 +167,6 @@ def downloadAndInstallAddonUpdates(addons):
 	log.debug(f"nvda3208: install success count: {successfullyInstalledCount}")
 	# Now present review add-on updates notification if add-ons were installed.
 	if successfullyInstalledCount:
-		updateSources = {
-			"nvdaprojectcompatinfo": _("NVDA community add-ons website"),
-			"nvdaes": _("Spanish community add-ons catalog"),
-		}
 		updateMessage = _(
 			# Translators: presented as part of add-on update notification message.
 			"One or more add-on updates from {updateSource} were installed. "
