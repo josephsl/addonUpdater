@@ -15,6 +15,7 @@ import threading
 import json
 import re
 import ssl
+from collections import namedtuple
 import addonHandler
 import globalVars
 from logHandler import log
@@ -617,3 +618,18 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 			addon for addon in curAddons
 			if addon.updateAvailable
 		]
+
+
+# Define available update protocols as a named tuple.
+# Named tuples allow tuple fields (columns) to be index by attribute lookup syntax.
+UpdateProtocol = namedtuple("UpdateProtocol", "key, protocol, description")
+AvailableUpdateProtocols = (
+	UpdateProtocol(
+		# Translators: one of the add-on update source choices.
+		"nvdaprojectcompatinfo", "AddonUpdateCheckProtocolNVDAAddonsGitHub", _("NVDA community add-ons website")
+	),
+	UpdateProtocol(
+		# Translators: one of the add-on update source choices.
+		"nvdaes", "AddonUpdateCheckProtocolNVDAEs", _("Spanish community add-ons catalog")
+	)
+)
