@@ -5,6 +5,7 @@
 # URL: https://github.com/nvaccess/nvda/issues/3208
 
 import globalPluginHandler
+import sys
 import time
 import gui
 from gui.nvdaControls import CustomCheckListBox, AutoWidthColumnListCtrl
@@ -100,6 +101,18 @@ def disableInSecureMode(cls):
 	return globalPluginHandler.GlobalPlugin if globalVars.appArgs.secure else cls
 
 
+# Process add-on specific command-line switches.
+def processArgs(cliArgument: str) -> bool:
+	"""if cliArgument:
+		# Remove the command-line switch from sys.argv so the add-on can
+		# function normally unless restarted with these switches added.
+		# This should not be part of global plugin terminate method because sys.argv is kept
+		# when NVDA is restarted from Exit NVDA dialog.
+		sys.argv.remove(cliArgument)
+		return True"""
+	return False
+
+
 @disableInSecureMode
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
@@ -111,6 +124,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		if not canUpdate:
 			log.info("nvda3208: update check not supported in source code version of NVDA")
 			return
+		# Tell NVDA that the add-on accepts additional command-line switches.
+		# This is not supported properly on NVDA releases before 2022.1.
+		if hasattr(addonHandler, "isCLIParamKnown"):
+			addonHandler.isCLIParamKnown.register(processArgs)
 		addonUtils.loadState()
 		self.toolsMenu = gui.mainFrame.sysTrayIcon.toolsMenu
 		self.addonUpdater = self.toolsMenu.Append(
