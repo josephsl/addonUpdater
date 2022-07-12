@@ -241,6 +241,21 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 			)
 		)
 
+	def isValid(self):
+		# Present a message if about to switch to a different add-on update source.
+		selectedSource = self.updateSource.GetSelection()
+		if addonUtils.updateState["updateSource"] != self.updateSourceKeys[selectedSource]:
+			return gui.messageBox(
+				_(
+				# Translators: Presented when about to switch add-on update sources.
+				"You are about to switch to a different add-on update source. "
+				"Are you sure you wish to change update source to {updateSourceDescription}?"
+				).format(updateSourceDescription=self.updateSource.GetStringSelection()),
+				# Translators: Title of the add-on update source dialog.
+				_("Add-on update source change"), wx.YES | wx.NO | wx.ICON_WARNING, self
+			) == wx.YES
+		return super(AddonUpdaterPanel, self).isValid()
+
 	def onSave(self):
 		noAddonUpdateSummaries = self.noAddonUpdates.GetCheckedStrings()
 		addonUtils.updateState["noUpdates"] = [
