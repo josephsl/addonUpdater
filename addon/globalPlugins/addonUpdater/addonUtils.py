@@ -2,6 +2,9 @@
 # Copyright 2018-2022 Joseph Lee, released under GPL.
 
 import pickle
+from urllib.request import urlopen
+import ctypes
+import ssl
 import os
 import globalVars
 
@@ -70,3 +73,29 @@ def reload(factoryDefaults=False):
 
 def save():
 	saveState(keepStateOnline=True)
+
+
+# Borrowed from NVDA Core (the only difference is the URL and where structures are coming from).
+# Flake8: ignore this function altogether.
+def _updateWindowsRootCertificates():
+	import updateCheck
+	crypt = ctypes.windll.crypt32
+	# Get the server certificate.
+	sslCont = ssl._create_unverified_context()
+	u = urlopen("https://addons.nvda-project.org", context=sslCont)
+	cert = u.fp._sock.getpeercert(True)
+	u.close()
+	# Convert to a form usable by Windows.
+	certCont = crypt.CertCreateCertificateContext(
+		0x00000001,  # X509_ASN_ENCODING
+		cert,
+		len(cert))
+	# Ask Windows to build a certificate chain, thus triggering a root certificate update.
+	chainCont = ctypes.c_void_p()
+	crypt.CertGetCertificateChain(None, certCont, None, None,
+		ctypes.byref(updateCheck.CERT_CHAIN_PARA(cbSize=ctypes.sizeof(updateCheck.CERT_CHAIN_PARA),
+			RequestedUsage=updateCheck.CERT_USAGE_MATCH())),
+		0, None,
+		ctypes.byref(chainCont))
+	crypt.CertFreeCertificateChain(chainCont)
+	crypt.CertFreeCertificateContext(certCont)
