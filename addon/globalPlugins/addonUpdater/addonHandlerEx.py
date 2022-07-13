@@ -106,9 +106,9 @@ def _showAddonUpdateUI() -> None:
 		):
 			# To reduce intrusiveness, background updates notification will be shown.
 			global _updateInfo
-			# Translators: menu item label for reviewing add-on updates.
-			updateSuccess.notify(label=_("Review &add-on updates ({updateCount})...").format(updateCount=len(info)))
 			if not addonUtils.updateState["backgroundUpdate"]:
+				# Translators: menu item label for reviewing add-on updates.
+				updateSuccess.notify(label=_("Review &add-on updates ({updateCount})...").format(updateCount=len(info)))
 				updateMessage: str = _(
 					# Translators: presented as part of add-on update notification message.
 					"One or more add-on updates from {updateSource} are available. "
