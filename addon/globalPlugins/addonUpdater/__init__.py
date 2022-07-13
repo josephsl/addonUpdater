@@ -5,7 +5,6 @@
 # URL: https://github.com/nvaccess/nvda/issues/3208
 
 import globalPluginHandler
-import sys
 import time
 import gui
 from gui.nvdaControls import CustomCheckListBox, AutoWidthColumnListCtrl
@@ -108,6 +107,7 @@ def processArgs(cliArgument: str) -> bool:
 		# function normally unless restarted with these switches added.
 		# This should not be part of global plugin terminate method because sys.argv is kept
 		# when NVDA is restarted from Exit NVDA dialog.
+		import sys
 		sys.argv.remove(cliArgument)
 		return True"""
 	return False
