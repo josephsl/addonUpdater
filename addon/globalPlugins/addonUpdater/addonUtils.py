@@ -7,6 +7,18 @@ import ctypes
 import ssl
 import os
 import globalVars
+import winVersion
+
+
+# Not all features are supported on older Windows releases or on specific configurations.
+# Set state flags to specific values based on condition check functions.
+def isClientOS() -> bool:
+	return winVersion.getWinVer().productType == "workstation"
+
+
+def isWin10ClientOrLater() -> bool:
+	return winVersion.getWinVer() >= winVersion.WIN10 and isClientOS()
+
 
 updateState = {}
 
