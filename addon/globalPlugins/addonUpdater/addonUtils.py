@@ -23,14 +23,15 @@ def isWin10ClientOrLater() -> bool:
 updateState = {}
 
 
-def loadState():
+def loadState() -> None:
+	# Some flags will have different default values based on current Windows version and edition.
 	global updateState
 	try:
 		# Pickle wants to work with bytes.
 		with open(os.path.join(globalVars.appArgs.configPath, "nvda3208.pickle"), "rb") as f:
 			updateState = pickle.load(f)
 	except (IOError, EOFError, NameError, ValueError, pickle.UnpicklingError):
-		updateState["autoUpdate"] = True
+		updateState["autoUpdate"] = isClientOS()
 		updateState["backgroundUpdate"] = False
 		updateState["updateNotification"] = "toast"
 		updateState["updateSource"] = "nvdaprojectcompatinfo"
@@ -40,7 +41,7 @@ def loadState():
 		updateState["legacyAddonsFound"] = set()
 	# Just to make sure...
 	if "autoUpdate" not in updateState:
-		updateState["autoUpdate"] = True
+		updateState["autoUpdate"] = isClientOS()
 	if "backgroundUpdate" not in updateState:
 		updateState["backgroundUpdate"] = False
 	if "updateNotification" not in updateState:
@@ -57,7 +58,7 @@ def loadState():
 		updateState["legacyAddonsFound"] = set()
 
 
-def saveState(keepStateOnline=False):
+def saveState(keepStateOnline: bool = False) -> None:
 	global updateState
 	try:
 		with open(os.path.join(globalVars.appArgs.configPath, "nvda3208.pickle"), "wb") as f:
@@ -69,12 +70,12 @@ def saveState(keepStateOnline=False):
 
 
 # Load and save add-on state if asked by the user.
-def reload(factoryDefaults=False):
+def reload(factoryDefaults: bool = False) -> None:
 	if not factoryDefaults:
 		loadState()
 	else:
 		updateState.clear()
-		updateState["autoUpdate"] = True
+		updateState["autoUpdate"] = isClientOS()
 		updateState["backgroundUpdate"] = False
 		updateState["updateNotification"] = "toast"
 		updateState["updateSource"] = "nvdaprojectcompatinfo"
@@ -83,13 +84,13 @@ def reload(factoryDefaults=False):
 		updateState["devUpdates"] = []
 
 
-def save():
+def save() -> None:
 	saveState(keepStateOnline=True)
 
 
 # Borrowed from NVDA Core (the only difference is the URL and where structures are coming from).
 # Flake8: ignore this function altogether.
-def _updateWindowsRootCertificates():
+def _updateWindowsRootCertificates() -> None:
 	import updateCheck
 	crypt = ctypes.windll.crypt32
 	# Get the server certificate.
