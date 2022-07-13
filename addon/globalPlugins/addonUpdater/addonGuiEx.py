@@ -291,7 +291,7 @@ def installAddons(addons: list[tuple[str, str]]) -> None:
 			core.restart()
 
 
-def updateAddons(addons: list[addonUpdateProc.AddonUpdateRecord], auto: bool=True) -> None:
+def updateAddons(addons: list[addonUpdateProc.AddonUpdateRecord], auto: bool = True) -> None:
 	if not len(addons):
 		return
 	global _downloadProgressDialog
