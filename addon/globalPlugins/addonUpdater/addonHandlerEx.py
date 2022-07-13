@@ -169,11 +169,17 @@ def downloadAndInstallAddonUpdates(addons) -> None:
 	log.debug(f"nvda3208: install success count: {successfullyInstalledCount}")
 	# Now present review add-on updates notification if add-ons were installed.
 	if successfullyInstalledCount:
+		updateSuccess.notify(label=_("Review &add-on updates ({updateCount})...").format(
+			updateCount=successfullyInstalledCount
+		))
 		updateMessage: str = _(
 			# Translators: presented as part of add-on update notification message.
 			"One or more add-on updates from {updateSource} were installed. "
 			"Go to NVDA menu, Tools, Review add-on updates to review them. "
 			"Then restart NVDA to finish updating add-ons."
 		).format(updateSource=updateSources[addonUtils.updateState["updateSource"]])
-		wx.adv.NotificationMessage(_("NVDA add-on updates"), updateMessage).Show(timeout=30)
 		_backgroundUpdate = True
+	else:
+		# Translators: presented as part of add-on update notification message.
+		updateMessage = _("Could not update add-ons.")
+	wx.adv.NotificationMessage(_("NVDA add-on updates"), updateMessage).Show(timeout=30)
