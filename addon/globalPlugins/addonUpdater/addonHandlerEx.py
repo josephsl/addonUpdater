@@ -7,6 +7,7 @@
 
 # Proof of concept implementation of NVDA Core issue 3208.
 
+from __future__ import annotations
 import threading
 import wx
 import addonHandler
@@ -22,11 +23,11 @@ addonHandler.initTranslation()
 # For the latter case, update check functionality will be disabled upon authors' request.
 
 # Translators: legacy add-on, features included in NVDA.
-LegacyAddonIncludedInNVDA = _("features included in NVDA")
+LegacyAddonIncludedInNVDA: str = _("features included in NVDA")
 # Translators: legacy add-on, declared by add-on developers.
-LegacyAddonAuthorDeclaration = _("declared legacy by add-on developers")
+LegacyAddonAuthorDeclaration: str = _("declared legacy by add-on developers")
 
-LegacyAddons = {
+LegacyAddons: dict[str, str] = {
 	# Bit Che is no longer maintained as of 2021, therefore the add-on is unnecessary, according to the author.
 	"bitChe": LegacyAddonAuthorDeclaration,
 	"enhancedAria": LegacyAddonIncludedInNVDA,
@@ -39,7 +40,7 @@ LegacyAddons = {
 }
 
 
-def shouldNotUpdate():
+def shouldNotUpdate() -> list[str]:
 	# Returns a list of descriptions for add-ons that should not update.
 	return [
 		addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
@@ -47,7 +48,7 @@ def shouldNotUpdate():
 	]
 
 
-def preferDevUpdates():
+def preferDevUpdates() -> list[str]:
 	# Returns a list of descriptions for add-ons that prefers development releases.
 	return [
 		addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
@@ -55,7 +56,7 @@ def preferDevUpdates():
 	]
 
 
-def detectLegacyAddons():
+def detectLegacyAddons() -> dict[str, str]:
 	# Returns a dictionary of add-on name and summary for legacy add-ons.
 	return {
 		addon.name: addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
@@ -70,13 +71,13 @@ def autoAddonUpdateCheck():
 
 
 # Only stored when update toast appears.
-_updateInfo = None
+_updateInfo: Optional[list[addonUpdateProc.AddonUpdateRecord]] = None
 updateSuccess = extensionPoints.Action()
-updateSources = {protocol.key: protocol.description for protocol in AvailableUpdateProtocols}
+updateSources: dict[str, str] = {protocol.key: protocol.description for protocol in AvailableUpdateProtocols}
 
 
-def _showAddonUpdateUI():
-	def _showAddonUpdateUICallback(info):
+def _showAddonUpdateUI() -> None:
+	def _showAddonUpdateUICallback(info: Optional[list[addonUpdateProc.AddonUpdateRecord]]) -> None:
 		import gui
 		from .addonGuiEx import AddonUpdatesDialog
 		gui.mainFrame.prePopup()
@@ -107,7 +108,7 @@ def _showAddonUpdateUI():
 			# Translators: menu item label for reviewing add-on updates.
 			updateSuccess.notify(label=_("Review &add-on updates ({updateCount})...").format(updateCount=len(info)))
 			if not addonUtils.updateState["backgroundUpdate"]:
-				updateMessage = _(
+				updateMessage: str = _(
 					# Translators: presented as part of add-on update notification message.
 					"One or more add-on updates from {updateSource} are available. "
 					"Go to NVDA menu, Tools, Review add-on updates to review them."
@@ -127,17 +128,17 @@ def _showAddonUpdateUI():
 			wx.CallAfter(_showAddonUpdateUICallback, info)
 
 
-_backgroundUpdate = False
+_backgroundUpdate: bool = False
 
 
 # Download and install add-ons in the background.
-def downloadAndInstallAddonUpdates(addons):
+def downloadAndInstallAddonUpdates(addons) -> None:
 	import tempfile
 	import os
 	global _updateInfo, _backgroundUpdate
-	downloadedAddons = []
+	downloadedAddons: list[tuple[str, str, str, str, str]] = []
 	for addon in addons:
-		destPath = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
+		destPath: str = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
 		log.debug(f"nvda3208: downloading {addon.summary}, URL is {addon.url}, destpath is {destPath}")
 		try:
 			addonUpdateProc.downloadAddonUpdate(addon.url, destPath, addon.hash)
@@ -145,12 +146,12 @@ def downloadAndInstallAddonUpdates(addons):
 			log.debug(f"nvda3208: failed to download {addon.summary}", exc_info=True)
 		else:
 			downloadedAddons.append((destPath, addon.summary, addon.name, addon.installedVersion, addon.version))
-	successfullyInstalledCount = 0
+	successfullyInstalledCount: int = 0
 	# Gather successful update records for presentation later.
 	_updateInfo = []
 	for addon in downloadedAddons:
 		log.debug(f"nvda3208: installing {addon[1]} from {addon[0]}")
-		installStatus = addonUpdateProc.installAddonUpdate(addon[0], addon[1])
+		installStatus: int = addonUpdateProc.installAddonUpdate(addon[0], addon[1])
 		if installStatus == addonUpdateProc.AddonInstallStatus.AddonInstallSuccess:
 			successfullyInstalledCount += 1
 			_updateInfo.append(addonUpdateProc.AddonUpdateRecord(
@@ -167,7 +168,7 @@ def downloadAndInstallAddonUpdates(addons):
 	log.debug(f"nvda3208: install success count: {successfullyInstalledCount}")
 	# Now present review add-on updates notification if add-ons were installed.
 	if successfullyInstalledCount:
-		updateMessage = _(
+		updateMessage: str = _(
 			# Translators: presented as part of add-on update notification message.
 			"One or more add-on updates from {updateSource} were installed. "
 			"Go to NVDA menu, Tools, Review add-on updates to review them. "
