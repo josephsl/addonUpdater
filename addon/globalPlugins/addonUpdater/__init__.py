@@ -12,7 +12,7 @@ import wx
 import winVersion
 # What if this is run from NVDA source?
 try:
-	import updateCheck
+	import updateCheck  # NOQA: F401
 	canUpdate = True
 except RuntimeError:
 	canUpdate = False
