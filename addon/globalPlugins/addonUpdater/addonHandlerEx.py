@@ -97,12 +97,13 @@ def _showAddonUpdateUI() -> None:
 		# If toast is shown, checking for add-on updates from tools menu will merely show the results dialog.
 		# wxPython 4.1.0 (and consequently, wxWidges 3.1.0) simplifies this by
 		# allowing action handlers to be defined for toasts, which will then show the results dialog on the spot.
-		# However it doesn't work for desktop apps such as NVDA.
-		import winVersion
-		winVer = winVersion.getWinVer()
+		# However it doesn't work for desktop apps such as NVDA,
+		# and in case of NVDA, it sort of works if it is actually installed.
+		import config
 		if (
-			winVer >= winVersion.WIN10 and winVer.productType == "workstation"
+			addonUtils.isWin10ClientOrLater()
 			and addonUtils.updateState["updateNotification"] == "toast"
+			and config.isInstalledCopy()
 		):
 			# To reduce intrusiveness, background updates notification will be shown.
 			global _updateInfo
