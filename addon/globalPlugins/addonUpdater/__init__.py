@@ -184,7 +184,8 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 			)
 			self.autoUpdateCheckBox.SetValue(addonUtils.updateState["autoUpdate"])
 
-		if addonUtils.isWin10ClientOrLater():
+		# Toasts and background updates are available if NVDA is actually installed on Windows 10 and later.
+		if addonUtils.isWin10ClientOrLater() and config.isInstalledCopy():
 			updateNotificationChoices = [
 				# Translators: one of the add-on update notification choices.
 				("toast", _("toast")),
