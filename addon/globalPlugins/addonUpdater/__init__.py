@@ -247,9 +247,9 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 		if addonUtils.updateState["updateSource"] != self.updateSourceKeys[selectedSource]:
 			return gui.messageBox(
 				_(
-				# Translators: Presented when about to switch add-on update sources.
-				"You are about to switch to a different add-on update source. "
-				"Are you sure you wish to change update source to {updateSourceDescription}?"
+					# Translators: Presented when about to switch add-on update sources.
+					"You are about to switch to a different add-on update source. "
+					"Are you sure you wish to change update source to {updateSourceDescription}?"
 				).format(updateSourceDescription=self.updateSource.GetStringSelection()),
 				# Translators: Title of the add-on update source dialog.
 				_("Add-on update source change"), wx.YES | wx.NO | wx.ICON_WARNING, self
