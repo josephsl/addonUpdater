@@ -6,6 +6,7 @@
 
 # Proof of concept user interface for add-on update dialog (NVDA Core issue 3208)
 
+from __future__ import annotations
 import os
 import threading
 import tempfile
@@ -27,7 +28,7 @@ addonHandler.initTranslation()
 AddonUpdaterManualUpdateCheck = extensionPoints.Action()
 
 _progressDialog = None
-updateSources = {protocol.key: protocol.description for protocol in AvailableUpdateProtocols}
+updateSources: dict[str, str] = {protocol.key: protocol.description for protocol in AvailableUpdateProtocols}
 
 
 # The following event handler comes from a combination of StationPlaylist and Windows App Essentials.
@@ -187,15 +188,15 @@ class AddonUpdatesDialog(wx.Dialog):
 _downloadProgressDialog = None
 
 
-def downloadAndInstallAddonUpdates(addons):
+def downloadAndInstallAddonUpdates(addons: list[addonUpdateProc.AddonUpdateRecord]) -> None:
 	global _downloadProgressDialog
-	downloadedAddons = []
-	currentPos = 0
-	totalCount = len(addons)
+	downloadedAddons: list[tuple[str, str]] = []
+	currentPos: int = 0
+	totalCount: int = len(addons)
 	for addon in addons:
-		destPath = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
+		destPath: str = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
 		log.debug(f"nvda3208: downloading {addon.summary}, URL is {addon.url}, destpath is {destPath}")
-		downloadPercent = int((currentPos / totalCount) * 100)
+		downloadPercent: int = int((currentPos / totalCount) * 100)
 		log.debug(f"nvda3208: download percent: {downloadPercent}")
 		wx.CallAfter(
 			_downloadProgressDialog.Update, downloadPercent,
@@ -223,7 +224,7 @@ def downloadAndInstallAddonUpdates(addons):
 		wx.CallAfter(installAddons, downloadedAddons)
 
 
-def installAddons(addons):
+def installAddons(addons: list[tuple[str, str]]) -> None:
 	progressDialog = gui.IndeterminateProgressDialog(
 		gui.mainFrame,
 		# Translators: The title of the dialog presented while an Addon is being updated.
@@ -231,10 +232,10 @@ def installAddons(addons):
 		# Translators: The message displayed while an addon is being updated.
 		_("Please wait while add-ons are being updated.")
 	)
-	successfullyInstalledCount = 0
+	successfullyInstalledCount: int = 0
 	for addon in addons:
 		log.debug(f"nvda3208: installing {addon[1]} from {addon[0]}")
-		installStatus = addonUpdateProc.installAddonUpdate(addon[0], addon[1])
+		installStatus: int = addonUpdateProc.installAddonUpdate(addon[0], addon[1])
 		log.debug(f"nvda3208: install status is {installStatus}")
 		# Handle errors first.
 		if installStatus == addonUpdateProc.AddonInstallStatus.AddonReadBundleFailed:
@@ -290,7 +291,7 @@ def installAddons(addons):
 			core.restart()
 
 
-def updateAddons(addons, auto=True):
+def updateAddons(addons: list[addonUpdateProc.AddonUpdateRecord], auto: bool=True) -> None:
 	if not len(addons):
 		return
 	global _downloadProgressDialog
