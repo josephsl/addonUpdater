@@ -8,6 +8,7 @@
 # Proof of concept implementation of NVDA Core issue 3208.
 
 from __future__ import annotations
+from typing import Optional
 import threading
 import wx
 import addonHandler
