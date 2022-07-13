@@ -9,6 +9,8 @@
 # Note that add-on update record class is striclty part of update procedures/processes.
 # Parts will resemble that of extended add-on handler and GUI modules.
 
+from __future__ import annotations
+from typing import Optional, Any
 from urllib.request import urlopen
 import enum
 import addonHandler
@@ -29,15 +31,15 @@ class AddonUpdateRecord(object):
 
 	def __init__(
 			self,
-			name="",
-			summary="",
-			version="",
-			installedVersion="",
-			url="",
-			hash=None,
-			minimumNVDAVersion=[0, 0, 0],
-			lastTestedNVDAVersion=[0, 0, 0],
-			updateChannel=""
+			name: str="",
+			summary: str="",
+			version: str="",
+			installedVersion: str="",
+			url: str="",
+			hash: Optional[str]=None,
+			minimumNVDAVersion: list[int]=[0, 0, 0],
+			lastTestedNVDAVersion: list[int]=[0, 0, 0],
+			updateChannel: Optional[str]=""
 	):
 		self.name = name
 		self.summary = summary
@@ -49,7 +51,7 @@ class AddonUpdateRecord(object):
 		self.lastTestedNVDAVersion = lastTestedNVDAVersion
 		self.updateChannel = updateChannel
 
-	def updateDict(self):
+	def updateDict(self) -> dict[str, Any]:
 		return {
 			"name": self.name,
 			"summary": self.summary,
@@ -63,23 +65,23 @@ class AddonUpdateRecord(object):
 		}
 
 	@property
-	def updateAvailable(self):
+	def updateAvailable(self) -> bool:
 		return self.version != self.installedVersion
 
 
 # Add-ons with built-in update feature.
-addonsWithUpdaters = [
+addonsWithUpdaters: list[str] = [
 	"BrailleExtender",
 	"Weather Plus",
 ]
 
 
-def checkForAddonUpdates():
+def checkForAddonUpdates() -> Optional[list[AddonUpdateRecord]]:
 	# Don't even think about update checks if secure mode flag is set.
 	if globalVars.appArgs.secure:
-		return
+		return None
 	from . import addonUpdateProtocols
-	updateProtocols = {
+	updateProtocols: dict[str, str] = {
 		protocol.key: protocol.protocol for protocol in addonUpdateProtocols.AvailableUpdateProtocols
 	}
 	updateChecker = getattr(addonUpdateProtocols, updateProtocols[addonUtils.updateState["updateSource"]])
@@ -94,12 +96,12 @@ def checkForAddonUpdates():
 		if "vocalizer" in addon.name.lower():
 			continue
 		manifest = addon.manifest
-		name = addon.name
+		name: str = addon.name
 		if name in addonUtils.updateState["noUpdates"]:
 			continue
-		curVersion = manifest["version"]
+		curVersion: str = manifest["version"]
 		# Check different channels if appropriate.
-		updateChannel = manifest.get("updateChannel")
+		updateChannel: Optional[str] = manifest.get("updateChannel")
 		if updateChannel == "None":
 			updateChannel = None
 		if updateChannel != "dev" and name in addonUtils.updateState["devUpdates"]:
@@ -125,7 +127,7 @@ def checkForAddonUpdates():
 AddonDownloadNotifier = extensionPoints.Action()
 
 
-def downloadAddonUpdate(url, destPath, fileHash):
+def downloadAddonUpdate(url: str, destPath: Optional[str], fileHash: Optional[str]) -> None:
 	if not destPath:
 		import tempfile
 		destPath = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
@@ -141,14 +143,14 @@ def downloadAddonUpdate(url, destPath, fileHash):
 	if remote.code != 200:
 		remote.close()
 		raise RuntimeError("Download failed with code %d" % remote.code)
-	size = int(remote.headers["content-length"])
+	size: int = int(remote.headers["content-length"])
 	log.debug(f"nvda3208: remote size is {size} bytes")
 	with open(destPath, "wb") as local:
 		if fileHash:
 			hasher = hashlib.sha1()
-		read = 0
+		read: int = 0
 		AddonDownloadNotifier.notify(read=read, size=size)
-		chunk = 8192
+		chunk: int = 8192
 		while True:
 			if size - read < chunk:
 				chunk = size - read
@@ -178,7 +180,7 @@ class AddonInstallStatus(enum.IntEnum):
 	AddonNotTested = 4
 
 
-def installAddonUpdate(destPath, addonName):
+def installAddonUpdate(destPath: str, addonName: str) -> int:
 	try:
 		bundle = addonHandler.AddonBundle(destPath)
 	except:
@@ -191,7 +193,7 @@ def installAddonUpdate(destPath, addonName):
 		return AddonInstallStatus.AddonMinVersionNotMet
 	elif not addonVersionCheck.isAddonTested(bundle):
 		return AddonInstallStatus.AddonNotTested
-	bundleName = bundle.manifest['name']
+	bundleName: str = bundle.manifest['name']
 	# Optimization (future): it is better to remove would-be add-ons all at once
 	# instead of doing it each time a bundle is opened.
 	for addon in addonHandler.getAvailableAddons():
