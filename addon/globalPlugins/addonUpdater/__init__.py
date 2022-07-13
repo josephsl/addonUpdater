@@ -41,7 +41,8 @@ def autoUpdateCheck():
 	whenToCheck = addonUtils.updateState["lastChecked"] + addonUpdateCheckInterval
 	if currentTime >= whenToCheck:
 		addonUtils.updateState["lastChecked"] = currentTime
-		if addonUtils.updateState["autoUpdate"]:
+		# Optimization: is this a client system?
+		if addonUtils.isClientOS() and addonUtils.updateState["autoUpdate"]:
 			startAutoUpdateCheck(addonUpdateCheckInterval)
 		addonHandlerEx.autoAddonUpdateCheck()
 	else:
