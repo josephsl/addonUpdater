@@ -89,7 +89,7 @@ def _showAddonUpdateUI() -> None:
 	except:
 		info = None
 		raise
-	if info is not None:
+	if info is not None and len(info):
 		# Show either the update notification toast (Windows 10 and later),
 		# the results dialog (other Windows releases and server systems),
 		# or download add-ons if background updating is on (Windows 10 and later).
