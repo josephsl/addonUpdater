@@ -133,11 +133,11 @@ _backgroundUpdate: bool = False
 
 
 # Download and install add-ons in the background.
-def downloadAndInstallAddonUpdates(addons) -> None:
+def downloadAndInstallAddonUpdates(addons: list[addonUpdateProc.AddonUpdateRecord]) -> None:
 	import tempfile
 	import os
 	global _updateInfo, _backgroundUpdate
-	downloadedAddons: list[tuple[str, str, str, str, str]] = []
+	downloadedAddons: list[tuple[str, addonUpdateProc.AddonUpdateRecord]] = []
 	for addon in addons:
 		destPath: str = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
 		log.debug(f"nvda3208: downloading {addon.summary}, URL is {addon.url}, destpath is {destPath}")
@@ -146,24 +146,19 @@ def downloadAndInstallAddonUpdates(addons) -> None:
 		except RuntimeError:
 			log.debug(f"nvda3208: failed to download {addon.summary}", exc_info=True)
 		else:
-			downloadedAddons.append((destPath, addon.summary, addon.name, addon.installedVersion, addon.version))
+			downloadedAddons.append((destPath, addon))
 	successfullyInstalledCount: int = 0
 	# Gather successful update records for presentation later.
 	_updateInfo = []
-	for addon in downloadedAddons:
-		log.debug(f"nvda3208: installing {addon[1]} from {addon[0]}")
-		installStatus: int = addonUpdateProc.installAddonUpdate(addon[0], addon[1])
+	for entry in downloadedAddons:
+		log.debug(f"nvda3208: installing {entry[1].summary} from {entry[0]}")
+		installStatus: int = addonUpdateProc.installAddonUpdate(entry[0], entry[1].summary)
 		if installStatus == addonUpdateProc.AddonInstallStatus.AddonInstallSuccess:
 			successfullyInstalledCount += 1
-			_updateInfo.append(addonUpdateProc.AddonUpdateRecord(
-				name=addon[2],
-				summary=addon[1],
-				version=addon[4],
-				installedVersion=addon[3]
-			))
+			_updateInfo.append(entry[1])
 		log.debug(f"nvda3208: add-on install status is {installStatus}")
 		try:
-			os.remove(addon[0])
+			os.remove(entry[0])
 		except OSError:
 			pass
 	log.debug(f"nvda3208: install success count: {successfullyInstalledCount}")
