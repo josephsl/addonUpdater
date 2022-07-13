@@ -9,7 +9,6 @@ import time
 import gui
 from gui.nvdaControls import CustomCheckListBox, AutoWidthColumnListCtrl
 import wx
-import winVersion
 # What if this is run from NVDA source?
 try:
 	import updateCheck  # NOQA: F401
@@ -175,17 +174,17 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 
 	def makeSettings(self, settingsSizer):
 		sHelper = gui.guiHelper.BoxSizerHelper(self, sizer=settingsSizer)
-		self.autoUpdateCheckBox = sHelper.addItem(
-			# Translators: This is the label for a checkbox in the
-			# Add-on Updater settings panel.
-			wx.CheckBox(self, label=_("Automatically check for add-on &updates"))
-		)
-		self.autoUpdateCheckBox.SetValue(addonUtils.updateState["autoUpdate"])
 
-		if (
-			winVersion.getWinVer() >= winVersion.WIN10
-			and winVersion.getWinVer().productType == "workstation"
-		):
+		# Windows server systems should not support automatic update checks.
+		if addonUtils.isClientOS():
+			self.autoUpdateCheckBox = sHelper.addItem(
+				# Translators: This is the label for a checkbox in the
+				# Add-on Updater settings panel.
+				wx.CheckBox(self, label=_("Automatically check for add-on &updates"))
+			)
+			self.autoUpdateCheckBox.SetValue(addonUtils.updateState["autoUpdate"])
+
+		if addonUtils.isWin10ClientOrLater():
 			updateNotificationChoices = [
 				# Translators: one of the add-on update notification choices.
 				("toast", _("toast")),
@@ -267,7 +266,8 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 			addon.name for addon in addonHandler.getAvailableAddons()
 			if addon.manifest["summary"] in devAddonUpdateSummaries
 		]
-		addonUtils.updateState["autoUpdate"] = self.autoUpdateCheckBox.IsChecked()
+		if hasattr(self, "autoUpdateCheckBox"):
+			addonUtils.updateState["autoUpdate"] = self.autoUpdateCheckBox.IsChecked()
 		addonUtils.updateState["updateSource"] = self.updateSourceKeys[self.updateSource.GetSelection()]
 		if hasattr(self, "updateNotification"):
 			addonUtils.updateState["updateNotification"] = ["toast", "dialog"][self.updateNotification.GetSelection()]
@@ -277,7 +277,7 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 		if updateChecker and updateChecker.IsRunning():
 			updateChecker.Stop()
 		updateChecker = None
-		if addonUtils.updateState["autoUpdate"]:
+		if addonUtils.isClientOS() and addonUtils.updateState["autoUpdate"]:
 			addonUtils.updateState["lastChecked"] = time.time()
 			wx.CallAfter(autoUpdateCheck)
 
