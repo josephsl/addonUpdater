@@ -137,7 +137,11 @@ _backgroundUpdate: bool = False
 def downloadAndInstallAddonUpdates(addons: list[addonUpdateProc.AddonUpdateRecord]) -> None:
 	import tempfile
 	import os
+	import globalVars
 	global _updateInfo, _backgroundUpdate
+	# Disable GUI (enable minimal flag) for the duration of this function.
+	minimal = globalVars.appArgs.minimal
+	globalVars.appArgs.minimal = True
 	downloadedAddons: list[tuple[str, addonUpdateProc.AddonUpdateRecord]] = []
 	for addon in addons:
 		destPath: str = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
@@ -163,6 +167,8 @@ def downloadAndInstallAddonUpdates(addons: list[addonUpdateProc.AddonUpdateRecor
 		except OSError:
 			pass
 	log.debug(f"nvda3208: install success count: {successfullyInstalledCount}")
+	# Restore minimal flag.
+	globalVars.appArgs.minimal = minimal
 	# Now present review add-on updates notification if add-ons were installed.
 	if successfullyInstalledCount:
 		updateSuccess.notify(label=_("Review &add-on updates ({updateCount})...").format(
