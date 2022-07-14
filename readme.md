@@ -26,7 +26,7 @@ IMPORTANT NOTES:
 
 You can configure Add-on Updater settings from NVDA Settings screen (NVDA menu, Preferences, Settings) under Add-on Updater category. Add-on settings are as follows:
 
-* Automatically check for add-on updates (unavailable on server systems): if checked, NVDA will check for add-on updates once a day. Automatic update checks is supported on Windows client systems.
+* Automatically check for add-on updates: if checked, NVDA will check for add-on updates once a day. Automatic update checks is enabled on Windows client systems and disabled on server systems.
 * Add-on update notification (Windows 10 and later): you can choose to receive update notification as a dialog or a toast. On Windows releases earlier than 10 and on server systems, or running portable copy of NVDA, update notification will be shown as a dialog.
 * Update add-ons in the background (Windows 10 and later): if checked, Add-on Updater will apply updates in the background. A toast will appear informing you that add-on updates are being downloaded and installed, followed by another message announcing update results. Same limitations as add-on update notification setting and toast must be selected from the above option in order for background updates to work.
 * Do not update add-ons: you can choose add-ons that should not be updated.
@@ -36,7 +36,7 @@ You can configure Add-on Updater settings from NVDA Settings screen (NVDA menu, 
 ## Version 22.08
 
 * Significant internal code reorganization and rewrites.
-* On Windows Server systems, automatic add-on update check feature is disabled by default, and the checkbox to configure this option is also removed from settings panel.
+* On Windows Server systems, automatic add-on update check feature is disabled by default (affects new installations).
 * Added ability to select different add-on update sources. Add-on Updater can check for updates hosted on community add-ons website (addons.nvda-project.org) or Spanish community add-ons catalog (nvda.es). A new combo box was added in add-on settings panel to select add-on update source.
 * On Windows 10 and later, it is possible to let Add-on Updater check for, download, and install add-on updates in the background provided that NVDA is actualy installed and ad-on update notification is set to toast.
 * Redesigned add-on update download and install experience for multiple add-on updates, including use of a single dialog to show download progress for all add-ons and updating add-ons after downloading all of them.
