@@ -176,14 +176,12 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 	def makeSettings(self, settingsSizer):
 		sHelper = gui.guiHelper.BoxSizerHelper(self, sizer=settingsSizer)
 
-		# Windows server systems should not support automatic update checks.
-		if addonUtils.isClientOS():
-			self.autoUpdateCheckBox = sHelper.addItem(
-				# Translators: This is the label for a checkbox in the
-				# Add-on Updater settings panel.
-				wx.CheckBox(self, label=_("Automatically check for add-on &updates"))
-			)
-			self.autoUpdateCheckBox.SetValue(addonUtils.updateState["autoUpdate"])
+		self.autoUpdateCheckBox = sHelper.addItem(
+			# Translators: This is the label for a checkbox in the
+			# Add-on Updater settings panel.
+			wx.CheckBox(self, label=_("Automatically check for add-on &updates"))
+		)
+		self.autoUpdateCheckBox.SetValue(addonUtils.updateState["autoUpdate"])
 
 		# Toasts and background updates are available if NVDA is actually installed on Windows 10 and later.
 		if addonUtils.isWin10ClientOrLater() and config.isInstalledCopy():
@@ -268,8 +266,7 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 			addon.name for addon in addonHandler.getAvailableAddons()
 			if addon.manifest["summary"] in devAddonUpdateSummaries
 		]
-		if hasattr(self, "autoUpdateCheckBox"):
-			addonUtils.updateState["autoUpdate"] = self.autoUpdateCheckBox.IsChecked()
+		addonUtils.updateState["autoUpdate"] = self.autoUpdateCheckBox.IsChecked()
 		addonUtils.updateState["updateSource"] = self.updateSourceKeys[self.updateSource.GetSelection()]
 		if hasattr(self, "updateNotification"):
 			addonUtils.updateState["updateNotification"] = ["toast", "dialog"][self.updateNotification.GetSelection()]
@@ -279,7 +276,7 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 		if updateChecker and updateChecker.IsRunning():
 			updateChecker.Stop()
 		updateChecker = None
-		if addonUtils.isClientOS() and addonUtils.updateState["autoUpdate"]:
+		if addonUtils.updateState["autoUpdate"]:
 			addonUtils.updateState["lastChecked"] = time.time()
 			wx.CallAfter(autoUpdateCheck)
 
