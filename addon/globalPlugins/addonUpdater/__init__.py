@@ -19,10 +19,7 @@ import globalVars
 import config
 from logHandler import log
 from . import addonHandlerEx
-try:
-	from . import addonGuiEx
-except RuntimeError:
-	canUpdate = False
+from . import addonGuiEx
 from . import addonUtils
 from .addonUpdateProtocols import AvailableUpdateProtocols
 from .skipTranslation import translate
