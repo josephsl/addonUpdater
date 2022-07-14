@@ -174,15 +174,8 @@ class AddonUpdatesDialog(wx.Dialog):
 	def onClose(self, evt):
 		self.Destroy()
 		if self.updatesInstalled:
-			if gui.messageBox(
-				translate(
-					"Changes were made to add-ons. You must restart NVDA for these changes to take effect. "
-					"Would you like to restart now?"
-				),
-				translate("Restart NVDA"),
-				wx.YES | wx.NO | wx.ICON_WARNING
-			) == wx.YES:
-				core.restart()
+			from gui import addonGui
+			wx.CallLater(100, addonGui.promptUserForRestart)
 
 
 _downloadProgressDialog = None
@@ -280,15 +273,8 @@ def installAddons(addons: list[tuple[str, str]]) -> None:
 	log.debug(f"nvda3208: install success count: {successfullyInstalledCount}")
 	# Only present messages if add-ons were actually updated.
 	if successfullyInstalledCount:
-		if gui.messageBox(
-			translate(
-				"Changes were made to add-ons. You must restart NVDA for these changes to take effect. "
-				"Would you like to restart now?"
-			),
-			translate("Restart NVDA"),
-			wx.YES | wx.NO | wx.ICON_WARNING
-		) == wx.YES:
-			core.restart()
+		from gui import addonGui
+		wx.CallLater(100, addonGui.promptUserForRestart)
 
 
 def updateAddons(addons: list[addonUpdateProc.AddonUpdateRecord], auto: bool = True) -> None:
