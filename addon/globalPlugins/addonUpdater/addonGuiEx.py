@@ -12,10 +12,9 @@ import threading
 import tempfile
 import wx
 import gui
-from gui import guiHelper
+from gui import guiHelper, addonGui
 from logHandler import log
 import addonHandler
-import core
 import extensionPoints
 from gui.nvdaControls import AutoWidthColumnCheckListCtrl, AutoWidthColumnListCtrl
 from .skipTranslation import translate
@@ -174,7 +173,6 @@ class AddonUpdatesDialog(wx.Dialog):
 	def onClose(self, evt):
 		self.Destroy()
 		if self.updatesInstalled:
-			from gui import addonGui
 			wx.CallLater(100, addonGui.promptUserForRestart)
 
 
@@ -245,7 +243,6 @@ def installAddons(addons: list[tuple[str, str]]) -> None:
 		):
 			# NVDA itself will check add-on compatibility range.
 			# As such, the below fragment was borrowed from NVDA Core (credit: NV Access).
-			from gui import addonGui
 			# Assuming that tempfile is readable, open the bundle again
 			# so NVDA can actually show compatibility dialog.
 			bundle = addonHandler.AddonBundle(addon[0])
@@ -273,7 +270,6 @@ def installAddons(addons: list[tuple[str, str]]) -> None:
 	log.debug(f"nvda3208: install success count: {successfullyInstalledCount}")
 	# Only present messages if add-ons were actually updated.
 	if successfullyInstalledCount:
-		from gui import addonGui
 		wx.CallLater(100, addonGui.promptUserForRestart)
 
 
