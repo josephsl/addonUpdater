@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: addonUpdater\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2021-08-14 10:04+0200\n"
-"Last-Translator: Jani Kinnunen <jani.kinnunen@wippies.fi>\n"
+"PO-Revision-Date: 2022-07-10 09:55+0200\n"
+"Last-Translator: Jani Kinnunen <janikinnunen340@gmail.com>\n"
 "Language-Team: Jani Kinnunen <jani.kinnunen@wippies.fi>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -51,6 +51,11 @@ msgstr "valintaikkuna"
 msgid "&Add-on update notification:"
 msgstr "&Lisäosien päivitysilmoitus:"
 
+#. Translators: This is the label for a checkbox in the
+#. Add-on Updater settings panel.
+msgid "Update add-ons in the &background"
+msgstr ""
+
 #. Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
 #. Some add-ons come with pretty badly formatted summary text,
 #. so try catching them and exclude them from this list.
@@ -60,6 +65,24 @@ msgstr "&Älä päivitä lisäosia:"
 
 msgid "Prefer &development releases:"
 msgstr "Aseta &kehitysversiot etusijalle:"
+
+#. Translators: This is the label for a combo box in the
+#. Add-on Updater settings panel.
+#, fuzzy
+msgid "Add-on update &source:"
+msgstr "Lisäosien päivitystarkistus"
+
+#. Translators: Presented when about to switch add-on update sources.
+#, python-brace-format
+msgid ""
+"You are about to switch to a different add-on update source. Are you sure "
+"you wish to change update source to {updateSourceDescription}?"
+msgstr ""
+
+#. Translators: Title of the add-on update source dialog.
+#, fuzzy
+msgid "Add-on update source change"
+msgstr "Lisäosien päivitystarkistus"
 
 #. Translators: The title of the legacy add-ons dialog.
 msgid "Legacy add-ons found"
@@ -92,19 +115,26 @@ msgid "Add-on update check"
 msgstr "Lisäosien päivitystarkistus"
 
 #. Translators: The message displayed while checking for add-on updates.
-msgid "Checking for add-on updates..."
+#, fuzzy, python-brace-format
+msgid "Checking for add-on updates from {updateSource}..."
 msgstr "Tarkistetaan lisäosien päivityksiä..."
 
 msgid "Error checking for add-on updates."
 msgstr "Virhe tarkistettaessa lisäosien päivityksiä."
 
 #. Translators: The title of the add-on updates dialog.
-msgid "NVDA Add-on Updates"
+#, fuzzy, python-brace-format
+msgid "NVDA Add-on Updates ({updateSource})"
 msgstr "NVDA-lisäosien päivitykset"
 
 #. Translators: Message displayed when add-on updates are available.
 #, python-brace-format
 msgid "Add-on updates available: {updateCount}"
+msgstr "Lisäosapäivityksiä saatavilla: {updateCount}"
+
+#. Translators: Message displayed when add-on updates were installed.
+#, fuzzy, python-brace-format
+msgid "Add-ons pending install: {updateCount}"
 msgstr "Lisäosapäivityksiä saatavilla: {updateCount}"
 
 #. Translators: The label for a column in add-ons updates list
@@ -125,9 +155,9 @@ msgstr "Lisäosien päivityksiä ei saatavilla."
 msgid "&Update add-ons"
 msgstr "&Päivitä lisäosat"
 
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Downloading {addonName}"
-msgstr "Ladataan {name}"
+msgstr "Ladataan {addonName}"
 
 #. Translators: A message indicating that an error occurred while downloading an update to NVDA.
 #, python-brace-format
@@ -135,14 +165,12 @@ msgid "Error downloading update for {name}."
 msgstr "Virhe ladattaessa  päivitystä lisäosalle {name}."
 
 #. Translators: The title of the dialog presented while an Addon is being updated.
-#, fuzzy
 msgid "Updating add-ons"
-msgstr "&Päivitä lisäosat"
+msgstr "Päivitetään lisäosia"
 
 #. Translators: The message displayed while an addon is being updated.
-#, fuzzy
 msgid "Please wait while add-ons are being updated."
-msgstr "Odota, kun lisäosaa päivitetään."
+msgstr "Odota, kun lisäosia päivitetään."
 
 #. Translators: The message displayed when an error occurs
 #. when trying to update an add-on package due to package problems.
@@ -162,9 +190,8 @@ msgid "Downloading Add-on Update"
 msgstr "Ladataan lisäosan päivitystä"
 
 #. Translators: The progress message indicating the name of the add-on being downloaded.
-#, fuzzy
 msgid "Downloading add-on updates"
-msgstr "Ladataan lisäosan päivitystä"
+msgstr "Ladataan lisäosien päivityksiä"
 
 #. Add-ons with all features integrated into NVDA or declared "legacy" by authors.
 #. For the latter case, update check functionality will be disabled upon authors' request.
@@ -177,23 +204,54 @@ msgid "declared legacy by add-on developers"
 msgstr "ilmoitettu vanhentuneeksi lisäosakehittäjien toimesta"
 
 #. Translators: menu item label for reviewing add-on updates.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Review &add-on updates ({updateCount})..."
-msgstr "Lisäosapäivityksiä saatavilla: {updateCount}"
+msgstr "Tarkastele &lisäosien päivityksiä ({updateCount})..."
 
 #. Translators: presented as part of add-on update notification message.
-#, fuzzy
+#, fuzzy, python-brace-format
 msgid ""
-"One or more add-on updates are available. Go to NVDA menu, Tools, Review add-"
-"on updates to review them."
+"One or more add-on updates from {updateSource} are available. Go to NVDA "
+"menu, Tools, Review add-on updates to review them."
 msgstr ""
 "Yksi tai useampi lisäosapäivitys on saatavilla. Tarkastele niitä menemällä "
-"NVDA-valikkoon, valitsemalla Työkalut ja sitten Tarkista lisäosien "
-"päivitykset."
+"NVDA-valikkoon, valitsemalla Työkalut ja sitten Tarkastele lisäosien "
+"päivityksiä."
+
+#. Translators: presented as part of add-on update notification message.
+#, python-brace-format
+msgid ""
+"One or more add-on updates from {updateSource} are being downloaded and "
+"installed."
+msgstr ""
 
 #. Translators: title of the add-on update notification message.
 msgid "NVDA add-on updates"
 msgstr "NVDA-lisäosien päivitykset"
+
+#. Translators: presented as part of add-on update notification message.
+#, fuzzy, python-brace-format
+msgid ""
+"One or more add-on updates from {updateSource} were installed. Go to NVDA "
+"menu, Tools, Review add-on updates to review them. Then restart NVDA to "
+"finish updating add-ons."
+msgstr ""
+"Yksi tai useampi lisäosapäivitys on saatavilla. Tarkastele niitä menemällä "
+"NVDA-valikkoon, valitsemalla Työkalut ja sitten Tarkastele lisäosien "
+"päivityksiä."
+
+#. Translators: presented as part of add-on update notification message.
+#, fuzzy
+msgid "Could not update add-ons."
+msgstr "&Älä päivitä lisäosia:"
+
+#. Translators: one of the add-on update source choices.
+msgid "NVDA community add-ons website"
+msgstr ""
+
+#. Translators: one of the add-on update source choices.
+msgid "Spanish community add-ons catalog"
+msgstr ""
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
