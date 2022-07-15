@@ -141,6 +141,7 @@ class AddonUpdatesDialog(wx.Dialog):
 			label = _("&Update add-ons")
 			self.updateButton = bHelper.addButton(self, label=label)
 			self.updateButton.Bind(wx.EVT_BUTTON, self.onUpdate)
+			self.onAddonsChecked(None)
 
 		closeButton = bHelper.addButton(self, wx.ID_CLOSE, label=translate("&Close"))
 		closeButton.Bind(wx.EVT_BUTTON, self.onClose)
