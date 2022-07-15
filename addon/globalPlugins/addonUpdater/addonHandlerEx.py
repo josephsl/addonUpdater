@@ -116,6 +116,9 @@ def _showAddonUpdateUI() -> None:
 					"Go to NVDA menu, Tools, Review add-on updates to review them."
 				).format(updateSource=updateSources[addonUtils.updateState["updateSource"]])
 			else:
+				# Ignore all this if all add-ons to be updated are disabled.
+				if all([not addon.isEnabled for addon in info]):
+					return
 				updateMessage = _(
 					# Translators: presented as part of add-on update notification message.
 					"One or more add-on updates from {updateSource} are being downloaded and installed."
