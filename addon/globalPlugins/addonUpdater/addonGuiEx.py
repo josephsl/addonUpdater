@@ -125,7 +125,9 @@ class AddonUpdatesDialog(wx.Dialog):
 			for addon in self.addonUpdateInfo:
 				self.addonsList.Append((addon.summary, addon.installedVersion, addon.version))
 				if not updatesInstalled:
-					self.addonsList.CheckItem(self.addonsList.GetItemCount() - 1)
+					# Items are unchecked by default, which should be the case for disabled add-ons.
+					if addon.isEnabled:
+						self.addonsList.CheckItem(self.addonsList.GetItemCount() - 1)
 			self.addonsList.Select(0)
 			self.addonsList.SetItemState(0, wx.LIST_STATE_FOCUSED, wx.LIST_STATE_FOCUSED)
 			addonsSizerHelper.addItem(entriesSizer)
