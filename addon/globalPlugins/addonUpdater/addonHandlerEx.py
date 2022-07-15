@@ -147,6 +147,10 @@ def downloadAndInstallAddonUpdates(addons: list[addonUpdateProc.AddonUpdateRecor
 	globalVars.appArgs.minimal = True
 	downloadedAddons: list[tuple[str, addonUpdateProc.AddonUpdateRecord]] = []
 	for addon in addons:
+		# Skip background updates for disabled add-ons.
+		if not addon.isEnabled:
+			log.debug(f"nvda3208: {addon.summary} is disabled, skipping")
+			continue
 		destPath: str = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
 		log.debug(f"nvda3208: downloading {addon.summary}, URL is {addon.url}, destpath is {destPath}")
 		try:
