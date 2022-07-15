@@ -161,15 +161,31 @@ class AddonUpdatesDialog(wx.Dialog):
 			self.updateButton.Disable()
 
 	def onUpdate(self, evt):
+		addonsToBeUpdated = []
+		disabledAddonsPresent = False
+		for addon in range(self.addonsList.GetItemCount()):
+			if self.addonsList.IsChecked(addon):
+				addonsToBeUpdated.append(self.addonUpdateInfo[addon])
+				if not self.addonUpdateInfo[addon].isEnabled:
+					disabledAddonsPresent = True
+		# Present a messagf attempting to update at least one disabled add-on.
+		if disabledAddonsPresent:
+			if gui.messageBox(
+				_(
+					# Translators: Presented when attempting to udpate disabled add-ons.
+					"One or more add-ons are currently disabled. "
+					"These add-ons will be enabled after updating. "
+					"Are you sure you wish to update disabled add-ons anyway?"
+				),
+				# Translators: Title of the add-on update confirmation dialog.
+				_("Update disabled add-ons"), wx.YES | wx.NO | wx.ICON_WARNING, self
+			) == wx.NO:
+				return
 		self.Destroy()
 		# #3208: do not display add-ons manager while updates are in progress.
 		# Also, Skip the below step if this is an automatic update check.
 		if not self.auto:
 			self.Parent.Hide()
-		addonsToBeUpdated = []
-		for addon in range(self.addonsList.GetItemCount()):
-			if self.addonsList.IsChecked(addon):
-				addonsToBeUpdated.append(self.addonUpdateInfo[addon])
 		updateAddons(addonsToBeUpdated)
 
 	def onClose(self, evt):
