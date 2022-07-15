@@ -39,7 +39,8 @@ class AddonUpdateRecord(object):
 			hash: Optional[str] = None,
 			minimumNVDAVersion: list[int] = [0, 0, 0],
 			lastTestedNVDAVersion: list[int] = [0, 0, 0],
-			updateChannel: Optional[str] = ""
+			updateChannel: Optional[str] = "",
+			isEnabled: bool = True
 	):
 		self.name = name
 		self.summary = summary
@@ -50,6 +51,7 @@ class AddonUpdateRecord(object):
 		self.minimumNVDAVersion = minimumNVDAVersion
 		self.lastTestedNVDAVersion = lastTestedNVDAVersion
 		self.updateChannel = updateChannel
+		self.isEnabled = isEnabled
 
 	def updateDict(self) -> dict[str, Any]:
 		return {
@@ -108,13 +110,16 @@ def checkForAddonUpdates() -> Optional[list[AddonUpdateRecord]]:
 			updateChannel = "dev"
 		elif updateChannel == "dev" and name not in addonUtils.updateState["devUpdates"]:
 			updateChannel = None
+		# Mark disabled add-ons (flag passed in will be "isEnabled").
+		isEnabled = not addon.isDisabled
 		# Note that version (update) and installed version will be the same for now.
 		curAddons.append(AddonUpdateRecord(
 			name=name,
 			summary=manifest["summary"],
 			version=curVersion,
 			installedVersion=curVersion,
-			updateChannel=updateChannel
+			updateChannel=updateChannel,
+			isEnabled=isEnabled
 		))
 	try:
 		info = updateChecker().checkForAddonUpdates(installedAddons=curAddons)
