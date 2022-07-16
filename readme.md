@@ -40,8 +40,9 @@ You can configure Add-on Updater settings from NVDA Settings screen (NVDA menu, 
 * Added ability to select different add-on update sources. Add-on Updater can check for updates hosted on community add-ons website (addons.nvda-project.org) or Spanish community add-ons catalog (nvda.es). A new combo box was added in add-on settings panel to select add-on update source.
 * On Windows 10 and later, it is possible to let Add-on Updater check for, download, and install add-on updates in the background provided that NVDA is actualy installed and ad-on update notification is set to toast.
 * Redesigned add-on update download and install experience for multiple add-on updates, including use of a single dialog to show download progress for all add-ons and updating add-ons after downloading all of them.
-* If NVDA is set to announce update notifications as toasts, "check for add-on updats" menu item will become "review add-on updates" when updates become available, with the new name including add-on update count.
+* If NVDA is set to announce update notifications as toasts, "check for add-on updates" menu item will become "review add-on updates" when updates become available, with the new name including add-on update count.
 * In NVDA 2022.1 and later, Add-on Updater can process command-line switches for this add-on (currently none).
+* In add-on updates dialog, add-ons disabled by the user are unchecked by default, and a confirmation message will be shown checking disabled add-ons and attempting to update them as doing so will enable them.
 
 ## Version 22.07
 
