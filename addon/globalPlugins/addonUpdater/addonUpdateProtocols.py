@@ -38,9 +38,10 @@ def getUrlViaMSEdgeUserAgent(url):
 
 # Define various add-on update check protocols, beginning with protocol 0 (do nothing/abstract protocol).
 class AddonUpdateCheckProtocol(object):
-	"""The default update check protocol, also known as protocol 0.
-	The purpose of this class is to provide a base implementation for other protocols.
-	While this protocol can be instantiated, subclasses (other protocols) should be used.
+	"""Protocol 0: the default update check protocol.
+	The purpose of this class is to provide base services and implementation for other protocols.
+	While this protocol can be instantiated, subclasses (other protocols) should be used
+	as this protocol does nothing when checking for add-on updates.
 	"""
 
 	protocol = 0
@@ -102,7 +103,7 @@ class AddonUpdateCheckProtocol(object):
 		)
 
 	def checkForAddonUpdate(self, curAddons):
-		"""Coordinates add-on update check facility based on update recorded provided.
+		"""Coordinates add-on update check facility based on update records provided.
 		After retrieving add-on update metadata from sources, fetch update info is called on each record
 		to see if updates are available, returning a list of updatable add-on records.
 		Subclasses must implement this method.
