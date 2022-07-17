@@ -53,7 +53,9 @@ class AddonUpdateCheckProtocol(object):
 		As this function blocks the main thread, it should be run from a separate thread.
 		Therefore, the results argument passed in should be a dictionary that can be accessed
 		after calling join function on this thread.
-		Subclasses can override this method.
+		Dictionaries are used to return results in a variety of formats under a dedicated key
+		as sources may use different representation such as lists and dictionaries.
+		Subclasses can override this method to access sources not using JSON format or for other reasons.
 		differentUserAgent: used to report a user agent other than Python as some websites block Python.
 		errorText: logs specified text to the NVDA og.
 		"""
@@ -77,7 +79,7 @@ class AddonUpdateCheckProtocol(object):
 				results["error"] = True
 		finally:
 			if res is not None:
-				results.update(json.load(res))
+				results["results"] = json.load(res)
 				res.close()
 
 	def addonCompatibleAccordingToMetadata(self, addon, addonMetadata):
@@ -491,35 +493,6 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 	protocolName = "nvdaes"
 	protocolDescription = "NVDA Spanish Community Add-ons website"
 	sourceUrl = "https://nvda.es/files/get.php?addonslist"
-
-	def getAddonsData(self, results, url=None, differentUserAgent=False, errorText=None):
-		"""Unlike other protocols, json data is a list, not a dictionary.
-		Therefore do return a dictionary with results stored inside a key.
-		differentUserAgent: used to report a user agent other than Python as some websites block Python.
-		errorText: logs specified text to the NVDA og.
-		"""
-		if url is None:
-			url = self.sourceUrl
-		if differentUserAgent:
-			url = getUrlViaMSEdgeUserAgent(url)
-		if errorText is None:
-			errorText = "nvda3208: errors occurred while retrieving add-ons data"
-		res = None
-		try:
-			res = urlopen(url)
-		except IOError as e:
-			# SSL issue (seen in NVDA Core earlier than 2014.1).
-			if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
-				addonUtils._updateWindowsRootCertificates()
-				res = urlopen(url)
-			else:
-				# Inform results dictionary that an error has occurred as this is running inside a thread.
-				log.debug(errorText, exc_info=True)
-				results["error"] = True
-		finally:
-			if res is not None:
-				results["results"] = json.load(res)
-				res.close()
 
 	def fetchAddonInfo(self, addon, results):
 		# Spanish community catalog contains version, channel, URL, and compatibility information.
