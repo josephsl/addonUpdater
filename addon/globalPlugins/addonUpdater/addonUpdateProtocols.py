@@ -331,8 +331,9 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		# Perhaps a newer protocol sent a fallback data if the protocol URL fails somehow.
 		else:
 			results = fallbackData
+		# Retrieve results from "results" key found in the dictionary.
 		updateThreads = [
-			threading.Thread(target=self.fetchAddonInfo, args=(addon, results))
+			threading.Thread(target=self.fetchAddonInfo, args=(addon, results["results"]))
 			for addon in curAddons
 		]
 		for thread in updateThreads:
@@ -460,7 +461,8 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 		# Fallback to add-ons list if metadata is unusable.
 		if "error" in addonsData:
 			addonsData.clear()
-		if len(addonsData) == 0:
+		# Results are stored in "results" key.
+		if len(addonsData["results"]) == 0:
 			log.debug("nvda3208: add-ons metadata unusable, using add-ons list from community add-ons website")
 			# Resort to using protocol 1.
 			return AddonUpdateCheckProtocolNVDAProject().checkForAddonUpdate(curAddons, fallbackData=results)
@@ -468,7 +470,9 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 			log.debug("nvda3208: add-ons metadata successfully retrieved")
 		# Don't forget to perform additional checks based on add-on metadata if present.
 		updateThreads = [
-			threading.Thread(target=self.fetchAddonInfo, args=(addon, results, addonsData))
+			threading.Thread(
+				target=self.fetchAddonInfo, args=(addon, results["results"], addonsData["results"])
+			)
 			for addon in curAddons
 		]
 		for thread in updateThreads:
