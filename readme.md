@@ -38,7 +38,7 @@ You can configure Add-on Updater settings from NVDA Settings screen (NVDA menu, 
 * Significant internal code reorganization and rewrites.
 * On Windows Server systems, automatic add-on update check feature is disabled by default (affects new installations).
 * Added ability to select different add-on update sources. Add-on Updater can check for updates hosted on community add-ons website (addons.nvda-project.org) or Spanish community add-ons catalog (nvda.es). A new combo box was added in add-on settings panel to select add-on update source.
-* On Windows 10 and later, it is possible to let Add-on Updater check for, download, and install add-on updates in the background provided that NVDA is actualy installed and ad-on update notification is set to toast.
+* On Windows 10 and later, it is possible to let Add-on Updater check for, download, and install add-on updates in the background provided that NVDA is actually installed and ad-on update notification is set to toast.
 * Redesigned add-on update download and install experience for multiple add-on updates, including use of a single dialog to show download progress for all add-ons and updating add-ons after downloading all of them.
 * If NVDA is set to announce update notifications as toasts, "check for add-on updates" menu item will become "review add-on updates" when updates become available, with the new name including add-on update count.
 * In NVDA 2022.1 and later, Add-on Updater can process command-line switches for this add-on (currently none).
@@ -76,13 +76,13 @@ You can configure Add-on Updater settings from NVDA Settings screen (NVDA menu, 
 
 ## Version 21.07
 
-* On Windows 10 and later, a toast notification will be shown when add-on updates are available. Note that you cannot click this notification - you must open NvDA menu/Tools/Check for add-on updates to review updates.
+* On Windows 10 and later, a toast notification will be shown when add-on updates are available. Note that you cannot click this notification - you must open NVDA menu/Tools/Check for add-on updates to review updates.
 * When legacy add-ons dialog is shown at startup, you can now review legacy add-ons and reasons just like add-on updates.
 * Improved add-on update check internals, including use of add-on metadata collection provided by the community to validate add-on compatibility. Among other things, this eliminates add-on releases for adding update checks for new add-ons.
 
 ## Version 21.05
 
-* NvDA will no longer play error tones if trying to check updates while using NVDA 2021.1 alpha snapshots, caused by changes to wxPython GUI toolkit.
+* NVDA will no longer play error tones if trying to check updates while using NVDA 2021.1 alpha snapshots, caused by changes to wxPython GUI toolkit.
 
 ## Version 21.03
 
