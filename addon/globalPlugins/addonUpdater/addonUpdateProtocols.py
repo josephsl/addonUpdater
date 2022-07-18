@@ -296,22 +296,8 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		# Necessary duplication if the URL doesn't end in ".nvda-addon".
 		# Some add-ons require traversing another URL.
 		if ".nvda-addon" not in addonUrl:
-			res = None
-			req = getUrlViaMSEdgeUserAgent(f"{URLs.communityFileGetter}{addonKey}")
-			try:
-				res = urlopen(req)
-			except IOError as e:
-				# SSL issue (seen in NVDA Core earlier than 2014.1).
-				if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
-					addonUtils._updateWindowsRootCertificates()
-					res = urlopen(req)
-				else:
-					pass
-			finally:
-				if res is not None:
-					addonUrl = res.url
-					res.close()
-			if res is None or (res and res.code != 200):
+			addonUrl = self.getAddonDownloadLink(addonUrl)
+			if addonUrl is None:
 				return
 		# Note that some add-ons are hosted on community add-ons server directly.
 		if "/" not in addonUrl:
@@ -412,22 +398,8 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 		# Necessary duplication if the URL doesn't end in ".nvda-addon".
 		# Some add-ons require traversing another URL.
 		if ".nvda-addon" not in addonUrl:
-			res = None
-			req = getUrlViaMSEdgeUserAgent(f"{URLs.communityFileGetter}{addonKey}")
-			try:
-				res = urlopen(req)
-			except IOError as e:
-				# SSL issue (seen in NVDA Core earlier than 2014.1).
-				if isinstance(e.reason, ssl.SSLCertVerificationError) and e.reason.reason == "CERTIFICATE_VERIFY_FAILED":
-					addonUtils._updateWindowsRootCertificates()
-					res = urlopen(req)
-				else:
-					pass
-			finally:
-				if res is not None:
-					addonUrl = res.url
-					res.close()
-			if res is None or (res and res.code != 200):
+			addonUrl = self.getAddonDownloadLink(addonUrl)
+			if addonUrl is None:
 				return
 		# Note that some add-ons are hosted on community add-ons server directly.
 		if "/" not in addonUrl:
@@ -558,22 +530,8 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 		# Necessary duplication if the URL doesn't end in ".nvda-addon".
 		# Some add-ons require traversing another URL.
 		if ".nvda-addon" not in addonUrl:
-			res = None
-			req = getUrlViaMSEdgeUserAgent(addonUrl)
-			try:
-				res = urlopen(req)
-			except IOError as e:
-				# SSL issue (seen in NVDA Core earlier than 2014.1).
-				if isinstance(e.reason, ssl.SSLCertVerificationError) and e.reason.reason == "CERTIFICATE_VERIFY_FAILED":
-					addonUtils._updateWindowsRootCertificates()
-					res = urlopen(req)
-				else:
-					pass
-			finally:
-				if res is not None:
-					addonUrl = res.url
-					res.close()
-			if res is None or (res and res.code != 200):
+			addonUrl = self.getAddonDownloadLink(addonUrl)
+			if addonUrl is None:
 				return
 		version = addonMetadata["version"]
 		addon.version = version
