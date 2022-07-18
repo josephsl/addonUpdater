@@ -580,10 +580,10 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 		]
 
 
-class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocolNVDAEs):
+class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocol):
 	"""Protocol 4: NV Access add-ons datastore protocol
 	NV Access has reimagined the add-ons metadata storage mechanics.
-	Due to similarities, this protocol borrows heavily from Spanish community catalog protocol.
+	Due to similarities, this protocol borrows ideas from Spanish community catalog protocol.
 	Version, compatibility, and update channel checks are available.
 	Just like Spanish community catalog, results data is a list, not a dictionary.
 	"""
