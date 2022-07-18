@@ -83,10 +83,6 @@ def checkForAddonUpdates() -> Optional[list[AddonUpdateRecord]]:
 	if globalVars.appArgs.secure:
 		return None
 	from . import addonUpdateProtocols
-	updateProtocols: dict[str, str] = {
-		protocol.key: protocol.protocol for protocol in addonUpdateProtocols.AvailableUpdateProtocols
-	}
-	updateChecker = getattr(addonUpdateProtocols, updateProtocols[addonUtils.updateState["updateSource"]])
 	# Build a list of preliminary update records based on installed add-ons.
 	curAddons = []
 	for addon in addonHandler.getAvailableAddons():
@@ -121,6 +117,11 @@ def checkForAddonUpdates() -> Optional[list[AddonUpdateRecord]]:
 			updateChannel=updateChannel,
 			isEnabled=isEnabled
 		))
+	# Choos the appropriate add-on update protocol/source.
+	updateProtocols: dict[str, str] = {
+		protocol.key: protocol.protocol for protocol in addonUpdateProtocols.AvailableUpdateProtocols
+	}
+	updateChecker = getattr(addonUpdateProtocols, updateProtocols[addonUtils.updateState["updateSource"]])
 	try:
 		info = updateChecker().checkForAddonUpdates(installedAddons=curAddons)
 	except:
