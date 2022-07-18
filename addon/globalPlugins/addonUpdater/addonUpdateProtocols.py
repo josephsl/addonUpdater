@@ -102,6 +102,29 @@ class AddonUpdateCheckProtocol(object):
 			and lastTestedNVDAVersion >= addonAPIVersion.BACK_COMPAT_TO
 		)
 
+	def getAddonDownloadLink(self, url):
+		"""If the source URL does not end in a '.nvda-addon' extension, obtains the actual download ink
+		by accessing the URL specified in the 'url' parameter.
+		This is similar to get add-ons data method except it is optimized to obtain a URL, not results data.
+		"""
+		res = None
+		addonUrl = None
+		req = getUrlViaMSEdgeUserAgent(url)
+		try:
+			res = urlopen(req)
+		except IOError as e:
+			# SSL issue (seen in NVDA Core earlier than 2014.1).
+			if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
+				addonUtils._updateWindowsRootCertificates()
+				res = urlopen(req)
+			else:
+				pass
+		finally:
+			if res is not None and res.code == 200:
+				addonUrl = res.url
+				res.close()
+		return addonUrl
+
 	def checkForAddonUpdate(self, curAddons):
 		"""Coordinates add-on update check facility based on update records provided.
 		After retrieving add-on update metadata from sources, fetch update info is called on each record
