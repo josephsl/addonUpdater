@@ -324,18 +324,9 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		# Announce add-on URL for debugging purposes.
 		log.debug(f"nvda3208: add-on URL is {addonUrl}")
 		# Update add-on update record if there is indeed a new version.
-		# All the info we need for add-on version check is after the last slash.
-		# Sometimes, regular expression fails, and if so, treat it as though there is no update for this add-on.
-		try:
-			version = re.search(
-				"(?P<name>)-(?P<version>.*).nvda-addon", addonUrl.split("/")[-1]
-			).groupdict()["version"]
-		except:
-			log.debug("nvda3208: could not retrieve version info for an add-on from its URL", exc_info=True)
-			return
-		# If hosted on places other than add-ons server, an unexpected URL might be returned, so parse this further.
-		if addon.name in version:
-			version = version.split(addon.name)[1][1:]
+		# This applies to add-on URL's coming from external sources.
+		# Fall back to installed version as update record will compare versions.
+		version = self.parseAddonVersionFromUrl(addonUrl, addon, fallbackVersion=addon.installedVersion)
 		addon.version = version
 		addon.url = addonUrl
 
@@ -425,18 +416,9 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 			addonUrl = f"{URLs.communityHostedFile}{addonUrl}"
 		# Announce add-on URL for debugging purposes.
 		log.debug(f"nvda3208: add-on URL is {addonUrl}")
-		# All the info we need for add-on version check is after the last slash.
-		# Sometimes, regular expression fails, and if so, treat it as though there is no update for this add-on.
-		try:
-			version = re.search(
-				"(?P<name>)-(?P<version>.*).nvda-addon", addonUrl.split("/")[-1]
-			).groupdict()["version"]
-		except:
-			log.debug("nvda3208: could not retrieve version info for an add-on from its URL", exc_info=True)
-			return
-		# If hosted on places other than add-ons server, an unexpected URL might be returned, so parse this further.
-		if addon.name in version:
-			version = version.split(addon.name)[1][1:]
+		# This applies to add-on URL's coming from external sources.
+		# Fall back to installed version as update record will compare versions.
+		version = self.parseAddonVersionFromUrl(addonUrl, addon, fallbackVersion=addon.installedVersion)
 		addon.version = version
 		addon.url = addonUrl
 
