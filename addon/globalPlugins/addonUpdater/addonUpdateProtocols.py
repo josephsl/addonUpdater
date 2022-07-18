@@ -320,7 +320,7 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 				return
 		# Note that some add-ons are hosted on community add-ons server directly.
 		if "/" not in addonUrl:
-			addonUrl = f"https://addons.nvda-project.org/files/{addonUrl}"
+			addonUrl = f"{URLs.communityHostedFile}{addonUrl}"
 		# Announce add-on URL for debugging purposes.
 		log.debug(f"nvda3208: add-on URL is {addonUrl}")
 		# Update add-on update record if there is indeed a new version.
