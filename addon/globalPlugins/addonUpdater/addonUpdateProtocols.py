@@ -623,7 +623,7 @@ class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocol):
 		if fallbackData is None:
 			# URL is of the form https://www.nvaccess.org/addonStore/<language>/all/<NVDA API Version>.json,
 			# in this case sourceUrl/<language>/all/<NVDA API Version>.json,
-			# Use English (en) for language and current nVDA release for version.
+			# Use English (en) for language and current NVDA release for version.
 			import versionInfo
 			nvdaVer = f"{versionInfo.version_year}.{versionInfo.version_major}.{versionInfo.version_minor}"
 			url = f"{self.sourceUrl}/en/all/{nvdaVer}.json"
