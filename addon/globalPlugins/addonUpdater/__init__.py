@@ -192,15 +192,18 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 				# Add-on Updater settings panel.
 				_("&Add-on update notification:"), wx.Choice, choices=[x[1] for x in updateNotificationChoices]
 			)
+			self.updateNotification.Bind(wx.EVT_CHOICE, self.onNotificationSelection)
 			self.updateNotification.SetSelection(
 				next((x for x, y in enumerate(updateNotificationChoices)
 				if y[0] == addonUtils.updateState["updateNotification"]))
 			)
+			# Only enable this checkbox if update notification is set to toast (Windows 10 and later).
 			self.backgroundUpdateCheckBox = sHelper.addItem(
 				# Translators: This is the label for a checkbox in the
 				# Add-on Updater settings panel.
 				wx.CheckBox(self, label=_("Update add-ons in the &background"))
 			)
+			self.backgroundUpdateCheckBox.Enable(addonUtils.updateState["updateNotification"] == "toast")
 			self.backgroundUpdateCheckBox.SetValue(addonUtils.updateState["backgroundUpdate"])
 
 		# Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
@@ -235,6 +238,12 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 				addonUtils.updateState["updateSource"]
 			)
 		)
+
+	def onNotificationSelection(self, evt):
+		# Enable/disable background update checkbox based on update notification selection.
+		# Toast is the first item in update notification list (index 0).
+		if hasattr(self, "updateNotification") and hasattr(self, "backgroundUpdateCheckBox"):
+			self.backgroundUpdateCheckBox.Enable(self.updateNotification.Selection == 0)
 
 	def isValid(self):
 		# Present a message if about to switch to a different add-on update source.
