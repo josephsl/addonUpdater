@@ -11,6 +11,7 @@ To check for updates after installing this add-on, go to NVDA menu/Tools/Check f
 The following add-ons provide built-in update feature and thus updates will not be checked via this add-on:
 
 * Braille Extender
+* Tienda NVDA (Spanish NVDA Community Store)
 * WeatherPlus
 
 IMPORTANT NOTES:
@@ -28,7 +29,7 @@ You can configure Add-on Updater settings from NVDA Settings screen (NVDA menu, 
 
 * Automatically check for add-on updates: if checked, NVDA will check for add-on updates once a day. Automatic update checks is enabled on Windows client systems and disabled on server systems.
 * Add-on update notification (Windows 10 and later): you can choose to receive update notification as a dialog or a toast. On Windows releases earlier than 10 and on server systems, or running portable copy of NVDA, update notification will be shown as a dialog.
-* Update add-ons in the background (Windows 10 and later): if checked, Add-on Updater will apply updates in the background. A toast will appear informing you that add-on updates are being downloaded and installed, followed by another message announcing update results. Same limitations as add-on update notification setting and toast must be selected from the above option in order for background updates to work.
+* Update add-ons in the background (Windows 10 and later and update notification is set to toast): if checked, Add-on Updater will apply updates in the background. A toast will appear informing you that add-on updates are being downloaded and installed, followed by another message announcing update results. Same limitations as add-on update notification setting and toast must be selected from the above option in order for background updates to work.
 * Do not update add-ons: you can choose add-ons that should not be updated.
 * Prefer development releases: any add-ons checked in this list will receive development (prerelease) releases.
 * Add-on update source: you can choose where to get updates from. Currently Add-on Updater supports downloading updates from community add-ons website and Spanish community add-ons catalog. A confirmation message will be shown after changing update source.
