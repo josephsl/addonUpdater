@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2022-07-08 09:09+0200\n"
+"PO-Revision-Date: 2022-07-15 08:45+0200\n"
 "Last-Translator: René Linke <rene.linke@hamburg.de>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.1\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #. Translators: menu item label for checking add-on updates.
 msgid "Check for &add-on updates..."
@@ -52,7 +52,7 @@ msgstr "&Benachrichtigung über Updates der Erweiterungen:"
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
 msgid "Update add-ons in the &background"
-msgstr ""
+msgstr "Erweiterungen im &Hintergrund aktualisieren"
 
 #. Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
 #. Some add-ons come with pretty badly formatted summary text,
@@ -66,9 +66,8 @@ msgstr "Entwicklungs&versionen bevorzugen:"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
-#, fuzzy
 msgid "Add-on update &source:"
-msgstr "Updates für NVDA-Erweiterungen suchen"
+msgstr "Update-&Quelle für NVDA-Erweiterung:"
 
 #. Translators: Presented when about to switch add-on update sources.
 #, python-brace-format
@@ -76,11 +75,12 @@ msgid ""
 "You are about to switch to a different add-on update source. Are you sure "
 "you wish to change update source to {updateSourceDescription}?"
 msgstr ""
+"Sie sind dabei, zu einer anderen Update-Quelle für NVDA-Erweiterungen zu "
+"wechseln. Möchten Sie sie auf {updateSourceDescription} ändern?"
 
 #. Translators: Title of the add-on update source dialog.
-#, fuzzy
 msgid "Add-on update source change"
-msgstr "Updates für NVDA-Erweiterungen suchen"
+msgstr "Update-Quelle für NVDA-Erweiterungen ändern"
 
 #. Translators: The title of the legacy add-ons dialog.
 msgid "Legacy add-ons found"
@@ -115,17 +115,17 @@ msgid "Add-on update check"
 msgstr "Updates für NVDA-Erweiterungen suchen"
 
 #. Translators: The message displayed while checking for add-on updates.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Checking for add-on updates from {updateSource}..."
-msgstr "Updates für NVDA-Erweiterungen werden gesucht..."
+msgstr "Nach Updates für NVDA-Erweiterungen von {updateSource} suchen..."
 
 msgid "Error checking for add-on updates."
 msgstr "Fehler bei der Suche nach Updates für NVDA-Erweiterungen."
 
 #. Translators: The title of the add-on updates dialog.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "NVDA Add-on Updates ({updateSource})"
-msgstr "Updates für NVDA-Erweiterungen"
+msgstr "Updates der NVDA-Erweiterung ({updateSource})"
 
 #. Translators: Message displayed when add-on updates are available.
 #, python-brace-format
@@ -133,9 +133,9 @@ msgid "Add-on updates available: {updateCount}"
 msgstr "Updates folgender Erweiterungen verfügbar: {updateCount}"
 
 #. Translators: Message displayed when add-on updates were installed.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid "Add-ons pending install: {updateCount}"
-msgstr "Updates folgender Erweiterungen verfügbar: {updateCount}"
+msgstr "Ausstehende NVDA-Erweiterungen: {updateCount}"
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify current add-on version (example: version is 0.3).
@@ -153,6 +153,17 @@ msgstr "Keine Updates für NVDA-Erweiterungen verfügbar."
 
 #. Translators: The label of a button to update add-ons.
 msgid "&Update add-ons"
+msgstr "Erweiterungen &aktualisieren"
+
+#. Translators: Presented when attempting to udpate disabled add-ons.
+msgid ""
+"One or more add-ons are currently disabled. These add-ons will be enabled "
+"after updating. Are you sure you wish to update disabled add-ons anyway?"
+msgstr ""
+
+#. Translators: Title of the add-on update confirmation dialog.
+#, fuzzy
+msgid "Update disabled add-ons"
 msgstr "Erweiterungen &aktualisieren"
 
 #, python-brace-format
@@ -209,14 +220,14 @@ msgid "Review &add-on updates ({updateCount})..."
 msgstr "Überprüfung und &zusätzliche Updates ({updateCount})..."
 
 #. Translators: presented as part of add-on update notification message.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid ""
 "One or more add-on updates from {updateSource} are available. Go to NVDA "
 "menu, Tools, Review add-on updates to review them."
 msgstr ""
-"Es sind ein oder mehrere Updates für Erweiterungen verfügbar. Gehen Sie ins "
-"NVDA Menü, Werkzeuge, Nach Updates für NVDA-Erweiterungen suchen, um diese "
-"zu überprüfen."
+"Ein oder mehrere Updates für NVDA-Erweiterungen von {updateSource} sind "
+"verfügbar. Gehen Sie ins NVDA-Menü, Werkzeuge, Nach Updates für NVDA-"
+"Erweiterungen suchen, um sie zu überprüfen."
 
 #. Translators: presented as part of add-on update notification message.
 #, python-brace-format
@@ -224,34 +235,36 @@ msgid ""
 "One or more add-on updates from {updateSource} are being downloaded and "
 "installed."
 msgstr ""
+"Ein oder mehrere Updates für NVDA-Erweiterungen von {updateSource} werden "
+"gerade heruntergeladen und installiert."
 
 #. Translators: title of the add-on update notification message.
 msgid "NVDA add-on updates"
 msgstr "Updates für NVDA-Erweiterungen"
 
 #. Translators: presented as part of add-on update notification message.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid ""
 "One or more add-on updates from {updateSource} were installed. Go to NVDA "
 "menu, Tools, Review add-on updates to review them. Then restart NVDA to "
 "finish updating add-ons."
 msgstr ""
-"Es sind ein oder mehrere Updates für Erweiterungen verfügbar. Gehen Sie ins "
-"NVDA Menü, Werkzeuge, Nach Updates für NVDA-Erweiterungen suchen, um diese "
-"zu überprüfen."
+"Ein oder mehrere Updates für NVDA-Erweiterungen von {updateSource} wurden "
+"installiert. Gehen Sie ins NVDA-Menü, Werkzeuge, Nach Updates für NVDA-"
+"Erweiterungen suchen, um sie zu überprüfen. Starten Sie dann NVDA neu, um "
+"die Updates für NVDA-Erweiterungen abzuschließen."
 
 #. Translators: presented as part of add-on update notification message.
-#, fuzzy
 msgid "Could not update add-ons."
-msgstr "Au&sgeschlossene NVDA-Erweiterungen:"
+msgstr "Die NVDA-Erweiterungen konnten nicht aktualisiert werden."
 
 #. Translators: one of the add-on update source choices.
 msgid "NVDA community add-ons website"
-msgstr ""
+msgstr "Community-Webseite für NVDA-Erweiterungen"
 
 #. Translators: one of the add-on update source choices.
 msgid "Spanish community add-ons catalog"
-msgstr ""
+msgstr "Katalog der NVDA-Erweiterungen von der spanischen Community"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
