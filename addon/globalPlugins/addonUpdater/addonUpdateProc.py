@@ -74,6 +74,7 @@ class AddonUpdateRecord(object):
 # Add-ons with built-in update feature.
 addonsWithUpdaters: list[str] = [
 	"BrailleExtender",
+	"TiendaNVDA",
 	"Weather Plus",
 ]
 
