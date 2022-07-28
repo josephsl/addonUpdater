@@ -122,8 +122,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			return
 		# Tell NVDA that the add-on accepts additional command-line switches.
 		# This is not supported properly on NVDA releases before 2022.1.
-		if hasattr(addonHandler, "isCLIParamKnown"):
-			addonHandler.isCLIParamKnown.register(processArgs)
+		addonHandler.isCLIParamKnown.register(processArgs)
 		addonUtils.loadState()
 		self.toolsMenu = gui.mainFrame.sysTrayIcon.toolsMenu
 		self.addonUpdater = self.toolsMenu.Append(
