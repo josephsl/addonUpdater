@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 'addonUpdater' '22.06'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2022-05-21 16:44+0400\n"
-"PO-Revision-Date: 2022-07-18 10:51+0400\n"
+"PO-Revision-Date: 2022-07-22 09:18+0400\n"
 "Last-Translator: Dragan Ratkovich\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -161,11 +161,13 @@ msgid ""
 "One or more add-ons are currently disabled. These add-ons will be enabled "
 "after updating. Are you sure you wish to update disabled add-ons anyway?"
 msgstr ""
+"Одно или несколько дополнений в настоящее время отключены. Эти дополнения "
+"будут включены после обновления. Вы действительно хотите обновить "
+"отключенные дополнения?"
 
 #. Translators: Title of the add-on update confirmation dialog.
-#, fuzzy
 msgid "Update disabled add-ons"
-msgstr "&Обновить дополнения"
+msgstr "Обновить отключенные дополнения"
 
 #, python-brace-format
 msgid "Downloading {addonName}"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2022-07-15 10:16+0200\n"
+"PO-Revision-Date: 2022-07-22 09:56+0200\n"
 "Last-Translator: Jani Kinnunen <janikinnunen340@gmail.com>\n"
 "Language-Team: Jani Kinnunen <jani.kinnunen@wippies.fi>\n"
 "Language: fi\n"
@@ -160,11 +160,12 @@ msgid ""
 "One or more add-ons are currently disabled. These add-ons will be enabled "
 "after updating. Are you sure you wish to update disabled add-ons anyway?"
 msgstr ""
+"Yksi tai useampi lisäosa ei ole tällä hetkellä käytössä. Ne otetaan käyttöön "
+"päivityksen jälkeen. Haluatko varmasti päivittää käytöstä poistetut lisäosat?"
 
 #. Translators: Title of the add-on update confirmation dialog.
-#, fuzzy
 msgid "Update disabled add-ons"
-msgstr "&Päivitä lisäosat"
+msgstr "Päivitä käytöstä poistetut lisäosat"
 
 #, python-brace-format
 msgid "Downloading {addonName}"

@@ -5,13 +5,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: addonUpdater 18.12\n"
+"Project-Id-Version: addonUpdater 22.07\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
-"POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2022-07-22 08:02+0200\n"
-"Last-Translator: José Manuel Delicado <jmdaweb@hotmail.com>\n"
+"POT-Creation-Date: 2022-07-22 01:00+0000\n"
+"PO-Revision-Date: 2022-07-23 14:53+0400\n"
+"Last-Translator: Dragan Ratkovich\n"
 "Language-Team: \n"
-"Language: es\n"
+"Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,55 +19,55 @@ msgstr ""
 
 #. Translators: menu item label for checking add-on updates.
 msgid "Check for &add-on updates..."
-msgstr "Buscar &actualizaciones de complementos..."
+msgstr "&დამატებების განახლების შემოწმება..."
 
 msgid "Check for NVDA add-on updates"
-msgstr "Buscar actualizaciones de complementos de NVDA"
+msgstr "NVDA დამატებების განახლების შემოწმება"
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
 #. Translators: Summary for this add-on
 #. to be shown on installation and add-on information.
 msgid "Add-on Updater"
-msgstr "Actualizador de complementos"
+msgstr "დამატებების განახლება"
 
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
 msgid "Automatically check for add-on &updates"
-msgstr "Buscar automáticamente &actualizaciones de complementos"
+msgstr "დამატებების განახლების &ავტომატური შემოწმება"
 
 #. Translators: one of the add-on update notification choices.
 msgid "toast"
-msgstr "aviso emergente"
+msgstr "შეტყობინება"
 
 #. Translators: one of the add-on update notification choices.
 msgid "dialog"
-msgstr "diálogo"
+msgstr "დიალოგი"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
 msgid "&Add-on update notification:"
-msgstr "&Notificación de actualizaciones de complementos:"
+msgstr "&დამატების განახლების შეტყობინება:"
 
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
 msgid "Update add-ons in the &background"
-msgstr "Actualizar complementos en &segundo plano"
+msgstr "დამატებების განახლება &ფონურ რეჟიმში"
 
 #. Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
 #. Some add-ons come with pretty badly formatted summary text,
 #. so try catching them and exclude them from this list.
 #. Also, Vocalizer add-on family should be excluded from this list (requested by add-on author).
 msgid "Do &not update add-ons:"
-msgstr "No actualizar complementos:"
+msgstr "ა&რ განახლდეს დამატებები:"
 
 msgid "Prefer &development releases:"
-msgstr "Preferir versiones de &desarrollo:"
+msgstr "&უპირატესობა დასამუშავებელ ვერსიებზე:"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
 msgid "Add-on update &source:"
-msgstr "&Fuente de actualización de complementos:"
+msgstr "დამატების განახლების &წყარო:"
 
 #. Translators: Presented when about to switch add-on update sources.
 #, python-brace-format
@@ -75,17 +75,16 @@ msgid ""
 "You are about to switch to a different add-on update source. Are you sure "
 "you wish to change update source to {updateSourceDescription}?"
 msgstr ""
-"Estás a punto de cambiar a una fuente de actualización de complementos "
-"diferente. ¿Seguro que quieres cambiar la fuente de actualizaciones a "
-"{updateSourceDescription}?"
+"თქვენ აპირებთ დამატების განახლების სხვა წყაროზე გადასვლას. დარწმუნებული "
+"ხართ რომ გსურთ შეცვალოთ განახლების წყარო {updateSourceDescription}თ?"
 
 #. Translators: Title of the add-on update source dialog.
 msgid "Add-on update source change"
-msgstr "Cambio de fuente de actualización de complementos"
+msgstr "დამატების განახლების წყაროს შეცვლა"
 
 #. Translators: The title of the legacy add-ons dialog.
 msgid "Legacy add-ons found"
-msgstr "Se han encontrado complementos antiguos"
+msgstr "მოიძებნა მოძველებული დამატებები"
 
 #. Translators: message displayed if legacy add-ons are found
 #. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
@@ -95,130 +94,129 @@ msgid ""
 "declared legacy by add-on developers. Please disable or uninstall these add-"
 "ons by going to NVDA menu, Tools, Manage Add-ons.\n"
 msgstr ""
-"Se han encontrado uno o más complementos antiguos en tu instalación de NVDA. "
-"Las funciones de estos complementos ahora forman parte de la versión de NVDA "
-"que estás utilizando, o los desarrolladores de los complementos los han "
-"declarado obsoletos. Por favor, deshabilita o desinstala estos complementos "
-"yendo al menú NVDA, Herramientas, Gestionar complementos.\n"
+"მოიძებნა ერთი ან მეტი მოძველებული დამატება თქვენს დაყენებულ NVDA-ში. ამ "
+"დამატებების ფუნქცია ახლა უკვე თქვენ მიერ გამოყენებული NVDA-ის ვერსიის "
+"ნაწილია, ან გამოცხადებულია დამმუშავებლების მხრიდან როგორც მოძველებული. "
+"გთხოვთ, გამორთოთ ან წაშალოთ ეს დამატებები NVDA მენიუ, სერვისი, დამატებების "
+"მართვაში გადასვლით.\n"
 
 #. Translators: the label for the legacy add-ons list.
 msgid "Legacy add-ons"
-msgstr "Complementos antiguos"
+msgstr "მოძველებული დამატებები"
 
 #. Translators: The label for a column in legacy add-ons list used to show legacy add-on reason.
 msgid "Legacy reason"
-msgstr "Motivo de la obsolescencia"
+msgstr "მოძველების მიზეზი"
 
 #. Translators: The title of the dialog presented while checking for add-on updates.
 msgid "Add-on update check"
-msgstr "Búsqueda de actualización de complementos"
+msgstr "დამატებების განახლების შემოწმება"
 
 #. Translators: The message displayed while checking for add-on updates.
 #, python-brace-format
 msgid "Checking for add-on updates from {updateSource}..."
-msgstr "Buscando actualizaciones de complementos desde {updateSource}..."
+msgstr "მიმდინარეობს დამატებების განახლების შემოწმება {updateSource}დან..."
 
 msgid "Error checking for add-on updates."
-msgstr "Error al buscar actualizaciones de complementos."
+msgstr "შეცდომა დამატებების განახლების შემოწმებისას."
 
 #. Translators: The title of the add-on updates dialog.
 #, python-brace-format
 msgid "NVDA Add-on Updates ({updateSource})"
-msgstr "Actualización de complementos de NVDA ({updateSource})"
+msgstr "NVDA დამატების განახლებები ({updateSource})"
 
 #. Translators: Message displayed when add-on updates are available.
 #, python-brace-format
 msgid "Add-on updates available: {updateCount}"
-msgstr "Hay disponibles {updateCount} actualizaciones de complementos:"
+msgstr "ხელმისაწვდომი განახლება დამატებებისთვის: {updateCount}"
 
 #. Translators: Message displayed when add-on updates were installed.
 #, python-brace-format
 msgid "Add-ons pending install: {updateCount}"
-msgstr "Complementos pendientes de instalar: {updateCount}"
+msgstr "ინსტალაციის მოლოდინში მყოფი დამატებები: {updateCount}"
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify current add-on version (example: version is 0.3).
 msgid "Current version"
-msgstr "Versión actual"
+msgstr "მიმდინარე ვერსია"
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify new add-on version (example: version is 0.4).
 msgid "New version"
-msgstr "Nueva versión"
+msgstr "ახალი ვერსია"
 
 #. Translators: Message displayed when no add-on updates are available.
 msgid "No add-on update available."
-msgstr "No hay actualizaciones de complementos disponibles."
+msgstr "დამატებებისთვის განახლება არ არის."
 
 #. Translators: The label of a button to update add-ons.
 msgid "&Update add-ons"
-msgstr "&Actualizar complementos"
+msgstr "&დამატებების განახლება"
 
 #. Translators: Presented when attempting to udpate disabled add-ons.
 msgid ""
 "One or more add-ons are currently disabled. These add-ons will be enabled "
 "after updating. Are you sure you wish to update disabled add-ons anyway?"
 msgstr ""
-"Hay uno o más complementos deshabilitados. Estos complementos se habilitarán "
-"después de actualizar. ¿Seguro que quieres actualizar los complementos "
-"deshabilitados de todas formas?"
+"ამჟამად ერთი ან მეტი დამატება გამორთულია. განახლების შემდეგ, ეს დამატებები "
+"ჩაირთვება. მაინც გსურთ გამორთული დამატებების განახლება?"
 
 #. Translators: Title of the add-on update confirmation dialog.
 msgid "Update disabled add-ons"
-msgstr "Actualizar complementos deshabilitados"
+msgstr "გამორთული დამატებების განახლება"
 
 #, python-brace-format
 msgid "Downloading {addonName}"
-msgstr "Descargando {addonName}"
+msgstr "იტვირთება {addonName}"
 
 #. Translators: A message indicating that an error occurred while downloading an update to NVDA.
 #, python-brace-format
 msgid "Error downloading update for {name}."
-msgstr "Error al descargar la actualización de {name}."
+msgstr "{name}-ისთვის განახლების ჩამოტვირთვა ვერ მოხერხდა."
 
 #. Translators: The title of the dialog presented while an Addon is being updated.
 msgid "Updating add-ons"
-msgstr "Actualizando complementos"
+msgstr "მიმდინარეობს დამატებების განახლება"
 
 #. Translators: The message displayed while an addon is being updated.
 msgid "Please wait while add-ons are being updated."
-msgstr "Por favor, espera mientras se actualizan los complementos."
+msgstr "გთხოვთ, დაელოდოთ, სანამ მიმდინარეობს დამატებების განახლება."
 
 #. Translators: The message displayed when an error occurs
 #. when trying to update an add-on package due to package problems.
 #, python-brace-format
 msgid "Cannot update {name} - missing file or invalid file format"
 msgstr ""
-"No se puede actualizar {name} - archivo ausente o formato de archivo no "
-"válido"
+"{name}-ის განახლება ვერ მოხერხდა - ფაილი არ არსებობს, ან აქვს არასწორი "
+"ფორმატი"
 
 #. Translators: The message displayed when an error occurs when installing an add-on package.
 #, python-brace-format
 msgid "Failed to update {name} add-on"
-msgstr "Fallo al actualizar el complemento {name}"
+msgstr "ვერ მოხერხდა {name} დამატების განახლება"
 
 #. Translators: The title of the dialog displayed while downloading add-on update.
 msgid "Downloading Add-on Update"
-msgstr "Descargando actualización de complemento"
+msgstr "მიმდინარეობს დამატების განახლების ჩამოტვირთვა"
 
 #. Translators: The progress message indicating the name of the add-on being downloaded.
 msgid "Downloading add-on updates"
-msgstr "Descargando actualizaciones de complementos"
+msgstr "მიმდინარეობს დამატებების განახლების ჩამოტვირთვა"
 
 #. Add-ons with all features integrated into NVDA or declared "legacy" by authors.
 #. For the latter case, update check functionality will be disabled upon authors' request.
 #. Translators: legacy add-on, features included in NVDA.
 msgid "features included in NVDA"
-msgstr "funciones ya incluidas en NVDA"
+msgstr "ფუნქციები, რომელიც ჩართულია NVDA-ში"
 
 #. Translators: legacy add-on, declared by add-on developers.
 msgid "declared legacy by add-on developers"
-msgstr "declarado como obsoleto por los desarrolladores del complemento"
+msgstr "გამოცხადებულია როგორც მოძველებული დამატების დამმუშავლების მიერ"
 
 #. Translators: menu item label for reviewing add-on updates.
 #, python-brace-format
 msgid "Review &add-on updates ({updateCount})..."
-msgstr "Revisar a&ctualizaciones de complementos ({updateCount})..."
+msgstr "დამატებების განახლების &გადახედვა ({updateCount})..."
 
 #. Translators: presented as part of add-on update notification message.
 #, python-brace-format
@@ -226,9 +224,9 @@ msgid ""
 "One or more add-on updates from {updateSource} are available. Go to NVDA "
 "menu, Tools, Review add-on updates to review them."
 msgstr ""
-"Hay una o más actualizaciones de complementos disponibles desde "
-"{updateSource}. Ve al menú NVDA, Herramientas, Revisar actualizaciones de "
-"complementos para revisarlas."
+"{updateSource}დან ხელმისაწვდომია ერთი ან მეტი განახლება დამატებებისთვის. "
+"გადადით NVDA მენიუ, სერვისი, დამატებების განახლების გადახედვა, რათა ნახოთ "
+"ისინი."
 
 #. Translators: presented as part of add-on update notification message.
 #, python-brace-format
@@ -236,12 +234,12 @@ msgid ""
 "One or more add-on updates from {updateSource} are being downloaded and "
 "installed."
 msgstr ""
-"Se están descargando e instalando una o más actualizaciones desde "
-"{updateSource}."
+"მიმდინარეობს ერთი ან მეტი დამატებისთვის განახლების ჩამოტვირთვა და დაყენება "
+"{updateSource}დან."
 
 #. Translators: title of the add-on update notification message.
 msgid "NVDA add-on updates"
-msgstr "Actualización de complementos de NVDA"
+msgstr "NVDA დამატების განახლებები"
 
 #. Translators: presented as part of add-on update notification message.
 #, python-brace-format
@@ -250,22 +248,21 @@ msgid ""
 "menu, Tools, Review add-on updates to review them. Then restart NVDA to "
 "finish updating add-ons."
 msgstr ""
-"Se han instalado una o más actualizaciones de complementos desde "
-"{updateSource}. Ve al menú NVDA, Herramientas, Revisar actualizaciones de "
-"complementos para revisarlas. Después, reinicia NVDA para finalizar su "
-"instalación."
+"დაყენდა ერთი ან მეტი განახლება დამატებისთვის {updateSource}დან. გადადით "
+"NVDA მენიუ, სერვისი, დამატებების განახლების გადახედვა, რათა ნახოთ ისინი. "
+"შემდეგ გადატვირთეთ NVDA, რათა დასრულდეს დამატებების განახლება."
 
 #. Translators: presented as part of add-on update notification message.
 msgid "Could not update add-ons."
-msgstr "No se pudieron actualizar los complementos."
+msgstr "ვერ მოხერხდა დამატებების განახლება."
 
 #. Translators: one of the add-on update source choices.
 msgid "NVDA community add-ons website"
-msgstr "Sitio web de complementos de la comunidad de NVDA"
+msgstr "NVDA საზოგადოების დამატებების ვებგვერდი"
 
 #. Translators: one of the add-on update source choices.
 msgid "Spanish community add-ons catalog"
-msgstr "Catálogo de complementos de la comunidad hispana"
+msgstr "ესპანური საზოგადოების დამატებების კატალოგი"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
@@ -273,5 +270,5 @@ msgid ""
 "Proof of concept implementation of add-on update feature (NVDA Core issue "
 "3208)"
 msgstr ""
-"Implementación de concepto de prueba de la característica de actualización "
-"de complementos (incidencia 3208 del núcleo de NVDA)"
+"დამატებების განახლების ფუნქციის კონცეფციის განხორციელების მტკიცებულება "
+"(NVDA Core issue 3208)"

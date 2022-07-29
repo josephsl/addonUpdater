@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2022-07-15 08:45+0200\n"
-"Last-Translator: René Linke <rene.linke@hamburg.de>\n"
+"PO-Revision-Date: 2022-07-24 13:21+0200\n"
+"Last-Translator: Bernd Dorer <mail@bdorer.de>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -160,11 +160,13 @@ msgid ""
 "One or more add-ons are currently disabled. These add-ons will be enabled "
 "after updating. Are you sure you wish to update disabled add-ons anyway?"
 msgstr ""
+"Eine oder mehrere Erweiterungen sind derzeit deaktiviert. Diese "
+"Erweiterungen werden nach der Aktualisierung aktiviert. Sind Sie sicher, "
+"dass Sie deaktivierte Erweiterungen trotzdem aktualisieren möchten?"
 
 #. Translators: Title of the add-on update confirmation dialog.
-#, fuzzy
 msgid "Update disabled add-ons"
-msgstr "Erweiterungen &aktualisieren"
+msgstr "Deaktivierte Erweiterungen &aktualisieren"
 
 #, python-brace-format
 msgid "Downloading {addonName}"
