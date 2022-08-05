@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 22.07\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2022-07-22 01:00+0000\n"
-"PO-Revision-Date: 2022-07-23 14:53+0400\n"
+"PO-Revision-Date: 2022-07-30 20:34+0400\n"
 "Last-Translator: Dragan Ratkovich\n"
 "Language-Team: \n"
 "Language: ka\n"
@@ -94,7 +94,7 @@ msgid ""
 "declared legacy by add-on developers. Please disable or uninstall these add-"
 "ons by going to NVDA menu, Tools, Manage Add-ons.\n"
 msgstr ""
-"მოიძებნა ერთი ან მეტი მოძველებული დამატება თქვენს დაყენებულ NVDA-ში. ამ "
+"ნაპოვნია ერთი ან მეტი მოძველებული დამატება თქვენს დაყენებულ NVDA-ში. ამ "
 "დამატებების ფუნქცია ახლა უკვე თქვენ მიერ გამოყენებული NVDA-ის ვერსიის "
 "ნაწილია, ან გამოცხადებულია დამმუშავებლების მხრიდან როგორც მოძველებული. "
 "გთხოვთ, გამორთოთ ან წაშალოთ ეს დამატებები NVDA მენიუ, სერვისი, დამატებების "
@@ -133,7 +133,7 @@ msgstr "ხელმისაწვდომი განახლება დ�
 #. Translators: Message displayed when add-on updates were installed.
 #, python-brace-format
 msgid "Add-ons pending install: {updateCount}"
-msgstr "ინსტალაციის მოლოდინში მყოფი დამატებები: {updateCount}"
+msgstr "დაყენების მოლოდინში მყოფი დამატებები: {updateCount}"
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify current add-on version (example: version is 0.3).
@@ -167,7 +167,7 @@ msgstr "გამორთული დამატებების გან�
 
 #, python-brace-format
 msgid "Downloading {addonName}"
-msgstr "იტვირთება {addonName}"
+msgstr "მიმდინარეობს {addonName}-ის ჩამოტვირთვა"
 
 #. Translators: A message indicating that an error occurred while downloading an update to NVDA.
 #, python-brace-format
