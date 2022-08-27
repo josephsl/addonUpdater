@@ -368,12 +368,17 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 
 
 class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProject):
-	"""Protocol 2: NVDA community add-ons website with compatibility information supplied by the community.
+	"""Protocol 2.x: NVDA community add-ons website with compatibility information supplied by the community.
 	This protocol uses a combination of community add-ons get.php JSON
 	and compatibility data provided by the community.
 	While similar to protocol 1, addons.nvda-project.org JSON is consulted only to retrieve download links.
 	Version and compatibility range (minimum and last tested NVDA versions) checks are possible.
+	Later iterations add hash value checks.
 	This resembles Add-on Updater 21.07 and later and is the default protocol.
+	Protocol 2.0 (original implementation) uses an older version of the compatibility JSON that
+	relies on NV Access get.php JSON representation for obtaining links,
+	whereas protocol 2.1 (2022) uses additional fields such as URL and hash provided by the JSON
+	and is the default protocol in Add-on Updater 22.09 and later.
 	"""
 
 	protocol = 2
