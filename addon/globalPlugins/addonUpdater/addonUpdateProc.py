@@ -154,7 +154,7 @@ def downloadAddonUpdate(url: str, destPath: Optional[str], fileHash: Optional[st
 	log.debug(f"nvda3208: remote size is {size} bytes")
 	with open(destPath, "wb") as local:
 		if fileHash:
-			hasher = hashlib.sha1()
+			hasher = hashlib.sha256()
 		read: int = 0
 		AddonDownloadNotifier.notify(read=read, size=size)
 		chunk: int = 8192
