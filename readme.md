@@ -2,7 +2,7 @@
 
 * Author: Joseph Lee, Luke Davis
 * Download [stable version][1]
-* NVDA compatibility: 2021.3 and later
+* NVDA compatibility: 2022.2 and later
 
 This add-on brings NVDA Core issue 3208 to life: ability to check for, download, and apply add-on updates.
 
@@ -22,6 +22,7 @@ IMPORTANT NOTES:
 * Not all add-ons come with development releases. If you are not getting updates after choosing to install development versions of an add-on, switch to stable channel for affected add-ons.
 * On some systems (particularly computers joined to a corporate domain), add-on update check functionality may not work properly, therefore add-on updates must be downloaded manually.
 * Some features require NVDA to be installed on the computer, ideally on a computer running Windows 10 or later.
+* Some add-on releases include SHA256 hash values for checking add-on package integrity, and if the hash value does not match, add-on updating will fail.
 
 ## Add-on settings
 
@@ -33,6 +34,11 @@ You can configure Add-on Updater settings from NVDA Settings screen (NVDA menu, 
 * Do not update add-ons: you can choose add-ons that should not be updated.
 * Prefer development releases: any add-ons checked in this list will receive development (prerelease) releases.
 * Add-on update source: you can choose where to get updates from. Currently Add-on Updater supports downloading updates from community add-ons website and Spanish community add-ons catalog. A confirmation message will be shown after changing update source.
+
+## Version 22.09
+
+* NVDA 2022.2 or later is required.
+* NVDA will check SHA256 hash values while downloading add-on updates if the add-on update source includes hash values for add-on packages. If hash value is invalid, add-on updating will fail.
 
 ## Version 22.08
 
