@@ -406,10 +406,22 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 		channel = addon.updateChannel
 		if channel is not None:
 			addonKey += "-" + channel
-		try:
-			addonUrl = results[addonKey]
-		except:
-			return
+		# Update info (channels) data was added in 2022 to house downlo link, hashes and others.
+		# Fall back to checking results data if update channels key does not exist.
+		updateChannels = addonMetadata.get("updateChannels")
+		if updateChannels is None:
+			try:
+				addonUrl = results[addonKey]
+			except:
+				return
+		else:
+			try:
+				addonUrl = updateChannels[addonKey]["url"]
+			except:
+				try:
+					addonUrl = results[addonKey]
+				except:
+					return
 		# Necessary duplication if the URL doesn't end in ".nvda-addon".
 		# Some add-ons require traversing another URL.
 		if ".nvda-addon" not in addonUrl:
