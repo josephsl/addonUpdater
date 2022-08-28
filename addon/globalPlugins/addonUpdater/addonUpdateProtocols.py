@@ -438,6 +438,9 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 		version = self.parseAddonVersionFromUrl(addonUrl, addon, fallbackVersion=addon.installedVersion)
 		addon.version = version
 		addon.url = addonUrl
+		# Add SHA256 hash value for add-on package if it exists.
+		if updateChannels is not None:
+			addon.hash = updateChannels[addonKey].get("sha256")
 
 	def checkForAddonUpdate(self, curAddons, fallbackData=None):
 		# NVDA community add-ons list is always retrieved for fallback reasons.
