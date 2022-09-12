@@ -1,0 +1,254 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the addonUpdater package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: addonUpdaterExtra 22.06\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2022-07-09 08:47+0800\n"
+"PO-Revision-Date: 2022-07-09 09:00+0800\n"
+"Last-Translator: 完美很难 <1872265132@qq.com>\n"
+"Language-Team: \n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. Translators: menu item label for checking add-on updates.
+#: addon\globalPlugins\addonUpdater\__init__.py:117
+#: addon\globalPlugins\addonUpdater\__init__.py:150
+msgid "Check for &add-on updates..."
+msgstr "檢查附加元件更新..."
+
+#: addon\globalPlugins\addonUpdater\__init__.py:117
+msgid "Check for NVDA add-on updates"
+msgstr "檢查 NVDA 附加元件更新"
+
+#. Translators: This is the label for the Add-on Updater settings panel.
+#: addon\globalPlugins\addonUpdater\__init__.py:156
+msgid "Add-on Updater"
+msgstr "附加元件更新器"
+
+#. Translators: This is the label for a checkbox in the
+#. Add-on Updater settings panel.
+#: addon\globalPlugins\addonUpdater\__init__.py:163
+msgid "Automatically check for add-on &updates"
+msgstr "自動檢查附加元件更新(&U)"
+
+#. Translators: one of the add-on update notification choices.
+#: addon\globalPlugins\addonUpdater\__init__.py:173
+msgid "toast"
+msgstr "toast 通知"
+
+#. Translators: one of the add-on update notification choices.
+#: addon\globalPlugins\addonUpdater\__init__.py:175
+msgid "dialog"
+msgstr "對話框"
+
+#. Translators: This is the label for a combo box in the
+#. Add-on Updater settings panel.
+#: addon\globalPlugins\addonUpdater\__init__.py:180
+msgid "&Add-on update notification:"
+msgstr "附加元件更新的通知方式(&A)"
+
+#. Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
+#. Some add-ons come with pretty badly formatted summary text,
+#. so try catching them and exclude them from this list.
+#. Also, Vocalizer add-on family should be excluded from this list (requested by add-on author).
+#: addon\globalPlugins\addonUpdater\__init__.py:191
+msgid "Do &not update add-ons:"
+msgstr "不接收更新的附加元件(&N):"
+
+#: addon\globalPlugins\addonUpdater\__init__.py:199
+msgid "Prefer &development releases:"
+msgstr "接收開發版的附加元件(&D)"
+
+#. Translators: The title of the legacy add-ons dialog.
+#: addon\globalPlugins\addonUpdater\__init__.py:237
+msgid "Legacy add-ons found"
+msgstr "已發現遺留附加元件"
+
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+#: addon\globalPlugins\addonUpdater\__init__.py:245
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Manage Add-ons.\n"
+msgstr ""
+"在您的 NVDA 安裝中發現了一個或多個舊版附加元件。這些附加元件的功能現在是您正"
+"在使用的 NVDA 版本的一部分，或由附加元件開發人員聲明為舊版本。請通過 NVDA 選"
+"單、工具、管理附加元件停用或移除這些附加元件。\n"
+
+#. Translators: the label for the legacy add-ons list.
+#: addon\globalPlugins\addonUpdater\__init__.py:254
+msgid "Legacy add-ons"
+msgstr "遺留附加元件"
+
+#. Translators: The label for a column in legacy add-ons list used to show legacy add-on reason.
+#: addon\globalPlugins\addonUpdater\__init__.py:262
+msgid "Legacy reason"
+msgstr "遺留原因"
+
+#. Translators: The title of the dialog presented while checking for add-on updates.
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:45
+msgid "Add-on update check"
+msgstr "檢查附加元件更新"
+
+#. Translators: The message displayed while checking for add-on updates.
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:47
+msgid "Checking for add-on updates..."
+msgstr "正在檢查附加元件更新..."
+
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:63
+msgid "Error checking for add-on updates."
+msgstr "檢查附加元件更新時發生錯誤。"
+
+#. Translators: The title of the add-on updates dialog.
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:74
+msgid "NVDA Add-on Updates"
+msgstr "NVDA 附加元件更新"
+
+#. Translators: Message displayed when add-on updates are available.
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:83
+#, python-brace-format
+msgid "Add-on updates available: {updateCount}"
+msgstr "{updateCount} 個附加元件可更新。"
+
+#. Translators: The label for a column in add-ons updates list
+#. used to identify current add-on version (example: version is 0.3).
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:93
+msgid "Current version"
+msgstr "當前版本"
+
+#. Translators: The label for a column in add-ons updates list
+#. used to identify new add-on version (example: version is 0.4).
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:96
+msgid "New version"
+msgstr "新版本"
+
+#. Translators: Message displayed when no add-on updates are available.
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:106
+msgid "No add-on update available."
+msgstr "無可用附加元件更新。"
+
+#. Translators: The label of a button to update add-ons.
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:111
+msgid "&Update add-ons"
+msgstr "更新附加元件(&U)"
+
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:164
+#, python-brace-format
+msgid "Downloading {addonName}"
+msgstr "正在下载{addonName}"
+
+#. Translators: A message indicating that an error occurred while downloading an update to NVDA.
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:173
+#, python-brace-format
+msgid "Error downloading update for {name}."
+msgstr "下載 {name} 更新時發生錯誤。"
+
+#. Translators: The title of the dialog presented while an Addon is being updated.
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:193
+msgid "Updating add-ons"
+msgstr "更新附加元件"
+
+#. Translators: The message displayed while an addon is being updated.
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:195
+msgid "Please wait while add-ons are being updated."
+msgstr "正在更新附加元件，請稍候。"
+
+#. Translators: The message displayed when an error occurs
+#. when trying to update an add-on package due to package problems.
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:207
+#, python-brace-format
+msgid "Cannot update {name} - missing file or invalid file format"
+msgstr "無法更新 {name}，丟失文件或文件格式無效"
+
+#. Translators: The message displayed when an error occurs when installing an add-on package.
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:228
+#, python-brace-format
+msgid "Failed to update {name} add-on"
+msgstr "附加元件 {name} 更新失敗"
+
+#. Translators: The title of the dialog displayed while downloading add-on update.
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:263
+msgid "Downloading Add-on Update"
+msgstr "正在下載附加元件更新"
+
+#. Translators: The progress message indicating the name of the add-on being downloaded.
+#: addon\globalPlugins\addonUpdater\addonGuiEx.py:265
+msgid "Downloading add-on updates"
+msgstr "正在下載附加元件更新"
+
+#. Add-ons with all features integrated into NVDA or declared "legacy" by authors.
+#. For the latter case, update check functionality will be disabled upon authors' request.
+#. Translators: legacy add-on, features included in NVDA.
+#: addon\globalPlugins\addonUpdater\addonHandlerEx.py:22
+msgid "features included in NVDA"
+msgstr "功能包含在 NVDA 中"
+
+#. Translators: legacy add-on, declared by add-on developers.
+#: addon\globalPlugins\addonUpdater\addonHandlerEx.py:24
+msgid "declared legacy by add-on developers"
+msgstr "附加元件開發者聲明為遺留附加元件"
+
+#. Translators: menu item label for reviewing add-on updates.
+#: addon\globalPlugins\addonUpdater\addonHandlerEx.py:103
+#, python-brace-format
+msgid "Review &add-on updates ({updateCount})..."
+msgstr "檢視附加元件更新({updateCount})..."
+
+#. Translators: presented as part of add-on update notification message.
+#: addon\globalPlugins\addonUpdater\addonHandlerEx.py:106
+msgid ""
+"One or more add-on updates are available. Go to NVDA menu, Tools, Review add-"
+"on updates to review them."
+msgstr ""
+"有一個或多個附加元件更新可用。請通過 NVDA 選單、工具、檢視附加元件更新以查看"
+"它們。"
+
+#. Translators: title of the add-on update notification message.
+#: addon\globalPlugins\addonUpdater\addonHandlerEx.py:110
+msgid "NVDA add-on updates"
+msgstr "NVDA 附加元件更新"
+
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on
+#. to be shown on installation and add-on information.
+#: buildVars.py:23
+msgid "Add-on Updater for extra"
+msgstr "Add-on Updater for extra"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#: buildVars.py:26
+msgid ""
+"Proof of concept implementation of add-on update feature (NVDA Core issue "
+"3208)"
+msgstr "附加元件更新功能的概念實作證明(NVDA Core issue 3208)"
+
+#~ msgid "Check for &add-on updates(extra)..."
+#~ msgstr "檢查附加元件更新(extra)(&A)..."
+
+#, python-brace-format
+#~ msgid "Updating {name}"
+#~ msgstr "正在更新{name}"
+
+#~ msgid "{name} add-on is not compatible with this version of Windows."
+#~ msgstr "插件 {name} 与此版本的 Windows 不兼容。"
+
+#~ msgid "{updateCount} add-on updates are available."
+#~ msgstr "{updateCount} 个插件可更新。"
+
+#~ msgid ""
+#~ "{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
+#~ "version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
+#~ msgstr ""
+#~ "插件 {name} 与此版本的 NVDA 不兼容。最低NVDA版本: {minYear}.{minMajor}, 最"
+#~ "近测试: {testedYear}.{testedMajor}."
