@@ -602,7 +602,12 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 
 
 class AddonUpdateCheckProtocolNVDACn(AddonUpdateCheckProtocolNVDAAddonsGitHub):
-	protocol = 4
+	"""Protocol 5: China community add-ons catalog protocol
+	Protocol 5 is same as protocol 2, except for the update source URL.
+	So this class inherit from AddonUpdateCheckProtocolNVDAAddonsGitHub class and modified its sourceUrl/sourceList attribute.
+	"""
+
+	protocol = 5
 	protocolName = "nvdacn"
 	protocolDescription = "NVDA China Community Add-ons"
 	sourceUrl = "https://www.nvdacn.com/usr/uploads/addonsData.json"
@@ -610,7 +615,12 @@ class AddonUpdateCheckProtocolNVDACn(AddonUpdateCheckProtocolNVDAAddonsGitHub):
 
 
 class AddonUpdateCheckProtocolNVDATw(AddonUpdateCheckProtocolNVDAAddonsGitHub):
-	protocol = 5
+	"""Protocol 6: Taiwan community add-ons catalog protocol
+	Protocol 6 is same as protocol 2, except for the update source URL.
+	So this class inherit from AddonUpdateCheckProtocolNVDAAddonsGitHub class and modified its sourceUrl/sourceList attribute.
+	"""
+
+	protocol = 6
 	protocolName = "nvdatw"
 	protocolDescription = "NVDA Taiwan Community Add-ons"
 	sourceUrl = "https://accessibility.twvip.org/addonsData.json"
