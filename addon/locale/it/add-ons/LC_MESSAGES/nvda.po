@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12.2\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-12-14 01:00+1000\n"
-"PO-Revision-Date: 2022-07-15 10:52+0100\n"
+"PO-Revision-Date: 2022-09-01 09:07+0100\n"
 "Last-Translator: Simone Dal Maso <simone.dalmaso@gmail.com>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -161,11 +161,13 @@ msgid ""
 "One or more add-ons are currently disabled. These add-ons will be enabled "
 "after updating. Are you sure you wish to update disabled add-ons anyway?"
 msgstr ""
+"Uno o più componenti aggiuntivi sono attualmente disabilitati. Questi "
+"componenti aggiuntivi verranno abilitati dopo l'aggiornamento. Sei sicuro di "
+"voler aggiornare comunque i componenti aggiuntivi disabilitati?"
 
 #. Translators: Title of the add-on update confirmation dialog.
-#, fuzzy
 msgid "Update disabled add-ons"
-msgstr "Aggiorna componenti aggi&untivi"
+msgstr "Aggiorna i componenti aggiuntivi disabilitati"
 
 #, python-brace-format
 msgid "Downloading {addonName}"
