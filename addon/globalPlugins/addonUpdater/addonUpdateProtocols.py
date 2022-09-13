@@ -385,6 +385,7 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 	protocolName = "nvdaprojectcompatinfo"
 	protocolDescription = "NVDA Community Add-ons website with compatibility information"
 	sourceUrl = URLs.metadata
+	sourceList = URLs.communityAddonsList
 
 	def fetchAddonInfo(self, addon, results, addonsData):
 		# Borrowed ideas from NVDA Core.
@@ -451,7 +452,7 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 				target=self.getAddonsData,
 				args=(results,),
 				kwargs={
-					"url": URLs.communityAddonsList,
+					"url": self.sourceList,
 					"errorText": "nvda3208: errors occurred while retrieving community add-ons"
 				}
 			)
@@ -600,6 +601,24 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 		]
 
 
+class AddonUpdateCheckProtocolNVDACn(AddonUpdateCheckProtocolNVDAAddonsGitHub):
+	protocol = 4
+	protocolName = "nvdacn"
+	protocolDescription = "NVDA China Community Add-ons"
+	sourceUrl = "https://www.nvdacn.com/usr/uploads/addonsData.json"
+	sourceList = "https://www.nvdacn.com/usr/uploads/addonsUrl.json"
+
+
+class AddonUpdateCheckProtocolNVDATw(AddonUpdateCheckProtocolNVDAAddonsGitHub):
+	protocol = 5
+	protocolName = "nvdatw"
+	protocolDescription = "NVDA Taiwan Community Add-ons"
+	sourceUrl = "https://accessibility.twvip.org/addonsData.json"
+	sourceList = "https://accessibility.twvip.org/addonsUrl.json"
+
+
+
+
 # Define available update protocols as a named tuple.
 # Named tuples allow tuple fields (columns) to be index by attribute lookup syntax.
 UpdateProtocol = namedtuple("UpdateProtocol", "key, protocol, description")
@@ -611,5 +630,13 @@ AvailableUpdateProtocols = (
 	UpdateProtocol(
 		# Translators: one of the add-on update source choices.
 		"nvdaes", "AddonUpdateCheckProtocolNVDAEs", _("Spanish community add-ons catalog")
+	),
+	UpdateProtocol(
+		# Translators: one of the add-on update source choices.
+		"nvdacn", "AddonUpdateCheckProtocolNVDACn", _("China community add-ons catalog")
+	),
+	UpdateProtocol(
+		# Translators: one of the add-on update source choices.
+		"nvdatw", "AddonUpdateCheckProtocolNVDATw", _("Taiwan community add-ons catalog")
 	)
 )
