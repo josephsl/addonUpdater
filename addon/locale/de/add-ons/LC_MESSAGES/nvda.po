@@ -268,6 +268,16 @@ msgstr "Community-Webseite für NVDA-Erweiterungen"
 msgid "Spanish community add-ons catalog"
 msgstr "Katalog der NVDA-Erweiterungen von der spanischen Community"
 
+#. Translators: one of the add-on update source choices.
+#, fuzzy
+msgid "China community add-ons catalog"
+msgstr "Katalog der NVDA-Erweiterungen von der spanischen Community"
+
+#. Translators: one of the add-on update source choices.
+#, fuzzy
+msgid "Taiwan community add-ons catalog"
+msgstr "Katalog der NVDA-Erweiterungen von der spanischen Community"
+
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid ""

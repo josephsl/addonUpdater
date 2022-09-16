@@ -160,8 +160,8 @@ msgid ""
 "after updating. Are you sure you wish to update disabled add-ons anyway?"
 msgstr ""
 "Une ou plusieurs extensions sont actuellement désactivées. Ces extensions "
-"seront activées après la mise à jour. Voulez-vous vraiment mettre à jour "
-"les extensions désactivées ?"
+"seront activées après la mise à jour. Voulez-vous vraiment mettre à jour les "
+"extensions désactivées ?"
 
 #. Translators: Title of the add-on update confirmation dialog.
 msgid "Update disabled add-ons"
@@ -265,6 +265,16 @@ msgstr "Site Web des extensions de la communauté NVDA"
 
 #. Translators: one of the add-on update source choices.
 msgid "Spanish community add-ons catalog"
+msgstr "Catalogue des extensions de la communauté espagnole"
+
+#. Translators: one of the add-on update source choices.
+#, fuzzy
+msgid "China community add-ons catalog"
+msgstr "Catalogue des extensions de la communauté espagnole"
+
+#. Translators: one of the add-on update source choices.
+#, fuzzy
+msgid "Taiwan community add-ons catalog"
 msgstr "Catalogue des extensions de la communauté espagnole"
 
 #. Add-on description

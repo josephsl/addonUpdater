@@ -259,6 +259,16 @@ msgstr "وب‌سایتِ انجمنِ افزونه‌های NVDA"
 msgid "Spanish community add-ons catalog"
 msgstr "فهرستِ افزونه‌های انجمنِ اسپانیایی"
 
+#. Translators: one of the add-on update source choices.
+#, fuzzy
+msgid "China community add-ons catalog"
+msgstr "فهرستِ افزونه‌های انجمنِ اسپانیایی"
+
+#. Translators: one of the add-on update source choices.
+#, fuzzy
+msgid "Taiwan community add-ons catalog"
+msgstr "فهرستِ افزونه‌های انجمنِ اسپانیایی"
+
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid ""

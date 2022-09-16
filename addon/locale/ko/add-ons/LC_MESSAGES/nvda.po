@@ -94,10 +94,10 @@ msgid ""
 "declared legacy by add-on developers. Please disable or uninstall these add-"
 "ons by going to NVDA menu, Tools, Manage Add-ons.\n"
 msgstr ""
-"설치된 NVDA에서 필요없어진 추가 기능이 하나 이상 발견됐습니다. 이 기능들은 "
-"이제 사용하고 계시는 버전의 NVDA에 자체적으로 포함되어 있거나, 그 추가 기능"
-"의 개발자가 더이상 필요가 없다고 선언했습니다. NVDA 메뉴의 도구, 추가 기능 "
-"관리 항목에서 필요없어진 추가 기능들을 비활성화하거나 삭제해 주세요.\n"
+"설치된 NVDA에서 필요없어진 추가 기능이 하나 이상 발견됐습니다. 이 기능들은 이"
+"제 사용하고 계시는 버전의 NVDA에 자체적으로 포함되어 있거나, 그 추가 기능의 "
+"개발자가 더이상 필요가 없다고 선언했습니다. NVDA 메뉴의 도구, 추가 기능 관리 "
+"항목에서 필요없어진 추가 기능들을 비활성화하거나 삭제해 주세요.\n"
 
 #. Translators: the label for the legacy add-ons list.
 msgid "Legacy add-ons"
@@ -244,8 +244,8 @@ msgid ""
 "menu, Tools, Review add-on updates to review them. Then restart NVDA to "
 "finish updating add-ons."
 msgstr ""
-"{updateSource}에서 하나 이상의 추가 기능 업데이트가 설치되었습니다. NVDA 메"
-"뉴의 도구, 추가 기능 업데이트 검토 항목을 통해서 확인할 수 있습니다."
+"{updateSource}에서 하나 이상의 추가 기능 업데이트가 설치되었습니다. NVDA 메뉴"
+"의 도구, 추가 기능 업데이트 검토 항목을 통해서 확인할 수 있습니다."
 
 #. Translators: presented as part of add-on update notification message.
 msgid "Could not update add-ons."
@@ -257,6 +257,16 @@ msgstr "NVDA 추가 기능 사이트"
 
 #. Translators: one of the add-on update source choices.
 msgid "Spanish community add-ons catalog"
+msgstr "스페인 커뮤니티 추가 기능 사이트"
+
+#. Translators: one of the add-on update source choices.
+#, fuzzy
+msgid "China community add-ons catalog"
+msgstr "스페인 커뮤니티 추가 기능 사이트"
+
+#. Translators: one of the add-on update source choices.
+#, fuzzy
+msgid "Taiwan community add-ons catalog"
 msgstr "스페인 커뮤니티 추가 기능 사이트"
 
 #. Add-on description

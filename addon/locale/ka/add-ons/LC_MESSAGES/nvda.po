@@ -75,8 +75,8 @@ msgid ""
 "You are about to switch to a different add-on update source. Are you sure "
 "you wish to change update source to {updateSourceDescription}?"
 msgstr ""
-"თქვენ აპირებთ დამატების განახლების სხვა წყაროზე გადასვლას. დარწმუნებული "
-"ხართ რომ გსურთ შეცვალოთ განახლების წყარო {updateSourceDescription}თ?"
+"თქვენ აპირებთ დამატების განახლების სხვა წყაროზე გადასვლას. დარწმუნებული ხართ "
+"რომ გსურთ შეცვალოთ განახლების წყარო {updateSourceDescription}თ?"
 
 #. Translators: Title of the add-on update source dialog.
 msgid "Add-on update source change"
@@ -248,9 +248,9 @@ msgid ""
 "menu, Tools, Review add-on updates to review them. Then restart NVDA to "
 "finish updating add-ons."
 msgstr ""
-"დაყენდა ერთი ან მეტი განახლება დამატებისთვის {updateSource}დან. გადადით "
-"NVDA მენიუ, სერვისი, დამატებების განახლების გადახედვა, რათა ნახოთ ისინი. "
-"შემდეგ გადატვირთეთ NVDA, რათა დასრულდეს დამატებების განახლება."
+"დაყენდა ერთი ან მეტი განახლება დამატებისთვის {updateSource}დან. გადადით NVDA "
+"მენიუ, სერვისი, დამატებების განახლების გადახედვა, რათა ნახოთ ისინი. შემდეგ "
+"გადატვირთეთ NVDA, რათა დასრულდეს დამატებების განახლება."
 
 #. Translators: presented as part of add-on update notification message.
 msgid "Could not update add-ons."
@@ -264,11 +264,21 @@ msgstr "NVDA საზოგადოების დამატებები
 msgid "Spanish community add-ons catalog"
 msgstr "ესპანური საზოგადოების დამატებების კატალოგი"
 
+#. Translators: one of the add-on update source choices.
+#, fuzzy
+msgid "China community add-ons catalog"
+msgstr "ესპანური საზოგადოების დამატებების კატალოგი"
+
+#. Translators: one of the add-on update source choices.
+#, fuzzy
+msgid "Taiwan community add-ons catalog"
+msgstr "ესპანური საზოგადოების დამატებების კატალოგი"
+
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid ""
 "Proof of concept implementation of add-on update feature (NVDA Core issue "
 "3208)"
 msgstr ""
-"დამატებების განახლების ფუნქციის კონცეფციის განხორციელების მტკიცებულება "
-"(NVDA Core issue 3208)"
+"დამატებების განახლების ფუნქციის კონცეფციის განხორციელების მტკიცებულება (NVDA "
+"Core issue 3208)"
