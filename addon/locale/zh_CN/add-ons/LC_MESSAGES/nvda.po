@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2022-09-12 10:32+0800\n"
+"PO-Revision-Date: 2022-09-16 12:14+0800\n"
 "Last-Translator: 完美很难 <1872265132@qq.com>\n"
 "Language-Team: NVDASimplified Chinese team All volunteers <Copyright (C) "
 "2010-2019>\n"
@@ -76,8 +76,8 @@ msgid ""
 "You are about to switch to a different add-on update source. Are you sure "
 "you wish to change update source to {updateSourceDescription}?"
 msgstr ""
-"您即将切换到另一个插件更新源。您确定要将更新源切换为{updateSourceDescription}"
-"吗？"
+"您即将切换到另一个插件更新源。您确定要将更新源切换为"
+"{updateSourceDescription}吗？"
 
 #. Translators: Title of the add-on update source dialog.
 msgid "Add-on update source change"
@@ -157,8 +157,8 @@ msgid ""
 "One or more add-ons are currently disabled. These add-ons will be enabled "
 "after updating. Are you sure you wish to update disabled add-ons anyway?"
 msgstr ""
-"目前有一个或多个NVDA 插件被禁用。这些插件将在更新后被启用。您确定要更新被禁用"
-"的插件吗？"
+"目前有一个或多个NVDA 插件被禁用。这些插件将在更新后被启用。您确定要更新被禁"
+"用的插件吗？"
 
 #. Translators: Title of the add-on update confirmation dialog.
 msgid "Update disabled add-ons"
@@ -251,21 +251,19 @@ msgstr "无法更新插件。"
 
 #. Translators: one of the add-on update source choices.
 msgid "NVDA community add-ons website"
-msgstr "NVDA插件社区网站"
+msgstr "NVDA 官方插件社区"
 
 #. Translators: one of the add-on update source choices.
 msgid "Spanish community add-ons catalog"
-msgstr "西班牙语社区插件目录"
+msgstr "西班牙社区"
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "China community add-ons catalog"
-msgstr "西班牙语社区插件目录"
+msgstr "NVDA 中文站"
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "Taiwan community add-ons catalog"
-msgstr "西班牙语社区插件目录"
+msgstr "台湾社区"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
@@ -287,5 +285,5 @@ msgstr "插件更新功能的概念证明(NVDA Core issue 3208)"
 #~ "{name} add-on is not compatible with this version of NVDA. Minimum NVDA "
 #~ "version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
 #~ msgstr ""
-#~ "插件 {name} 与此版本的 NVDA 不兼容。最低NVDA版本: {minYear}.{minMajor}, 最"
-#~ "近测试: {testedYear}.{testedMajor}."
+#~ "插件 {name} 与此版本的 NVDA 不兼容。最低NVDA版本: {minYear}.{minMajor}, "
+#~ "最近测试: {testedYear}.{testedMajor}."

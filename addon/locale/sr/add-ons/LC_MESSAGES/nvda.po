@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2022-07-16 16:40+0100\n"
+"PO-Revision-Date: 2022-09-16 23:17+0100\n"
 "Last-Translator: Nikola Jović <wwenikola123@gmail.com>\n"
 "Language-Team: Serbian <wwenikola123@gmail.com>\n"
 "Language: sr\n"
@@ -158,11 +158,13 @@ msgid ""
 "One or more add-ons are currently disabled. These add-ons will be enabled "
 "after updating. Are you sure you wish to update disabled add-ons anyway?"
 msgstr ""
+"Jedan ili više dodataka je trenutno onemogućeno. Ovi dodaci će biti "
+"omogućeni nakon ažuriranja. Da li ste sigurni da svejedno želite da "
+"ažurirate onemogućene dodatke?"
 
 #. Translators: Title of the add-on update confirmation dialog.
-#, fuzzy
 msgid "Update disabled add-ons"
-msgstr "&Ažuriraj dodatke"
+msgstr "Ažuriraj onemogućene dodatke"
 
 #, python-brace-format
 msgid "Downloading {addonName}"
@@ -265,14 +267,12 @@ msgid "Spanish community add-ons catalog"
 msgstr "Katalog dodataka Španske zajednice"
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "China community add-ons catalog"
-msgstr "Katalog dodataka Španske zajednice"
+msgstr "Katalog dodataka Kineske zajednice"
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "Taiwan community add-ons catalog"
-msgstr "Katalog dodataka Španske zajednice"
+msgstr "Katalog dodataka Tajvanske zajednice"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager

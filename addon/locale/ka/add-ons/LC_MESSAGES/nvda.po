@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 22.07\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2022-07-22 01:00+0000\n"
-"PO-Revision-Date: 2022-07-30 20:34+0400\n"
+"PO-Revision-Date: 2022-09-16 13:35+0400\n"
 "Last-Translator: Dragan Ratkovich\n"
 "Language-Team: \n"
 "Language: ka\n"
@@ -265,14 +265,12 @@ msgid "Spanish community add-ons catalog"
 msgstr "ესპანური საზოგადოების დამატებების კატალოგი"
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "China community add-ons catalog"
-msgstr "ესპანური საზოგადოების დამატებების კატალოგი"
+msgstr "ჩინეთის საზოგადოების დამატებების კატალოგი"
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "Taiwan community add-ons catalog"
-msgstr "ესპანური საზოგადოების დამატებების კატალოგი"
+msgstr "ტაივანის საზოგადოების დამატებების კატალოგი"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager

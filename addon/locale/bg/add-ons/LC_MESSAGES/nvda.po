@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2022-07-22 08:15+0300\n"
+"PO-Revision-Date: 2022-09-16 08:55+0300\n"
 "Last-Translator: Kostadin Kolev <k_kolev1985@mail.bg>\n"
 "Language-Team: \n"
 "Language: bg\n"
@@ -268,14 +268,12 @@ msgid "Spanish community add-ons catalog"
 msgstr "Каталог с добавки на испанската общност"
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "China community add-ons catalog"
-msgstr "Каталог с добавки на испанската общност"
+msgstr "Каталог с добавки на китайската общност"
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "Taiwan community add-ons catalog"
-msgstr "Каталог с добавки на испанската общност"
+msgstr "Каталог с добавки на тайванската общност"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
