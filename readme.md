@@ -33,7 +33,17 @@ You can configure Add-on Updater settings from NVDA Settings screen (NVDA menu, 
 * Update add-ons in the background (Windows 10 and later and update notification is set to toast): if checked, Add-on Updater will apply updates in the background. A toast will appear informing you that add-on updates are being downloaded and installed, followed by another message announcing update results. Same limitations as add-on update notification setting and toast must be selected from the above option in order for background updates to work.
 * Do not update add-ons: you can choose add-ons that should not be updated.
 * Prefer development releases: any add-ons checked in this list will receive development (prerelease) releases.
-* Add-on update source: you can choose where to get updates from. Currently Add-on Updater supports downloading updates from community add-ons website and Spanish community add-ons catalog. A confirmation message will be shown after changing update source.
+* Add-on update source: you can choose where to get updates from. Currently Add-on Updater supports downloading updates from the sources listed below. A confirmation message will be shown after changing update source
+
+The available add-on update sources are:
+
+* Community add-ons website (default)
+* Spanish community add-ons catalog
+* Catalogs maintained by NVDA communities in China and Taiwan
+
+## Version 22.10
+
+* Added catalogs from NVDA communities in China and Taiwan as add-on update sources (by Woody Tseng).
 
 ## Version 22.09
 
