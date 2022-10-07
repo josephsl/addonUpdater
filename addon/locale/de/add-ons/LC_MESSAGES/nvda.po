@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2022-08-18 10:15+0200\n"
+"PO-Revision-Date: 2022-09-30 05:46+0200\n"
 "Last-Translator: René Linke <rene.linke@hamburg.de>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -269,14 +269,12 @@ msgid "Spanish community add-ons catalog"
 msgstr "Katalog der NVDA-Erweiterungen von der spanischen Community"
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "China community add-ons catalog"
-msgstr "Katalog der NVDA-Erweiterungen von der spanischen Community"
+msgstr "Katalog der NVDA-Erweiterungen von der chinesischen Community"
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "Taiwan community add-ons catalog"
-msgstr "Katalog der NVDA-Erweiterungen von der spanischen Community"
+msgstr "Katalog der NVDA-Erweiterungen von der taiwanischen Community"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
