@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.0\n"
 
+#. Translators: menu item label for checking add-on updates.
 msgid "Check for &add-on updates..."
 msgstr "Søg efter tilføjelses&opdateringer..."
 
@@ -122,13 +123,8 @@ msgstr "Ingen tilføjelsesopdatering tilgængelig."
 msgid "&Update add-ons"
 msgstr "&Opdater tilføjelser"
 
-#. Translators: The title of the dialog displayed while downloading add-on update.
-msgid "Downloading Add-on Update"
-msgstr "Henter tilføjelsesopdatering"
-
-#. Translators: The progress message indicating the name of the add-on being downloaded.
-#, python-brace-format
-msgid "Downloading {name}"
+#, fuzzy, python-brace-format
+msgid "Downloading {addonName}"
 msgstr "Henter {name}"
 
 #. Translators: A message indicating that an error occurred while downloading an update to NVDA.
@@ -136,25 +132,35 @@ msgstr "Henter {name}"
 msgid "Error downloading update for {name}."
 msgstr "Fejl under hentning af tilføjelsesopdatering {name}."
 
+#. Translators: The title of the dialog presented while an Addon is being updated.
+#, fuzzy
+msgid "Updating add-ons"
+msgstr "&Opdater tilføjelser"
+
+#. Translators: The message displayed while an addon is being updated.
+#, fuzzy
+msgid "Please wait while add-ons are being updated."
+msgstr "Vent venligst mens tilføjelsen opdateres."
+
 #. Translators: The message displayed when an error occurs
 #. when trying to update an add-on package due to package problems.
 #, python-brace-format
 msgid "Cannot update {name} - missing file or invalid file format"
 msgstr "Kunne ikke opdatere {name} - manglende fil eller ugyldigt filformat"
 
-#. Translators: The title of the dialog presented while an Addon is being updated.
-#, python-brace-format
-msgid "Updating {name}"
-msgstr "Opdaterer {name}"
-
-#. Translators: The message displayed while an addon is being updated.
-msgid "Please wait while the add-on is being updated."
-msgstr "Vent venligst mens tilføjelsen opdateres."
-
 #. Translators: The message displayed when an error occurs when installing an add-on package.
 #, python-brace-format
 msgid "Failed to update {name} add-on"
 msgstr "Kunne ikke opdatere tilføjelsen {name}"
+
+#. Translators: The title of the dialog displayed while downloading add-on update.
+msgid "Downloading Add-on Update"
+msgstr "Henter tilføjelsesopdatering"
+
+#. Translators: The progress message indicating the name of the add-on being downloaded.
+#, fuzzy
+msgid "Downloading add-on updates"
+msgstr "Henter tilføjelsesopdatering"
 
 #. Add-ons with all features integrated into NVDA or declared "legacy" by authors.
 #. For the latter case, update check functionality will be disabled upon authors' request.
@@ -166,10 +172,16 @@ msgstr "funktioner inkluderet i NVDA"
 msgid "declared legacy by add-on developers"
 msgstr "erklæret forældet af tilføjelsesudviklere"
 
+#. Translators: menu item label for reviewing add-on updates.
+#, fuzzy, python-brace-format
+msgid "Review &add-on updates ({updateCount})..."
+msgstr "Tilføjelsesopdateringer tilgængelige: {updateCount}"
+
 #. Translators: presented as part of add-on update notification message.
+#, fuzzy
 msgid ""
-"One or more add-on updates are available. Go to NVDA menu, Tools, Check for "
-"add-on updates to review them."
+"One or more add-on updates are available. Go to NVDA menu, Tools, Review add-"
+"on updates to review them."
 msgstr ""
 "én eller flere tilføjelsesopdateringer er tilgængelige. Gå til \"NVDA-"
 "menuen, Værktøjer, Søg efter tilføjelsesopdateringer...\" for at gennemgå "
@@ -187,6 +199,9 @@ msgid ""
 msgstr ""
 "Bevis for konceptimplementering af tilføjelsesopdateringsfunktion (NVDA Core "
 "Issue 3208)"
+
+#~ msgid "Updating {name}"
+#~ msgstr "Opdaterer {name}"
 
 #~ msgid "{name} add-on is not compatible with this version of Windows."
 #~ msgstr "Tilføjelsen {name} er ikke kompatibel med denne version af Windows."
