@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2022-08-09 16:24+0200\n"
+"PO-Revision-Date: 2022-10-22 14:09+0200\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: hr <LL@li.org>\n"
 "Language: hr\n"
@@ -42,7 +42,7 @@ msgstr "Automatski provjeri &ažuriranja dodataka"
 
 #. Translators: one of the add-on update notification choices.
 msgid "toast"
-msgstr "obavijest"
+msgstr "kratka obavijest (toast)"
 
 #. Translators: one of the add-on update notification choices.
 msgid "dialog"
@@ -267,14 +267,12 @@ msgid "Spanish community add-ons catalog"
 msgstr "Katalog dodataka španjolske zajednice"
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "China community add-ons catalog"
-msgstr "Katalog dodataka španjolske zajednice"
+msgstr "Katalog dodataka kineske zajednice"
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "Taiwan community add-ons catalog"
-msgstr "Katalog dodataka španjolske zajednice"
+msgstr "Katalog dodataka tajvanske zajednice"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
