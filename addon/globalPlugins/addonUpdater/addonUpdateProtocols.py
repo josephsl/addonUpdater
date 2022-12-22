@@ -379,6 +379,7 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 	relies on NV Access get.php JSON representation for obtaining links,
 	whereas protocol 2.1 (2022) uses additional fields such as URL and hash provided by the JSON
 	and is the default protocol in Add-on Updater 22.09 and later.
+	Protocol 2.2 enables minimum Windows version checks and is the default protocol in Add-on Updater 23.01.
 	"""
 
 	protocol = 2
@@ -403,6 +404,16 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 		# Can the add-on be updated based on community add-ons metadata?
 		if not self.addonCompatibleAccordingToMetadata(addon.name, addonMetadata):
 			return
+		# Compare minimum versus current Windows releases if defined.
+		minWinVersion = addonMetadata.get("minimumWindowsVersion")
+		if minWinVersion is not None:
+			import winVersion
+			curWinVersion = winVersion.getWinVer()
+			curWinVersion = tuple((curWinVersion.major, curWinVersion.minor, curWinVersion.build))
+			minWinVersion = addonMetadata["minimumWindowsVersion"].split(".")
+			minWinVersion = tuple(int(part) for part in minWinVersion)
+			if curWinVersion < minWinVersion:
+				return
 		# If "-dev" flag is on, switch to development channel if it exists.
 		channel = addon.updateChannel
 		if channel is not None:
