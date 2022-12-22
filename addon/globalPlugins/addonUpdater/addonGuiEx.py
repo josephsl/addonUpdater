@@ -211,28 +211,34 @@ def downloadAndInstallAddonUpdates(addons: list[addonUpdateProc.AddonUpdateRecor
 	downloadedAddons: list[tuple[str, str]] = []
 	currentPos: int = 0
 	totalCount: int = len(addons)
-	for addon in addons:
-		destPath: str = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
-		log.debug(f"nvda3208: downloading {addon.summary}, URL is {addon.url}, destpath is {destPath}")
-		downloadPercent: int = int((currentPos / totalCount) * 100)
-		log.debug(f"nvda3208: download percent: {downloadPercent}")
-		wx.CallAfter(
-			_downloadProgressDialog.Update, downloadPercent,
-			_("Downloading {addonName}").format(addonName=addon.summary)
-		)
-		wx.CallAfter(_downloadProgressDialog.Fit)
-		try:
-			addonUpdateProc.downloadAddonUpdate(addon.url, destPath, addon.hash)
-		except RuntimeError:
-			log.debug(f"nvda3208: failed to download {addon.summary}", exc_info=True)
-			gui.messageBox(
-				# Translators: A message indicating that an error occurred while downloading an update to NVDA.
-				_("Error downloading update for {name}.").format(name=addon.summary),
-				translate("Error"),
-				wx.OK | wx.ICON_ERROR)
-		else:
-			downloadedAddons.append((destPath, addon.summary))
-		currentPos += 1
+	with concurrent.futures.ThreadPoolExecutor(max_workers=totalCount) as downloader:
+		downloads = {}
+		for addon in addons:
+			destPath: str = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
+			log.debug(f"nvda3208: downloading {addon.summary}, URL is {addon.url}, destpath is {destPath}")
+			downloads[downloader.submit(addonUpdateProc.downloadAddonUpdate, addon.url, destPath, addon.hash)] = [destPath, addon]
+		for download in concurrent.futures.as_completed(downloads):
+			destPath, addon = downloads[download]
+			log.debug(f"nvda3208: downloading {addon.summary}")
+			try:
+				downloadPercent: int = int((currentPos / totalCount) * 100)
+				log.debug(f"nvda3208: download percent: {downloadPercent}")
+				wx.CallAfter(
+					_downloadProgressDialog.Update, downloadPercent,
+					_("Downloading {addonName}").format(addonName=addon.summary)
+				)
+				wx.CallAfter(_downloadProgressDialog.Fit)
+				result = download.result()
+			except RuntimeError:
+				log.debug(f"nvda3208: failed to download {addon.summary}", exc_info=True)
+				gui.messageBox(
+					# Translators: A message indicating that an error occurred while downloading an update to NVDA.
+					_("Error downloading update for {name}.").format(name=addon.summary),
+					translate("Error"),
+					wx.OK | wx.ICON_ERROR)
+			else:
+				downloadedAddons.append((destPath, addon.summary))
+			currentPos += 1
 	_downloadProgressDialog.Update(100, "Downloading add-on updates")
 	_downloadProgressDialog.Hide()
 	_downloadProgressDialog.Destroy()
