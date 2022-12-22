@@ -10,6 +10,15 @@
 from __future__ import annotations
 from typing import Optional
 import threading
+# NVDA 2023.1 includes concurrent.futures.
+# A copy of the pcakge minus process pool executor is included to suport older NVDA releases.
+try:
+	import concurrent.futures
+except ModuleNotFoundError:
+	import sys
+	sys.path.append(os.path.dirname(__file__))
+	import concurrent.futures
+	sys.path.remove(os.path.dirname(__file__))
 import wx
 import addonHandler
 import extensionPoints
@@ -146,19 +155,25 @@ def downloadAndInstallAddonUpdates(addons: list[addonUpdateProc.AddonUpdateRecor
 	minimal = globalVars.appArgs.minimal
 	globalVars.appArgs.minimal = True
 	downloadedAddons: list[tuple[str, addonUpdateProc.AddonUpdateRecord]] = []
-	for addon in addons:
-		# Skip background updates for disabled add-ons.
-		if not addon.isEnabled:
-			log.debug(f"nvda3208: {addon.summary} is disabled, skipping")
-			continue
-		destPath: str = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
-		log.debug(f"nvda3208: downloading {addon.summary}, URL is {addon.url}, destpath is {destPath}")
-		try:
-			addonUpdateProc.downloadAddonUpdate(addon.url, destPath, addon.hash)
-		except RuntimeError:
-			log.debug(f"nvda3208: failed to download {addon.summary}", exc_info=True)
-		else:
-			downloadedAddons.append((destPath, addon))
+	with concurrent.futures.ThreadPoolExecutor(max_workers=len(addons)) as downloader:
+		downloads = {}
+		for addon in addons:
+			# Skip background updates for disabled add-ons.
+			if not addon.isEnabled:
+				log.debug(f"nvda3208: {addon.summary} is disabled, skipping")
+				continue
+			destPath: str = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
+			log.debug(f"nvda3208: downloading {addon.summary}, URL is {addon.url}, destpath is {destPath}")
+			downloads[downloader.submit(addonUpdateProc.downloadAddonUpdate, addon.url, destPath, addon.hash)] = [destPath, addon]
+		for download in concurrent.futures.as_completed(downloads):
+			destPath, addon = downloads[download]
+			log.debug(f"nvda3208: downloading {addon.summary}")
+			try:
+				result = download.result()
+			except RuntimeError:
+				log.debug(f"nvda3208: failed to download {addon.summary}", exc_info=True)
+			else:
+				downloadedAddons.append((destPath, addon))
 	successfullyInstalledCount: int = 0
 	# Gather successful update records for presentation later.
 	_updateInfo = []
