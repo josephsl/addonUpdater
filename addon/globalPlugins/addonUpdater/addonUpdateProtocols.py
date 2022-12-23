@@ -467,33 +467,34 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 		# NVDA community add-ons list is always retrieved for fallback reasons.
 		# It is also supposed to be the first fallback collection.
 		results = None
-		if fallbackData is None:
-			with concurrent.futures.ThreadPoolExecutor(max_workers=2) as addonsFetcher:
-				try:
-					results = addonsFetcher.submit(
-						self.getAddonsData,
-						errorText="nvda3208: errors occurred while retrieving community add-ons"
-					).result()
-				except:
-					raise RuntimeError("Failed to retrieve community add-ons")
-		# Perhaps a newer protocol sent a fallback data if the protocol URL fails somehow.
-		else:
-			results = fallbackData
 		# Enhanced with add-on metadata such as compatibility info maintained by the community.
-		addonsData = {}
+		addonsData = None
+		# Obtain both at once through concurrency.
 		with concurrent.futures.ThreadPoolExecutor(max_workers=2) as addonsFetcher:
+			protocol1 = addonsFetcher.submit(
+				self.getAddonsData, url=self.sourceList,
+				errorText="nvda3208: errors occurred while retrieving community add-ons"
+			)
+			protocol2 = addonsFetcher.submit(
+				self.getAddonsData,
+				errorText="nvda3208: errors occurred while retrieving community add-ons metadata"
+			)
+			# Obtain community add-ons metadata (protocol 2) first.
 			try:
-				addonsData = addonsFetcher.submit(
-					self.getAddonsData,
-					errorText="nvda3208: errors occurred while retrieving community add-ons metadata"
-				).result()
+				addonsData = protocol2.result()
 			except:
-				addonsData["error"] = True
+				# Prepare to fall back to add-ons list if metadata is unusable.
+				pass
+			try:
+				results = protocol1.result()
+			except:
+				# Cannot retrieve add-on updates at this time.
+				if fallbackData is None:
+					raise RuntimeError("Failed to retrieve community add-ons")
+				else:
+					results = fallbackData
 		# Fallback to add-ons list if metadata is unusable.
-		if "error" in addonsData:
-			addonsData.clear()
-		# Results are stored in the add-ons data dictionary.
-		if len(addonsData) == 0:
+		if addonsData is None:
 			log.debug("nvda3208: add-ons metadata unusable, using add-ons list from community add-ons website")
 			# Resort to using protocol 1.
 			return AddonUpdateCheckProtocolNVDAProject().checkForAddonUpdate(curAddons, fallbackData=results)
