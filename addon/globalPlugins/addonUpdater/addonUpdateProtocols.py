@@ -343,29 +343,24 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		addon.url = addonUrl
 
 	def checkForAddonUpdate(self, curAddons, fallbackData=None):
-		# First, fetch current community add-ons via an internal thread.
-		results = {}
+		# First, fetch current community add-ons.
+		results = None
 		# Only do this if no fallback data is specified.
 		if fallbackData is None:
-			addonsFetcher = threading.Thread(
-				target=self.getAddonsData,
-				args=(results,),
-				kwargs={
-					"errorText": "nvda3208: errors occurred while retrieving community add-ons"
-				}
-			)
-			addonsFetcher.start()
-			# This internal thread must be joined, otherwise results will be lost.
-			addonsFetcher.join()
-			# Raise an error if results says so.
-			if "error" in results:
-				raise RuntimeError("Failed to retrieve community add-ons")
+			with concurrent.futures.ThreadPoolExecutor(max_workers=2) as addonsFetcher:
+				try:
+					results = addonsFetcher.submit(
+						self.getAddonsData,
+						errorText="nvda3208: errors occurred while retrieving community add-ons"
+					).result()
+				except:
+					raise RuntimeError("Failed to retrieve community add-ons")
 		# Perhaps a newer protocol sent a fallback data if the protocol URL fails somehow.
 		else:
 			results = fallbackData
-		# Retrieve results from "results" key found in the dictionary.
+		# Retrieve add-on update data results.
 		updateThreads = [
-			threading.Thread(target=self.fetchAddonInfo, args=(addon, results["results"]))
+			threading.Thread(target=self.fetchAddonInfo, args=(addon, results))
 			for addon in curAddons
 		]
 		for thread in updateThreads:
