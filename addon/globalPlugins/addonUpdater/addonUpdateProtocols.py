@@ -386,7 +386,8 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 	relies on NV Access get.php JSON representation for obtaining links,
 	whereas protocol 2.1 (2022) uses additional fields such as URL and hash provided by the JSON
 	and is the default protocol in Add-on Updater 22.09 and later.
-	Protocol 2.2 enables minimum Windows version checks and is the default protocol in Add-on Updater 23.01.
+	Protocol 2.2 enables minimum Windows version checks and rewrites add-ons metadata fetcher to use concurrent.futures instead of separate threads,
+	and is the default protocol in Add-on Updater 23.01.
 	"""
 
 	protocol = 2
