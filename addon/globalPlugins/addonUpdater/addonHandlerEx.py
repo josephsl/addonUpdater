@@ -9,9 +9,10 @@
 
 from __future__ import annotations
 from typing import Optional
+import os
 import threading
 # NVDA 2023.1 includes concurrent.futures.
-# A copy of the pcakge minus process pool executor is included to suport older NVDA releases.
+# A copy of the package minus process pool executor is included to suport older NVDA releases.
 try:
 	import concurrent.futures
 except ModuleNotFoundError:
@@ -148,7 +149,6 @@ _backgroundUpdate: bool = False
 # Download and install add-ons in the background.
 def downloadAndInstallAddonUpdates(addons: list[addonUpdateProc.AddonUpdateRecord]) -> None:
 	import tempfile
-	import os
 	import globalVars
 	global _updateInfo, _backgroundUpdate
 	# Disable GUI (enable minimal flag) for the duration of this function.

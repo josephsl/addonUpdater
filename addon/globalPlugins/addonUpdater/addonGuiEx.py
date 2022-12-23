@@ -11,7 +11,7 @@ import os
 import threading
 import tempfile
 # NVDA 2023.1 includes concurrent.futures.
-# A copy of the pcakge minus process pool executor is included to suport older NVDA releases.
+# A copy of the package minus process pool executor is included to suport older NVDA releases.
 try:
 	import concurrent.futures
 except ModuleNotFoundError:
