@@ -59,16 +59,15 @@ class AddonUpdateCheckProtocol(object):
 	protocolDescription = "No add-on updates"
 	sourceUrl = ""
 
-	def getAddonsData(self, results, url=None, differentUserAgent=False, errorText=None):
+	def getAddonsData(self, url=None, differentUserAgent=False, errorText=None):
 		"""Accesses and returns add-ons data from a predefined add-on source URL.
 		As this function blocks the main thread, it should be run from a separate thread.
-		Therefore, the results argument passed in should be a dictionary that can be accessed
-		after calling join function on this thread.
-		Dictionaries are used to return results in a variety of formats under a dedicated key
-		as sources may use different representation such as lists and dictionaries.
+		The ideal way is for this thread to be concurrent with the calling thread.
+		With concurrent.futures, this method becomes a "promise" i.e. returns whatever value requested by
+		a "future" object without blocking threads.
 		Subclasses can override this method to access sources not using JSON format or for other reasons.
 		differentUserAgent: used to report a user agent other than Python as some websites block Python.
-		errorText: logs specified text to the NVDA og.
+		errorText: logs specified text to the NVDA log.
 		"""
 		if url is None:
 			url = self.sourceUrl
@@ -87,11 +86,13 @@ class AddonUpdateCheckProtocol(object):
 			else:
 				# Inform results dictionary that an error has occurred as this is running inside a thread.
 				log.debug(errorText, exc_info=True)
-				results["error"] = True
+				raise
 		finally:
+			# Contents will be gone when the connection is closed, so save it in JSON format.
 			if res is not None:
-				results["results"] = json.load(res)
+				results = json.load(res)
 				res.close()
+		return results
 
 	def addonCompatibleAccordingToMetadata(self, addon, addonMetadata):
 		"""Checks if a given add-on update is compatible with the running version of NVDA.
