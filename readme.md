@@ -41,6 +41,12 @@ The available add-on update sources are:
 * Spanish community add-ons catalog
 * Catalogs maintained by NVDA communities in China and Taiwan
 
+## Version 23.01
+
+* NVDA will check minimum Windows version for add-on updates if update source is set to NVDA community add-ons website.
+* Improved performance when downloading many ad-on updates at once. As a result, the order of add-on downloads shown in download progress dialog will be random.
+* Parts of the add-on now use Python's concurrent.futures module to improve performance, specifically update check and download processes.
+
 ## Version 22.11
 
 * NVDA 2022.3 or later is required.
