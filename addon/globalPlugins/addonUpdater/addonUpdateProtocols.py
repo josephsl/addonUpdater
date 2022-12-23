@@ -573,23 +573,18 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 		addon.url = addonUrl
 
 	def checkForAddonUpdate(self, curAddons, fallbackData=None):
-		results = {}
+		results = None
 		# Only do this if no fallback data is specified.
 		if fallbackData is None:
-			addonsFetcher = threading.Thread(
-				target=self.getAddonsData,
-				args=(results,),
-				kwargs={
-					"differentUserAgent": True,
-					"errorText": "nvda3208: errors occurred while retrieving Spanish community add-ons catalog"
-				}
-			)
-			addonsFetcher.start()
-			# This internal thread must be joined, otherwise results will be lost.
-			addonsFetcher.join()
-			# Raise an error if results says so.
-			if "error" in results:
-				raise RuntimeError("Failed to retrieve community add-ons")
+			with concurrent.futures.ThreadPoolExecutor(max_workers=1) as addonsFetcher:
+				try:
+					results = addonsFetcher.submit(
+						self.getAddonsData, differentUserAgent=True,
+						errorText="nvda3208: errors occurred while retrieving Spanish community add-ons catalog"
+					).result()
+				except:
+					# Raise an error if results says so.
+					raise RuntimeError("Failed to retrieve community add-ons")
 		# Perhaps a newer protocol sent a fallback data if the protocol URL fails somehow.
 		else:
 			results = fallbackData
@@ -597,7 +592,7 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 		# Spanish community catalog uses add-on ID's (integer) as opposed to name string.
 		# Therefore, metadata inside ID's will be stored under add-on name.
 		metadataDictionary = {}
-		for addon in results["results"]:
+		for addon in results:
 			metadataDictionary[addon["name"]] = addon
 		updateThreads = [
 			threading.Thread(target=self.fetchAddonInfo, args=(addon, metadataDictionary))
