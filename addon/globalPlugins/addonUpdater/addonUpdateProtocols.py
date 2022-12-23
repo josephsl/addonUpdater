@@ -636,8 +636,6 @@ class AddonUpdateCheckProtocolNVDATw(AddonUpdateCheckProtocolNVDAAddonsGitHub):
 	sourceList = "https://accessibility.twvip.org/addonsUrl.json"
 
 
-
-
 # Define available update protocols as a named tuple.
 # Named tuples allow tuple fields (columns) to be index by attribute lookup syntax.
 UpdateProtocol = namedtuple("UpdateProtocol", "key, protocol, description")
