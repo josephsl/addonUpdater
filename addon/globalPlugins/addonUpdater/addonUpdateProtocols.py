@@ -113,7 +113,7 @@ class AddonUpdateCheckProtocol(object):
 		)
 
 	def getAddonDownloadLink(self, url):
-		"""If the source URL does not end in a '.nvda-addon' extension, obtains the actual download ink
+		"""If the source URL does not end in a '.nvda-addon' extension, obtains the actual download link
 		by accessing the URL specified in the 'url' parameter.
 		This is similar to get add-ons data method except it is optimized to obtain a URL, not results data.
 		"""
@@ -325,7 +325,8 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		# Necessary duplication if the URL doesn't end in ".nvda-addon".
 		# Some add-ons require traversing another URL.
 		if ".nvda-addon" not in addonUrl:
-			addonUrl = self.getAddonDownloadLink(addonUrl)
+			with concurrent.futures.ThreadPoolExecutor(max_workers=2) as urlGetter:
+				addonUrl = urlGetter.submit(self.getAddonDownloadLink, addonUrl).result()
 			if addonUrl is None:
 				return
 		# Note that some add-ons are hosted on community add-ons server directly.
@@ -447,7 +448,8 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 		# Necessary duplication if the URL doesn't end in ".nvda-addon".
 		# Some add-ons require traversing another URL.
 		if ".nvda-addon" not in addonUrl:
-			addonUrl = self.getAddonDownloadLink(addonUrl)
+			with concurrent.futures.ThreadPoolExecutor(max_workers=1) as urlGetter:
+				addonUrl = urlGetter.submit(self.getAddonDownloadLink, addonUrl).result()
 			if addonUrl is None:
 				return
 		# Note that some add-ons are hosted on community add-ons server directly.
@@ -573,7 +575,8 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 		# Necessary duplication if the URL doesn't end in ".nvda-addon".
 		# Some add-ons require traversing another URL.
 		if ".nvda-addon" not in addonUrl:
-			addonUrl = self.getAddonDownloadLink(addonUrl)
+			with concurrent.futures.ThreadPoolExecutor(max_workers=1) as urlGetter:
+				addonUrl = urlGetter.submit(self.getAddonDownloadLink, addonUrl).result()
 			if addonUrl is None:
 				return
 		version = addonMetadata["version"]
