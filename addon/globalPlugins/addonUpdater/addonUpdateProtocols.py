@@ -1,5 +1,5 @@
 # Add-on update protocols
-# Copyright 2022 Joseph Lee, released under GPL
+# Copyright 2022-2023 Joseph Lee, released under GPL
 
 # Proof of concept implementation of NVDA Core issue 3208.
 # Split from update check processes/procedure module.
