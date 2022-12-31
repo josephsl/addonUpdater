@@ -11,7 +11,6 @@
 
 
 from urllib.request import urlopen, Request
-import threading
 import json
 import re
 import ssl
