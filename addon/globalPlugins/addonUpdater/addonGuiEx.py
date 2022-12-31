@@ -220,7 +220,9 @@ def downloadAndInstallAddonUpdates(addons: list[addonUpdateProc.AddonUpdateRecor
 		for addon in addons:
 			destPath: str = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
 			log.debug(f"nvda3208: downloading {addon.summary}, URL is {addon.url}, destpath is {destPath}")
-			downloads[downloader.submit(addonUpdateProc.downloadAddonUpdate, addon.url, destPath, addon.hash)] = [destPath, addon]
+			downloads[downloader.submit(
+				addonUpdateProc.downloadAddonUpdate, addon.url, destPath, addon.hash
+			)] = [destPath, addon]
 		for download in concurrent.futures.as_completed(downloads):
 			destPath, addon = downloads[download]
 			log.debug(f"nvda3208: downloading {addon.summary}")
