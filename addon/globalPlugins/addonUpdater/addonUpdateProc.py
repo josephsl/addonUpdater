@@ -78,7 +78,7 @@ class AddonUpdateRecord(object):
 		try:
 			# If all parts are integers, then say yes if the update version is indeed newer (higher).
 			# Skip this if version number argument is defined.
-			if versionNumber is not None:
+			if versionNumber is None:
 				versionNumber = tuple(int(ver) for ver in versionParsed)
 			installedVersionNumber = tuple(int(ver) for ver in installedVersionParsed)
 		except ValueError:
