@@ -41,6 +41,10 @@ The available add-on update sources are:
 * Spanish community add-ons catalog
 * Catalogs maintained by NVDA communities in China and Taiwan
 
+## Version 23.02
+
+* NVDA will no longer offer what appears to be older add-on updates for most add-ons after checking for add-on updates. This applies to add-ons with version text of the form number.number.
+
 ## Version 23.01
 
 * NVDA will check minimum Windows version for add-on updates if update source is set to NVDA community add-ons website.
