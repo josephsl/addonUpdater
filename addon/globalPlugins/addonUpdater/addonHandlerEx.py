@@ -155,6 +155,14 @@ def downloadAndInstallAddonUpdates(addons: list[addonUpdateProc.AddonUpdateRecor
 	minimal = globalVars.appArgs.minimal
 	globalVars.appArgs.minimal = True
 	downloadedAddons: list[tuple[str, addonUpdateProc.AddonUpdateRecord]] = []
+	for addon in addons:
+		# Skip background updates for disabled add-ons.
+		if not addon.isEnabled:
+			log.debug(f"nvda3208: {addon.summary} is disabled, skipping")
+			addons.remove(addon)
+	# Are there updates with disabled add-ons removed?
+	if not len(addons):
+		return
 	# By default, Python 3.7 sets max workers to five times number of processors/cores, wasting resources.
 	# Therefore, use Python 3.8 formula ((core count + 4) or 32, whichever is smaller).
 	# See if resource usage can be minimized if downloading few add-on packages.
@@ -162,10 +170,6 @@ def downloadAndInstallAddonUpdates(addons: list[addonUpdateProc.AddonUpdateRecor
 	with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as downloader:
 		downloads = {}
 		for addon in addons:
-			# Skip background updates for disabled add-ons.
-			if not addon.isEnabled:
-				log.debug(f"nvda3208: {addon.summary} is disabled, skipping")
-				continue
 			destPath: str = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
 			log.debug(f"nvda3208: downloading {addon.summary}, URL is {addon.url}, destpath is {destPath}")
 			downloads[downloader.submit(
