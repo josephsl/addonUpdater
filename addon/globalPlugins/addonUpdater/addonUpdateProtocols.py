@@ -359,14 +359,8 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		else:
 			results = fallbackData
 		# Retrieve add-on update data results.
-		updateThreads = [
-			threading.Thread(target=self.fetchAddonInfo, args=(addon, results))
-			for addon in curAddons
-		]
-		for thread in updateThreads:
-			thread.start()
-		for thread in updateThreads:
-			thread.join()
+		for addon in curAddons:
+			self.fetchAddonInfo(addon, results)
 		# Build an update info list based on update availability.
 		return [
 			addon for addon in curAddons
@@ -501,16 +495,8 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 		else:
 			log.debug("nvda3208: add-ons metadata successfully retrieved")
 		# Don't forget to perform additional checks based on add-on metadata if present.
-		updateThreads = [
-			threading.Thread(
-				target=self.fetchAddonInfo, args=(addon, results, addonsData)
-			)
-			for addon in curAddons
-		]
-		for thread in updateThreads:
-			thread.start()
-		for thread in updateThreads:
-			thread.join()
+		for addon in curAddons:
+			self.fetchAddonInfo(addon, results, addonsData)
 		# Build an update info list based on update availability.
 		return [
 			addon for addon in curAddons
@@ -596,14 +582,8 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 		metadataDictionary = {}
 		for addon in results:
 			metadataDictionary[addon["name"]] = addon
-		updateThreads = [
-			threading.Thread(target=self.fetchAddonInfo, args=(addon, metadataDictionary))
-			for addon in curAddons
-		]
-		for thread in updateThreads:
-			thread.start()
-		for thread in updateThreads:
-			thread.join()
+		for addon in curAddons:
+			self.fetchAddonInfo(addon, metadataDictionary)
 		# Build an update info list based on update availability.
 		return [
 			addon for addon in curAddons
