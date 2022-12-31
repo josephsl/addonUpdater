@@ -68,9 +68,19 @@ class AddonUpdateRecord(object):
 			"updateChannel": self.updateChannel
 		}
 
-	@property
 	def updateAvailable(self) -> bool:
-		return self.version != self.installedVersion
+		# If channels are different, just say yes if versions are different.
+		if self.updateChannel != self.installedChannel:
+			return self.version != self.installedVersion
+		versionParsed = self.version.split(".")
+		installedVersionParsed = self.installedVersion.split(".")
+		try:
+			# If all parts are integers, then say yes if the update version is indeed newer (higher).
+			versionNumber = tuple(int(ver) for ver in versionParsed)
+			installedVersionNumber = tuple(int(ver) for ver in installedVersionParsed)
+		except ValueError:
+			return self.version != self.installedVersion
+		return versionNumber > installedVersionNumber
 
 
 # Add-ons with built-in update feature.
