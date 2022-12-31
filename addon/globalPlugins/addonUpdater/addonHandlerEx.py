@@ -175,7 +175,7 @@ def downloadAndInstallAddonUpdates(addons: list[addonUpdateProc.AddonUpdateRecor
 			destPath, addon = downloads[download]
 			log.debug(f"nvda3208: downloading {addon.summary}")
 			try:
-				result = download.result()
+				download.result()
 			except RuntimeError:
 				log.debug(f"nvda3208: failed to download {addon.summary}", exc_info=True)
 			else:

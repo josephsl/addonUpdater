@@ -234,7 +234,7 @@ def downloadAndInstallAddonUpdates(addons: list[addonUpdateProc.AddonUpdateRecor
 					_("Downloading {addonName}").format(addonName=addon.summary)
 				)
 				wx.CallAfter(_downloadProgressDialog.Fit)
-				result = download.result()
+				download.result()
 			except RuntimeError:
 				log.debug(f"nvda3208: failed to download {addon.summary}", exc_info=True)
 				gui.messageBox(
