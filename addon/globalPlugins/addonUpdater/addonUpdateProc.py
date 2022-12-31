@@ -40,6 +40,7 @@ class AddonUpdateRecord(object):
 			minimumNVDAVersion: list[int] = [0, 0, 0],
 			lastTestedNVDAVersion: list[int] = [0, 0, 0],
 			updateChannel: Optional[str] = "",
+			installedChannel: Optional[str] = "",
 			isEnabled: bool = True
 	):
 		self.name = name
@@ -51,6 +52,7 @@ class AddonUpdateRecord(object):
 		self.minimumNVDAVersion = minimumNVDAVersion
 		self.lastTestedNVDAVersion = lastTestedNVDAVersion
 		self.updateChannel = updateChannel
+		self.installedChannel = installedChannel
 		self.isEnabled = isEnabled
 
 	def updateDict(self) -> dict[str, Any]:
@@ -103,6 +105,7 @@ def checkForAddonUpdates() -> Optional[list[AddonUpdateRecord]]:
 		updateChannel: Optional[str] = manifest.get("updateChannel")
 		if updateChannel == "None":
 			updateChannel = None
+		installedChannel = updateChannel
 		if updateChannel != "dev" and name in addonUtils.updateState["devUpdates"]:
 			updateChannel = "dev"
 		elif updateChannel == "dev" and name not in addonUtils.updateState["devUpdates"]:
@@ -116,6 +119,7 @@ def checkForAddonUpdates() -> Optional[list[AddonUpdateRecord]]:
 			version=curVersion,
 			installedVersion=curVersion,
 			updateChannel=updateChannel,
+			installedChannel=installedChannel,
 			isEnabled=isEnabled
 		))
 	# Choos the appropriate add-on update protocol/source.
