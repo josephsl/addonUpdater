@@ -380,7 +380,8 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 	relies on NV Access get.php JSON representation for obtaining links,
 	whereas protocol 2.1 (2022) uses additional fields such as URL and hash provided by the JSON
 	and is the default protocol in Add-on Updater 22.09 and later.
-	Protocol 2.2 enables minimum Windows version checks and rewrites add-ons metadata fetcher to use concurrent.futures instead of separate threads,
+	Protocol 2.2 enables minimum Windows version checks and rewrites add-ons metadata fetcher to
+	use concurrent.futures instead of separate threads,
 	and is the default protocol in Add-on Updater 23.01.
 	"""
 
@@ -594,7 +595,8 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 class AddonUpdateCheckProtocolNVDACn(AddonUpdateCheckProtocolNVDAAddonsGitHub):
 	"""Protocol 5: China community add-ons catalog protocol
 	Protocol 5 is same as protocol 2, except for the update source URL.
-	So this class inherit from AddonUpdateCheckProtocolNVDAAddonsGitHub class and modified its sourceUrl/sourceList attribute.
+	So this class inherits from AddonUpdateCheckProtocolNVDAAddonsGitHub class
+	and modified its sourceUrl/sourceList attribute.
 	"""
 
 	protocol = 5
@@ -607,7 +609,8 @@ class AddonUpdateCheckProtocolNVDACn(AddonUpdateCheckProtocolNVDAAddonsGitHub):
 class AddonUpdateCheckProtocolNVDATw(AddonUpdateCheckProtocolNVDAAddonsGitHub):
 	"""Protocol 6: Taiwan community add-ons catalog protocol
 	Protocol 6 is same as protocol 2, except for the update source URL.
-	So this class inherit from AddonUpdateCheckProtocolNVDAAddonsGitHub class and modified its sourceUrl/sourceList attribute.
+	So this class inherits from AddonUpdateCheckProtocolNVDAAddonsGitHub class
+	and modified its sourceUrl/sourceList attribute.
 	"""
 
 	protocol = 6
