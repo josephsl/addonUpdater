@@ -2,7 +2,7 @@
 
 * Author: Joseph Lee, Luke Davis
 * Download [stable version][1]
-* NVDA compatibility: 2022.3 and later
+* NVDA compatibility: 2022.4 and later
 
 This add-on brings NVDA Core issue 3208 to life: ability to check for, download, and apply add-on updates.
 
@@ -43,6 +43,7 @@ The available add-on update sources are:
 
 ## Version 23.02
 
+* NVDA 2022.4 or later is required.
 * NVDA will no longer offer what appears to be older add-on updates for most add-ons after checking for add-on updates. This applies to add-ons with version text of the form number.number.
 
 ## Version 23.01
