@@ -669,7 +669,7 @@ class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocol):
 		# Build an update info list based on update availability.
 		return [
 			addon for addon in curAddons
-			if addon.updateAvailable
+			if addon.updateAvailable()
 		]
 
 
