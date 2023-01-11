@@ -630,7 +630,7 @@ class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocol):
 		addon.hash = addonMetadata["sha256"]
 
 	def checkForAddonUpdate(self, curAddons, fallbackData=None):
-		results = {}
+		results = None
 		# Only do this if no fallback data is specified.
 		if fallbackData is None:
 			# URL is of the form https://www.nvaccess.org/addonStore/<language>/all/<NVDA API Version>.json,
@@ -639,21 +639,15 @@ class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocol):
 			import versionInfo
 			nvdaVer = f"{versionInfo.version_year}.{versionInfo.version_major}.{versionInfo.version_minor}"
 			url = f"{self.sourceUrl}/en/all/{nvdaVer}.json"
-			addonsFetcher = threading.Thread(
-				target=self.getAddonsData,
-				args=(results,),
-				kwargs={
-					"url": url,
-					"differentUserAgent": True,
-					"errorText": "nvda3208: errors occurred while accessing NV Access datastore"
-				}
-			)
-			addonsFetcher.start()
-			# This internal thread must be joined, otherwise results will be lost.
-			addonsFetcher.join()
-			# Raise an error if results says so.
-			if "error" in results:
-				raise RuntimeError("Failed to retrieve community add-ons")
+			with concurrent.futures.ThreadPoolExecutor(max_workers=2) as addonsFetcher:
+				try:
+					results = addonsFetcher.submit(
+						self.getAddonsData,
+						url=url, differentUserAgent=True,
+						errorText="nvda3208: errors occurred while accessing NV Access datastore"
+					).result()
+				except:
+					raise RuntimeError("Failed to retrieve community add-ons")
 		# Perhaps a newer protocol sent a fallback data if the protocol URL fails somehow.
 		else:
 			results = fallbackData
@@ -665,7 +659,7 @@ class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocol):
 		# as all that's needed is check version-channel while looping through results list.
 		# However, call fetch add-on info for backward compatibility and consistency with other protocols.
 		metadataDictionary = {}
-		for addon in results["results"]:
+		for addon in results:
 			addonId = addon["addonId"]
 			channel = addon["channel"]
 			metadataTag = f"{addonId}-{channel}"
