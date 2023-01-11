@@ -667,13 +667,22 @@ class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocol):
 			channel = addon["channel"]
 			metadataTag = f"{addonId}-{channel}"
 			metadataDictionary[metadataTag] = addon
+		# Build an update info list based on update availability.
+		# NV Access add-on datastore records version number (major.minor.patch) as a dictionary.
+		addonUpdates = []
 		for addon in curAddons:
 			self.fetchAddonInfo(addon, metadataDictionary)
-		# Build an update info list based on update availability.
-		return [
-			addon for addon in curAddons
-			if addon.updateAvailable()
-		]
+			# NV Access add-on datastore records version number (major.minor.patch) as a dictionary.
+			try:
+				version, versionNumber = addon.version
+				# Restore version name string.
+				addon.version = version
+			except ValueError:
+				# Add-on version remains a string if there is no entry for this add-on in the datastore.
+				continue
+			if addon.updateAvailable(versionNumber=versionNumber):
+				addonUpdates.append(addon)
+		return addonUpdates
 
 
 class AddonUpdateCheckProtocolNVDACn(AddonUpdateCheckProtocolNVDAAddonsGitHub):
