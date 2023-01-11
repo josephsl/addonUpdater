@@ -625,7 +625,10 @@ class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocol):
 		# Announce add-on URL for debugging purposes.
 		log.debug(f"nvda3208: add-on URL is {addonUrl}")
 		version = addonMetadata["addonVersionName"]
-		addon.version = version
+		# Temporarily set up version number attribute alongside version name.
+		# Version name will be restored after update availability check.
+		versionNumber = addonMetadata["addonVersionNumber"]
+		addon.version = [version, (versionNumber["major"], versionNumber["minor"], versionNumber["patch"])]
 		addon.url = addonUrl
 		addon.hash = addonMetadata["sha256"]
 
