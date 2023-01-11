@@ -595,7 +595,7 @@ class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocol):
 	"""Protocol 4: NV Access add-ons datastore protocol
 	NV Access has reimagined the add-ons metadata storage mechanics.
 	Due to similarities, this protocol borrows ideas from Spanish community catalog protocol.
-	Version, compatibility, and update channel checks are available.
+	Version, compatibility, hash, and update channel checks are available.
 	Just like Spanish community catalog, results data is a list, not a dictionary.
 	"""
 
@@ -605,7 +605,7 @@ class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocol):
 	sourceUrl = "https://www.nvaccess.org/addonStore"
 
 	def fetchAddonInfo(self, addon, results):
-		# NV Access datastore contains version, channel, URL, and compatibility information.
+		# NV Access datastore contains version, channel, URL, hash, and compatibility information.
 		# This eliminates the need to access additional sources just for obtaining data.
 		# Unlike other protocols, NV Access datastore returns add-ons compatible with the currentNVDA version only.
 		# Because versions for all update channels can be returned, make sure
@@ -627,6 +627,7 @@ class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocol):
 		version = addonMetadata["addonVersionName"]
 		addon.version = version
 		addon.url = addonUrl
+		addon.hash = addonMetadata["sha256"]
 
 	def checkForAddonUpdate(self, curAddons, fallbackData=None):
 		results = {}
