@@ -664,14 +664,8 @@ class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocol):
 			channel = addon["channel"]
 			metadataTag = f"{addonId}-{channel}"
 			metadataDictionary[metadataTag] = addon
-		updateThreads = [
-			threading.Thread(target=self.fetchAddonInfo, args=(addon, metadataDictionary))
-			for addon in curAddons
-		]
-		for thread in updateThreads:
-			thread.start()
-		for thread in updateThreads:
-			thread.join()
+		for addon in curAddons:
+			self.fetchAddonInfo(addon, metadataDictionary)
 		# Build an update info list based on update availability.
 		return [
 			addon for addon in curAddons
