@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: addonUpdater22.08\n"
+"Project-Id-Version: addonUpdater23.01\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-08-22 06:26-0700\n"
+"PO-Revision-Date: 2022-12-31 19:29+0300\n"
 "Last-Translator: Moayad Hosh <prince.mouied1996@gmail.com>\n"
 "Language-Team: Moayad Hosh <prince.mouied1996@gmail.com>\n"
 "Language: ar\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #. Translators: menu item label for checking add-on updates.
 msgid "Check for &add-on updates..."
@@ -109,7 +109,7 @@ msgid "Checking for add-on updates from {updateSource}..."
 msgstr "التحقق من وجود تحديثات من {updateSource}..."
 
 msgid "Error checking for add-on updates."
-msgstr "فشل في التحقق من وجود تحديثات للإضافة"
+msgstr "فشل في التحقق من وجود تحديثات للإضافات"
 
 #. Translators: The title of the add-on updates dialog.
 #, python-brace-format
@@ -250,14 +250,12 @@ msgid "Spanish community add-ons catalog"
 msgstr "كتالوج إضافات المجتمع الأسباني"
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "China community add-ons catalog"
-msgstr "كتالوج إضافات المجتمع الأسباني"
+msgstr "كتالوج إضافات المجتمع الصيني"
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "Taiwan community add-ons catalog"
-msgstr "كتالوج إضافات المجتمع الأسباني"
+msgstr "كتالوج إضافات المجتمع التايواني"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
