@@ -288,7 +288,7 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 	protocolDescription = "NVDA Community Add-ons website"
 	sourceUrl = URLs.communityAddonsList
 
-	def parseAddonVersionFromUrl(self, url, addon, fallbackVersion=None):
+	def parseAddonVersionFromUrl(self, url: str, addon: AddonUpdateRecord, fallbackVersion: Optional[str] = None) -> Optional[str]:
 		"""Parses add-on version from the given URL.
 		It can return a fallback version if told to do so.
 		A copy of the add-on update record is used to access its attributes such as name.
@@ -307,7 +307,7 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 			version = version.split(addon.name)[1][1:]
 		return version
 
-	def fetchAddonInfo(self, addon, results):
+	def fetchAddonInfo(self, addon: AddonUpdateRecord, results: Dict[str, Any]) -> None:
 		# Borrowed ideas from NVDA Core.
 		# Obtain update status for add-ons returned from community add-ons website.
 		# Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
@@ -344,7 +344,7 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		addon.version = version
 		addon.url = addonUrl
 
-	def checkForAddonUpdate(self, curAddons, fallbackData=None):
+	def checkForAddonUpdate(self, curAddons: List[AddonUpdateRecord], fallbackData: Any = None) -> List[AddonUpdateRecord]:
 		# First, fetch current community add-ons.
 		results = None
 		# Only do this if no fallback data is specified.
@@ -393,7 +393,7 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 	sourceUrl = URLs.metadata
 	sourceList = URLs.communityAddonsList
 
-	def fetchAddonInfo(self, addon, results, addonsData):
+	def fetchAddonInfo(self, addon: AddonUpdateRecord, results: Dict[str, Any], addonsData: Dict[str, Any]) -> None:
 		# Borrowed ideas from NVDA Core.
 		# Obtain update status for add-ons returned from community add-ons website.
 		# Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
@@ -460,7 +460,7 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 		if updateChannels is not None:
 			addon.hash = updateChannels[addonKey].get("sha256")
 
-	def checkForAddonUpdate(self, curAddons, fallbackData=None):
+	def checkForAddonUpdate(self, curAddons: Optional[List[AddonUpdateRecord]], fallbackData: Any = None) -> List[AddonUpdateRecord]:
 		# NVDA community add-ons list is always retrieved for fallback reasons.
 		# It is also supposed to be the first fallback collection.
 		results = None
