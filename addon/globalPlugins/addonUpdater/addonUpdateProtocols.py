@@ -16,7 +16,7 @@ import re
 import ssl
 from collections import namedtuple
 import os
-from typing import Optional, Any, Dict
+from typing import Optional, Any, Dict, List
 # NVDA 2023.1 includes concurrent.futures.
 # A copy of the package minus process pool executor is included to suport older NVDA releases.
 try:
@@ -140,7 +140,7 @@ class AddonUpdateCheckProtocol(object):
 				res.close()
 		return addonUrl
 
-	def checkForAddonUpdate(self, curAddons):
+	def checkForAddonUpdate(self, curAddons: List[AddonUpdateRecord]) -> List[AddonUpdateRecord]:
 		"""Coordinates add-on update check facility based on update records provided.
 		After retrieving add-on update metadata from sources, fetch update info is called on each record
 		to see if updates are available, returning a list of updatable add-on records.
@@ -148,7 +148,7 @@ class AddonUpdateCheckProtocol(object):
 		"""
 		raise NotImplementedError
 
-	def checkForAddonUpdates(self, installedAddons=None):
+	def checkForAddonUpdates(self, installedAddons: Optional[List[AddonUpdateRecord]] = None) -> Optional[List[AddonUpdateRecord]]:
 		"""Checks and returns add-on update metadata (update records) if any.
 		Update record includes name, summary, update URL, compatibility information and other attributes.
 		In some cases, a list of preliminary update records based on instaled add-ons will be used.
@@ -157,9 +157,7 @@ class AddonUpdateCheckProtocol(object):
 		"""
 		# Don't even think about update checks if secure mode flag is set.
 		if globalVars.appArgs.secure:
-			return
-		# Update record class is defined in update proc module, so import it here to avoid circular import.
-		from .addonUpdateProc import AddonUpdateRecord
+			return None
 		# Build a list of preliminary update records based on installed add-ons.
 		if installedAddons is not None:
 			curAddons = installedAddons
