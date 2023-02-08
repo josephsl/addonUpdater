@@ -33,7 +33,7 @@ updateChecker = None
 
 
 # To avoid freezes, a background thread will run after the global plugin constructor calls wx.CallAfter.
-def autoUpdateCheck():
+def autoUpdateCheck() -> None:
 	currentTime = time.time()
 	whenToCheck = addonUtils.updateState["lastChecked"] + addonUpdateCheckInterval
 	if currentTime >= whenToCheck:
@@ -46,7 +46,7 @@ def autoUpdateCheck():
 
 
 # Start or restart auto update checker.
-def startAutoUpdateCheck(interval):
+def startAutoUpdateCheck(interval: int) -> None:
 	global updateChecker
 	if updateChecker is not None:
 		wx.CallAfter(updateChecker.Stop)
@@ -54,7 +54,7 @@ def startAutoUpdateCheck(interval):
 	wx.CallAfter(updateChecker.Start, interval * 1000, True)
 
 
-def endAutoUpdateCheck():
+def endAutoUpdateCheck() -> None:
 	global updateChecker
 	addonUtils.updateState["lastChecked"] = time.time()
 	if updateChecker is not None:
@@ -69,7 +69,7 @@ if canUpdate:
 # Check if legacy add-ons are found, and if yes, notify user and disable automatic add-on update checks.
 # Legacy add-ons can include add-ons with all features integrated into NVDA
 # or declared as legacy by add-on authors.
-def legacyAddonsFound():
+def legacyAddonsFound() -> bool:
 	def _showLegacyAddonsUICallback(info):
 		gui.mainFrame.prePopup()
 		LegacyAddonsDialog(gui.mainFrame, info).Show()
