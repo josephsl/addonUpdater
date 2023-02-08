@@ -16,6 +16,7 @@ import re
 import ssl
 from collections import namedtuple
 import os
+from typing import Optional, Any, Dict
 # NVDA 2023.1 includes concurrent.futures.
 # A copy of the package minus process pool executor is included to suport older NVDA releases.
 try:
@@ -58,7 +59,7 @@ class AddonUpdateCheckProtocol(object):
 	protocolDescription = "No add-on updates"
 	sourceUrl = ""
 
-	def getAddonsData(self, url=None, differentUserAgent=False, errorText=None):
+	def getAddonsData(self, url: Any = None, differentUserAgent: bool = False, errorText: Optional[str] = None) -> Any:
 		"""Accesses and returns add-ons data from a predefined add-on source URL.
 		As this function blocks the main thread, it should be run from a separate thread.
 		The ideal way is for this thread to be concurrent with the calling thread.
@@ -93,7 +94,7 @@ class AddonUpdateCheckProtocol(object):
 				res.close()
 		return results
 
-	def addonCompatibleAccordingToMetadata(self, addon, addonMetadata):
+	def addonCompatibleAccordingToMetadata(self, addon: str, addonMetadata: Dict[str, Any]) -> bool:
 		"""Checks if a given add-on update is compatible with the running version of NVDA.
 		"""
 		# Check add-on update eligibility with help from community add-ons metadata if present.
@@ -112,7 +113,7 @@ class AddonUpdateCheckProtocol(object):
 			and lastTestedNVDAVersion >= addonAPIVersion.BACK_COMPAT_TO
 		)
 
-	def getAddonDownloadLink(self, url):
+	def getAddonDownloadLink(self, url: str) -> Optional[str]:
 		"""If the source URL does not end in a '.nvda-addon' extension, obtains the actual download link
 		by accessing the URL specified in the 'url' parameter.
 		This is similar to get add-ons data method except it is optimized to obtain a URL, not results data.
