@@ -75,7 +75,7 @@ def detectLegacyAddons() -> dict[str, str]:
 	}
 
 
-def autoAddonUpdateCheck():
+def autoAddonUpdateCheck() -> None:
 	t = threading.Thread(target=_showAddonUpdateUI)
 	t.daemon = True
 	t.start()
