@@ -33,7 +33,7 @@ from . import addonUtils
 addonHandler.initTranslation()
 
 
-def getUrlViaMSEdgeUserAgent(url):
+def getUrlViaMSEdgeUserAgent(url: str) -> Request:
 	# Some hosting services block Python/urllib in hopes of avoding bots.
 	# Therefore spoof the user agent to say this is latest Microsoft Edge.
 	# Source: Stack Overflow, Google searches on Apache/mod_security
