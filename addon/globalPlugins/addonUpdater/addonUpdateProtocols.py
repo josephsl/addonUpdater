@@ -519,7 +519,7 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 	protocolDescription = "NVDA Spanish Community Add-ons website"
 	sourceUrl = "https://nvda.es/files/get.php?addonslist"
 
-	def fetchAddonInfo(self, addon, results):
+	def fetchAddonInfo(self, addon: AddonUpdateRecord, results: Dict[str, Any]) -> None:
 		# Spanish community catalog contains version, channel, URL, and compatibility information.
 		# This eliminates the need to access additional sources just for obtaining data.
 		# Is this add-on's metadata present?
@@ -563,7 +563,7 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 		addon.version = version
 		addon.url = addonUrl
 
-	def checkForAddonUpdate(self, curAddons, fallbackData=None):
+	def checkForAddonUpdate(self, curAddons: List[AddonUpdateRecord], fallbackData: Any = None) -> List[AddonUpdateRecord]:
 		results = None
 		# Only do this if no fallback data is specified.
 		if fallbackData is None:
@@ -607,7 +607,7 @@ class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocol):
 	protocolDescription = "NV Access add-ons datastore"
 	sourceUrl = "https://www.nvaccess.org/addonStore"
 
-	def fetchAddonInfo(self, addon, results):
+	def fetchAddonInfo(self, addon: AddonUpdateRecord, results: Dict[str, Any]) -> None:
 		# NV Access datastore contains version, channel, URL, hash, and compatibility information.
 		# This eliminates the need to access additional sources just for obtaining data.
 		# Unlike other protocols, NV Access datastore returns add-ons compatible with the currentNVDA version only.
@@ -635,7 +635,7 @@ class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocol):
 		addon.url = addonUrl
 		addon.hash = addonMetadata["sha256"]
 
-	def checkForAddonUpdate(self, curAddons, fallbackData=None):
+	def checkForAddonUpdate(self, curAddons: List[AddonUpdateRecord], fallbackData: Any = None) -> List[AddonUpdateRecord]:
 		results = None
 		# Only do this if no fallback data is specified.
 		if fallbackData is None:
