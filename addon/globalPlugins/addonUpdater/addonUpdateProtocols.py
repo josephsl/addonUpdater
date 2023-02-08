@@ -31,6 +31,8 @@ import globalVars
 from logHandler import log
 from .urls import URLs
 from . import addonUtils
+# To provide type information
+from .addonUpdateProc import AddonUpdateRecord
 addonHandler.initTranslation()
 
 
