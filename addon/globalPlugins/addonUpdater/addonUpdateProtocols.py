@@ -300,12 +300,14 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		# All the info we need for add-on version check is after the last slash.
 		# Sometimes, regular expression fails, and if so, treat it as though there is no update for this add-on.
 		try:
-			version = re.search(
-				"(?P<name>)-(?P<version>.*).nvda-addon", url.split("/")[-1]
-			).groupdict()["version"]
+			versionMatched = re.search("(?P<name>)-(?P<version>.*).nvda-addon", url.split("/")[-1])
 		except:
 			log.debug("nvda3208: could not retrieve version info for an add-on from its URL", exc_info=True)
 			return fallbackVersion
+		if versionMatched is None:
+			log.debug("nvda3208: could not retrieve version info for an add-on from its URL")
+			return fallbackVersion
+		version = versionMatched.groupdict()["version"]
 		# If hosted on places other than add-ons server, an unexpected URL might be returned, so parse this further.
 		if addon.name in version:
 			version = version.split(addon.name)[1][1:]
