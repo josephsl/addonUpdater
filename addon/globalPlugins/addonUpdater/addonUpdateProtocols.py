@@ -292,9 +292,9 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 	protocolDescription = "NVDA Community Add-ons website"
 	sourceUrl = URLs.communityAddonsList
 
-	def parseAddonVersionFromUrl(self, url: str, addon: AddonUpdateRecord, fallbackVersion: Optional[str] = None) -> Optional[str]:
+	def parseAddonVersionFromUrl(self, url: str, addon: AddonUpdateRecord, fallbackVersion: str = addon.installedVersion) -> str:
 		"""Parses add-on version from the given URL.
-		It can return a fallback version if told to do so.
+		It can return a fallback version if told to do so, which is instaled add-on version by default.
 		A copy of the add-on update record is used to access its attributes such as name.
 		"""
 		# All the info we need for add-on version check is after the last slash.
@@ -346,7 +346,7 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		# Update add-on update record if there is indeed a new version.
 		# This applies to add-on URL's coming from external sources.
 		# Fall back to installed version as update record will compare versions.
-		version = self.parseAddonVersionFromUrl(addonUrl, addon, fallbackVersion=addon.installedVersion)
+		version = self.parseAddonVersionFromUrl(addonUrl, addon)
 		addon.version = version
 		addon.url = addonUrl
 
@@ -459,7 +459,7 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 		log.debug(f"nvda3208: add-on URL is {addonUrl}")
 		# This applies to add-on URL's coming from external sources.
 		# Fall back to installed version as update record will compare versions.
-		version = self.parseAddonVersionFromUrl(addonUrl, addon, fallbackVersion=addon.installedVersion)
+		version = self.parseAddonVersionFromUrl(addonUrl, addon)
 		addon.version = version
 		addon.url = addonUrl
 		# Add SHA256 hash value for add-on package if it exists.
