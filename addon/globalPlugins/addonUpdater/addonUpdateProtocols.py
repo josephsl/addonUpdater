@@ -48,6 +48,10 @@ def getUrlViaMSEdgeUserAgent(url: str) -> Request:
 	)
 
 
+# Type alias for type information purposes and to shorten long lines involving ad-on update records
+AddonUpdateRecords = List[AddonUpdateRecord]
+
+
 # Define various add-on update check protocols, beginning with protocol 0 (do nothing/abstract protocol).
 class AddonUpdateCheckProtocol(object):
 	"""Protocol 0: the default update check protocol.
@@ -140,7 +144,7 @@ class AddonUpdateCheckProtocol(object):
 				res.close()
 		return addonUrl
 
-	def checkForAddonUpdate(self, curAddons: List[AddonUpdateRecord]) -> List[AddonUpdateRecord]:
+	def checkForAddonUpdate(self, curAddons: AddonUpdateRecords) -> AddonUpdateRecords:
 		"""Coordinates add-on update check facility based on update records provided.
 		After retrieving add-on update metadata from sources, fetch update info is called on each record
 		to see if updates are available, returning a list of updatable add-on records.
@@ -148,7 +152,7 @@ class AddonUpdateCheckProtocol(object):
 		"""
 		raise NotImplementedError
 
-	def checkForAddonUpdates(self, installedAddons: Optional[List[AddonUpdateRecord]] = None) -> Optional[List[AddonUpdateRecord]]:
+	def checkForAddonUpdates(self, installedAddons: Optional[AddonUpdateRecords] = None) -> Optional[AddonUpdateRecords]:
 		"""Checks and returns add-on update metadata (update records) if any.
 		Update record includes name, summary, update URL, compatibility information and other attributes.
 		In some cases, a list of preliminary update records based on instaled add-ons will be used.
@@ -344,7 +348,7 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		addon.version = version
 		addon.url = addonUrl
 
-	def checkForAddonUpdate(self, curAddons: List[AddonUpdateRecord], fallbackData: Any = None) -> List[AddonUpdateRecord]:
+	def checkForAddonUpdate(self, curAddons: AddonUpdateRecords, fallbackData: Any = None) -> AddonUpdateRecords:
 		# First, fetch current community add-ons.
 		results = None
 		# Only do this if no fallback data is specified.
@@ -460,7 +464,7 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 		if updateChannels is not None:
 			addon.hash = updateChannels[addonKey].get("sha256")
 
-	def checkForAddonUpdate(self, curAddons: Optional[List[AddonUpdateRecord]], fallbackData: Any = None) -> List[AddonUpdateRecord]:
+	def checkForAddonUpdate(self, curAddons: Optional[AddonUpdateRecords], fallbackData: Any = None) -> AddonUpdateRecords:
 		# NVDA community add-ons list is always retrieved for fallback reasons.
 		# It is also supposed to be the first fallback collection.
 		results = None
@@ -563,7 +567,7 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 		addon.version = version
 		addon.url = addonUrl
 
-	def checkForAddonUpdate(self, curAddons: List[AddonUpdateRecord], fallbackData: Any = None) -> List[AddonUpdateRecord]:
+	def checkForAddonUpdate(self, curAddons: AddonUpdateRecords, fallbackData: Any = None) -> AddonUpdateRecords:
 		results = None
 		# Only do this if no fallback data is specified.
 		if fallbackData is None:
@@ -635,7 +639,7 @@ class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocol):
 		addon.url = addonUrl
 		addon.hash = addonMetadata["sha256"]
 
-	def checkForAddonUpdate(self, curAddons: List[AddonUpdateRecord], fallbackData: Any = None) -> List[AddonUpdateRecord]:
+	def checkForAddonUpdate(self, curAddons: AddonUpdateRecords, fallbackData: Any = None) -> AddonUpdateRecords:
 		results = None
 		# Only do this if no fallback data is specified.
 		if fallbackData is None:
