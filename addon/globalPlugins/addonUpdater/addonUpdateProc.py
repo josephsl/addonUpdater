@@ -42,7 +42,7 @@ class AddonUpdateRecord(object):
 			updateChannel: Optional[str] = "",
 			installedChannel: Optional[str] = "",
 			isEnabled: bool = True
-	):
+	) -> None:
 		self.name = name
 		self.summary = summary
 		self.version = version
@@ -69,7 +69,7 @@ class AddonUpdateRecord(object):
 		}
 
 	# It might be possible that some protocols may provide version number info.
-	def updateAvailable(self, versionNumber=None) -> bool:
+	def updateAvailable(self, versionNumber: Optional[str] = None) -> bool:
 		# If channels are different, just say yes if versions are different.
 		if self.updateChannel != self.installedChannel:
 			return self.version != self.installedVersion
@@ -79,11 +79,11 @@ class AddonUpdateRecord(object):
 			# If all parts are integers, then say yes if the update version is indeed newer (higher).
 			# Skip this if version number argument is defined.
 			if versionNumber is None:
-				versionNumber = tuple(int(ver) for ver in versionParsed)
+				updateVersionNumber = tuple(int(ver) for ver in versionParsed)
 			installedVersionNumber = tuple(int(ver) for ver in installedVersionParsed)
 		except ValueError:
 			return self.version != self.installedVersion
-		return versionNumber > installedVersionNumber
+		return updateVersionNumber > installedVersionNumber
 
 
 # Add-ons with built-in update feature.
