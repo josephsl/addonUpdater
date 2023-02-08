@@ -66,7 +66,7 @@ def saveState(keepStateOnline: bool = False) -> None:
 	except IOError:
 		pass
 	if not keepStateOnline:
-		updateState = None
+		updateState.clear()
 
 
 # Load and save add-on state if asked by the user.
