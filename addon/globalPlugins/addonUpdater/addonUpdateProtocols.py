@@ -59,7 +59,9 @@ class AddonUpdateCheckProtocol(object):
 	protocolDescription = "No add-on updates"
 	sourceUrl = ""
 
-	def getAddonsData(self, url: Any = None, differentUserAgent: bool = False, errorText: Optional[str] = None) -> Any:
+	def getAddonsData(
+			self, url: Any = None, differentUserAgent: bool = False, errorText: Optional[str] = None
+	) -> Any:
 		"""Accesses and returns add-ons data from a predefined add-on source URL.
 		As this function blocks the main thread, it should be run from a separate thread.
 		The ideal way is for this thread to be concurrent with the calling thread.
