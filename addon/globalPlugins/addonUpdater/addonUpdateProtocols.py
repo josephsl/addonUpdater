@@ -466,7 +466,7 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 		if updateChannels is not None:
 			addon.hash = updateChannels[addonKey].get("sha256")
 
-	def checkForAddonUpdate(self, curAddons: Optional[AddonUpdateRecords], fallbackData: Any = None) -> AddonUpdateRecords:
+	def checkForAddonUpdate(self, curAddons: AddonUpdateRecords, fallbackData: Any = None) -> AddonUpdateRecords:
 		# NVDA community add-ons list is always retrieved for fallback reasons.
 		# It is also supposed to be the first fallback collection.
 		results = None
