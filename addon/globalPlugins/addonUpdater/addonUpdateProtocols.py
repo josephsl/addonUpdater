@@ -144,11 +144,13 @@ class AddonUpdateCheckProtocol(object):
 				res.close()
 		return addonUrl
 
-	def parseAddonVersionFromUrl(self, url: str, addon: AddonUpdateRecord, fallbackVersion: str = addon.installedVersion) -> str:
+	def parseAddonVersionFromUrl(self, url: str, addon: AddonUpdateRecord, fallbackVersion: str = "") -> str:
 		"""Parses add-on version from the given URL.
 		It can return a fallback version if told to do so, which is instaled add-on version by default.
 		A copy of the add-on update record is used to access its attributes such as name.
 		"""
+		if not fallbackVersion:
+			fallbackVersion = addon.installedVersion
 		# All the info we need for add-on version check is after the last slash.
 		# Sometimes, regular expression fails, and if so, treat it as though there is no update for this add-on.
 		try:
