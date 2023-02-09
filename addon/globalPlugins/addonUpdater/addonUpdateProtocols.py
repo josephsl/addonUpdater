@@ -144,6 +144,27 @@ class AddonUpdateCheckProtocol(object):
 				res.close()
 		return addonUrl
 
+	def parseAddonVersionFromUrl(self, url: str, addon: AddonUpdateRecord, fallbackVersion: str = addon.installedVersion) -> str:
+		"""Parses add-on version from the given URL.
+		It can return a fallback version if told to do so, which is instaled add-on version by default.
+		A copy of the add-on update record is used to access its attributes such as name.
+		"""
+		# All the info we need for add-on version check is after the last slash.
+		# Sometimes, regular expression fails, and if so, treat it as though there is no update for this add-on.
+		try:
+			versionMatched = re.search("(?P<name>)-(?P<version>.*).nvda-addon", url.split("/")[-1])
+		except:
+			log.debug("nvda3208: could not retrieve version info for an add-on from its URL", exc_info=True)
+			return fallbackVersion
+		if versionMatched is None:
+			log.debug("nvda3208: could not retrieve version info for an add-on from its URL")
+			return fallbackVersion
+		version = versionMatched.groupdict()["version"]
+		# If hosted on places other than add-ons repos, an unexpected URL might be returned, so parse this further.
+		if addon.name in version:
+			version = version.split(addon.name)[1][1:]
+		return version
+
 	def checkForAddonUpdate(self, curAddons: AddonUpdateRecords) -> AddonUpdateRecords:
 		"""Coordinates add-on update check facility based on update records provided.
 		After retrieving add-on update metadata from sources, fetch update info is called on each record
@@ -291,27 +312,6 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 	protocolName = "nvdaproject"
 	protocolDescription = "NVDA Community Add-ons website"
 	sourceUrl = URLs.communityAddonsList
-
-	def parseAddonVersionFromUrl(self, url: str, addon: AddonUpdateRecord, fallbackVersion: str = addon.installedVersion) -> str:
-		"""Parses add-on version from the given URL.
-		It can return a fallback version if told to do so, which is instaled add-on version by default.
-		A copy of the add-on update record is used to access its attributes such as name.
-		"""
-		# All the info we need for add-on version check is after the last slash.
-		# Sometimes, regular expression fails, and if so, treat it as though there is no update for this add-on.
-		try:
-			versionMatched = re.search("(?P<name>)-(?P<version>.*).nvda-addon", url.split("/")[-1])
-		except:
-			log.debug("nvda3208: could not retrieve version info for an add-on from its URL", exc_info=True)
-			return fallbackVersion
-		if versionMatched is None:
-			log.debug("nvda3208: could not retrieve version info for an add-on from its URL")
-			return fallbackVersion
-		version = versionMatched.groupdict()["version"]
-		# If hosted on places other than add-ons server, an unexpected URL might be returned, so parse this further.
-		if addon.name in version:
-			version = version.split(addon.name)[1][1:]
-		return version
 
 	def fetchAddonInfo(self, addon: AddonUpdateRecord, results: Dict[str, Any]) -> None:
 		# Borrowed ideas from NVDA Core.
