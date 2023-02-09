@@ -175,7 +175,9 @@ class AddonUpdateCheckProtocol(object):
 		"""
 		raise NotImplementedError
 
-	def checkForAddonUpdates(self, installedAddons: Optional[AddonUpdateRecords] = None) -> Optional[AddonUpdateRecords]:
+	def checkForAddonUpdates(
+			self, installedAddons: Optional[AddonUpdateRecords] = None
+	) -> Optional[AddonUpdateRecords]:
 		"""Checks and returns add-on update metadata (update records) if any.
 		Update record includes name, summary, update URL, compatibility information and other attributes.
 		In some cases, a list of preliminary update records based on instaled add-ons will be used.
@@ -402,7 +404,9 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 	sourceUrl = URLs.metadata
 	sourceList = URLs.communityAddonsList
 
-	def fetchAddonInfo(self, addon: AddonUpdateRecord, results: Dict[str, Any], addonsData: Dict[str, Any]) -> None:
+	def fetchAddonInfo(
+			self, addon: AddonUpdateRecord, results: Dict[str, Any], addonsData: Dict[str, Any]
+	) -> None:
 		# Borrowed ideas from NVDA Core.
 		# Obtain update status for add-ons returned from community add-ons website.
 		# Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
