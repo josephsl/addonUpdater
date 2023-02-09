@@ -376,7 +376,7 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		]
 
 
-class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProject):
+class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 	"""Protocol 2.x: NVDA community add-ons website with compatibility information supplied by the community.
 	This protocol uses a combination of community add-ons get.php JSON
 	and compatibility data provided by the community.
@@ -391,6 +391,7 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocolNVDAProje
 	Protocol 2.2 enables minimum Windows version checks and rewrites add-ons metadata fetcher to
 	use concurrent.futures instead of separate threads,
 	and is the default protocol in Add-on Updater 23.01.
+	Protocol 2.3 no longer depends solely on protocol 1 to resolve type info issues.
 	"""
 
 	protocol = 2
