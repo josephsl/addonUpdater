@@ -214,7 +214,8 @@ def downloadAndInstallAddonUpdates(addons: list[addonUpdateProc.AddonUpdateRecor
 	# By default, Python 3.7 sets max workers to five times number of processors/cores, wasting resources.
 	# Therefore, use Python 3.8 formula ((core count + 4) or 32, whichever is smaller).
 	# See if resource usage can be minimized if downloading few add-on packages.
-	workers = min(totalCount, os.cpu_count() + 4, 32)
+	# Safely ignore os.cpu_count type issue.
+	workers = min(totalCount, os.cpu_count() + 4, 32)  # type: ignore[operator]
 	with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as downloader:
 		downloads = {}
 		for addon in addons:
