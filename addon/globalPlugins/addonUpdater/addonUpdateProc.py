@@ -106,9 +106,6 @@ def checkForAddonUpdates() -> Optional[list[AddonUpdateRecord]]:
 		# Add-on Updater is included, but is an exception as it updates other add-ons, too.
 		if addon.name in addonsWithUpdaters:
 			continue
-		# Sorry Nuance Vocalizer family, no update checks for you.
-		if "vocalizer" in addon.name.lower():
-			continue
 		manifest = addon.manifest
 		name: str = addon.name
 		if name in addonUtils.updateState["noUpdates"]:
