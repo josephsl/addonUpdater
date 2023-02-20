@@ -208,10 +208,9 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 		# Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
 		# Some add-ons come with pretty badly formatted summary text,
 		# so try catching them and exclude them from this list.
-		# Also, Vocalizer add-on family should be excluded from this list (requested by add-on author).
 		self.noAddonUpdates = sHelper.addLabeledControl(_("Do &not update add-ons:"), CustomCheckListBox, choices=[
 			addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
-			if isinstance(addon.manifest['summary'], str) and "vocalizer" not in addon.name
+			if isinstance(addon.manifest['summary'], str)
 		])
 		self.noAddonUpdates.SetCheckedStrings(addonHandlerEx.shouldNotUpdate())
 		self.noAddonUpdates.SetSelection(0)
@@ -219,7 +218,7 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 		self.devAddonUpdates = sHelper.addLabeledControl(
 			_("Prefer &development releases:"), CustomCheckListBox, choices=[
 				addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
-				if isinstance(addon.manifest['summary'], str) and "vocalizer" not in addon.name
+				if isinstance(addon.manifest['summary'], str)
 			]
 		)
 		self.devAddonUpdates.SetCheckedStrings(addonHandlerEx.preferDevUpdates())
