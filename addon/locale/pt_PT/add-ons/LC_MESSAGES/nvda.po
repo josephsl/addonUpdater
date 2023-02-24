@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-01-08 07:59-0800\n"
+"PO-Revision-Date: 2023-02-20 19:55+0000\n"
 "Last-Translator: Ângelo Abrantes <ampa4374@gmail.com>\n"
 "Language-Team: Equipa portuguesa do NVDA <ampa4374@gmail.com; rui."
 "fontes@tiflotecnia.pt>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.2.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. Translators: menu item label for checking add-on updates.
@@ -265,14 +265,12 @@ msgid "Spanish community add-ons catalog"
 msgstr "Catálogo de extras da comunidade espanhola"
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "China community add-ons catalog"
-msgstr "Catálogo de extras da comunidade espanhola"
+msgstr "Catálogo de add-ons da comunidade chinesa"
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "Taiwan community add-ons catalog"
-msgstr "Catálogo de extras da comunidade espanhola"
+msgstr "Catálogo de add-ons da comunidade de Taiwan"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
