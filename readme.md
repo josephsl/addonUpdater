@@ -40,6 +40,12 @@ The available add-on update sources are:
 * Community add-ons website (default)
 * Spanish community add-ons catalog
 * Catalogs maintained by NVDA communities in China and Taiwan
+* NV Access add-on store (experimental)
+
+## Version 23.03
+
+* Due to changes made to the website used by some update sources, this must be installed manually.
+* Added NV Access add-on store as an experimental add-on update source.
 
 ## Version 23.02
 
