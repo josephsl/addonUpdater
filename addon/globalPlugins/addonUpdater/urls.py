@@ -38,7 +38,7 @@ class _URLAccessors(object):
 	@property
 	def communityAddonsList(self) -> str:
 		"""The get.php mechanism provides a list of all add-ons it serves via this URL."""
-		return "https://addons.nvda-project.org/files/get.php?addonslist"
+		return "https://addons.nvda-project.org/files/get.php?addonslist=1"
 
 	@property
 	def communitySite(self) -> str:
