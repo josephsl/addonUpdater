@@ -479,16 +479,19 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 		results = None
 		# Enhanced with add-on metadata such as compatibility info maintained by the community.
 		addonsData = None
-		# Add-on store migration introduced a new endpoint which may not work, so check both.
-		oldEndpoint = "https://www.nvaccess.org/addonStore/legacy?addonslist"
-		actualUrl = ""
-		try:
-			res = urlopen(oldEndpoint)
-			if res.code == 200:
-				actualUrl = oldEndpoint
-			res.close()
-		except Exception:
+		# Only applies to protocol 2.x as there are protocols deriving from this one.
+		actualUrl = self.sourceList
+		if self.protocol == 2:
+			# Add-on store migration introduced a new endpoint which may not work, so check both.
+			oldEndpoint = "https://www.nvaccess.org/addonStore/legacy?addonslist"
 			actualUrl = self.sourceList
+			try:
+				res = urlopen(oldEndpoint)
+				if res.code == 200:
+					actualUrl = oldEndpoint
+				res.close()
+			except Exception:
+				pass
 		# Obtain both at once through concurrency.
 		with concurrent.futures.ThreadPoolExecutor(max_workers=2) as addonsFetcher:
 			protocol1 = addonsFetcher.submit(
