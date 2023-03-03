@@ -58,7 +58,6 @@ msgstr "在后台更新插件(&B)"
 #. Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
 #. Some add-ons come with pretty badly formatted summary text,
 #. so try catching them and exclude them from this list.
-#. Also, Vocalizer add-on family should be excluded from this list (requested by add-on author).
 msgid "Do &not update add-ons:"
 msgstr "不接收更新的插件(&N):"
 
@@ -76,8 +75,8 @@ msgid ""
 "You are about to switch to a different add-on update source. Are you sure "
 "you wish to change update source to {updateSourceDescription}?"
 msgstr ""
-"您即将切换到另一个插件更新源。您确定要将更新源切换为"
-"{updateSourceDescription}吗？"
+"您即将切换到另一个插件更新源。您确定要将更新源切换为{updateSourceDescription}"
+"吗？"
 
 #. Translators: Title of the add-on update source dialog.
 msgid "Add-on update source change"
@@ -157,8 +156,8 @@ msgid ""
 "One or more add-ons are currently disabled. These add-ons will be enabled "
 "after updating. Are you sure you wish to update disabled add-ons anyway?"
 msgstr ""
-"目前有一个或多个NVDA 插件被禁用。这些插件将在更新后被启用。您确定要更新被禁"
-"用的插件吗？"
+"目前有一个或多个NVDA 插件被禁用。这些插件将在更新后被启用。您确定要更新被禁用"
+"的插件吗？"
 
 #. Translators: Title of the add-on update confirmation dialog.
 msgid "Update disabled add-ons"
@@ -264,6 +263,10 @@ msgstr "NVDA 中文站"
 #. Translators: one of the add-on update source choices.
 msgid "Taiwan community add-ons catalog"
 msgstr "台湾社区"
+
+#. Translators: one of the add-on update source choices.
+msgid "NVDA add-on store (experimental)"
+msgstr ""
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
