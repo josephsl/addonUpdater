@@ -20,6 +20,14 @@ def isWin10ClientOrLater() -> bool:
 	return winVersion.getWinVer() >= winVersion.WIN10 and isClientOS()
 
 
+def isAddonStorePresent() -> bool:
+	try:
+		import addonStore
+		return True
+	except ModuleNotFoundError:
+		return False
+
+
 updateState = {}
 
 
