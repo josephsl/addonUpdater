@@ -764,6 +764,6 @@ AvailableUpdateProtocols = (
 	),
 	UpdateProtocol(
 		# Translators: one of the add-on update source choices.
-		"addondatastore", "AddonUpdateCheckProtocolNVAccessDatastore", _("NVDA add-on store (experimental)")
+		"addondatastore", "AddonUpdateCheckProtocolNVAccessDatastore", _("NVDA add-on store")
 	)
 )
