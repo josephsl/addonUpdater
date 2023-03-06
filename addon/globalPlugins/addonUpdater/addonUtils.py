@@ -41,6 +41,7 @@ def loadState() -> None:
 	except (IOError, EOFError, NameError, ValueError, pickle.UnpicklingError):
 		updateState["autoUpdate"] = isClientOS()
 		updateState["backgroundUpdate"] = False
+		updateState["addonStoreNotificationShown"] = False
 		updateState["updateNotification"] = "toast"
 		updateState["updateSource"] = "nvdaprojectcompatinfo"
 		updateState["lastChecked"] = 0
@@ -52,6 +53,8 @@ def loadState() -> None:
 		updateState["autoUpdate"] = isClientOS()
 	if "backgroundUpdate" not in updateState:
 		updateState["backgroundUpdate"] = False
+	if "addonStoreNotificationShown" not in updateState:
+		updateState["addonStoreNotificationShown"] = False
 	if "updateNotification" not in updateState:
 		updateState["updateNotification"] = "toast"
 	if "updateSource" not in updateState:
@@ -85,6 +88,7 @@ def reload(factoryDefaults: bool = False) -> None:
 		updateState.clear()
 		updateState["autoUpdate"] = isClientOS()
 		updateState["backgroundUpdate"] = False
+		updateState["addonStoreNotificationShown"] = False
 		updateState["updateNotification"] = "toast"
 		updateState["updateSource"] = "nvdaprojectcompatinfo"
 		updateState["lastChecked"] = 0
