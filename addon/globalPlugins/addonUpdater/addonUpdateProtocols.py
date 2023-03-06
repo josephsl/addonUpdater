@@ -670,7 +670,7 @@ class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocol):
 			# Use English (en) for language and current NVDA release for version.
 			import versionInfo
 			nvdaVer = f"{versionInfo.version_year}.{versionInfo.version_major}.{versionInfo.version_minor}"
-			url = f"{self.sourceUrl}/en/all/{nvdaVer}.json"
+			url = f"{self.sourceUrl}/en/all/latest.json"
 			with concurrent.futures.ThreadPoolExecutor(max_workers=2) as addonsFetcher:
 				try:
 					results = addonsFetcher.submit(
@@ -709,7 +709,7 @@ class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocol):
 			except ValueError:
 				# Add-on version remains a string if there is no entry for this add-on in the datastore.
 				continue
-			if addon.updateAvailable(versionNumber=versionNumber):
+			if addon.updateAvailable():
 				addonUpdates.append(addon)
 		return addonUpdates
 
