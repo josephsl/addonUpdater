@@ -192,6 +192,6 @@ The available add-on update sources are:
 
 * Initial stable release (still marked as proof of concept).
 
-[1]: https://addons.nvda-project.org/files/get.php?file=nvda3208
+[1]: https://addons.nvda-project.org/files/get.php?file=addonUpdater
 
 [2]: https://github.com/nvaccess/nvda/issues/3208
