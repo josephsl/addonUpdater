@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-01-08 07:38-0800\n"
+"PO-Revision-Date: 2023-03-03 15:57+0100\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: hr <LL@li.org>\n"
 "Language: hr\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.0\n"
 
 #. Translators: menu item label for checking add-on updates.
 msgid "Check for &add-on updates..."
@@ -274,8 +274,9 @@ msgid "Taiwan community add-ons catalog"
 msgstr "Katalog dodataka tajvanske zajednice"
 
 #. Translators: one of the add-on update source choices.
-msgid "NVDA add-on store (experimental)"
-msgstr ""
+#, fuzzy
+msgid "NVDA add-on store"
+msgstr "Ažuriranja NVDA dodataka"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
@@ -285,3 +286,6 @@ msgid ""
 msgstr ""
 "Koncept implementacije funkcije nadograđivanja dodataka (problem 3208 u NVDA "
 "jezgri)"
+
+#~ msgid "NVDA add-on store (experimental)"
+#~ msgstr "Trgovina NVDA dodataka (eksperimentalno)"

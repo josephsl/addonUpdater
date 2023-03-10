@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-03-02 09:03+0100\n"
+"PO-Revision-Date: 2023-03-03 09:40+0100\n"
 "Last-Translator: Ondrej Rosík <ondrej.rosik@gmail.com>\n"
 "Language-Team: \n"
 "Language: sk\n"
@@ -265,8 +265,9 @@ msgid "Taiwan community add-ons catalog"
 msgstr "Tajvanský zdroj doplnkov"
 
 #. Translators: one of the add-on update source choices.
-msgid "NVDA add-on store (experimental)"
-msgstr ""
+#, fuzzy
+msgid "NVDA add-on store"
+msgstr "Aktualizácie doplnkov"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
@@ -276,3 +277,6 @@ msgid ""
 msgstr ""
 "Implementácia aktualizačného mechanizmu pre doplnky NVDA (Hľadajte ticket "
 "3208)"
+
+#~ msgid "NVDA add-on store (experimental)"
+#~ msgstr "Obchod s doplnkami NVDA (experimentálne)"

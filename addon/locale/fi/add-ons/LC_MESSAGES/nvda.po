@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-01-08 06:59-0800\n"
+"PO-Revision-Date: 2023-03-03 18:35+0200\n"
 "Last-Translator: Jani Kinnunen <janikinnunen340@gmail.com>\n"
 "Language-Team: Jani Kinnunen <jani.kinnunen@wippies.fi>\n"
 "Language: fi\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 1.6.11\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. Translators: menu item label for checking add-on updates.
@@ -275,8 +275,9 @@ msgid "Taiwan community add-ons catalog"
 msgstr "Taiwanilaisyhteisön lisäosaluettelo"
 
 #. Translators: one of the add-on update source choices.
-msgid "NVDA add-on store (experimental)"
-msgstr ""
+#, fuzzy
+msgid "NVDA add-on store"
+msgstr "NVDA-lisäosien päivitykset"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
@@ -284,3 +285,6 @@ msgid ""
 "Proof of concept implementation of add-on update feature (NVDA Core issue "
 "3208)"
 msgstr "Konseptiasteella oleva toteutus lisäosien päivitystoiminnosta"
+
+#~ msgid "NVDA add-on store (experimental)"
+#~ msgstr "NVDA:n lisäosakauppa (kokeellinen)"

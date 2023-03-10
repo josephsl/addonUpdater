@@ -275,8 +275,9 @@ msgid "Taiwan community add-ons catalog"
 msgstr "Catálogo de complementos da comunidade taiwanesa"
 
 #. Translators: one of the add-on update source choices.
-msgid "NVDA add-on store (experimental)"
-msgstr ""
+#, fuzzy
+msgid "NVDA add-on store"
+msgstr "Actualizacións para complementos de NVDA"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager

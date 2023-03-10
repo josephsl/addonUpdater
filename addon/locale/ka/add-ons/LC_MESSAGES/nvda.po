@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: addonUpdater 22.07\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2022-07-22 01:00+0000\n"
-"PO-Revision-Date: 2022-09-16 13:35+0400\n"
+"PO-Revision-Date: 2023-03-03 12:15+0400\n"
 "Last-Translator: Dragan Ratkovich\n"
 "Language-Team: \n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #. Translators: menu item label for checking add-on updates.
 msgid "Check for &add-on updates..."
@@ -272,8 +272,9 @@ msgid "Taiwan community add-ons catalog"
 msgstr "ტაივანის საზოგადოების დამატებების კატალოგი"
 
 #. Translators: one of the add-on update source choices.
-msgid "NVDA add-on store (experimental)"
-msgstr ""
+#, fuzzy
+msgid "NVDA add-on store"
+msgstr "NVDA დამატების განახლებები"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
@@ -283,3 +284,6 @@ msgid ""
 msgstr ""
 "დამატებების განახლების ფუნქციის კონცეფციის განხორციელების მტკიცებულება (NVDA "
 "Core issue 3208)"
+
+#~ msgid "NVDA add-on store (experimental)"
+#~ msgstr "NVDA-ს დამატებების მაღაზია (ექსპერიმენტული)"
