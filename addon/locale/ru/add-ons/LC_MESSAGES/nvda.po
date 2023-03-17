@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: 'addonUpdater' '22.06'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2022-05-21 16:44+0400\n"
-"PO-Revision-Date: 2023-03-03 15:38+0400\n"
+"PO-Revision-Date: 2023-03-10 12:10+0400\n"
 "Last-Translator: Dragan Ratkovich\n"
 "Language-Team: \n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #. Translators: menu item label for checking add-on updates.
@@ -275,9 +275,8 @@ msgid "Taiwan community add-ons catalog"
 msgstr "Каталог дополнений тайваньского сообщества"
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "NVDA add-on store"
-msgstr "Обновления дополнений NVDA"
+msgstr "Магазин дополнений NVDA"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager

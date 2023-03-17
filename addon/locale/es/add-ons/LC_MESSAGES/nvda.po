@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-03-03 10:48+0100\n"
+"PO-Revision-Date: 2023-03-10 10:01+0100\n"
 "Last-Translator: José Manuel Delicado <jmdaweb@hotmail.com>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -275,9 +275,8 @@ msgid "Taiwan community add-ons catalog"
 msgstr "Catálogo de complementos de la comunidad de Taiwán"
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "NVDA add-on store"
-msgstr "Actualización de complementos de NVDA"
+msgstr "Tienda de complementos de NVDA"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
@@ -287,6 +286,3 @@ msgid ""
 msgstr ""
 "Implementación de concepto de prueba de la característica de actualización "
 "de complementos (incidencia 3208 del núcleo de NVDA)"
-
-#~ msgid "NVDA add-on store (experimental)"
-#~ msgstr "Tienda de complementos de NVDA (experimental)"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 22.07\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2022-07-22 01:00+0000\n"
-"PO-Revision-Date: 2023-03-03 12:15+0400\n"
+"PO-Revision-Date: 2023-03-10 12:11+0400\n"
 "Last-Translator: Dragan Ratkovich\n"
 "Language-Team: \n"
 "Language: ka\n"
@@ -272,9 +272,8 @@ msgid "Taiwan community add-ons catalog"
 msgstr "ტაივანის საზოგადოების დამატებების კატალოგი"
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "NVDA add-on store"
-msgstr "NVDA დამატების განახლებები"
+msgstr "NVDA დამატებების მაღაზია"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager

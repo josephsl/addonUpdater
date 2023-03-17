@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-03-03 16:53+0100\n"
+"PO-Revision-Date: 2023-03-11 21:30+0100\n"
 "Last-Translator: Nikola Jović <wwenikola123@gmail.com>\n"
 "Language-Team: Serbian <wwenikola123@gmail.com>\n"
 "Language: sr\n"
@@ -274,9 +274,8 @@ msgid "Taiwan community add-ons catalog"
 msgstr "Katalog dodataka Tajvanske zajednice"
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "NVDA add-on store"
-msgstr "Ažuriranja NVDA dodataka"
+msgstr "NVDA prodavnica dodataka"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
