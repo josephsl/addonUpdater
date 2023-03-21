@@ -311,6 +311,10 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 			addon.name for addon in addonHandler.getAvailableAddons()
 			if addon.manifest["summary"] in devAddonUpdateSummaries
 		]
+		addonUtils.updateState["devUpdateChannels"].clear()
+		for entry in self.devUpdateChannels:
+			if entry[0] in addonUtils.updateState["devUpdates"]:
+				addonUtils.updateState["devUpdateChannels"][entry[0]] = entry[1]
 		addonUtils.updateState["autoUpdate"] = self.autoUpdateCheckBox.IsChecked()
 		addonUtils.updateState["updateSource"] = self.updateSourceKeys[self.updateSource.GetSelection()]
 		if hasattr(self, "updateNotification"):
