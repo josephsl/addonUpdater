@@ -21,8 +21,9 @@ def isWin10ClientOrLater() -> bool:
 
 
 def isAddonStorePresent() -> bool:
+	# Ignore Flake8 F401 as only import check is sufficient.
 	try:
-		import addonStore
+		import addonStore  # NOQA: F401
 		return True
 	except ModuleNotFoundError:
 		return False
