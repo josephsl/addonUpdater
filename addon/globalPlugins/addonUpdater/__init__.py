@@ -234,6 +234,7 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 			# Add-on Updater settings panel.
 			_("Development release &channel:"), wx.Choice, choices=["dev", "beta"]
 		)
+		self.devUpdateChannel.Bind(wx.EVT_CHOICE, self.onChannelSelection)
 		self.devUpdateChannel.SetSelection(0)
 
 		self.updateSourceKeys = [protocol.key for protocol in AvailableUpdateProtocols]
@@ -254,6 +255,10 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 		# Toast is the first item in update notification list (index 0).
 		if hasattr(self, "updateNotification") and hasattr(self, "backgroundUpdateCheckBox"):
 			self.backgroundUpdateCheckBox.Enable(self.updateNotification.Selection == 0)
+
+	def onChannelSelection(self, evt):
+		updateChannel = self.devUpdateChannel.GetStringSelection()
+		self.devUpdateChannels[self.devAddonUpdates.GetSelection()][1] = updateChannel
 
 	def isValid(self):
 		# Present a message if about to switch to a different add-on update source.
