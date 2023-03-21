@@ -223,6 +223,12 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 		)
 		self.devAddonUpdates.SetCheckedStrings(addonHandlerEx.preferDevUpdates())
 		self.devAddonUpdates.SetSelection(0)
+		# A two-dimensional array will be used (add-on name: channel).
+		self.devUpdateChannels = []
+		for addon in addonHandler.getAvailableAddons():
+			self.devUpdateChannels.append(
+				[addon.name, addonUtils.updateState["devUpdateChannels"].get(addon.name)]
+			)
 		self.devUpdateChannel = sHelper.addLabeledControl(
 			# Translators: This is the label for a combo box in the
 			# Add-on Updater settings panel.
