@@ -70,6 +70,10 @@ def loadState() -> None:
 		updateState["devUpdateChannels"] = {}
 	if "legacyAddonsFound" not in updateState:
 		updateState["legacyAddonsFound"] = set()
+	# Moving from one-dimensional dev updates list to a dictionary of channels (dev channel by default).
+	for entry in updateState["devUpdates"]:
+		if entry not in updateState["devUpdateChannels"]:
+			updateState["devUpdateChannels"][entry] = "dev"
 
 
 def saveState(keepStateOnline: bool = False) -> None:
