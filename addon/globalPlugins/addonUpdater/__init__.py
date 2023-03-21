@@ -222,6 +222,8 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 			]
 		)
 		self.devAddonUpdates.SetCheckedStrings(addonHandlerEx.preferDevUpdates())
+		self.devAddonUpdates.Bind(wx.EVT_CHECKLISTBOX, self.onDevUpdateCheck)
+		self.devAddonUpdates.Bind(wx.EVT_LISTBOX, self.onDevAddonUpdateSelected)
 		self.devAddonUpdates.SetSelection(0)
 		# A two-dimensional array will be used (add-on name: channel).
 		self.devUpdateChannels = []
@@ -236,6 +238,7 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 		)
 		self.devUpdateChannel.Bind(wx.EVT_CHOICE, self.onChannelSelection)
 		self.devUpdateChannel.SetSelection(0)
+		self.onDevAddonUpdateSelected(None)
 
 		self.updateSourceKeys = [protocol.key for protocol in AvailableUpdateProtocols]
 		self.updateSource = sHelper.addLabeledControl(
@@ -255,6 +258,28 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 		# Toast is the first item in update notification list (index 0).
 		if hasattr(self, "updateNotification") and hasattr(self, "backgroundUpdateCheckBox"):
 			self.backgroundUpdateCheckBox.Enable(self.updateNotification.Selection == 0)
+
+	def onDevAddonUpdateSelected(self, evt):
+		if self.devAddonUpdates.IsChecked(self.devAddonUpdates.GetSelection()):
+			self.devUpdateChannel.Enable()
+			updateChannel = self.devUpdateChannels[self.devAddonUpdates.GetSelection()][1]
+			if updateChannel is None:
+				updateChannel = "dev"
+			self.devUpdateChannel.SetSelection(["dev", "beta"].index(updateChannel))
+		else:
+			self.devUpdateChannel.Disable()
+
+	def onDevUpdateCheck(self, evt):
+		evt.Skip()
+		# Present dev (prerelease) update channels (dev/beta).
+		if self.devAddonUpdates.IsChecked(self.devAddonUpdates.GetSelection()):
+			self.devUpdateChannel.Enable()
+			updateChannel = self.devUpdateChannels[self.devAddonUpdates.GetSelection()][1]
+			if updateChannel is None:
+				updateChannel = "dev"
+			self.devUpdateChannel.SetSelection(["dev", "beta"].index(updateChannel))
+		else:
+			self.devUpdateChannel.Disable()
 
 	def onChannelSelection(self, evt):
 		updateChannel = self.devUpdateChannel.GetStringSelection()
