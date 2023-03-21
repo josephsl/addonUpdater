@@ -223,6 +223,12 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 		)
 		self.devAddonUpdates.SetCheckedStrings(addonHandlerEx.preferDevUpdates())
 		self.devAddonUpdates.SetSelection(0)
+		self.devUpdateChannel = sHelper.addLabeledControl(
+			# Translators: This is the label for a combo box in the
+			# Add-on Updater settings panel.
+			_("Development release &channel:"), wx.Choice, choices=["dev", "beta"]
+		)
+		self.devUpdateChannel.SetSelection(0)
 
 		self.updateSourceKeys = [protocol.key for protocol in AvailableUpdateProtocols]
 		self.updateSource = sHelper.addLabeledControl(
