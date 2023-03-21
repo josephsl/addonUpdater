@@ -47,6 +47,7 @@ def loadState() -> None:
 		updateState["lastChecked"] = 0
 		updateState["noUpdates"] = []
 		updateState["devUpdates"] = []
+		updateState["devUpdateChannels"] = {}
 		updateState["legacyAddonsFound"] = set()
 	# Just to make sure...
 	if "autoUpdate" not in updateState:
@@ -65,6 +66,8 @@ def loadState() -> None:
 		updateState["noUpdates"] = []
 	if "devUpdates" not in updateState:
 		updateState["devUpdates"] = []
+	if "devUpdateChannels" not in updateState:
+		updateState["devUpdateChannels"] = {}
 	if "legacyAddonsFound" not in updateState:
 		updateState["legacyAddonsFound"] = set()
 
@@ -94,6 +97,7 @@ def reload(factoryDefaults: bool = False) -> None:
 		updateState["lastChecked"] = 0
 		updateState["noUpdates"] = []
 		updateState["devUpdates"] = []
+		updateState["devUpdateChannels"] = {}
 
 
 def save() -> None:
