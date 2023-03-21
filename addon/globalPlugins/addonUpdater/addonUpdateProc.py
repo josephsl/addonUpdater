@@ -116,9 +116,10 @@ def checkForAddonUpdates() -> Optional[list[AddonUpdateRecord]]:
 		if updateChannel == "None":
 			updateChannel = None
 		installedChannel = updateChannel
-		if updateChannel != "dev" and name in addonUtils.updateState["devUpdates"]:
-			updateChannel = "dev"
-		elif updateChannel == "dev" and name not in addonUtils.updateState["devUpdates"]:
+		if name in addonUtils.updateState["devUpdates"]:
+			# For prerelease builds, dev channel is set as default.
+			updateChannel = addonUtils.updateState["devUpdateChannels"].get(name, "dev")
+		else:
 			updateChannel = None
 		# Mark disabled add-ons (flag passed in will be "isEnabled").
 		isEnabled = not addon.isDisabled
