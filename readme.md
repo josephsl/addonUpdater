@@ -43,6 +43,10 @@ The available add-on update sources are:
 * Catalogs maintained by NVDA communities in China and Taiwan
 * NV Access add-on store (experimental)
 
+## Version 23.04
+
+* Added development update channel setting to let users of development add-ons choose between dev and beta update channels. This option is shown if the selected add-on from prefer development releases list is checked.
+
 ## Version 23.03
 
 * Due to changes made to the website used by some update sources, this must be installed manually.
