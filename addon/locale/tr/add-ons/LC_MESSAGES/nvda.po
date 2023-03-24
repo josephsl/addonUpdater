@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 'addonUpdater' '23.04'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2022-05-22 12:06+0400\n"
-"PO-Revision-Date: 2023-03-06 16:05+0300\n"
+"PO-Revision-Date: 2023-03-22 20:45+0300\n"
 "Last-Translator: Umut KORKMAZ <umutkork@gmail.com>\n"
 "Language-Team: Umut KORKMAZ <umutkork@gmail.com>\n"
 "Language: tr\n"
@@ -62,6 +62,12 @@ msgid "Do &not update add-ons:"
 msgstr "Bu Ekle&ntileri güncelleme:"
 
 msgid "Prefer &development releases:"
+msgstr "Geliştirme s&ürümlerini tercih et:"
+
+#. Translators: This is the label for a combo box in the
+#. Add-on Updater settings panel.
+#, fuzzy
+msgid "Development release &channel:"
 msgstr "Geliştirme s&ürümlerini tercih et:"
 
 #. Translators: This is the label for a combo box in the
@@ -274,9 +280,8 @@ msgid "Taiwan community add-ons catalog"
 msgstr "Tayvan topluluğu eklenti kataloğu"
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "NVDA add-on store"
-msgstr "NVDA eklenti güncellemeleri"
+msgstr "NVDA eklenti mağazası"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
