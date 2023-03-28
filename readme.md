@@ -46,6 +46,7 @@ The available add-on update sources are:
 ## Version 23.04
 
 * Added development update channel setting to let users of development add-ons choose between dev and beta update channels. This option is shown if the selected add-on from prefer development releases list is checked.
+* NV Access add-on store is broadly available as an update source from Add-on Updater.
 
 ## Version 23.03
 
