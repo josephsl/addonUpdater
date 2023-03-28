@@ -266,6 +266,7 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 			if updateChannel is None:
 				updateChannel = "dev"
 			self.devUpdateChannel.SetSelection(["dev", "beta"].index(updateChannel))
+			self.devUpdateChannels[self.devAddonUpdates.GetSelection()][1] = updateChannel
 		else:
 			self.devUpdateChannel.Disable()
 
@@ -278,6 +279,7 @@ class AddonUpdaterPanel(gui.SettingsPanel):
 			if updateChannel is None:
 				updateChannel = "dev"
 			self.devUpdateChannel.SetSelection(["dev", "beta"].index(updateChannel))
+			self.devUpdateChannels[self.devAddonUpdates.GetSelection()][1] = updateChannel
 		else:
 			self.devUpdateChannel.Disable()
 
