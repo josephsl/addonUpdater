@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 'addonUpdater' '22.06'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2022-05-21 16:44+0400\n"
-"PO-Revision-Date: 2023-01-08 07:56-0800\n"
+"PO-Revision-Date: 2023-03-10 12:10+0400\n"
 "Last-Translator: Dragan Ratkovich\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #. Translators: menu item label for checking add-on updates.
 msgid "Check for &add-on updates..."
@@ -59,11 +59,16 @@ msgstr "Обновление дополнений в &фоновом режим�
 #. Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
 #. Some add-ons come with pretty badly formatted summary text,
 #. so try catching them and exclude them from this list.
-#. Also, Vocalizer add-on family should be excluded from this list (requested by add-on author).
 msgid "Do &not update add-ons:"
 msgstr "&Не обновлять дополнения:"
 
 msgid "Prefer &development releases:"
+msgstr "Предпочитать &разрабатываемые версии:"
+
+#. Translators: This is the label for a combo box in the
+#. Add-on Updater settings panel.
+#, fuzzy
+msgid "Development release &channel:"
 msgstr "Предпочитать &разрабатываемые версии:"
 
 #. Translators: This is the label for a combo box in the
@@ -183,7 +188,6 @@ msgid "Updating add-ons"
 msgstr "Обновление дополнений"
 
 #. Translators: The message displayed while an addon is being updated.
-#, fuzzy
 msgid "Please wait while add-ons are being updated."
 msgstr "Пожалуйста, подождите, пока дополнение обновляется."
 
@@ -204,7 +208,6 @@ msgid "Downloading Add-on Update"
 msgstr "Загрузка обновления дополнения"
 
 #. Translators: The progress message indicating the name of the add-on being downloaded.
-#, fuzzy
 msgid "Downloading add-on updates"
 msgstr "Загрузка обновления дополнения"
 
@@ -277,6 +280,10 @@ msgstr "Каталог дополнений сообщества Китая"
 msgid "Taiwan community add-ons catalog"
 msgstr "Каталог дополнений тайваньского сообщества"
 
+#. Translators: one of the add-on update source choices.
+msgid "NVDA add-on store"
+msgstr "Магазин дополнений NVDA"
+
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid ""
@@ -285,3 +292,6 @@ msgid ""
 msgstr ""
 "Доказательство концепции реализации функции обновления дополнений (NVDA Core "
 "issue 3208)"
+
+#~ msgid "NVDA add-on store (experimental)"
+#~ msgstr "Магазин дополнений NVDA (экспериментальный)"

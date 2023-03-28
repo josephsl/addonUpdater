@@ -53,11 +53,16 @@ msgstr "تحديث الإضافات في &الخلفية"
 #. Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
 #. Some add-ons come with pretty badly formatted summary text,
 #. so try catching them and exclude them from this list.
-#. Also, Vocalizer add-on family should be excluded from this list (requested by add-on author).
 msgid "Do &not update add-ons:"
 msgstr "&عدم تحديث الإضافات"
 
 msgid "Prefer &development releases:"
+msgstr "تفضيلات التطوير لأحدث إصدارات الإضافات"
+
+#. Translators: This is the label for a combo box in the
+#. Add-on Updater settings panel.
+#, fuzzy
+msgid "Development release &channel:"
 msgstr "تفضيلات التطوير لأحدث إصدارات الإضافات"
 
 #. Translators: This is the label for a combo box in the
@@ -256,6 +261,11 @@ msgstr "كتالوج إضافات المجتمع الصيني"
 #. Translators: one of the add-on update source choices.
 msgid "Taiwan community add-ons catalog"
 msgstr "كتالوج إضافات المجتمع التايواني"
+
+#. Translators: one of the add-on update source choices.
+#, fuzzy
+msgid "NVDA add-on store"
+msgstr "تحديثات إضافات NVDA"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager

@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-01-08 05:44-0800\n"
+"PO-Revision-Date: 2023-03-10 08:50+0200\n"
 "Last-Translator: Kostadin Kolev <k_kolev1985@mail.bg>\n"
 "Language-Team: \n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #. Translators: menu item label for checking add-on updates.
 msgid "Check for &add-on updates..."
@@ -57,11 +57,16 @@ msgstr "Обновявай добавките във &фонов режим"
 #. Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
 #. Some add-ons come with pretty badly formatted summary text,
 #. so try catching them and exclude them from this list.
-#. Also, Vocalizer add-on family should be excluded from this list (requested by add-on author).
 msgid "Do &not update add-ons:"
 msgstr "Да &не се обновяват следните добавки:"
 
 msgid "Prefer &development releases:"
+msgstr "С приоритет да са &тестовите версии:"
+
+#. Translators: This is the label for a combo box in the
+#. Add-on Updater settings panel.
+#, fuzzy
+msgid "Development release &channel:"
 msgstr "С приоритет да са &тестовите версии:"
 
 #. Translators: This is the label for a combo box in the
@@ -275,6 +280,10 @@ msgstr "Каталог с добавки на китайската общнос�
 msgid "Taiwan community add-ons catalog"
 msgstr "Каталог с добавки на тайванската общност"
 
+#. Translators: one of the add-on update source choices.
+msgid "NVDA add-on store"
+msgstr "Магазин за добавки на NVDA"
+
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid ""
@@ -283,3 +292,6 @@ msgid ""
 msgstr ""
 "Имплементация на работеща концепция на функцията за обновяване на добавки "
 "(доклад за нова функция в NVDA с номер 3208)"
+
+#~ msgid "NVDA add-on store (experimental)"
+#~ msgstr "Магазин за добавки на NVDA (експериментално)"

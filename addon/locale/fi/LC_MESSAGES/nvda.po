@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-01-08 06:59-0800\n"
+"PO-Revision-Date: 2023-03-11 10:22+0200\n"
 "Last-Translator: Jani Kinnunen <janikinnunen340@gmail.com>\n"
 "Language-Team: Jani Kinnunen <jani.kinnunen@wippies.fi>\n"
 "Language: fi\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 1.6.11\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. Translators: menu item label for checking add-on updates.
@@ -59,11 +59,16 @@ msgstr "Päivitä lisäosat t&austalla"
 #. Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
 #. Some add-ons come with pretty badly formatted summary text,
 #. so try catching them and exclude them from this list.
-#. Also, Vocalizer add-on family should be excluded from this list (requested by add-on author).
 msgid "Do &not update add-ons:"
 msgstr "&Älä päivitä lisäosia:"
 
 msgid "Prefer &development releases:"
+msgstr "Aseta &kehitysversiot etusijalle:"
+
+#. Translators: This is the label for a combo box in the
+#. Add-on Updater settings panel.
+#, fuzzy
+msgid "Development release &channel:"
 msgstr "Aseta &kehitysversiot etusijalle:"
 
 #. Translators: This is the label for a combo box in the
@@ -275,9 +280,16 @@ msgstr "Kiinalaisyhteisön lisäosaluettelo"
 msgid "Taiwan community add-ons catalog"
 msgstr "Taiwanilaisyhteisön lisäosaluettelo"
 
+#. Translators: one of the add-on update source choices.
+msgid "NVDA add-on store"
+msgstr "NVDA:n lisäosakauppa"
+
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid ""
 "Proof of concept implementation of add-on update feature (NVDA Core issue "
 "3208)"
 msgstr "Konseptiasteella oleva toteutus lisäosien päivitystoiminnosta"
+
+#~ msgid "NVDA add-on store (experimental)"
+#~ msgstr "NVDA:n lisäosakauppa (kokeellinen)"
