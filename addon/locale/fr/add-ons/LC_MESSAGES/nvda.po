@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-03-03 10:08+0100\n"
+"PO-Revision-Date: 2023-03-30 10:29+0200\n"
 "Last-Translator: Michel Such <michelsuch93@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -65,9 +65,8 @@ msgstr "Préférez les versions de &développement:"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
-#, fuzzy
 msgid "Development release &channel:"
-msgstr "Préférez les versions de &développement:"
+msgstr "&Canal des versions de développement"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
@@ -281,9 +280,8 @@ msgid "Taiwan community add-ons catalog"
 msgstr "Catalogue des extensions de la communauté taïwanaise"
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "NVDA add-on store"
-msgstr "Mises à jour des extensions NVDA"
+msgstr "NVDA add-on store"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager

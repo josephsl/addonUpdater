@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-03-11 21:30+0100\n"
+"PO-Revision-Date: 2023-03-24 15:42+0100\n"
 "Last-Translator: Nikola Jović <wwenikola123@gmail.com>\n"
 "Language-Team: Serbian <wwenikola123@gmail.com>\n"
 "Language: sr\n"
@@ -65,9 +65,8 @@ msgstr "Preferiraj &razvojne verzije:"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
-#, fuzzy
 msgid "Development release &channel:"
-msgstr "Preferiraj &razvojne verzije:"
+msgstr "&Kanal razvojnih verzija::"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
