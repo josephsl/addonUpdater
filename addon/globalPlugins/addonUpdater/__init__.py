@@ -148,6 +148,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# This is not supported properly on NVDA releases before 2022.1.
 		addonHandler.isCLIParamKnown.register(processArgs)
 		addonUtils.loadState()
+		# Don't go further if add-on store client is present.
+		if addonStorePresent():
+			return
 		self.toolsMenu = gui.mainFrame.sysTrayIcon.toolsMenu
 		self.addonUpdater = self.toolsMenu.Append(
 			# Translators: menu item label for checking add-on updates.
@@ -169,6 +172,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		super(GlobalPlugin, self).terminate()
 		# #4: no, do not go through all this if this is a source code copy of NVDA.
 		if not canUpdate:
+			return
+		# Do not continue if add-on store client is present.
+		if addonUtils.isAddonStorePresent():
 			return
 		addonHandlerEx.updateSuccess.unregister(self.updateMenuItemLabel)
 		config.post_configSave.unregister(addonUtils.save)
