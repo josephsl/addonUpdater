@@ -109,7 +109,8 @@ def addonStorePresent() -> bool:
 				gui.messageBox, addonStoreMessage, _("Add-on Updater"), wx.OK | wx.ICON_INFORMATION
 			)
 			updateState["addonStoreNotificationShown"] = True
-		return True
+		# For now allow Add-on Updater to check for add-on updates.
+		# return True
 	return False
 
 
