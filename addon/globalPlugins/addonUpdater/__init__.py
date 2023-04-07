@@ -91,6 +91,25 @@ def legacyAddonsFound() -> bool:
 	return False
 
 
+# Present a message if add-on store client is included in NVDA.
+# NV Access add-on store replaces Add-on Updater once deployed.
+def addonStorePresent() -> bool:
+	# Do not present the below message if NVDA itself is updating at the moment.
+	if globalVars.appArgs.install and globalVars.appArgs.minimal:
+		return False
+	if addonUtils.isAddonStorePresent():
+		addonStoreMessage = _(
+			# Translators: message presented when add-on store is available in NVDA.
+			"You are using an NVDA release with add-on store included. "
+			"Visit NVDA add-on store (NVDA menu, Tools, add-on store) to check for add-on updates."
+		)
+		wx.CallAfter(
+			gui.messageBox, addonStoreMessage, _("Add-on Updater"), wx.OK | wx.ICON_INFORMATION
+		)
+		return True
+	return False
+
+
 # Security: disable the global plugin altogether in secure mode.
 def disableInSecureMode(cls):
 	return globalPluginHandler.GlobalPlugin if globalVars.appArgs.secure else cls
