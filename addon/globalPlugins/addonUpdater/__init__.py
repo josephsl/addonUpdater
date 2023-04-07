@@ -104,11 +104,11 @@ def addonStorePresent() -> bool:
 			"Visit NVDA add-on store (NVDA menu, Tools, add-on store) to check for add-on updates. "
 			"Add-on Updater can still be used to check for add-on updates in the meantime."
 		)
-		if not updateState["addonStoreNotificationShown"]:
+		if not addonUtils.updateState["addonStoreNotificationShown"]:
 			wx.CallAfter(
 				gui.messageBox, addonStoreMessage, _("Add-on Updater"), wx.OK | wx.ICON_INFORMATION
 			)
-			updateState["addonStoreNotificationShown"] = True
+			addonUtils.updateState["addonStoreNotificationShown"] = True
 		# For now allow Add-on Updater to check for add-on updates.
 		# return True
 	return False
