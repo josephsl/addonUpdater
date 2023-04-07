@@ -133,6 +133,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def __init__(self):
 		super(GlobalPlugin, self).__init__()
+		# Return early if add-on store client is present.
+		# For now do it after loading update state to set message presented flag to true
+		# (show the message only once).
+		# In the future this should be done as soon as the constructor runs.
 		if globalVars.appArgs.secure or config.isAppX:
 			return
 		# #4: warn and quit if this is a source code of NVDA.
