@@ -101,7 +101,8 @@ def addonStorePresent() -> bool:
 		addonStoreMessage = _(
 			# Translators: message presented when add-on store is available in NVDA.
 			"You are using an NVDA release with add-on store included. "
-			"Visit NVDA add-on store (NVDA menu, Tools, add-on store) to check for add-on updates."
+			"Visit NVDA add-on store (NVDA menu, Tools, add-on store) to check for add-on updates. "
+			"Add-on Updater can still be used to check for add-on updates in the meantime."
 		)
 		wx.CallAfter(
 			gui.messageBox, addonStoreMessage, _("Add-on Updater"), wx.OK | wx.ICON_INFORMATION
