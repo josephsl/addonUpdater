@@ -86,15 +86,10 @@ class AddonUpdateCheckProtocol(object):
 		res = None
 		try:
 			res = urlopen(url)
-		except IOError as e:
-			# SSL issue (seen in NVDA Core earlier than 2014.1).
-			if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
-				addonUtils._updateWindowsRootCertificates()
-				res = urlopen(url)
-			else:
-				# Inform results dictionary that an error has occurred as this is running inside a thread.
-				log.debug(errorText, exc_info=True)
-				raise
+		except Exception:
+			# Inform results dictionary that an error has occurred as this is running inside a thread.
+			log.debug(errorText, exc_info=True)
+			raise
 		finally:
 			# Contents will be gone when the connection is closed, so save it in JSON format.
 			if res is not None:
@@ -131,13 +126,8 @@ class AddonUpdateCheckProtocol(object):
 		req = getUrlViaMSEdgeUserAgent(url)
 		try:
 			res = urlopen(req)
-		except IOError as e:
-			# SSL issue (seen in NVDA Core earlier than 2014.1).
-			if isinstance(e.strerror, ssl.SSLError) and e.strerror.reason == "CERTIFICATE_VERIFY_FAILED":
-				addonUtils._updateWindowsRootCertificates()
-				res = urlopen(req)
-			else:
-				pass
+		except Exception:
+			pass
 		finally:
 			if res is not None and res.code == 200:
 				addonUrl = res.url
