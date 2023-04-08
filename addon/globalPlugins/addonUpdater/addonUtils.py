@@ -2,9 +2,6 @@
 # Copyright 2018-2023 Joseph Lee, released under GPL.
 
 import pickle
-from urllib.request import urlopen
-import ctypes
-import ssl
 import os
 import globalVars
 import winVersion
