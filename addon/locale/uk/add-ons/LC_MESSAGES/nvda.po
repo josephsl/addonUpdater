@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 19.07\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2019-06-28 01:00+1000\n"
-"PO-Revision-Date: 2023-03-10 12:12+0200\n"
+"PO-Revision-Date: 2023-04-10 21:46+0300\n"
 "Last-Translator: Ukrainian NVDA Community <vp88.mobile@gmail.com>\n"
 "Language-Team: \n"
 "Language: uk\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.2.2\n"
 
-#. Translators: menu item label for checking add-on updates.
-msgid "Check for &add-on updates..."
-msgstr "Перевірити &оновлення додатків..."
-
-msgid "Check for NVDA add-on updates"
-msgstr "Перевірити оновлення додатків для NVDA"
+#. Translators: message presented when add-on store is available in NVDA.
+msgid ""
+"You are using an NVDA release with add-on store included. Visit NVDA add-on "
+"store (NVDA menu, Tools, add-on store) to check for add-on updates. Add-on "
+"Updater can still be used to check for add-on updates in the meantime."
+msgstr ""
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -30,6 +30,13 @@ msgstr "Перевірити оновлення додатків для NVDA"
 #. to be shown on installation and add-on information.
 msgid "Add-on Updater"
 msgstr "Оновлювач додатків"
+
+#. Translators: menu item label for checking add-on updates.
+msgid "Check for &add-on updates..."
+msgstr "Перевірити &оновлення додатків..."
+
+msgid "Check for NVDA add-on updates"
+msgstr "Перевірити оновлення додатків для NVDA"
 
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
@@ -65,9 +72,8 @@ msgstr "Віддавати перевагу &версіям у розробці:
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
-#, fuzzy
 msgid "Development release &channel:"
-msgstr "Віддавати перевагу &версіям у розробці:"
+msgstr "&Канал випусків додатків у розробці:"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
