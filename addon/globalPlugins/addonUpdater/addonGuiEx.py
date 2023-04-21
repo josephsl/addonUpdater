@@ -130,6 +130,9 @@ class AddonUpdatesDialog(wx.Dialog):
 			# Translators: The label for a column in add-ons updates list
 			# used to identify new add-on version (example: version is 0.4).
 			self.addonsList.InsertColumn(2, _("New version"), width=50)
+			# Translators: The label for a column in add-ons updates list
+			# used to identify add-on update channel (example: stable ).
+			self.addonsList.InsertColumn(3, _("Update channel"), width=50)
 			entriesSizer.Add(self.addonsList, proportion=8)
 			for addon in self.addonUpdateInfo:
 				self.addonsList.Append((addon.summary, addon.installedVersion, addon.version))
