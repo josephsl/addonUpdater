@@ -135,7 +135,10 @@ class AddonUpdatesDialog(wx.Dialog):
 			self.addonsList.InsertColumn(3, _("Update channel"), width=50)
 			entriesSizer.Add(self.addonsList, proportion=8)
 			for addon in self.addonUpdateInfo:
-				self.addonsList.Append((addon.summary, addon.installedVersion, addon.version))
+				updateChannel = addon.updateChannel
+				if updateChannel is None:
+					updateChannel = "stable"
+				self.addonsList.Append((addon.summary, addon.installedVersion, addon.version, updateChannel))
 				if not updatesInstalled:
 					# Items are unchecked by default, which should be the case for disabled add-ons.
 					if addon.isEnabled:
