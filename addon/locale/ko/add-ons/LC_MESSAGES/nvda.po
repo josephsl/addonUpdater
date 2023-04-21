@@ -157,6 +157,12 @@ msgstr "사용중인 버전"
 msgid "New version"
 msgstr "업데이트 버전"
 
+#. Translators: The label for a column in add-ons updates list
+#. used to identify add-on update channel (example: stable ).
+#, fuzzy
+msgid "Update channel"
+msgstr "업데이트 (&U)"
+
 #. Translators: Message displayed when no add-on updates are available.
 msgid "No add-on update available."
 msgstr "추가 기능 업데이트가 없습니다."

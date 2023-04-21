@@ -154,6 +154,12 @@ msgstr "Aktuálna verzia"
 msgid "New version"
 msgstr "Nová verzia"
 
+#. Translators: The label for a column in add-ons updates list
+#. used to identify add-on update channel (example: stable ).
+#, fuzzy
+msgid "Update channel"
+msgstr "&Aktualizovať doplnky"
+
 #. Translators: Message displayed when no add-on updates are available.
 msgid "No add-on update available."
 msgstr "Používate aktuálne verzie všetkých doplnkov."

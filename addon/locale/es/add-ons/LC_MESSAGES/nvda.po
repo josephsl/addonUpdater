@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-03-24 09:12+0100\n"
+"PO-Revision-Date: 2023-04-14 09:39+0200\n"
 "Last-Translator: José Manuel Delicado <jmdaweb@hotmail.com>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -23,6 +23,11 @@ msgid ""
 "store (NVDA menu, Tools, add-on store) to check for add-on updates. Add-on "
 "Updater can still be used to check for add-on updates in the meantime."
 msgstr ""
+"Estás usando una versión de NVDA con tienda de complementos incorporada. "
+"Visita la tienda de complementos de NVDA (menú NVDA, Herramientas, Tienda de "
+"complementos) para buscar actualizaciones de complementos. Todavía se puede "
+"seguir usando Add-on Updater para buscar actualizaciones de complementos, "
+"por ahora."
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -156,6 +161,12 @@ msgstr "Versión actual"
 #. used to identify new add-on version (example: version is 0.4).
 msgid "New version"
 msgstr "Nueva versión"
+
+#. Translators: The label for a column in add-ons updates list
+#. used to identify add-on update channel (example: stable ).
+#, fuzzy
+msgid "Update channel"
+msgstr "&Actualizar complementos"
 
 #. Translators: Message displayed when no add-on updates are available.
 msgid "No add-on update available."

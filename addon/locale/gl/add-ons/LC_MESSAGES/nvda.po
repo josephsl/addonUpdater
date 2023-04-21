@@ -158,6 +158,12 @@ msgstr "Versión actual"
 msgid "New version"
 msgstr "Nova versión"
 
+#. Translators: The label for a column in add-ons updates list
+#. used to identify add-on update channel (example: stable ).
+#, fuzzy
+msgid "Update channel"
+msgstr "&Actualizar complementos"
+
 #. Translators: Message displayed when no add-on updates are available.
 msgid "No add-on update available."
 msgstr "Non hai actualizacións de complementos dispoñibles."
