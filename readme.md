@@ -39,9 +39,9 @@ You can configure Add-on Updater settings from NVDA Settings screen (NVDA menu, 
 The available add-on update sources are:
 
 * Community add-ons website (default)
+* NV Access add-on store
 * Spanish community add-ons catalog
 * Catalogs maintained by NVDA communities in China and Taiwan
-* NV Access add-on store (experimental)
 
 ## Version 23.04
 
