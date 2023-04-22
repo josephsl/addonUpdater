@@ -11,15 +11,7 @@ from __future__ import annotations
 from typing import Optional
 import os
 import threading
-# NVDA 2023.1 includes concurrent.futures.
-# A copy of the package minus process pool executor is included to suport older NVDA releases.
-try:
-	import concurrent.futures
-except ModuleNotFoundError:
-	import sys
-	sys.path.append(os.path.dirname(__file__))
-	import concurrent.futures
-	sys.path.remove(os.path.dirname(__file__))
+import concurrent.futures
 import wx
 import addonHandler
 import extensionPoints
