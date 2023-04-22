@@ -43,6 +43,11 @@ The available add-on update sources are:
 * Spanish community add-ons catalog
 * Catalogs maintained by NVDA communities in China and Taiwan
 
+## Version 23.05
+
+* Add-on update channel will be displayed when reviewing available add-on updates.
+* NVDA will present a message about add-on store if using NVDA releases with add-on store included.
+
 ## Version 23.04
 
 * Added development update channel setting to let users of development add-ons choose between dev and beta update channels. This option is shown if the selected add-on from prefer development releases list is checked.
