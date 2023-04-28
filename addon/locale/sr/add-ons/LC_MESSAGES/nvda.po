@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-04-14 18:38+0100\n"
+"PO-Revision-Date: 2023-04-21 03:19+0100\n"
 "Last-Translator: Nikola Jović <wwenikola123@gmail.com>\n"
 "Language-Team: Serbian <wwenikola123@gmail.com>\n"
 "Language: sr\n"
@@ -162,9 +162,8 @@ msgstr "Nova verzija"
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify add-on update channel (example: stable ).
-#, fuzzy
 msgid "Update channel"
-msgstr "&Ažuriraj dodatke"
+msgstr "Kanal ažuriranja"
 
 #. Translators: Message displayed when no add-on updates are available.
 msgid "No add-on update available."
