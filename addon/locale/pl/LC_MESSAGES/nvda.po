@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-03-12 02:42+0100\n"
-"Last-Translator: zvonimir stanecic <zvonimirek222@yandex.com>\n"
+"PO-Revision-Date: 2023-04-14 17:28+0330\n"
+"Last-Translator: Zvonimir Stanečić <zvonimirek222@yandex.com>\n"
 "Language-Team: \n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -17,12 +17,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.2.2\n"
 
-#. Translators: menu item label for checking add-on updates.
-msgid "Check for &add-on updates..."
-msgstr "Sprawdź &aktualizacje dodatków..."
-
-msgid "Check for NVDA add-on updates"
-msgstr "Sprawdź aktualizacje dodatków"
+#. Translators: message presented when add-on store is available in NVDA.
+msgid ""
+"You are using an NVDA release with add-on store included. Visit NVDA add-on "
+"store (NVDA menu, Tools, add-on store) to check for add-on updates. Add-on "
+"Updater can still be used to check for add-on updates in the meantime."
+msgstr ""
+"Używasz wersji NVDA, która zawiera funkcję NVDA store. Odwiedź NVDA add-on "
+"store (NVDA menu, narzędzia, add-on store) w celu sprawdzenia aktualizacji "
+"dodatków. Add-on Updater można używać nadal w międzyczasie do sprawdzania "
+"aktualizacji dodatków."
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -30,6 +34,13 @@ msgstr "Sprawdź aktualizacje dodatków"
 #. to be shown on installation and add-on information.
 msgid "Add-on Updater"
 msgstr "Add-on Updater"
+
+#. Translators: menu item label for checking add-on updates.
+msgid "Check for &add-on updates..."
+msgstr "Sprawdź &aktualizacje dodatków..."
+
+msgid "Check for NVDA add-on updates"
+msgstr "Sprawdź aktualizacje dodatków"
 
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
@@ -47,7 +58,7 @@ msgstr "okno dialogowe"
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
 msgid "&Add-on update notification:"
-msgstr "&Powiadomienei o aktualizacji dodatków:"
+msgstr "&Powiadomienie o aktualizacji dodatków:"
 
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
@@ -65,9 +76,8 @@ msgstr "Preferuj &wersje rozwojowe:"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
-#, fuzzy
 msgid "Development release &channel:"
-msgstr "Preferuj &wersje rozwojowe:"
+msgstr "Kanał wersji &rozwojowych:"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
@@ -148,6 +158,12 @@ msgstr "Aktualna wersja"
 #. used to identify new add-on version (example: version is 0.4).
 msgid "New version"
 msgstr "Nowa wersja"
+
+#. Translators: The label for a column in add-ons updates list
+#. used to identify add-on update channel (example: stable ).
+#, fuzzy
+msgid "Update channel"
+msgstr "&Aktualizuj"
 
 #. Translators: Message displayed when no add-on updates are available.
 msgid "No add-on update available."
