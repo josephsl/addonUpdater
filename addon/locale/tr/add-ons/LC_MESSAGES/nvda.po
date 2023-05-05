@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 'addonUpdater' '23.04'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2022-05-22 12:06+0400\n"
-"PO-Revision-Date: 2023-04-04 13:27+0300\n"
+"PO-Revision-Date: 2023-05-01 20:41+0300\n"
 "Last-Translator: Umut KORKMAZ <umutkork@gmail.com>\n"
 "Language-Team: Umut KORKMAZ <umutkork@gmail.com>\n"
 "Language: tr\n"
@@ -24,6 +24,10 @@ msgid ""
 "store (NVDA menu, Tools, add-on store) to check for add-on updates. Add-on "
 "Updater can still be used to check for add-on updates in the meantime."
 msgstr ""
+"Eklenti deposunun dahil olduğu bir NVDA sürümü kullanıyorsunuz. Eklenti "
+"güncellemelerini kontrol etmek için NVDA eklenti mağazasını (NVDA "
+"menüsü>Araçlar>eklenti mağazası) ziyaret edin. Eklenti Güncelleyici, bu "
+"arada eklenti güncellemelerini kontrol etmek için hala kullanılabilir."
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -160,9 +164,8 @@ msgstr "Yeni sürüm"
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify add-on update channel (example: stable ).
-#, fuzzy
 msgid "Update channel"
-msgstr "Eklentileri &güncelle"
+msgstr "Güncelleme Kanalı"
 
 #. Translators: Message displayed when no add-on updates are available.
 msgid "No add-on update available."
@@ -225,7 +228,7 @@ msgstr "Eklenti güncellemesi indiriliyor"
 #. For the latter case, update check functionality will be disabled upon authors' request.
 #. Translators: legacy add-on, features included in NVDA.
 msgid "features included in NVDA"
-msgstr "NVDA'ya dahil olan özellikler"
+msgstr "NVDA'da bulunan özellikler"
 
 #. Translators: legacy add-on, declared by add-on developers.
 msgid "declared legacy by add-on developers"
