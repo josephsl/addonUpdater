@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-03-11 21:30+0100\n"
+"PO-Revision-Date: 2023-04-21 03:19+0100\n"
 "Last-Translator: Nikola Jović <wwenikola123@gmail.com>\n"
 "Language-Team: Serbian <wwenikola123@gmail.com>\n"
 "Language: sr\n"
@@ -17,12 +17,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.6.10\n"
 
-#. Translators: menu item label for checking add-on updates.
-msgid "Check for &add-on updates..."
-msgstr "Proveri dostupna ažuriranja &dodataka"
-
-msgid "Check for NVDA add-on updates"
-msgstr "Provera dostupnih ažuriranja NVDA dodataka"
+#. Translators: message presented when add-on store is available in NVDA.
+msgid ""
+"You are using an NVDA release with add-on store included. Visit NVDA add-on "
+"store (NVDA menu, Tools, add-on store) to check for add-on updates. Add-on "
+"Updater can still be used to check for add-on updates in the meantime."
+msgstr ""
+"Koristite NVDA verziju u kojoj je uključena prodavnica dodataka. Posetite "
+"prodavnicu dodataka (NVDA meni, alati, prodavnica dodataka) da proverite "
+"ažuriranja dodataka. U međuvremenu, dodatak se može koristiti za proveru "
+"ažuriranja."
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -30,6 +34,13 @@ msgstr "Provera dostupnih ažuriranja NVDA dodataka"
 #. to be shown on installation and add-on information.
 msgid "Add-on Updater"
 msgstr "Ažuriranje dodataka"
+
+#. Translators: menu item label for checking add-on updates.
+msgid "Check for &add-on updates..."
+msgstr "Proveri dostupna ažuriranja &dodataka"
+
+msgid "Check for NVDA add-on updates"
+msgstr "Provera dostupnih ažuriranja NVDA dodataka"
 
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
@@ -65,9 +76,8 @@ msgstr "Preferiraj &razvojne verzije:"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
-#, fuzzy
 msgid "Development release &channel:"
-msgstr "Preferiraj &razvojne verzije:"
+msgstr "&Kanal razvojnih verzija::"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
@@ -149,6 +159,11 @@ msgstr "Trenutna verzija"
 #. used to identify new add-on version (example: version is 0.4).
 msgid "New version"
 msgstr "Nova verzija"
+
+#. Translators: The label for a column in add-ons updates list
+#. used to identify add-on update channel (example: stable ).
+msgid "Update channel"
+msgstr "Kanal ažuriranja"
 
 #. Translators: Message displayed when no add-on updates are available.
 msgid "No add-on update available."

@@ -24,6 +24,9 @@ msgid ""
 "store (NVDA menu, Tools, add-on store) to check for add-on updates. Add-on "
 "Updater can still be used to check for add-on updates in the meantime."
 msgstr ""
+"Používate verziu programu NVDA, v ktorej je integrovaná podpora pre obchod s doplnkami NVDA. Kontrolu spustíte s ponuky "
+"(ponuka NVDA, Nástroje, Obchod s doplnkami). Zatiaľ môžete "
+"na aktualizáciu doplnkov používať aj tento doplnok Addon Updater."
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -73,14 +76,13 @@ msgstr "Uprednostniť &vývojárske verzie:"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
-#, fuzzy
 msgid "Development release &channel:"
-msgstr "Uprednostniť &vývojárske verzie:"
+msgstr "&Kanál s vývojovými verziami doplnkov:"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
 msgid "Add-on update &source:"
-msgstr "&Zdroj doplnkov:"
+msgstr "&Zdroj aktualizácie doplnkov:"
 
 #. Translators: Presented when about to switch add-on update sources.
 #, python-brace-format
@@ -119,12 +121,12 @@ msgstr "Dôvod"
 
 #. Translators: The title of the dialog presented while checking for add-on updates.
 msgid "Add-on update check"
-msgstr "KOntrola aktualizácií doplnkov"
+msgstr "Kontrola aktualizácií doplnkov"
 
 #. Translators: The message displayed while checking for add-on updates.
 #, python-brace-format
 msgid "Checking for add-on updates from {updateSource}..."
-msgstr "Kontrolujem aktualizácie doplnkov {updateSource}..."
+msgstr "Prebieha kontrola aktualizácie doplnkov {updateSource}..."
 
 msgid "Error checking for add-on updates."
 msgstr "Chyba pri kontrole aktualizácií doplnkov."
@@ -156,9 +158,8 @@ msgstr "Nová verzia"
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify add-on update channel (example: stable ).
-#, fuzzy
 msgid "Update channel"
-msgstr "&Aktualizovať doplnky"
+msgstr "Aktualizačný kanál"
 
 #. Translators: Message displayed when no add-on updates are available.
 msgid "No add-on update available."
@@ -182,12 +183,12 @@ msgstr "Aktualizovať zakázané doplnky"
 
 #, python-brace-format
 msgid "Downloading {addonName}"
-msgstr "sťahujem {addonName}"
+msgstr "sťahovanie doplnku {addonName}"
 
 #. Translators: A message indicating that an error occurred while downloading an update to NVDA.
 #, python-brace-format
 msgid "Error downloading update for {name}."
-msgstr "Chyba pri sťahovaní aktualizácie{name}."
+msgstr "Chyba pri sťahovaní aktualizácie doplnku {name}."
 
 #. Translators: The title of the dialog presented while an Addon is being updated.
 msgid "Updating add-ons"
@@ -202,13 +203,13 @@ msgstr "Čakajte prosím, aktualizujú sa doplnky."
 #, python-brace-format
 msgid "Cannot update {name} - missing file or invalid file format"
 msgstr ""
-"Nie je možné aktualizovať {name} - chýbajúci súbor alebo nesprávny formát "
+"Nie je možné aktualizovať doplnok {name} - chýbajúci súbor alebo nesprávny formát "
 "súboru"
 
 #. Translators: The message displayed when an error occurs when installing an add-on package.
 #, python-brace-format
 msgid "Failed to update {name} add-on"
-msgstr "Pri aktualizácii {name} došlo k chybe"
+msgstr "Pri aktualizácii doplnku {name} došlo k chybe"
 
 #. Translators: The title of the dialog displayed while downloading add-on update.
 msgid "Downloading Add-on Update"
@@ -284,9 +285,8 @@ msgid "Taiwan community add-ons catalog"
 msgstr "Tajvanský zdroj doplnkov"
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "NVDA add-on store"
-msgstr "Aktualizácie doplnkov"
+msgstr "Obchod s doplnkami NVDA"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager

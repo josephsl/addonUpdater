@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-03-10 08:50+0200\n"
+"PO-Revision-Date: 2023-04-21 09:01+0300\n"
 "Last-Translator: Kostadin Kolev <k_kolev1985@mail.bg>\n"
 "Language-Team: \n"
 "Language: bg\n"
@@ -17,12 +17,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.2.2\n"
 
-#. Translators: menu item label for checking add-on updates.
-msgid "Check for &add-on updates..."
-msgstr "П&ровери за обновления на добавките..."
-
-msgid "Check for NVDA add-on updates"
-msgstr "Проверка за обновления на добавките в NVDA"
+#. Translators: message presented when add-on store is available in NVDA.
+msgid ""
+"You are using an NVDA release with add-on store included. Visit NVDA add-on "
+"store (NVDA menu, Tools, add-on store) to check for add-on updates. Add-on "
+"Updater can still be used to check for add-on updates in the meantime."
+msgstr ""
+"Използвате версия на NVDA с включен магазин за добавки. Посетете магазина за "
+"добавки на NVDA (меню на NVDA -> Инструменти -> Магазин за добавки), за да "
+"проверите за обновления на добавките. Междувременно добавката \"Обновяване "
+"на добавките\" все още може да се използва за проверка за обновления на "
+"добавките."
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -30,6 +35,13 @@ msgstr "Проверка за обновления на добавките в NV
 #. to be shown on installation and add-on information.
 msgid "Add-on Updater"
 msgstr "Обновяване на добавките"
+
+#. Translators: menu item label for checking add-on updates.
+msgid "Check for &add-on updates..."
+msgstr "П&ровери за обновления на добавките..."
+
+msgid "Check for NVDA add-on updates"
+msgstr "Проверка за обновления на добавките в NVDA"
 
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
@@ -65,9 +77,8 @@ msgstr "С приоритет да са &тестовите версии:"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
-#, fuzzy
 msgid "Development release &channel:"
-msgstr "С приоритет да са &тестовите версии:"
+msgstr "&Канал за издаване на тестови версии:"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
@@ -150,6 +161,11 @@ msgstr "Текуща версия"
 #. used to identify new add-on version (example: version is 0.4).
 msgid "New version"
 msgstr "Нова версия"
+
+#. Translators: The label for a column in add-ons updates list
+#. used to identify add-on update channel (example: stable ).
+msgid "Update channel"
+msgstr "Канал за обновление"
 
 #. Translators: Message displayed when no add-on updates are available.
 msgid "No add-on update available."

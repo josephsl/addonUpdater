@@ -21,9 +21,9 @@ class _URLAccessors(object):
 	@property
 	def communityFileGetter(self) -> str:
 		"""The portion of the URL before the add-on identifier used to download add-on packages
-		from the nvda-project.org get.php download system.
+		from the NV Access add-on store legacy endpoint.
 		"""
-		return "https://addons.nvda-project.org/files/get.php?file="
+		return "https://www.nvaccess.org/addonStore/legacy?file="
 
 	@property
 	def metadata(self) -> str:
@@ -37,8 +37,9 @@ class _URLAccessors(object):
 
 	@property
 	def communityAddonsList(self) -> str:
-		"""The get.php mechanism provides a list of all add-ons it serves via this URL."""
-		return "https://addons.nvda-project.org/files/get.php?addonslist=1"
+		"""The get.php mechanism provides a list of all add-ons it serves via this URL.
+		With the advent of NV Access add-on store, a legacy endpoint is provided instead."""
+		return "https://www.nvaccess.org/addonStore/legacy?addonslist"
 
 	@property
 	def communitySite(self) -> str:

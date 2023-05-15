@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-03-06 06:32+0800\n"
+"PO-Revision-Date: 2023-04-25 09:56+0800\n"
 "Last-Translator: 完美很难 <1872265132@qq.com>\n"
 "Language-Team: NVDASimplified Chinese team All volunteers <Copyright (C) "
 "2010-2019>\n"
@@ -18,12 +18,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.3\n"
 
-#. Translators: menu item label for checking add-on updates.
-msgid "Check for &add-on updates..."
-msgstr "检查插件更新(&U)..."
-
-msgid "Check for NVDA add-on updates"
-msgstr "检查 NVDA 插件更新"
+#. Translators: message presented when add-on store is available in NVDA.
+msgid ""
+"You are using an NVDA release with add-on store included. Visit NVDA add-on "
+"store (NVDA menu, Tools, add-on store) to check for add-on updates. Add-on "
+"Updater can still be used to check for add-on updates in the meantime."
+msgstr ""
+"您正在使用包含插件商店的 NVDA 版本。访问 NVDA 插件商店（NVDA 菜单、工具、插"
+"件商店）以检查插件更新。同时插件更新器仍然可用。"
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -31,6 +33,13 @@ msgstr "检查 NVDA 插件更新"
 #. to be shown on installation and add-on information.
 msgid "Add-on Updater"
 msgstr "插件更新器"
+
+#. Translators: menu item label for checking add-on updates.
+msgid "Check for &add-on updates..."
+msgstr "检查插件更新(&U)..."
+
+msgid "Check for NVDA add-on updates"
+msgstr "检查 NVDA 插件更新"
 
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
@@ -66,9 +75,8 @@ msgstr "接收更新到开发板的插件(&D)"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
-#, fuzzy
 msgid "Development release &channel:"
-msgstr "接收更新到开发板的插件(&D)"
+msgstr "开发版通道(&C):"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
@@ -81,8 +89,8 @@ msgid ""
 "You are about to switch to a different add-on update source. Are you sure "
 "you wish to change update source to {updateSourceDescription}?"
 msgstr ""
-"您即将切换到另一个插件更新源。您确定要将更新源切换为{updateSourceDescription}"
-"吗？"
+"您即将切换到另一个插件更新源。您确定要将更新源切换为"
+"{updateSourceDescription}吗？"
 
 #. Translators: Title of the add-on update source dialog.
 msgid "Add-on update source change"
@@ -149,6 +157,11 @@ msgstr "当前版本"
 msgid "New version"
 msgstr "新版本"
 
+#. Translators: The label for a column in add-ons updates list
+#. used to identify add-on update channel (example: stable ).
+msgid "Update channel"
+msgstr "更新通道"
+
 #. Translators: Message displayed when no add-on updates are available.
 msgid "No add-on update available."
 msgstr "无可用插件更新。"
@@ -162,8 +175,8 @@ msgid ""
 "One or more add-ons are currently disabled. These add-ons will be enabled "
 "after updating. Are you sure you wish to update disabled add-ons anyway?"
 msgstr ""
-"目前有一个或多个NVDA 插件被禁用。这些插件将在更新后被启用。您确定要更新被禁用"
-"的插件吗？"
+"目前有一个或多个NVDA 插件被禁用。这些插件将在更新后被启用。您确定要更新被禁"
+"用的插件吗？"
 
 #. Translators: Title of the add-on update confirmation dialog.
 msgid "Update disabled add-ons"
@@ -271,9 +284,8 @@ msgid "Taiwan community add-ons catalog"
 msgstr "台湾社区"
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "NVDA add-on store"
-msgstr "NVDA 插件更新"
+msgstr "NVDA 插件商店"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
