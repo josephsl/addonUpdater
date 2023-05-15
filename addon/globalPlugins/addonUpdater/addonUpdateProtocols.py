@@ -632,6 +632,13 @@ class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocol):
 			addonMetadata = results[metadataTag]
 		except KeyError:
 			return
+		# Can the add-on be updated based on add-on store metadata?
+		# Add-on store separates major.minor.patch to separate keys.
+		# Data is already formatted as integers.
+		addonMetadata["minimumNVDAVersion"] = tuple(addonMetadata["minNVDAVersion"].values())
+		addonMetadata["lastTestedNVDAVersion"] = tuple(addonMetadata["lastTestedVersion"].values())
+		if not self.addonCompatibleAccordingToMetadata(addon.name, addonMetadata):
+			return
 		addonUrl = addonMetadata["URL"]
 		# Announce add-on URL for debugging purposes.
 		log.debug(f"nvda3208: add-on URL is {addonUrl}")
