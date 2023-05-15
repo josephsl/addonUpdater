@@ -14,7 +14,6 @@ from urllib.request import urlopen, Request
 import json
 import re
 from collections import namedtuple
-import os
 from typing import Optional, Any, Dict, List
 import concurrent.futures
 import addonHandler
