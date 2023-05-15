@@ -737,11 +737,11 @@ UpdateProtocol = namedtuple("UpdateProtocol", "key, protocol, description")
 AvailableUpdateProtocols = (
 	UpdateProtocol(
 		# Translators: one of the add-on update source choices.
-		"nvdaprojectcompatinfo", "AddonUpdateCheckProtocolNVDAAddonsGitHub", _("NVDA community add-ons website")
+		"addondatastore", "AddonUpdateCheckProtocolNVAccessDatastore", _("NVDA add-on store")
 	),
 	UpdateProtocol(
 		# Translators: one of the add-on update source choices.
-		"addondatastore", "AddonUpdateCheckProtocolNVAccessDatastore", _("NVDA add-on store")
+		"nvdaprojectcompatinfo", "AddonUpdateCheckProtocolNVDAAddonsGitHub", _("NVDA community add-ons website")
 	),
 	UpdateProtocol(
 		# Translators: one of the add-on update source choices.
