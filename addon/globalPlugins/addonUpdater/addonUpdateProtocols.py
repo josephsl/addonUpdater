@@ -737,7 +737,7 @@ UpdateProtocol = namedtuple("UpdateProtocol", "key, protocol, description")
 AvailableUpdateProtocols = (
 	UpdateProtocol(
 		# Translators: one of the add-on update source choices.
-		"addondatastore", "AddonUpdateCheckProtocolNVAccessDatastore", _("NVDA add-on store")
+		"addondatastore", "AddonUpdateCheckProtocolNVAccessDatastore", _("NV Access add-on store")
 	),
 	UpdateProtocol(
 		# Translators: one of the add-on update source choices.
