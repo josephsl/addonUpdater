@@ -24,9 +24,10 @@ msgid ""
 "store (NVDA menu, Tools, add-on store) to check for add-on updates. Add-on "
 "Updater can still be used to check for add-on updates in the meantime."
 msgstr ""
-"Používate verziu programu NVDA, v ktorej je integrovaná podpora pre obchod s doplnkami NVDA. Kontrolu spustíte s ponuky "
-"(ponuka NVDA, Nástroje, Obchod s doplnkami). Zatiaľ môžete "
-"na aktualizáciu doplnkov používať aj tento doplnok Addon Updater."
+"Používate verziu programu NVDA, v ktorej je integrovaná podpora pre obchod s "
+"doplnkami NVDA. Kontrolu spustíte s ponuky (ponuka NVDA, Nástroje, Obchod s "
+"doplnkami). Zatiaľ môžete na aktualizáciu doplnkov používať aj tento doplnok "
+"Addon Updater."
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -203,8 +204,8 @@ msgstr "Čakajte prosím, aktualizujú sa doplnky."
 #, python-brace-format
 msgid "Cannot update {name} - missing file or invalid file format"
 msgstr ""
-"Nie je možné aktualizovať doplnok {name} - chýbajúci súbor alebo nesprávny formát "
-"súboru"
+"Nie je možné aktualizovať doplnok {name} - chýbajúci súbor alebo nesprávny "
+"formát súboru"
 
 #. Translators: The message displayed when an error occurs when installing an add-on package.
 #, python-brace-format
@@ -269,6 +270,11 @@ msgid "Could not update add-ons."
 msgstr "Nie je možné aktualizovať doplnky."
 
 #. Translators: one of the add-on update source choices.
+#, fuzzy
+msgid "NV Access add-on store"
+msgstr "Obchod s doplnkami NVDA"
+
+#. Translators: one of the add-on update source choices.
 msgid "NVDA community add-ons website"
 msgstr "Oficiálny zdroj s doplnkami"
 
@@ -283,10 +289,6 @@ msgstr "Čínsky zdroj doplnkov"
 #. Translators: one of the add-on update source choices.
 msgid "Taiwan community add-ons catalog"
 msgstr "Tajvanský zdroj doplnkov"
-
-#. Translators: one of the add-on update source choices.
-msgid "NVDA add-on store"
-msgstr "Obchod s doplnkami NVDA"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager

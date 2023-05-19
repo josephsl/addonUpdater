@@ -278,6 +278,11 @@ msgid "Could not update add-ons."
 msgstr "Nie można zaktualizować dodatków."
 
 #. Translators: one of the add-on update source choices.
+#, fuzzy
+msgid "NV Access add-on store"
+msgstr "Sklep z dodatkami NVDA"
+
+#. Translators: one of the add-on update source choices.
 msgid "NVDA community add-ons website"
 msgstr "Strona internetowa dodatków społeczności NVDA"
 
@@ -292,10 +297,6 @@ msgstr "Katalog dodatków społeczności chińskiej"
 #. Translators: one of the add-on update source choices.
 msgid "Taiwan community add-ons catalog"
 msgstr "Katalog dodatków społeczności tajwańskiej"
-
-#. Translators: one of the add-on update source choices.
-msgid "NVDA add-on store"
-msgstr "Sklep z dodatkami NVDA"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
