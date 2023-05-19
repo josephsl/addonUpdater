@@ -41,7 +41,7 @@ def loadState() -> None:
 		updateState["backgroundUpdate"] = False
 		updateState["addonStoreNotificationShown"] = False
 		updateState["updateNotification"] = "toast"
-		updateState["updateSource"] = "nvdaprojectcompatinfo"
+		updateState["updateSource"] = "addondatastore"
 		updateState["lastChecked"] = 0
 		updateState["noUpdates"] = []
 		updateState["devUpdates"] = []
@@ -57,7 +57,7 @@ def loadState() -> None:
 	if "updateNotification" not in updateState:
 		updateState["updateNotification"] = "toast"
 	if "updateSource" not in updateState:
-		updateState["updateSource"] = "nvdaprojectcompatinfo"
+		updateState["updateSource"] = "addondatastore"
 	if "lastChecked" not in updateState:
 		updateState["lastChecked"] = 0
 	if "noUpdates" not in updateState:
@@ -95,7 +95,7 @@ def reload(factoryDefaults: bool = False) -> None:
 		updateState["backgroundUpdate"] = False
 		updateState["addonStoreNotificationShown"] = False
 		updateState["updateNotification"] = "toast"
-		updateState["updateSource"] = "nvdaprojectcompatinfo"
+		updateState["updateSource"] = "addondatastore"
 		updateState["lastChecked"] = 0
 		updateState["noUpdates"] = []
 		updateState["devUpdates"] = []
