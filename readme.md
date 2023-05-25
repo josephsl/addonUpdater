@@ -2,7 +2,7 @@
 
 * Author: Joseph Lee, Luke Davis
 * Download [stable version][1]
-* NVDA compatibility: 2022.4 and later
+* NVDA compatibility: 2023.1 and later
 
 This add-on brings NVDA Core issue 3208 to life: ability to check for, download, and apply add-on updates.
 
@@ -15,7 +15,7 @@ The following add-ons provide built-in update feature and thus updates will not 
 
 IMPORTANT NOTES:
 
-* This is a proof of concept add-on. Once the [relevant feature is included in NVDA][2], this add-on will be discontinued.
+* This is a proof of concept add-on. Once the [relevant feature is included in NVDA][2] in the form of [an add-on store][3], this add-on will be discontinued.
 * This add-on is not intended to be used in secure screens. If you have add-ons installed in the secure screen, even if you copy Add-on Updater to secure screen mode, Add-on Updater will not work.
 * If the new add-on updates specify a compatibility range (minimum and last tested NVDA versions) and if the NVDA version you are running does not fall within the compatibility range according to NVDA, add-on updating will not proceed.
 * Not all add-ons come with development releases. If you are not getting updates after choosing to install development versions of an add-on, switch to stable channel for affected add-ons.
@@ -210,3 +210,5 @@ The available add-on update sources are:
 [1]: https://www.nvaccess.org/addonStore/legacy?file=addonUpdater
 
 [2]: https://github.com/nvaccess/nvda/issues/3208
+
+[3]: https://github.com/nvaccess/nvda/pull/13985
