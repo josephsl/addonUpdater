@@ -12,7 +12,6 @@ The following add-ons provide built-in update feature and thus updates will not 
 
 * Braille Extender
 * Tienda NVDA (Spanish NVDA Community Store)
-* WeatherPlus
 
 IMPORTANT NOTES:
 
@@ -38,10 +37,15 @@ You can configure Add-on Updater settings from NVDA Settings screen (NVDA menu, 
 
 The available add-on update sources are:
 
-* Community add-ons website (default)
-* NV Access add-on store
+* NV Access add-on store (default)
+* Community add-ons website
 * Spanish community add-ons catalog
 * Catalogs maintained by NVDA communities in China and Taiwan
+
+## Version 23.06
+
+* NVDA 2023.1 or later is required.
+* Changed default add-on update source from community add-ons website to NV Access add-on store.
 
 ## Version 23.05
 
