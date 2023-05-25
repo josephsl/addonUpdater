@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-01-08 07:10-0800\n"
-"Last-Translator: Iván Novegil Cancelas <ivan.novegil.cancelas@gmail.com>\n"
+"PO-Revision-Date: 2023-05-15 22:14+0200\n"
+"Last-Translator: Juan C. Buño <oprisniki@gmail.com>\n"
 "Language-Team: \n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #. Translators: message presented when add-on store is available in NVDA.
 msgid ""
@@ -23,6 +23,11 @@ msgid ""
 "store (NVDA menu, Tools, add-on store) to check for add-on updates. Add-on "
 "Updater can still be used to check for add-on updates in the meantime."
 msgstr ""
+"Estás a usar una versión de NVDA ca tenda de complementos incluida. Visita a "
+"tenda de complementos de NVDA (menú NVDA, Ferramentas, tenda de "
+"complementos) para comprobar as actualizacións de complementos. O "
+"actualizador de complementos pódese usar aínda para comprobar actualizacións "
+"de complementos polo de agora."
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -72,9 +77,8 @@ msgstr "Preferir versións de &desenvolvemento:"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
-#, fuzzy
 msgid "Development release &channel:"
-msgstr "Preferir versións de &desenvolvemento:"
+msgstr "&canle de lanzamentos de desenvolvedor:"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
@@ -160,9 +164,8 @@ msgstr "Nova versión"
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify add-on update channel (example: stable ).
-#, fuzzy
 msgid "Update channel"
-msgstr "&Actualizar complementos"
+msgstr "Canle de actualización"
 
 #. Translators: Message displayed when no add-on updates are available.
 msgid "No add-on update available."
@@ -278,6 +281,11 @@ msgid "Could not update add-ons."
 msgstr "Non se puideron actualizar os complementos."
 
 #. Translators: one of the add-on update source choices.
+#, fuzzy
+msgid "NV Access add-on store"
+msgstr "Tenda de complementos de NVDA"
+
+#. Translators: one of the add-on update source choices.
 msgid "NVDA community add-ons website"
 msgstr "Sitio web de complementos da comunidade de NVDA"
 
@@ -292,11 +300,6 @@ msgstr "Catálogo de complementos da comunidade chinesa"
 #. Translators: one of the add-on update source choices.
 msgid "Taiwan community add-ons catalog"
 msgstr "Catálogo de complementos da comunidade taiwanesa"
-
-#. Translators: one of the add-on update source choices.
-#, fuzzy
-msgid "NVDA add-on store"
-msgstr "Actualizacións para complementos de NVDA"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager

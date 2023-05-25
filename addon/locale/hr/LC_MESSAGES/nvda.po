@@ -279,6 +279,11 @@ msgid "Could not update add-ons."
 msgstr "Nije moguće ažurirati dodatke."
 
 #. Translators: one of the add-on update source choices.
+#, fuzzy
+msgid "NV Access add-on store"
+msgstr "Trgovina NVDA dodataka"
+
+#. Translators: one of the add-on update source choices.
 msgid "NVDA community add-ons website"
 msgstr "Web-mjesto dodataka NVDA zajednice"
 
@@ -293,10 +298,6 @@ msgstr "Katalog dodataka kineske zajednice"
 #. Translators: one of the add-on update source choices.
 msgid "Taiwan community add-ons catalog"
 msgstr "Katalog dodataka tajvanske zajednice"
-
-#. Translators: one of the add-on update source choices.
-msgid "NVDA add-on store"
-msgstr "Trgovina NVDA dodataka"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager

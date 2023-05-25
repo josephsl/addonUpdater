@@ -275,6 +275,11 @@ msgid "Could not update add-ons."
 msgstr "ვერ მოხერხდა დამატებების განახლება."
 
 #. Translators: one of the add-on update source choices.
+#, fuzzy
+msgid "NV Access add-on store"
+msgstr "NVDA დამატებების მაღაზია"
+
+#. Translators: one of the add-on update source choices.
 msgid "NVDA community add-ons website"
 msgstr "NVDA საზოგადოების დამატებების ვებგვერდი"
 
@@ -289,10 +294,6 @@ msgstr "ჩინეთის საზოგადოების დამა�
 #. Translators: one of the add-on update source choices.
 msgid "Taiwan community add-ons catalog"
 msgstr "ტაივანის საზოგადოების დამატებების კატალოგი"
-
-#. Translators: one of the add-on update source choices.
-msgid "NVDA add-on store"
-msgstr "NVDA დამატებების მაღაზია"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
