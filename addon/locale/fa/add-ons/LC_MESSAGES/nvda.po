@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-04-22 02:06+0330\n"
+"PO-Revision-Date: 2023-05-19 14:30+0330\n"
 "Last-Translator: Mohammadreza Rashad <mohammadreza5712@gmail.com>\n"
 "Language-Team: NVDA Translation Team <nvda-translations@groups.io>\n"
 "Language: fa\n"
@@ -272,9 +272,8 @@ msgid "Could not update add-ons."
 msgstr "نمیتوانم این افزونه‌ها را به‌روز کنم."
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "NV Access add-on store"
-msgstr "فروشگاهِ افزونه‌های NVDA"
+msgstr "فروشگاهِ افزونه‌های NV Access"
 
 #. Translators: one of the add-on update source choices.
 msgid "NVDA community add-ons website"

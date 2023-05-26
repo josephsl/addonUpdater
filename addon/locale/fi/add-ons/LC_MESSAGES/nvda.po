@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-04-21 17:28+0200\n"
+"PO-Revision-Date: 2023-05-19 14:53+0200\n"
 "Last-Translator: Jani Kinnunen <janikinnunen340@gmail.com>\n"
 "Language-Team: Jani Kinnunen <jani.kinnunen@wippies.fi>\n"
 "Language: fi\n"
@@ -280,9 +280,8 @@ msgid "Could not update add-ons."
 msgstr "Lisäosia ei voitu päivittää."
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "NV Access add-on store"
-msgstr "NVDA:n lisäosakauppa"
+msgstr "NV Accessin lisäosakauppa"
 
 #. Translators: one of the add-on update source choices.
 msgid "NVDA community add-ons website"

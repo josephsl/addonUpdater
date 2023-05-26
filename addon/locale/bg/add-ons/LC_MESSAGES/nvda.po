@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-04-21 09:01+0300\n"
+"PO-Revision-Date: 2023-05-19 08:25+0300\n"
 "Last-Translator: Kostadin Kolev <k_kolev1985@mail.bg>\n"
 "Language-Team: \n"
 "Language: bg\n"
@@ -281,9 +281,8 @@ msgid "Could not update add-ons."
 msgstr "Неуспешно обновяване на добавките."
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "NV Access add-on store"
-msgstr "Магазин за добавки на NVDA"
+msgstr "Магазин за добавки на NV Access"
 
 #. Translators: one of the add-on update source choices.
 msgid "NVDA community add-ons website"
