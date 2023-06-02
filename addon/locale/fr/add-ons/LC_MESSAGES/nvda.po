@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-05-22 09:58+0200\n"
+"PO-Revision-Date: 2023-05-26 20:06+0200\n"
 "Last-Translator: Rémy Ruiz <remyruiz@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -281,7 +281,7 @@ msgstr "Mise à jour des extensions impossible."
 
 #. Translators: one of the add-on update source choices.
 msgid "NV Access add-on store"
-msgstr "add-on store de NV Access"
+msgstr "NV Access add-on store"
 
 #. Translators: one of the add-on update source choices.
 msgid "NVDA community add-ons website"
