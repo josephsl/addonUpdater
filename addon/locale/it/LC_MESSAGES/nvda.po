@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12.2\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-12-14 01:00+1000\n"
-"PO-Revision-Date: 2023-04-28 10:55+0100\n"
+"PO-Revision-Date: 2023-05-29 15:49+0100\n"
 "Last-Translator: Simone Dal Maso <simone.dalmaso@gmail.com>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -280,9 +280,8 @@ msgid "Could not update add-ons."
 msgstr "Impossibile aggiornare i componenti aggiuntivi."
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "NV Access add-on store"
-msgstr "NVDA add-on store"
+msgstr "Store dei componenti aggiuntivi di NvAccess"
 
 #. Translators: one of the add-on update source choices.
 msgid "NVDA community add-ons website"
