@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-05-15 22:14+0200\n"
+"PO-Revision-Date: 2023-06-09 10:28+0200\n"
 "Last-Translator: Juan C. Buño <oprisniki@gmail.com>\n"
 "Language-Team: \n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.1\n"
 
 #. Translators: message presented when add-on store is available in NVDA.
 msgid ""
@@ -281,9 +281,8 @@ msgid "Could not update add-ons."
 msgstr "Non se puideron actualizar os complementos."
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "NV Access add-on store"
-msgstr "Tenda de complementos de NVDA"
+msgstr "Tenda de complementos de NV Access"
 
 #. Translators: one of the add-on update source choices.
 msgid "NVDA community add-ons website"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-04-25 09:56+0800\n"
+"PO-Revision-Date: 2023-06-11 09:10+0800\n"
 "Last-Translator: 完美很难 <1872265132@qq.com>\n"
 "Language-Team: NVDASimplified Chinese team All volunteers <Copyright (C) "
 "2010-2019>\n"
@@ -24,8 +24,8 @@ msgid ""
 "store (NVDA menu, Tools, add-on store) to check for add-on updates. Add-on "
 "Updater can still be used to check for add-on updates in the meantime."
 msgstr ""
-"您正在使用包含插件商店的 NVDA 版本。访问 NVDA 插件商店（NVDA 菜单、工具、插件"
-"商店）以检查插件更新。同时插件更新器仍然可用。"
+"您正在使用包含插件商店的 NVDA 版本。访问 NVDA 插件商店（NVDA 菜单、工具、插"
+"件商店）以检查插件更新。同时插件更新器仍然可用。"
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -89,8 +89,8 @@ msgid ""
 "You are about to switch to a different add-on update source. Are you sure "
 "you wish to change update source to {updateSourceDescription}?"
 msgstr ""
-"您即将切换到另一个插件更新源。您确定要将更新源切换为{updateSourceDescription}"
-"吗？"
+"您即将切换到另一个插件更新源。您确定要将更新源切换为"
+"{updateSourceDescription}吗？"
 
 #. Translators: Title of the add-on update source dialog.
 msgid "Add-on update source change"
@@ -175,8 +175,8 @@ msgid ""
 "One or more add-ons are currently disabled. These add-ons will be enabled "
 "after updating. Are you sure you wish to update disabled add-ons anyway?"
 msgstr ""
-"目前有一个或多个NVDA 插件被禁用。这些插件将在更新后被启用。您确定要更新被禁用"
-"的插件吗？"
+"目前有一个或多个NVDA 插件被禁用。这些插件将在更新后被启用。您确定要更新被禁"
+"用的插件吗？"
 
 #. Translators: Title of the add-on update confirmation dialog.
 msgid "Update disabled add-ons"
@@ -268,9 +268,8 @@ msgid "Could not update add-ons."
 msgstr "无法更新插件。"
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "NV Access add-on store"
-msgstr "NVDA 插件商店"
+msgstr "NVAccess 插件商店"
 
 #. Translators: one of the add-on update source choices.
 msgid "NVDA community add-ons website"
