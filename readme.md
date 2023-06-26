@@ -6,7 +6,7 @@
 
 This add-on brings NVDA Core issue 3208 to life: ability to check for, download, and apply add-on updates.
 
-To check for updates after installing this add-on, go to NVDA menu/Tools/Check for add-on updates (if NVDA did notice updates, the menu item will say "Review add-on updates" followed by update count). If updates are available, a list of add-on updates will be shown, with each entry consisting of description, current version, and the new version. Select Update, and NVDA will download and apply updates in sequence, with a prompt to restart your NVDA shown afterwards.
+To check for updates after installing this add-on, go to NVDA menu/Tools/Check for add-on updates (if NVDA did notice updates, the menu item will say "Review add-on updates" followed by update count). If updates are available, a list of add-on updates will be shown, with each entry consisting of add-on name, current version, new version, and update channel. Select Update, and NVDA will download and apply updates in sequence, with a prompt to restart your NVDA shown afterwards.
 
 The following add-ons provide built-in update feature and thus updates will not be checked via this add-on:
 
@@ -15,20 +15,20 @@ The following add-ons provide built-in update feature and thus updates will not 
 
 IMPORTANT NOTES:
 
-* This is a proof of concept add-on. Once the [relevant feature is included in NVDA][2] in the form of [an add-on store][3], this add-on will be discontinued.
+* This is a proof of concept add-on. Once the [relevant feature is included in NVDA][2] in the form of [an add-on store][3], this add-on will be discontinued. Add-on store is included in NVDA 2023.2 development releases.
 * This add-on is not intended to be used in secure screens. If you have add-ons installed in the secure screen, even if you copy Add-on Updater to secure screen mode, Add-on Updater will not work.
 * If the new add-on updates specify a compatibility range (minimum and last tested NVDA versions) and if the NVDA version you are running does not fall within the compatibility range according to NVDA, add-on updating will not proceed.
 * Not all add-ons come with development releases. If you are not getting updates after choosing to install development versions of an add-on, switch to stable channel for affected add-ons.
 * On some systems (particularly computers joined to a corporate domain), add-on update check functionality may not work properly, therefore add-on updates must be downloaded manually.
 * Some features require NVDA to be installed on the computer, ideally on a computer running Windows 10 or later.
-* Some add-on releases include SHA256 hash values for checking add-on package integrity, and if the hash value does not match, add-on updating will fail.
+* Some add-on releases include SHA256 hash values for checking add-on package integrity (all add-ons published on add-on store include SHA256 values), and if the hash value does not match, add-on updating will fail.
 
 ## Add-on settings
 
 You can configure Add-on Updater settings from NVDA Settings screen (NVDA menu, Preferences, Settings) under Add-on Updater category. Add-on settings are as follows:
 
 * Automatically check for add-on updates: if checked, NVDA will check for add-on updates once a day. Automatic update checks is enabled on Windows client systems and disabled on server systems.
-* Add-on update notification (Windows 10 and later): you can choose to receive update notification as a dialog or a toast. On Windows releases earlier than 10 and on server systems, or running portable copy of NVDA, update notification will be shown as a dialog.
+* Add-on update notification (Windows 10 and later): you can choose to receive update notification as a dialog or a toast. On Windows releases earlier than 10 and on server systems, or running a portable copy of NVDA, update notification will be shown as a dialog.
 * Update add-ons in the background (Windows 10 and later and update notification is set to toast): if checked, Add-on Updater will apply updates in the background. A toast will appear informing you that add-on updates are being downloaded and installed, followed by another message announcing update results. Same limitations as add-on update notification setting and toast must be selected from the above option in order for background updates to work.
 * Do not update add-ons: you can choose add-ons that should not be updated.
 * Prefer development releases: any add-ons checked in this list will receive development (prerelease) releases.
@@ -41,6 +41,10 @@ The available add-on update sources are:
 * Community add-ons website
 * Spanish community add-ons catalog
 * Catalogs maintained by NVDA communities in China and Taiwan
+
+## Version 23.07
+
+* If using an NVDA release with add-on store included, a startup message will be shown informing users about the new add-on store. Add-on Updater will continue to work.
 
 ## Version 23.06
 
