@@ -140,7 +140,7 @@ def checkForAddonUpdates() -> Optional[list[AddonUpdateRecord]]:
 	updateChecker = getattr(addonUpdateProtocols, updateProtocols[addonUtils.updateState["updateSource"]])
 	try:
 		info = updateChecker().checkForAddonUpdates(installedAddons=curAddons)
-	except:
+	except Exception:
 		# Present an error dialog if manual add-on update check is in progress.
 		raise RuntimeError("Cannot check for community add-on updates")
 	return info
@@ -159,7 +159,7 @@ def downloadAddonUpdate(url: str, destPath: Optional[str], fileHash: Optional[st
 	# Therefore, set a higher timeout.
 	try:
 		remote = urlopen(url, timeout=120)
-	except:
+	except Exception:
 		log.debug("Could not access download URL")
 		raise RuntimeError("Could not access download URL")
 	if remote.code != 200:
@@ -205,7 +205,7 @@ class AddonInstallStatus(enum.IntEnum):
 def installAddonUpdate(destPath: str, addonName: str) -> int:
 	try:
 		bundle = addonHandler.AddonBundle(destPath)
-	except:
+	except Exception:
 		log.error(f"Error opening addon bundle from {destPath}", exc_info=True)
 		return AddonInstallStatus.AddonReadBundleFailed
 	# NVDA itself will check add-on compatibility range.
@@ -225,7 +225,7 @@ def installAddonUpdate(destPath: str, addonName: str) -> int:
 			break
 	try:
 		gui.ExecAndPump(addonHandler.installAddonBundle, bundle)
-	except:
+	except Exception:
 		log.error(f"Error installing  addon bundle from {destPath}", exc_info=True)
 		return AddonInstallStatus.AddonInstallGenericError
 	return AddonInstallStatus.AddonInstallSuccess

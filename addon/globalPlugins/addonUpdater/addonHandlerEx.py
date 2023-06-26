@@ -88,7 +88,7 @@ def _showAddonUpdateUI() -> None:
 		gui.mainFrame.postPopup()
 	try:
 		info = addonUpdateProc.checkForAddonUpdates()
-	except:
+	except Exception:
 		info = None
 		raise
 	if info is not None and len(info):

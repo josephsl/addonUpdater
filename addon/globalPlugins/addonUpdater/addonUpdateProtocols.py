@@ -135,7 +135,7 @@ class AddonUpdateCheckProtocol(object):
 		# Sometimes, regular expression fails, and if so, treat it as though there is no update for this add-on.
 		try:
 			versionMatched = re.search("(?P<name>)-(?P<version>.*).nvda-addon", url.split("/")[-1])
-		except:
+		except Exception:
 			log.debug("nvda3208: could not retrieve version info for an add-on from its URL", exc_info=True)
 			return fallbackVersion
 		if versionMatched is None:
@@ -195,7 +195,7 @@ class AddonUpdateCheckProtocol(object):
 				))
 		try:
 			info = self.checkForAddonUpdate(curAddons)
-		except:
+		except Exception:
 			# Present an error dialog if manual add-on update check is in progress.
 			raise RuntimeError("Cannot check for community add-on updates")
 		return info
@@ -314,7 +314,7 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 			addonKey += "-" + channel
 		try:
 			addonUrl = results[addonKey]
-		except:
+		except Exception:
 			return
 		# Necessary duplication if the URL doesn't end in ".nvda-addon".
 		# Some add-ons require traversing another URL.
@@ -346,7 +346,7 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 						self.getAddonsData,
 						errorText="nvda3208: errors occurred while retrieving community add-ons"
 					).result()
-				except:
+				except Exception:
 					raise RuntimeError("Failed to retrieve community add-ons")
 		# Perhaps a newer protocol sent a fallback data if the protocol URL fails somehow.
 		else:
@@ -423,15 +423,15 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 		if updateChannels is None:
 			try:
 				addonUrl = results[addonKey]
-			except:
+			except Exception:
 				return
 		else:
 			try:
 				addonUrl = updateChannels[addonKey]["url"]
-			except:
+			except Exception:
 				try:
 					addonUrl = results[addonKey]
-				except:
+				except Exception:
 					return
 		# Necessary duplication if the URL doesn't end in ".nvda-addon".
 		# Some add-ons require traversing another URL.
@@ -486,12 +486,12 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 			# Obtain community add-ons metadata (protocol 2) first.
 			try:
 				addonsData = protocol2.result()
-			except:
+			except Exception:
 				# Prepare to fall back to add-ons list if metadata is unusable.
 				pass
 			try:
 				results = protocol1.result()
-			except:
+			except Exception:
 				# Cannot retrieve add-on updates at this time.
 				if fallbackData is None:
 					raise RuntimeError("Failed to retrieve community add-ons")
@@ -580,7 +580,7 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 						self.getAddonsData, differentUserAgent=True,
 						errorText="nvda3208: errors occurred while retrieving Spanish community add-ons catalog"
 					).result()
-				except:
+				except Exception:
 					# Raise an error if results says so.
 					raise RuntimeError("Failed to retrieve community add-ons")
 		# Perhaps a newer protocol sent a fallback data if the protocol URL fails somehow.
@@ -665,7 +665,7 @@ class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocol):
 						url=url, differentUserAgent=True,
 						errorText="nvda3208: errors occurred while accessing NV Access datastore"
 					).result()
-				except:
+				except Exception:
 					raise RuntimeError("Failed to retrieve community add-ons")
 		# Perhaps a newer protocol sent a fallback data if the protocol URL fails somehow.
 		else:

@@ -69,7 +69,7 @@ def addonUpdateCheck():
 	global _progressDialog
 	try:
 		info = addonUpdateProc.checkForAddonUpdates()
-	except:
+	except Exception:
 		info = None
 		wx.CallAfter(_progressDialog.done)
 		_progressDialog = None
