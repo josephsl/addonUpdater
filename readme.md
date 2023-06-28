@@ -45,6 +45,7 @@ The available add-on update sources are:
 ## Version 23.07
 
 * If using an NVDA release with add-on store included, a startup message will be shown informing users about the new add-on store. Add-on Updater will continue to work.
+* Improved performance when checking for add-on updates from NV Access add-on store and community add-ons website update sources.
 
 ## Version 23.06
 
