@@ -30,10 +30,19 @@ def getUrlViaMSEdgeUserAgent(url: str) -> Request:
 	# Some hosting services block Python/urllib in hopes of avoding bots.
 	# Therefore spoof the user agent to say this is latest Microsoft Edge.
 	# Source: Stack Overflow, Google searches on Apache/mod_security
+	# Be sure to pass in actual Windows version as part of the user agent string (no process architecture).
+	import winVersion
+	currentWinVer = winVersion.getWinVer()
+	winVerMajorMinor = f"{currentWinVer.major}.{currentWinVer.minor}"
+	# Windows 7/8/8.1: Edge 109 is the final version.
+	if currentWinVer < winVersion.WIN10:
+		userAgent = f"Mozilla/5.0 (Windows NT {winVerMajorMinor}; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.115"  # NOQA: E501
+	else:
+		userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"  # NOQA: E501
 	return Request(
 		url,
 		headers={
-			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"  # NOQA: E501
+			"User-Agent": userAgent
 		}
 	)
 
