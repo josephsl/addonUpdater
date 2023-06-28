@@ -42,6 +42,7 @@ def loadState() -> None:
 		updateState["addonStoreNotificationShown"] = False
 		updateState["updateNotification"] = "toast"
 		updateState["updateSource"] = "addondatastore"
+		updateState["NVAccessAddonStoreViewsHash"] = ""
 		updateState["lastChecked"] = 0
 		updateState["noUpdates"] = []
 		updateState["devUpdates"] = []
@@ -58,6 +59,8 @@ def loadState() -> None:
 		updateState["updateNotification"] = "toast"
 	if "updateSource" not in updateState:
 		updateState["updateSource"] = "addondatastore"
+	if "NVAccessAddonStoreViewsHash" not in updateState:
+		updateState["NVAccessAddonStoreViewsHash"] = ""
 	if "lastChecked" not in updateState:
 		updateState["lastChecked"] = 0
 	if "noUpdates" not in updateState:
@@ -96,6 +99,7 @@ def reload(factoryDefaults: bool = False) -> None:
 		updateState["addonStoreNotificationShown"] = False
 		updateState["updateNotification"] = "toast"
 		updateState["updateSource"] = "addondatastore"
+		updateState["NVAccessAddonStoreViewsHash"] = ""
 		updateState["lastChecked"] = 0
 		updateState["noUpdates"] = []
 		updateState["devUpdates"] = []
