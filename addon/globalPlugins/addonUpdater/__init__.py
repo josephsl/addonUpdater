@@ -151,6 +151,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# This is not supported properly on NVDA releases before 2022.1.
 		addonHandler.isCLIParamKnown.register(processArgs)
 		addonUtils.loadState()
+		# Do not perform automatic update check if add-on store message is shown.
+		addonStoreNotificationShown = addonUtils.updateState["addonStoreNotificationShown"]
 		# Don't go further if add-on store client is present.
 		if addonStorePresent():
 			return
@@ -168,8 +170,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			return
 		if addonUtils.updateState["autoUpdate"]:
 			# But not when NVDA itself is updating.
+			# Disable this if add-on store message was shown.
 			if not (globalVars.appArgs.install and globalVars.appArgs.minimal):
-				wx.CallAfter(autoUpdateCheck)
+				if addonStoreNotificationShown == addonUtils.updateState["addonStoreNotificationShown"]:
+					wx.CallAfter(autoUpdateCheck)
 
 	def terminate(self):
 		super(GlobalPlugin, self).terminate()
