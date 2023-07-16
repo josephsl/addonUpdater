@@ -201,7 +201,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		self.addonUpdater.SetItemLabel(label)
 
 
-class AddonUpdaterPanel(gui.SettingsPanel):
+class AddonUpdaterPanel(gui.settingsDialogs.SettingsPanel):
 	# Translators: This is the label for the Add-on Updater settings panel.
 	title = _("Add-on Updater")
 
