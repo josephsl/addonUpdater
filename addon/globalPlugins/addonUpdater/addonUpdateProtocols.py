@@ -300,6 +300,7 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 	This protocol uses community add-ons get.php JSON to construct update metadata.
 	No compatibility range check is possible with this protocol.
 	This resembles Add-on Updater 21.05 and earlier.
+	Note: deprecated, to be removed in a future add-on release.
 	"""
 
 	protocol = 1
