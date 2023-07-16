@@ -339,6 +339,7 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 	use concurrent.futures instead of separate threads,
 	and is the default protocol in Add-on Updater 23.01.
 	Protocol 2.3 no longer depends solely on protocol 1 to resolve type info issues.
+	Protocol 2.4 removes minimum Windows version check and uses store data for most operations.
 	"""
 
 	protocol = 2
@@ -365,16 +366,6 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 		# Can the add-on be updated based on community add-ons metadata?
 		if not self.addonCompatibleAccordingToMetadata(addon.name, addonMetadata):
 			return
-		# Compare minimum versus current Windows releases if defined.
-		minWinVersion = addonMetadata.get("minimumWindowsVersion")
-		if minWinVersion is not None:
-			import winVersion
-			curWinVersion = winVersion.getWinVer()
-			curWinVersion = tuple((curWinVersion.major, curWinVersion.minor, curWinVersion.build))
-			minWinVersion = addonMetadata["minimumWindowsVersion"].split(".")
-			minWinVersion = tuple(int(part) for part in minWinVersion)
-			if curWinVersion < minWinVersion:
-				return
 		# If "-dev" flag is on, switch to development channel if it exists.
 		channel = addon.updateChannel
 		if channel is not None:
