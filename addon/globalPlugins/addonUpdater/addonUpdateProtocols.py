@@ -213,6 +213,7 @@ class AddonUpdateCheckProtocol(object):
 # For use in update check protocol 1.
 # Record add-on names to URL keys hosted on community add-ons website.
 # The URL prefixes are same for add-ons listed below.
+# Only keys that differ between manifest name and download key are recorded.
 names2urls = {
 	"addonUpdater": "nvda3208",
 	"Access8Math": "access8math",
