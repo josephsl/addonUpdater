@@ -42,6 +42,12 @@ The available add-on update sources are:
 * Spanish community add-ons catalog
 * Catalogs maintained by NVDA communities in China and Taiwan
 
+## Version 23.08
+
+This is the final version to support Windows 7, 8, 8.1, and 10 21H2 and earlier.
+
+* Add-on update results dialog or toast message will be shown once add-on store message is closed.
+
 ## Version 23.07
 
 * If using an NVDA release with add-on store included, a startup message will be shown informing users about the new add-on store. If this happens, add-on update results dialog will not be shown. Add-on Updater will continue to work.
