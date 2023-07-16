@@ -92,8 +92,16 @@ def legacyAddonsFound() -> bool:
 
 
 # Present a message if add-on store client is included in NVDA.
+# If automatic add-on updates are on, delay it until the message is shown.
 # NV Access add-on store replaces Add-on Updater once deployed.
 def addonStorePresent() -> bool:
+	def presentAddonStoreMessage(message, title):
+		gui.messageBox(message, title, wx.OK | wx.ICON_INFORMATION)
+		if addonUtils.updateState["autoUpdate"]:
+			# But not when NVDA itself is updating.
+			# Unlike global plugin constructor, perform automatic update check after a short pause.
+			if not (globalVars.appArgs.install and globalVars.appArgs.minimal):
+				wx.CallLater(5000, autoUpdateCheck)
 	# Do not present the below message if NVDA itself is updating at the moment.
 	if globalVars.appArgs.install and globalVars.appArgs.minimal:
 		return False
@@ -106,7 +114,7 @@ def addonStorePresent() -> bool:
 		)
 		if not addonUtils.updateState["addonStoreNotificationShown"]:
 			wx.CallAfter(
-				gui.messageBox, addonStoreMessage, _("Add-on Updater"), wx.OK | wx.ICON_INFORMATION
+				presentAddonStoreMessage, addonStoreMessage, _("Add-on Updater")
 			)
 			addonUtils.updateState["addonStoreNotificationShown"] = True
 		# For now allow Add-on Updater to check for add-on updates.
