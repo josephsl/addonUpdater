@@ -252,10 +252,8 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		# Use threads for opening URL's in parallel, resulting in faster update check response on multicore systems.
 		# This is the case when it becomes necessary to open another website.
 		# Not all released add-ons are recorded in names to URLs dictionary.
-		try:
-			addonKey = names2urls[addon.name]
-		except KeyError:
-			return
+		# Note that only add-ons with a mismatch between manifest name and download ID are recorded.
+		addonKey = names2urls.get(addon.name, addon.name)
 		# If "-dev" flag is on, switch to development channel if it exists.
 		channel = addon.updateChannel
 		if channel is not None:
