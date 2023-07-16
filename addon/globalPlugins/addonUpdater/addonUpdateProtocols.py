@@ -228,7 +228,6 @@ names2urls = {
 	"speechHistory": "sps",
 	"synthRingSettingsSelector": "synthrings",
 	"textInformation": "txtinfo",
-	"toneMaster": "tmast",
 	"toolbarsExplorer": "tbx",
 }
 
