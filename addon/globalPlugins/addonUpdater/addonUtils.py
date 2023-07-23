@@ -18,12 +18,9 @@ def isWin10ClientOrLater() -> bool:
 
 
 def isAddonStorePresent() -> bool:
-	# Ignore Flake8 F401 as only import check is sufficient.
-	try:
-		import _addonStore  # NOQA: F401
-		return True
-	except ModuleNotFoundError:
-		return False
+	# NVDA 2023.2 comes with add-on store GUI command with add-ons manager command as an alias for it.
+	import gui
+	return hasattr(gui.mainFrame, "onAddonStoreCommand")
 
 
 updateState = {}
