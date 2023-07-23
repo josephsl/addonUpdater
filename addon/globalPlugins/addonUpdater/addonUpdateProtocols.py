@@ -281,24 +281,7 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		addon.url = addonUrl
 
 	def checkForAddonUpdate(self, curAddons: AddonUpdateRecords, fallbackData: Any = None) -> AddonUpdateRecords:
-		# First, see if update hash from NV Access add-on store is equal to local hash.
-		# Compares update source hashes coming from the source URL and local cache.
-		# This is used to avoid unnecesary update source json processing if hashes are equal.
-		hashUrl = "https://www.nvaccess.org/addonStore/cacheHash.json"
-		with concurrent.futures.ThreadPoolExecutor(max_workers=2) as addonsFetcher:
-			try:
-				updateSourceHash = addonsFetcher.submit(
-					self.getAddonsData,
-					url=hashUrl, differentUserAgent=True,
-					errorText="nvda3208: errors occurred while retrieving cached hash value"
-				).result()
-			except Exception:
-				raise RuntimeError("Failed to retrieve community add-ons")
-		# Return an empty list if the update source hash was not updated.
-		if addonUtils.updateState["NVAccessAddonStoreViewsHash"] == updateSourceHash:
-			return []
-		addonUtils.updateState["NVAccessAddonStoreViewsHash"] = updateSourceHash
-		# Next, fetch current community add-ons.
+		# Fetch current community add-ons.
 		results = None
 		# Only do this if no fallback data is specified.
 		if fallbackData is None:
@@ -426,23 +409,6 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 				res.close()
 			except Exception:
 				pass
-			# In addition, see if update hash from NV Access add-on store is equal to local hash.
-			# Compares update source hashes coming from the source URL and local cache.
-			# This is used to avoid unnecesary update source json processing if hashes are equal.
-			hashUrl = "https://www.nvaccess.org/addonStore/cacheHash.json"
-			with concurrent.futures.ThreadPoolExecutor(max_workers=2) as addonsFetcher:
-				try:
-					updateSourceHash = addonsFetcher.submit(
-						self.getAddonsData,
-						url=hashUrl, differentUserAgent=True,
-						errorText="nvda3208: errors occurred while retrieving cached hash value"
-					).result()
-				except Exception:
-					raise RuntimeError("Failed to retrieve community add-ons")
-			# Return an empty list if the update source hash was not updated.
-			if addonUtils.updateState["NVAccessAddonStoreViewsHash"] == updateSourceHash:
-				return []
-			addonUtils.updateState["NVAccessAddonStoreViewsHash"] = updateSourceHash
 		# Obtain both at once through concurrency.
 		with concurrent.futures.ThreadPoolExecutor(max_workers=2) as addonsFetcher:
 			protocol1 = addonsFetcher.submit(
@@ -620,23 +586,6 @@ class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocol):
 		addon.hash = addonMetadata["sha256"]
 
 	def checkForAddonUpdate(self, curAddons: AddonUpdateRecords, fallbackData: Any = None) -> AddonUpdateRecords:
-		# First, see if update hash from NV Access add-on store is equal to local hash.
-		# Compares update source hashes coming from the source URL and local cache.
-		# This is used to avoid unnecesary update source json processing if hashes are equal.
-		hashUrl = "https://www.nvaccess.org/addonStore/cacheHash.json"
-		with concurrent.futures.ThreadPoolExecutor(max_workers=2) as addonsFetcher:
-			try:
-				updateSourceHash = addonsFetcher.submit(
-					self.getAddonsData,
-					url=hashUrl, differentUserAgent=True,
-					errorText="nvda3208: errors occurred while retrieving cached hash value"
-				).result()
-			except Exception:
-				raise RuntimeError("Failed to retrieve community add-ons")
-		# Return an empty list if the update source hash was not updated.
-		if addonUtils.updateState["NVAccessAddonStoreViewsHash"] == updateSourceHash:
-			return []
-		addonUtils.updateState["NVAccessAddonStoreViewsHash"] = updateSourceHash
 		results = None
 		# Only do this if no fallback data is specified.
 		if fallbackData is None:
