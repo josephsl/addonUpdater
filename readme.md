@@ -47,6 +47,7 @@ The available add-on update sources are:
 This is the final version to support Windows 7, 8, 8.1, and 10 21H2 and earlier.
 
 * Add-on update results dialog or toast message will be shown once add-on store message is closed.
+* If add-on updates dialog is shown and then closed without installing add-ons, NVDA will no longer report no add-on updates when add-on updates are checked.
 
 ## Version 23.07
 
