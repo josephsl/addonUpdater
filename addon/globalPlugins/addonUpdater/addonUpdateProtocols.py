@@ -38,7 +38,7 @@ def getUrlViaMSEdgeUserAgent(url: str) -> Request:
 	if currentWinVer < winVersion.WIN10:
 		userAgent = f"Mozilla/5.0 (Windows NT {winVerMajorMinor}; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.115"  # NOQA: E501
 	else:
-		userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36 Edg/115.0.1901.175"  # NOQA: E501
+		userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36 Edg/115.0.1901.183"  # NOQA: E501
 	return Request(
 		url,
 		headers={
