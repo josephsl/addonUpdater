@@ -100,10 +100,10 @@ def addonStorePresent() -> bool:
 		if addonUtils.updateState["autoUpdate"]:
 			# But not when NVDA itself is updating.
 			# Unlike global plugin constructor, perform automatic update check after a short pause.
-			if not (globalVars.appArgs.install and globalVars.appArgs.minimal):
+			if not ((globalVars.appArgs.install or globalVars.appArgs.createPortable) and globalVars.appArgs.minimal):
 				wx.CallLater(5000, autoUpdateCheck)
 	# Do not present the below message if NVDA itself is updating at the moment.
-	if globalVars.appArgs.install and globalVars.appArgs.minimal:
+	if (globalVars.appArgs.install or globalVars.appArgs.createPortable) and globalVars.appArgs.minimal:
 		return False
 	if addonUtils.isAddonStorePresent():
 		addonStoreMessage = _(
@@ -179,7 +179,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		if addonUtils.updateState["autoUpdate"]:
 			# But not when NVDA itself is updating.
 			# Disable this if add-on store message was shown.
-			if not (globalVars.appArgs.install and globalVars.appArgs.minimal):
+			if not ((globalVars.appArgs.install or globalVars.appArgs.createPortable) and globalVars.appArgs.minimal):
 				if addonStoreNotificationShown == addonUtils.updateState["addonStoreNotificationShown"]:
 					wx.CallAfter(autoUpdateCheck)
 
