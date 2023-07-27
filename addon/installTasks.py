@@ -11,8 +11,35 @@ addonHandler.initTranslation()
 
 def onInstall():
 	# Display add-on store notification after restarting NVDA.
-	try:
+	"""try:
 		import globalPlugins
 		globalPlugins.addonUpdater.addonUtils.updateState["addonStoreNotificationShown"] = False
 	except Exception:
-		pass
+		pass"""
+	import gui
+	import wx
+	import winVersion
+	import globalVars
+	# Do not present dialogs if minimal mode is set.
+	currentWinVer = winVersion.getWinVer()
+	# Add-on Updater requires Windows 10 22H2 or later.
+	# Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
+	# Unsupported systems include Windows versions earlier than 10 and unsupported feature updates.
+	unsupportedWindowsReleaseTitle = _("Unsupported Windows release")
+	minimumWinVer = winVersion.WIN10_22H2
+	if currentWinVer < minimumWinVer:
+		if not globalVars.appArgs.minimal:
+			gui.messageBox(
+				_(
+					# Translators: Dialog text shown when trying to install the add-on on
+					# releases earlier than minimum supported release.
+					"You are using {releaseName} ({build}), a Windows release not supported by this add-on.\n"
+					"This add-on requires {supportedReleaseName} ({supportedBuild}) or later."
+				).format(
+					releaseName=currentWinVer.releaseName,
+					build=currentWinVer.build,
+					supportedReleaseName=minimumWinVer.releaseName,
+					supportedBuild=minimumWinVer.build
+				), unsupportedWindowsReleaseTitle, wx.OK | wx.ICON_ERROR
+			)
+		raise RuntimeError("Attempting to install Add-on Updater add-on on Windows releases earlier than 10")
