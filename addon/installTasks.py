@@ -11,5 +11,8 @@ addonHandler.initTranslation()
 
 def onInstall():
 	# Display add-on store notification after restarting NVDA.
-	import globalPlugins
-	globalPlugins.addonUpdater.addonUtils.updateState["addonStoreNotificationShown"] = False
+	try:
+		import globalPlugins
+		globalPlugins.addonUpdater.addonUtils.updateState["addonStoreNotificationShown"] = False
+	except Exception:
+		pass
