@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-02-20 19:55+0000\n"
+"PO-Revision-Date: 2023-07-27 23:13+0100\n"
 "Last-Translator: Ângelo Abrantes <ampa4374@gmail.com>\n"
 "Language-Team: Equipa portuguesa do NVDA <ampa4374@gmail.com; rui."
 "fontes@tiflotecnia.pt>\n"
@@ -17,8 +17,23 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+
+#. Add-on Updater requires Windows 10 22H2 or later.
+#. Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
+#. Unsupported systems include Windows versions earlier than 10 and unsupported feature updates.
+msgid "Unsupported Windows release"
+msgstr ""
+
+#. Translators: Dialog text shown when trying to install the add-on on
+#. releases earlier than minimum supported release.
+#, python-brace-format
+msgid ""
+"You are using {releaseName} ({build}), a Windows release not supported by "
+"this add-on.\n"
+"This add-on requires {supportedReleaseName} ({supportedBuild}) or later."
+msgstr ""
 
 #. Translators: message presented when add-on store is available in NVDA.
 msgid ""
@@ -26,6 +41,10 @@ msgid ""
 "store (NVDA menu, Tools, add-on store) to check for add-on updates. Add-on "
 "Updater can still be used to check for add-on updates in the meantime."
 msgstr ""
+"Está a utilizar uma versão do NVDA com a loja de extras incluída. Visite a "
+"loja de extras do NVDA (menu NVDA, Ferramentas, loja de extras) para "
+"verificar se há actualizações de extras. O Add-on Updater ainda pode ser "
+"usado para verificar se há atualizações de extras nesse meio tempo."
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -36,7 +55,7 @@ msgstr "Actualizador de extras"
 
 #. Translators: menu item label for checking add-on updates.
 msgid "Check for &add-on updates..."
-msgstr "Procurar por &actualizações de extras..."
+msgstr "Verificar se há actualizações &add-on..."
 
 msgid "Check for NVDA add-on updates"
 msgstr "Procurar por actualizações de extras para o NVDA"
@@ -75,14 +94,13 @@ msgstr "Preferir versões de &desenvolvimento:"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
-#, fuzzy
 msgid "Development release &channel:"
-msgstr "Preferir versões de &desenvolvimento:"
+msgstr "Lançamento e canal de desenvolvimento:"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
 msgid "Add-on update &source:"
-msgstr "&Fonte de actualização de extras"
+msgstr "&Fonte de actualização de extras:"
 
 #. Translators: Presented when about to switch add-on update sources.
 #, python-brace-format
@@ -161,9 +179,8 @@ msgstr "Nova versão"
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify add-on update channel (example: stable ).
-#, fuzzy
 msgid "Update channel"
-msgstr "Act&ualizar extras"
+msgstr "Canal de actualização"
 
 #. Translators: Message displayed when no add-on updates are available.
 msgid "No add-on update available."
@@ -275,6 +292,11 @@ msgid "Could not update add-ons."
 msgstr "Impossível actualizar os extras."
 
 #. Translators: one of the add-on update source choices.
+#, fuzzy
+msgid "NV Access add-on store"
+msgstr "Loja de extras do NVDA"
+
+#. Translators: one of the add-on update source choices.
 msgid "NVDA community add-ons website"
 msgstr "Sítio Web de extras da comunidade NVDA"
 
@@ -289,11 +311,6 @@ msgstr "Catálogo de add-ons da comunidade chinesa"
 #. Translators: one of the add-on update source choices.
 msgid "Taiwan community add-ons catalog"
 msgstr "Catálogo de add-ons da comunidade de Taiwan"
-
-#. Translators: one of the add-on update source choices.
-#, fuzzy
-msgid "NVDA add-on store"
-msgstr "Actualizações de extras do NVDA"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager

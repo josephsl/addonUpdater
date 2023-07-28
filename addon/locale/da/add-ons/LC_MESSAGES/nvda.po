@@ -17,6 +17,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.0.1\n"
 
+#. Add-on Updater requires Windows 10 22H2 or later.
+#. Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
+#. Unsupported systems include Windows versions earlier than 10 and unsupported feature updates.
+msgid "Unsupported Windows release"
+msgstr ""
+
+#. Translators: Dialog text shown when trying to install the add-on on
+#. releases earlier than minimum supported release.
+#, python-brace-format
+msgid ""
+"You are using {releaseName} ({build}), a Windows release not supported by "
+"this add-on.\n"
+"This add-on requires {supportedReleaseName} ({supportedBuild}) or later."
+msgstr ""
+
 #. Translators: message presented when add-on store is available in NVDA.
 msgid ""
 "You are using an NVDA release with add-on store included. Visit NVDA add-on "
@@ -274,6 +289,11 @@ msgid "Could not update add-ons."
 msgstr "Kunne ikke opdatere tilføjelser."
 
 #. Translators: one of the add-on update source choices.
+#, fuzzy
+msgid "NV Access add-on store"
+msgstr "NVDA-tilføjelsesopdateringer"
+
+#. Translators: one of the add-on update source choices.
 msgid "NVDA community add-ons website"
 msgstr "Tilføjelser til NVDA fra fællesskabets hjemmeside"
 
@@ -288,11 +308,6 @@ msgstr "Hjemmesiden for tilføjelser til NVDA i Kina"
 #. Translators: one of the add-on update source choices.
 msgid "Taiwan community add-ons catalog"
 msgstr "Katalog med tilføjelser til Taiwan-fællesskabet"
-
-#. Translators: one of the add-on update source choices.
-#, fuzzy
-msgid "NVDA add-on store"
-msgstr "NVDA-tilføjelsesopdateringer"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
