@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-05-19 14:30+0330\n"
+"PO-Revision-Date: 2023-07-29 22:37+0330\n"
 "Last-Translator: Mohammadreza Rashad <mohammadreza5712@gmail.com>\n"
 "Language-Team: NVDA Translation Team <nvda-translations@groups.io>\n"
 "Language: fa\n"
@@ -21,7 +21,7 @@ msgstr ""
 #. Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
 #. Unsupported systems include Windows versions earlier than 10 and unsupported feature updates.
 msgid "Unsupported Windows release"
-msgstr ""
+msgstr "این نسخه از ویندوز پشتیبانی نمی‌شود"
 
 #. Translators: Dialog text shown when trying to install the add-on on
 #. releases earlier than minimum supported release.
@@ -31,6 +31,9 @@ msgid ""
 "this add-on.\n"
 "This add-on requires {supportedReleaseName} ({supportedBuild}) or later."
 msgstr ""
+"شما دارید از {releaseName} ({build}) که توسط این افزونه پشتیبانی نمی‌شود "
+"استفاده میکنید. این افزونه نیازمندِ {supportedReleaseName} ({supportedBuild}) "
+"یا بالاتر است."
 
 #. Translators: message presented when add-on store is available in NVDA.
 msgid ""

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-07-27 23:13+0100\n"
+"PO-Revision-Date: 2023-07-28 14:34+0100\n"
 "Last-Translator: Ângelo Abrantes <ampa4374@gmail.com>\n"
 "Language-Team: Equipa portuguesa do NVDA <ampa4374@gmail.com; rui."
 "fontes@tiflotecnia.pt>\n"
@@ -24,7 +24,7 @@ msgstr ""
 #. Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
 #. Unsupported systems include Windows versions earlier than 10 and unsupported feature updates.
 msgid "Unsupported Windows release"
-msgstr ""
+msgstr "Versão do Windows não suportada"
 
 #. Translators: Dialog text shown when trying to install the add-on on
 #. releases earlier than minimum supported release.
@@ -34,6 +34,9 @@ msgid ""
 "this add-on.\n"
 "This add-on requires {supportedReleaseName} ({supportedBuild}) or later."
 msgstr ""
+"Está a utilizar {releaseName} ({build}), uma versão do Windows não suportada "
+"por este extra.\n"
+"Este extra requer {supportedReleaseName} ({supportedBuild}) ou posterior."
 
 #. Translators: message presented when add-on store is available in NVDA.
 msgid ""
@@ -292,9 +295,8 @@ msgid "Could not update add-ons."
 msgstr "Impossível actualizar os extras."
 
 #. Translators: one of the add-on update source choices.
-#, fuzzy
 msgid "NV Access add-on store"
-msgstr "Loja de extras do NVDA"
+msgstr "Loja de extras do NV Access"
 
 #. Translators: one of the add-on update source choices.
 msgid "NVDA community add-ons website"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-06-11 09:10+0800\n"
+"PO-Revision-Date: 2023-08-01 16:35+0800\n"
 "Last-Translator: 完美很难 <1872265132@qq.com>\n"
 "Language-Team: NVDASimplified Chinese team All volunteers <Copyright (C) "
 "2010-2019>\n"
@@ -16,13 +16,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.3\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #. Add-on Updater requires Windows 10 22H2 or later.
 #. Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
 #. Unsupported systems include Windows versions earlier than 10 and unsupported feature updates.
 msgid "Unsupported Windows release"
-msgstr ""
+msgstr "不受支持的 Windows 版本"
 
 #. Translators: Dialog text shown when trying to install the add-on on
 #. releases earlier than minimum supported release.
@@ -32,6 +32,8 @@ msgid ""
 "this add-on.\n"
 "This add-on requires {supportedReleaseName} ({supportedBuild}) or later."
 msgstr ""
+"您正在使用 {releaseName} ({build})，此插件不支持该版本的 Windows。\n"
+"此插件需要 {supportedReleaseName} ({supportedBuild}) 或更高版本。"
 
 #. Translators: message presented when add-on store is available in NVDA.
 msgid ""
@@ -39,8 +41,8 @@ msgid ""
 "store (NVDA menu, Tools, add-on store) to check for add-on updates. Add-on "
 "Updater can still be used to check for add-on updates in the meantime."
 msgstr ""
-"您正在使用包含插件商店的 NVDA 版本。访问 NVDA 插件商店（NVDA 菜单、工具、插件"
-"商店）以检查插件更新。同时插件更新器仍然可用。"
+"您正在使用包含插件商店的 NVDA 版本。访问 NVDA 插件商店（NVDA 菜单、工具、插"
+"件商店）以检查插件更新。同时插件更新器仍然可用。"
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -104,8 +106,8 @@ msgid ""
 "You are about to switch to a different add-on update source. Are you sure "
 "you wish to change update source to {updateSourceDescription}?"
 msgstr ""
-"您即将切换到另一个插件更新源。您确定要将更新源切换为{updateSourceDescription}"
-"吗？"
+"您即将切换到另一个插件更新源。您确定要将更新源切换为"
+"{updateSourceDescription}吗？"
 
 #. Translators: Title of the add-on update source dialog.
 msgid "Add-on update source change"
@@ -160,7 +162,7 @@ msgstr "{updateCount} 个插件可更新。"
 #. Translators: Message displayed when add-on updates were installed.
 #, python-brace-format
 msgid "Add-ons pending install: {updateCount}"
-msgstr "待安装的插件{updateCount}"
+msgstr "{updateCount} 个插件待安装"
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify current add-on version (example: version is 0.3).
@@ -190,12 +192,12 @@ msgid ""
 "One or more add-ons are currently disabled. These add-ons will be enabled "
 "after updating. Are you sure you wish to update disabled add-ons anyway?"
 msgstr ""
-"目前有一个或多个NVDA 插件被禁用。这些插件将在更新后被启用。您确定要更新被禁用"
-"的插件吗？"
+"目前有一个或多个NVDA 插件被禁用。这些插件将在更新后被启用。您确定要更新被禁"
+"用的插件吗？"
 
 #. Translators: Title of the add-on update confirmation dialog.
 msgid "Update disabled add-ons"
-msgstr "更新禁用的NVDA插件"
+msgstr "更新禁用的插件"
 
 #, python-brace-format
 msgid "Downloading {addonName}"
@@ -246,7 +248,7 @@ msgstr "插件开发者标记为旧版"
 #. Translators: menu item label for reviewing add-on updates.
 #, python-brace-format
 msgid "Review &add-on updates ({updateCount})..."
-msgstr "查看插件更新（{updateCount}）..."
+msgstr "查看插件更新（{updateCount}）(&A)..."
 
 #. Translators: presented as part of add-on update notification message.
 #, python-brace-format
