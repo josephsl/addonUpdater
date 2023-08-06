@@ -190,8 +190,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		if not canUpdate:
 			return
 		# Do not continue if add-on store client is present.
-		if addonUtils.isAddonStorePresent():
-			return
+		"""if addonUtils.isAddonStorePresent():
+			return"""
 		addonHandlerEx.updateSuccess.unregister(self.updateMenuItemLabel)
 		config.post_configSave.unregister(addonUtils.save)
 		config.post_configReset.unregister(addonUtils.reload)
