@@ -117,6 +117,7 @@ def addonStorePresent() -> bool:
 				presentAddonStoreMessage, addonStoreMessage, _("Add-on Updater")
 			)
 			addonUtils.updateState["addonStoreNotificationShown"] = True
+			addonUtils.saveState(keepStateOnline=True)
 		# For now allow Add-on Updater to check for add-on updates.
 		# return True
 	return False
