@@ -13,10 +13,6 @@ def isClientOS() -> bool:
 	return winVersion.getWinVer().productType == "workstation"
 
 
-def isWin10ClientOrLater() -> bool:
-	return winVersion.getWinVer() >= winVersion.WIN10 and isClientOS()
-
-
 def isAddonStorePresent() -> bool:
 	# NVDA 2023.2 comes with add-on store GUI command with add-ons manager command as an alias for it.
 	import gui
