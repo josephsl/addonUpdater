@@ -390,14 +390,24 @@ class LegacyAddonsDialog(wx.Dialog):
 		settingsSizer = wx.BoxSizer(wx.VERTICAL)
 		addonsSizerHelper = gui.guiHelper.BoxSizerHelper(self, sizer=settingsSizer)
 
-		introText = _(
-			# Translators: message displayed if legacy add-ons are found
-			# (add-ons with all features included in NVDA or declared as legacy by add-on authors).
-			"One or more legacy add-ons were found in your NVDA installation. "
-			"Features from these add-ons are now part of the NVDA version you are using "
-			"or declared legacy by add-on developers. "
-			"Please disable or uninstall these add-ons by going to NVDA menu, Tools, Manage Add-ons.\n"
-		)
+		if not addonUtils.isAddonStorePresent():
+			introText = _(
+				# Translators: message displayed if legacy add-ons are found
+				# (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+				"One or more legacy add-ons were found in your NVDA installation. "
+				"Features from these add-ons are now part of the NVDA version you are using "
+				"or declared legacy by add-on developers. "
+				"Please disable or uninstall these add-ons by going to NVDA menu, Tools, Manage Add-ons.\n"
+			)
+		else:
+			introText = _(
+				# Translators: message displayed if legacy add-ons are found
+				# (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+				"One or more legacy add-ons were found in your NVDA installation. "
+				"Features from these add-ons are now part of the NVDA version you are using "
+				"or declared legacy by add-on developers. "
+				"Please disable or uninstall these add-ons by going to NVDA menu, Tools, Add-on store.\n"
+			)
 		legacyAddonsIntroLabel = wx.StaticText(self, label=introText)
 		legacyAddonsIntroLabel.Wrap(550)
 		addonsSizerHelper.addItem(legacyAddonsIntroLabel)
