@@ -127,6 +127,21 @@ msgstr ""
 "Deaktiver eller afinstaller disse tilføjelser ved at gå til NVDA-menuen, "
 "Værktøjer, Administrer tilføjelsesprogrammer.\n"
 
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+#, fuzzy
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Add-on store.\n"
+msgstr ""
+"Et eller flere forældede tilføjelsesprogrammer blev fundet i din NVDA-"
+"installation. Funktioner fra disse tilføjelser er nu en del af den NVDA-"
+"version, du bruger eller erklærede forældet af tilføjelsesudviklere. "
+"Deaktiver eller afinstaller disse tilføjelser ved at gå til NVDA-menuen, "
+"Værktøjer, Administrer tilføjelsesprogrammer.\n"
+
 #. Translators: the label for the legacy add-ons list.
 msgid "Legacy add-ons"
 msgstr "Forældede tilføjelser"

@@ -8,20 +8,20 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-05-19 08:19+0200\n"
+"PO-Revision-Date: 2023-07-30 23:49+0200\n"
 "Last-Translator: René Linke <rene.linke@hamburg.de>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #. Add-on Updater requires Windows 10 22H2 or later.
 #. Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
 #. Unsupported systems include Windows versions earlier than 10 and unsupported feature updates.
 msgid "Unsupported Windows release"
-msgstr ""
+msgstr "Nicht unterstützte Windows-Version"
 
 #. Translators: Dialog text shown when trying to install the add-on on
 #. releases earlier than minimum supported release.
@@ -31,6 +31,10 @@ msgid ""
 "this add-on.\n"
 "This add-on requires {supportedReleaseName} ({supportedBuild}) or later."
 msgstr ""
+"Sie verwenden {releaseName} ({build}), eine Windows-Version, die von dieser "
+"NVDA-Erweiterung nicht unterstützt wird.\n"
+"Für diese NVDA-Erweiterung wird {supportedReleaseName} ({supportedBuild}) "
+"oder neuer benötigt."
 
 #. Translators: message presented when add-on store is available in NVDA.
 msgid ""
@@ -124,6 +128,23 @@ msgid ""
 "from these add-ons are now part of the NVDA version you are using or "
 "declared legacy by add-on developers. Please disable or uninstall these add-"
 "ons by going to NVDA menu, Tools, Manage Add-ons.\n"
+msgstr ""
+"In Ihrer NVDA-Installation wurden eine oder mehrere ältere Erweiterungen "
+"gefunden. Die Funktionen dieser Erweiterungen sind mittlerweile fester "
+"Bestandteil in NVDA geworden, die Sie verwenden oder die von Entwicklern der "
+"jeweiligen Erweiterung als veraltet gekennzeichnet wurde. Bitte deaktivieren "
+"oder deinstallieren Sie diese Erweiterungen, indem Sie ins NVDA-Menü gehen, "
+"dann dort auf \"Werkzeuge\" und dann auf \"Erweiterungen verwalten\" "
+"klicken.\n"
+
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+#, fuzzy
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Add-on store.\n"
 msgstr ""
 "In Ihrer NVDA-Installation wurden eine oder mehrere ältere Erweiterungen "
 "gefunden. Die Funktionen dieser Erweiterungen sind mittlerweile fester "

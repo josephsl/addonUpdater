@@ -135,6 +135,21 @@ msgstr ""
 "käytöstä tai poista niiden asennus avaamalla NVDA-valikko ja valitsemalla "
 "Työkalut-alivalikosta Lisäosien hallinta.\n"
 
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+#, fuzzy
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Add-on store.\n"
+msgstr ""
+"NVDA-asennuksestasi löytyi yksi tai useampi vanhentunut lisäosa. Näiden "
+"lisäosien ominaisuudet sisältyvät käyttämääsi NVDA-versioon tai kehittäjät "
+"ovat ilmoittaneet ne vanhentuneiksi. Ole hyvä ja poista nämä lisäosat "
+"käytöstä tai poista niiden asennus avaamalla NVDA-valikko ja valitsemalla "
+"Työkalut-alivalikosta Lisäosien hallinta.\n"
+
 #. Translators: the label for the legacy add-ons list.
 msgid "Legacy add-ons"
 msgstr "Vanhentuneet lisäosat"

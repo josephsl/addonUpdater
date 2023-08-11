@@ -127,6 +127,19 @@ msgstr ""
 "súčasťou NVDA a preto sa samotné doplnky nevyvýjajú. Odstráňte ich cez "
 "správcu doplnkov nvda. Otvorte ponuku NVDA > Nástroje > Spravovať doplnky.\n"
 
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+#, fuzzy
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Add-on store.\n"
+msgstr ""
+"Pri kontrole sa našli nepodporované doplnky. Funkcie z týchto doplnkov sú už "
+"súčasťou NVDA a preto sa samotné doplnky nevyvýjajú. Odstráňte ich cez "
+"správcu doplnkov nvda. Otvorte ponuku NVDA > Nástroje > Spravovať doplnky.\n"
+
 #. Translators: the label for the legacy add-ons list.
 msgid "Legacy add-ons"
 msgstr "Nepodporované doplnky"

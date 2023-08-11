@@ -132,6 +132,20 @@ msgstr ""
 "або ж розробники визначили їх як застарілі. Вимкніть або видаліть ці "
 "додатки, перейшовши до меню NVDA, Інструменти, Керування додатками.\n"
 
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+#, fuzzy
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Add-on store.\n"
+msgstr ""
+"У вашій інсталяції NVDA знайдено один або кілька застарілих додатків. "
+"Функції цих додатків тепер є частиною версії NVDA, яку ви використовуєте, "
+"або ж розробники визначили їх як застарілі. Вимкніть або видаліть ці "
+"додатки, перейшовши до меню NVDA, Інструменти, Керування додатками.\n"
+
 #. Translators: the label for the legacy add-ons list.
 msgid "Legacy add-ons"
 msgstr "Застарілі додатки"

@@ -41,8 +41,8 @@ msgid ""
 "store (NVDA menu, Tools, add-on store) to check for add-on updates. Add-on "
 "Updater can still be used to check for add-on updates in the meantime."
 msgstr ""
-"您正在使用包含插件商店的 NVDA 版本。访问 NVDA 插件商店（NVDA 菜单、工具、插"
-"件商店）以检查插件更新。同时插件更新器仍然可用。"
+"您正在使用包含插件商店的 NVDA 版本。访问 NVDA 插件商店（NVDA 菜单、工具、插件"
+"商店）以检查插件更新。同时插件更新器仍然可用。"
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -106,8 +106,8 @@ msgid ""
 "You are about to switch to a different add-on update source. Are you sure "
 "you wish to change update source to {updateSourceDescription}?"
 msgstr ""
-"您即将切换到另一个插件更新源。您确定要将更新源切换为"
-"{updateSourceDescription}吗？"
+"您即将切换到另一个插件更新源。您确定要将更新源切换为{updateSourceDescription}"
+"吗？"
 
 #. Translators: Title of the add-on update source dialog.
 msgid "Add-on update source change"
@@ -124,6 +124,19 @@ msgid ""
 "from these add-ons are now part of the NVDA version you are using or "
 "declared legacy by add-on developers. Please disable or uninstall these add-"
 "ons by going to NVDA menu, Tools, Manage Add-ons.\n"
+msgstr ""
+"当前的 NVDA 版本中安装了某些旧版插件。这些插件的某些功能可能已包含在您正在使"
+"用的 NVDA 版本中，或被开发者标记为旧版插件。\n"
+"请转到 NVDA 菜单，工具，插件管理器以禁用或卸载这些插件。\n"
+
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+#, fuzzy
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Add-on store.\n"
 msgstr ""
 "当前的 NVDA 版本中安装了某些旧版插件。这些插件的某些功能可能已包含在您正在使"
 "用的 NVDA 版本中，或被开发者标记为旧版插件。\n"
@@ -192,8 +205,8 @@ msgid ""
 "One or more add-ons are currently disabled. These add-ons will be enabled "
 "after updating. Are you sure you wish to update disabled add-ons anyway?"
 msgstr ""
-"目前有一个或多个NVDA 插件被禁用。这些插件将在更新后被启用。您确定要更新被禁"
-"用的插件吗？"
+"目前有一个或多个NVDA 插件被禁用。这些插件将在更新后被启用。您确定要更新被禁用"
+"的插件吗？"
 
 #. Translators: Title of the add-on update confirmation dialog.
 msgid "Update disabled add-ons"

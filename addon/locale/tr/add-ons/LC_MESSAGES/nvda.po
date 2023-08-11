@@ -138,6 +138,21 @@ msgstr ""
 "menüsü, Araçlar, Eklentileri Yönet'e giderek bu eklentileri devre dışı "
 "bırakın veya kaldırın.\n"
 
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+#, fuzzy
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Add-on store.\n"
+msgstr ""
+"NVDA kurulumunuzda bir veya daha fazla eski eklenti bulundu. Bu "
+"eklentilerdeki özellikler artık kullandığınız NVDA sürümünün bir parçası "
+"veya eklenti geliştiricileri tarafından eski olarak ilan edildi. Lütfen NVDA "
+"menüsü, Araçlar, Eklentileri Yönet'e giderek bu eklentileri devre dışı "
+"bırakın veya kaldırın.\n"
+
 #. Translators: the label for the legacy add-ons list.
 msgid "Legacy add-ons"
 msgstr "Eski eklentiler"

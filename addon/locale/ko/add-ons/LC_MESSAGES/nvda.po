@@ -128,6 +128,20 @@ msgstr ""
 "개발자가 더이상 필요가 없다고 선언했습니다. NVDA 메뉴의 도구, 추가 기능 관리 "
 "항목에서 필요없어진 추가 기능들을 비활성화하거나 삭제해 주세요.\n"
 
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+#, fuzzy
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Add-on store.\n"
+msgstr ""
+"설치된 NVDA에서 필요없어진 추가 기능이 하나 이상 발견됐습니다. 이 기능들은 이"
+"제 사용하고 계시는 버전의 NVDA에 자체적으로 포함되어 있거나, 그 추가 기능의 "
+"개발자가 더이상 필요가 없다고 선언했습니다. NVDA 메뉴의 도구, 추가 기능 관리 "
+"항목에서 필요없어진 추가 기능들을 비활성화하거나 삭제해 주세요.\n"
+
 #. Translators: the label for the legacy add-ons list.
 msgid "Legacy add-ons"
 msgstr "필요없어진 추가 기능"

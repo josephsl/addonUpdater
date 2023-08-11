@@ -134,6 +134,20 @@ msgstr ""
 "je ve správci doplňků (nvda. Otevřete nabídku NVDA > Nástroje > Spravovat "
 "doplňky.\n"
 
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+#, fuzzy
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Add-on store.\n"
+msgstr ""
+"Byly nalezeny nepodporované doplňky. Funkce z těchto doplňků jsou již "
+"součástí programu NVDA a proto se samotné doplňky dále nevyvýjí. Odstraňte "
+"je ve správci doplňků (nvda. Otevřete nabídku NVDA > Nástroje > Spravovat "
+"doplňky.\n"
+
 #. Translators: the label for the legacy add-ons list.
 msgid "Legacy add-ons"
 msgstr "Nepodporované doplňky"
@@ -197,8 +211,8 @@ msgid ""
 "One or more add-ons are currently disabled. These add-ons will be enabled "
 "after updating. Are you sure you wish to update disabled add-ons anyway?"
 msgstr ""
-"Jeden nebo více doplňků je aktuálně zakázáno. Tyto doplňky budou povoleny "
-"po aktualizaci. Opravdu chcete aktualizovat zakázané doplňky?"
+"Jeden nebo více doplňků je aktuálně zakázáno. Tyto doplňky budou povoleny po "
+"aktualizaci. Opravdu chcete aktualizovat zakázané doplňky?"
 
 #. Translators: Title of the add-on update confirmation dialog.
 msgid "Update disabled add-ons"

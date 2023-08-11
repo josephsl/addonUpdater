@@ -134,6 +134,21 @@ msgstr ""
 "non compatibili. Disabilita o disinstalla questi add-on scegliendo Strumenti "
 "-> Gestione Componenti Aggiuntivi dal menù di NVDA.\n"
 
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+#, fuzzy
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Add-on store.\n"
+msgstr ""
+"Nella tua installazione di NVDA sono stati trovati uno o più componenti "
+"aggiuntivi obsoleti. Le funzionalità di questi componenti ora fanno parte "
+"della versione di NVDA che stai utilizzando oppure risultano semplicemente "
+"non compatibili. Disabilita o disinstalla questi add-on scegliendo Strumenti "
+"-> Gestione Componenti Aggiuntivi dal menù di NVDA.\n"
+
 #. Translators: the label for the legacy add-ons list.
 msgid "Legacy add-ons"
 msgstr "componenti aggiuntivi obsoleti"

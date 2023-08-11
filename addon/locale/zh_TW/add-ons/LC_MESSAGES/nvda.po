@@ -125,6 +125,19 @@ msgstr ""
 "在使用的 NVDA 版本的一部分，或由附加元件開發人員聲明為舊版本。請通過 NVDA 選"
 "單、工具、管理附加元件停用或移除這些附加元件。\n"
 
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+#, fuzzy
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Add-on store.\n"
+msgstr ""
+"在您的 NVDA 安裝中發現了一個或多個舊版附加元件。這些附加元件的功能現在是您正"
+"在使用的 NVDA 版本的一部分，或由附加元件開發人員聲明為舊版本。請通過 NVDA 選"
+"單、工具、管理附加元件停用或移除這些附加元件。\n"
+
 #. Translators: the label for the legacy add-ons list.
 msgid "Legacy add-ons"
 msgstr "遺留附加元件"

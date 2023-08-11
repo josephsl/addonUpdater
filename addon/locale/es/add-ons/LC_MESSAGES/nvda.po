@@ -136,6 +136,21 @@ msgstr ""
 "declarado obsoletos. Por favor, deshabilita o desinstala estos complementos "
 "yendo al menú NVDA, Herramientas, Gestionar complementos.\n"
 
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+#, fuzzy
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Add-on store.\n"
+msgstr ""
+"Se han encontrado uno o más complementos antiguos en tu instalación de NVDA. "
+"Las funciones de estos complementos ahora forman parte de la versión de NVDA "
+"que estás utilizando, o los desarrolladores de los complementos los han "
+"declarado obsoletos. Por favor, deshabilita o desinstala estos complementos "
+"yendo al menú NVDA, Herramientas, Gestionar complementos.\n"
+
 #. Translators: the label for the legacy add-ons list.
 msgid "Legacy add-ons"
 msgstr "Complementos antiguos"

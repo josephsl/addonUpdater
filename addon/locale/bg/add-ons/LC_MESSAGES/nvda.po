@@ -136,6 +136,21 @@ msgstr ""
 "Моля, изключете или премахнете тези добавки, като отидете в менюто на NVDA -"
 "> Инструменти -> Управление на добавките.\n"
 
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+#, fuzzy
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Add-on store.\n"
+msgstr ""
+"Във вашата инсталация на NVDA бяха намерени една или повече наследени "
+"добавки. Функциите от тези добавки или вече са част от версията на NVDA, "
+"която използвате, или са обявени като остарели от техните разработчици. "
+"Моля, изключете или премахнете тези добавки, като отидете в менюто на NVDA -"
+"> Инструменти -> Управление на добавките.\n"
+
 #. Translators: the label for the legacy add-ons list.
 msgid "Legacy add-ons"
 msgstr "Остарели добавки"
