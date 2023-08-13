@@ -91,38 +91,6 @@ def legacyAddonsFound() -> bool:
 	return False
 
 
-# Present a message if add-on store client is included in NVDA.
-# If automatic add-on updates are on, delay it until the message is shown.
-# NV Access add-on store replaces Add-on Updater once deployed.
-def addonStorePresent() -> bool:
-	def presentAddonStoreMessage(message, title):
-		gui.messageBox(message, title, wx.OK | wx.ICON_INFORMATION)
-		if addonUtils.updateState["autoUpdate"]:
-			# But not when NVDA itself is updating.
-			# Unlike global plugin constructor, perform automatic update check after a short pause.
-			if not ((globalVars.appArgs.install or globalVars.appArgs.createPortable) and globalVars.appArgs.minimal):
-				wx.CallLater(5000, autoUpdateCheck)
-	# Do not present the below message if NVDA itself is updating at the moment.
-	if (globalVars.appArgs.install or globalVars.appArgs.createPortable) and globalVars.appArgs.minimal:
-		return False
-	if addonUtils.isAddonStorePresent():
-		addonStoreMessage = _(
-			# Translators: message presented when add-on store is available in NVDA.
-			"You are using an NVDA release with add-on store included. "
-			"Visit NVDA add-on store (NVDA menu, Tools, add-on store) to check for add-on updates. "
-			"Add-on Updater can still be used to check for add-on updates in the meantime."
-		)
-		if not addonUtils.updateState["addonStoreNotificationShown"]:
-			wx.CallAfter(
-				presentAddonStoreMessage, addonStoreMessage, _("Add-on Updater")
-			)
-			addonUtils.updateState["addonStoreNotificationShown"] = True
-			addonUtils.saveState(keepStateOnline=True)
-		# For now allow Add-on Updater to check for add-on updates.
-		# return True
-	return False
-
-
 # Security: disable the global plugin altogether in secure mode.
 def disableInSecureMode(cls):
 	return globalPluginHandler.GlobalPlugin if globalVars.appArgs.secure else cls
@@ -160,11 +128,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# This is not supported properly on NVDA releases before 2022.1.
 		addonHandler.isCLIParamKnown.register(processArgs)
 		addonUtils.loadState()
-		# Do not perform automatic update check if add-on store message is shown.
-		addonStoreNotificationShown = addonUtils.updateState["addonStoreNotificationShown"]
-		# Don't go further if add-on store client is present.
-		if addonStorePresent():
-			return
 		self.toolsMenu = gui.mainFrame.sysTrayIcon.toolsMenu
 		self.addonUpdater = self.toolsMenu.Append(
 			# Translators: menu item label for checking add-on updates.
@@ -181,8 +144,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			# But not when NVDA itself is updating.
 			# Disable this if add-on store message was shown.
 			if not ((globalVars.appArgs.install or globalVars.appArgs.createPortable) and globalVars.appArgs.minimal):
-				if addonStoreNotificationShown == addonUtils.updateState["addonStoreNotificationShown"]:
-					wx.CallAfter(autoUpdateCheck)
+				wx.CallAfter(autoUpdateCheck)
 
 	def terminate(self):
 		super(GlobalPlugin, self).terminate()
