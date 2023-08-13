@@ -212,14 +212,12 @@ names2urls = {
 	"developerToolkit": "devtoolkit",
 	"focusHighlight": "fh",
 	"Mozilla": "moz",
-	"noBeepsSpeechMode": "nb",
 	"nvSpeechPlayer": "nvsp",
 	"phoneticPunctuation": "phoneticpunc",
 	"speakPasswords": "spp",
 	"speechHistory": "sps",
 	"synthRingSettingsSelector": "synthrings",
 	"textInformation": "txtinfo",
-	"toolbarsExplorer": "tbx",
 }
 
 
