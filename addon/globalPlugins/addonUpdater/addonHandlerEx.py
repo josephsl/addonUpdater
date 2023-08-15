@@ -40,7 +40,6 @@ LegacyAddons: dict[str, str] = {
 	"screenCurtain": LegacyAddonIncludedInNVDA,
 	# Team Viewer is no longer used by the add-on author.
 	"teamViewer": LegacyAddonAuthorDeclaration,
-	"toneMaster": LegacyAddonAuthorDeclaration,
 }
 
 
