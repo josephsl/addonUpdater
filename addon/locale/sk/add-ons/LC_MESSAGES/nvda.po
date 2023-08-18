@@ -34,6 +34,20 @@ msgid ""
 msgstr ""
 
 #. Translators: message presented when add-on store is available in NVDA.
+#, fuzzy
+msgid ""
+"You are using NVDA 2023.1 or earlier. NVDA 2023.2 introduces an add-on store "
+"to browse, install, manage, and update add-ons. After updating to NVDA "
+"2023.2 or later, Visit NVDA add-on store (NVDA menu, Tools, add-on store) to "
+"check for add-on updates. Add-on Updater can still be used to check for add-"
+"on updates in the meantime."
+msgstr ""
+"Používate verziu programu NVDA, v ktorej je integrovaná podpora pre obchod s "
+"doplnkami NVDA. Kontrolu spustíte s ponuky (ponuka NVDA, Nástroje, Obchod s "
+"doplnkami). Zatiaľ môžete na aktualizáciu doplnkov používať aj tento doplnok "
+"Addon Updater."
+
+#. Translators: message presented when add-on store is available in NVDA.
 msgid ""
 "You are using an NVDA release with add-on store included. Visit NVDA add-on "
 "store (NVDA menu, Tools, add-on store) to check for add-on updates. Add-on "

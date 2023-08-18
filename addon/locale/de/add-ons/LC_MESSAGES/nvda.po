@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-07-30 23:49+0200\n"
+"PO-Revision-Date: 2023-08-11 04:05+0200\n"
 "Last-Translator: René Linke <rene.linke@hamburg.de>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -35,6 +35,21 @@ msgstr ""
 "NVDA-Erweiterung nicht unterstützt wird.\n"
 "Für diese NVDA-Erweiterung wird {supportedReleaseName} ({supportedBuild}) "
 "oder neuer benötigt."
+
+#. Translators: message presented when add-on store is available in NVDA.
+#, fuzzy
+msgid ""
+"You are using NVDA 2023.1 or earlier. NVDA 2023.2 introduces an add-on store "
+"to browse, install, manage, and update add-ons. After updating to NVDA "
+"2023.2 or later, Visit NVDA add-on store (NVDA menu, Tools, add-on store) to "
+"check for add-on updates. Add-on Updater can still be used to check for add-"
+"on updates in the meantime."
+msgstr ""
+"Sie verwenden eine NVDA-Version mit integriertem Store für NVDA-"
+"Erweiterungen. Besuchen Sie diesen Store (NVDA-Menü, Werkzeuge, Store für "
+"NVDA-Erweiterungen), um nach Updates für NVDA-Erweiterungen zu suchen. Mit "
+"dem Updater für NVDA-Erweiterungen können Sie in der Zwischenzeit weiterhin "
+"nach Updates suchen."
 
 #. Translators: message presented when add-on store is available in NVDA.
 msgid ""
@@ -139,20 +154,18 @@ msgstr ""
 
 #. Translators: message displayed if legacy add-ons are found
 #. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
-#, fuzzy
 msgid ""
 "One or more legacy add-ons were found in your NVDA installation. Features "
 "from these add-ons are now part of the NVDA version you are using or "
 "declared legacy by add-on developers. Please disable or uninstall these add-"
 "ons by going to NVDA menu, Tools, Add-on store.\n"
 msgstr ""
-"In Ihrer NVDA-Installation wurden eine oder mehrere ältere Erweiterungen "
-"gefunden. Die Funktionen dieser Erweiterungen sind mittlerweile fester "
-"Bestandteil in NVDA geworden, die Sie verwenden oder die von Entwicklern der "
-"jeweiligen Erweiterung als veraltet gekennzeichnet wurde. Bitte deaktivieren "
-"oder deinstallieren Sie diese Erweiterungen, indem Sie ins NVDA-Menü gehen, "
-"dann dort auf \"Werkzeuge\" und dann auf \"Erweiterungen verwalten\" "
-"klicken.\n"
+"In Ihrer NVDA-Installation wurden eine oder mehrere veraltete NVDA-"
+"Erweiterungen gefunden. Die Funktionen dieser NVDA-Erweiterungen sind "
+"mittlerweile Teil der von Ihnen verwendeten NVDA-Version oder wurden von den "
+"Entwicklern der NVDA-Erweiterungen als veraltet deklariert. Bitte "
+"deaktivieren bzw. deinstallieren Sie diese NVDA-Erweiterungen über das NVDA-"
+"Menü, Werkzeuge, Store für NVDA-Erweiterungen.\n"
 
 #. Translators: the label for the legacy add-ons list.
 msgid "Legacy add-ons"
