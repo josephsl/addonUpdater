@@ -213,7 +213,6 @@ names2urls = {
 	"focusHighlight": "fh",
 	"Mozilla": "moz",
 	"nvSpeechPlayer": "nvsp",
-	"phoneticPunctuation": "phoneticpunc",
 	"speakPasswords": "spp",
 	"speechHistory": "sps",
 	"synthRingSettingsSelector": "synthrings",
