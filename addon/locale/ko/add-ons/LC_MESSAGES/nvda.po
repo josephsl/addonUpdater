@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-08-13 05:15-0600\n"
+"PO-Revision-Date: 2023-08-19 16:03-0600\n"
 "Last-Translator: Stanley Chung <stanley@mail.com>\n"
 "Language-Team: \n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #. Add-on Updater requires Windows 10 22H2 or later.
 #. Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
@@ -35,7 +35,6 @@ msgstr ""
 "{supportedReleaseName}({supportedBuild}) 이상으로 업그레이드하십시오."
 
 #. Translators: message presented when add-on store is available in NVDA.
-#, fuzzy
 msgid ""
 "You are using NVDA 2023.1 or earlier. NVDA 2023.2 introduces an add-on store "
 "to browse, install, manage, and update add-ons. After updating to NVDA "
@@ -43,9 +42,11 @@ msgid ""
 "check for add-on updates. Add-on Updater can still be used to check for add-"
 "on updates in the meantime."
 msgstr ""
-"Add-on store가 탑제된 NVDA 버전입니다. NVDA add-on store(NVDA 메뉴, 도구, "
-"add-on store)을 방문하여 추가 기능 업데이트를 확인하세요. Add-on Updater을 통"
-"해 추가 기능 업데이트를 받으실 수도 있습니다."
+"NVDA 2023.1 또는 이전 버전입니다. NVDA 2023.2로 업그레이드하여 추가 기능 스토"
+"어를 통해 추가 기능들을 검색, 설치, 관리 및 업데이트하실 수 있습니다. NVDA "
+"2023.2 설치 후 NVDA 추가 기능 스토어(NVDA 메뉴, 도구, 추가 기능 스토어)을 방"
+"문하여 추가 기능 업데이트를 확인하세요. Add-on Updater을 통해 추가 기능 업데"
+"이트를 받으실 수도 있습니다."
 
 #. Translators: message presented when add-on store is available in NVDA.
 msgid ""
@@ -53,9 +54,9 @@ msgid ""
 "store (NVDA menu, Tools, add-on store) to check for add-on updates. Add-on "
 "Updater can still be used to check for add-on updates in the meantime."
 msgstr ""
-"Add-on store가 탑제된 NVDA 버전입니다. NVDA add-on store(NVDA 메뉴, 도구, "
-"add-on store)을 방문하여 추가 기능 업데이트를 확인하세요. Add-on Updater을 통"
-"해 추가 기능 업데이트를 받으실 수도 있습니다."
+"추가 기능 스토어가 탑제된 NVDA 버전입니다. NVDA 추가 기능 스토어(NVDA 메뉴, "
+"도구, 추가 기능 스토어)을 방문하여 추가 기능 업데이트를 확인하세요. Add-on "
+"Updater을 통해 추가 기능 업데이트를 받으실 수도 있습니다."
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.

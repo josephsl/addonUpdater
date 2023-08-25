@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 19.07\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2019-06-28 01:00+1000\n"
-"PO-Revision-Date: 2023-07-28 13:28+0300\n"
+"PO-Revision-Date: 2023-08-18 09:11+0300\n"
 "Last-Translator: Ukrainian NVDA Community <vp88.mobile@gmail.com>\n"
 "Language-Team: \n"
 "Language: uk\n"
@@ -36,7 +36,6 @@ msgstr ""
 "Цей додаток вимагає {supportedReleaseName} ({supportedBuild}) чи пізнішу."
 
 #. Translators: message presented when add-on store is available in NVDA.
-#, fuzzy
 msgid ""
 "You are using NVDA 2023.1 or earlier. NVDA 2023.2 introduces an add-on store "
 "to browse, install, manage, and update add-ons. After updating to NVDA "
@@ -44,10 +43,12 @@ msgid ""
 "check for add-on updates. Add-on Updater can still be used to check for add-"
 "on updates in the meantime."
 msgstr ""
-"Ви використовуєте версію NVDA з включеним магазином додатків. Відвідайте "
+"Ви використовуєте NVDA 2023.1 або ранішу. NVDA 2023.2 має вбудований магазин "
+"додатків для огляду, встановлення й оновлення додатків, а також для "
+"керування ними.Після оновлення до NVDA 2023.2 або пізнішої версії відвідайте "
 "магазин додатків NVDA (меню NVDA, Інструменти, магазин додатків), щоб "
-"перевірити наявність оновлень для додатків. Для перевірки наявності оновлень "
-"додатків все ще  можна скористатися оновлювачем додатків."
+"перевірити наявність оновлень для додатків. Оновлювач додатків все ще можна "
+"використовувати для перевірки наявності оновлень для додатків."
 
 #. Translators: message presented when add-on store is available in NVDA.
 msgid ""
@@ -148,7 +149,6 @@ msgstr ""
 
 #. Translators: message displayed if legacy add-ons are found
 #. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
-#, fuzzy
 msgid ""
 "One or more legacy add-ons were found in your NVDA installation. Features "
 "from these add-ons are now part of the NVDA version you are using or "
@@ -158,7 +158,7 @@ msgstr ""
 "У вашій інсталяції NVDA знайдено один або кілька застарілих додатків. "
 "Функції цих додатків тепер є частиною версії NVDA, яку ви використовуєте, "
 "або ж розробники визначили їх як застарілі. Вимкніть або видаліть ці "
-"додатки, перейшовши до меню NVDA, Інструменти, Керування додатками.\n"
+"додатки, перейшовши до меню NVDA, Інструменти, Магазин додатків.\n"
 
 #. Translators: the label for the legacy add-ons list.
 msgid "Legacy add-ons"

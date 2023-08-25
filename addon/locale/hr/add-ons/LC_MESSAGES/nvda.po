@@ -10,16 +10,16 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-07-28 13:30+0200\n"
+"PO-Revision-Date: 2023-08-18 10:45+0200\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: hr <LL@li.org>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"X-Generator: Poedit 3.0\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #. Add-on Updater requires Windows 10 22H2 or later.
 #. Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
@@ -41,7 +41,6 @@ msgstr ""
 "izdanje."
 
 #. Translators: message presented when add-on store is available in NVDA.
-#, fuzzy
 msgid ""
 "You are using NVDA 2023.1 or earlier. NVDA 2023.2 introduces an add-on store "
 "to browse, install, manage, and update add-ons. After updating to NVDA "
@@ -49,10 +48,12 @@ msgid ""
 "check for add-on updates. Add-on Updater can still be used to check for add-"
 "on updates in the meantime."
 msgstr ""
-"Koristiš NVDA izdanje s uključenom trgovinom dodataka. Posjeti NVDA trgovinu "
-"dodataka (NVDA izbornik, Alati, trgovina dodataka) za provjeru novih verzija "
-"dodataka. Program za ažuriranje dodataka se u međuvremenu  još uvijek može "
-"koristiti za provjeru ažuriranja dodataka."
+"Koristiš NVDA 2023.1 ili stariji. NVDA 2023.2 uvodi značajku Add-on store za "
+"pregledavanje, instalaciju, upravljanje i ažuriranje dodataka. Nakon "
+"ažuriranja na NVDA 2023.2 ili noviji, posjetite NVDA Add-on store (NVDA "
+"izbornik, Alati, add-on store) da biste provjerili ima li ažuriranja "
+"dodataka. Add-on updater i dalje se u međuvremenu može koristiti za provjeru "
+"ažuriranja dodataka."
 
 #. Translators: message presented when add-on store is available in NVDA.
 msgid ""
@@ -153,7 +154,6 @@ msgstr ""
 
 #. Translators: message displayed if legacy add-ons are found
 #. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
-#, fuzzy
 msgid ""
 "One or more legacy add-ons were found in your NVDA installation. Features "
 "from these add-ons are now part of the NVDA version you are using or "
@@ -163,7 +163,7 @@ msgstr ""
 "Jedan ili više starih dodataka pronađeni su u tvojoj NVDA instalaciji. "
 "Funkcije tih dodataka sada su dio verzije NVDA koju koristiš, ili su "
 "razvojni programeri dodataka proglasili dodatke starim. Molimo da isključiš "
-"te dodatke  tako da uđeš u NVDA izbornik, alati, upravljaj NVDA dodacima.\n"
+"te dodatke  tako da uđeš u NVDA izbornik, alati, Add-on store.\n"
 
 #. Translators: the label for the legacy add-ons list.
 msgid "Legacy add-ons"
