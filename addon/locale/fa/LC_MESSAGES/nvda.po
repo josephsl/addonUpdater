@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-05-19 14:30+0330\n"
+"PO-Revision-Date: 2023-08-26 20:21+0330\n"
 "Last-Translator: Mohammadreza Rashad <mohammadreza5712@gmail.com>\n"
 "Language-Team: NVDA Translation Team <nvda-translations@groups.io>\n"
 "Language: fa\n"
@@ -16,6 +16,39 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.6.10\n"
+
+#. Add-on Updater requires Windows 10 22H2 or later.
+#. Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
+#. Unsupported systems include Windows versions earlier than 10 and unsupported feature updates.
+msgid "Unsupported Windows release"
+msgstr "این نسخه از ویندوز پشتیبانی نمی‌شود"
+
+#. Translators: Dialog text shown when trying to install the add-on on
+#. releases earlier than minimum supported release.
+#, python-brace-format
+msgid ""
+"You are using {releaseName} ({build}), a Windows release not supported by "
+"this add-on.\n"
+"This add-on requires {supportedReleaseName} ({supportedBuild}) or later."
+msgstr ""
+"شما دارید از {releaseName} ({build}) که توسط این افزونه پشتیبانی نمی‌شود "
+"استفاده میکنید. این افزونه نیازمندِ {supportedReleaseName} ({supportedBuild}) "
+"یا بالاتر است."
+
+#. Translators: message presented when add-on store is available in NVDA.
+msgid ""
+"You are using NVDA 2023.1 or earlier. NVDA 2023.2 introduces an add-on store "
+"to browse, install, manage, and update add-ons. After updating to NVDA "
+"2023.2 or later, Visit NVDA add-on store (NVDA menu, Tools, add-on store) to "
+"check for add-on updates. Add-on Updater can still be used to check for add-"
+"on updates in the meantime."
+msgstr ""
+"شما دارید از نسخه‌ی NVDA ۲۰۲۳.۱ یا قدیمیتر استفاده می‌کنید. NVDA ۲۰۲۳.۲، یک "
+"فروشگاهِ افزونه‌ها را برای مرور، نصب، مدیریت و بروزرسانیِ افزونه‌ها معرفی می‌کند. "
+"پس از بروزرسانی به NVDA ۲۰۲۳.۲ و جدیدتر، برای دیدنه فروشگاهِ افزونه‌های NVDA، "
+"از منوی NVDA، ابزارها، فروشگاه افزونه‌ها استفاده و بروزرسانی‌های افزونه‌ها را "
+"بررسی کنید. همچنان میتوانید از بروزرسانِ افزونه‌ها برای بررسی افزونه‌های جدید "
+"نیز بهره بگیرید."
 
 #. Translators: message presented when add-on store is available in NVDA.
 msgid ""
@@ -112,7 +145,20 @@ msgstr ""
 "یک یا چند افزونه‌ی قدیمی در نسخه‌ی NVDAِ نصب‌شده‌ی شما یافت شدند. امکاناتِ موجود "
 "در این افزونه‌ها، حالا بخشی از نگارشِ NVDA هستند که از آن استفاده میکنید؛ یا "
 "توسط نویسنده‌های افزونه‌ها قدیمی اعلام شده‌اند. لطفا با رفتن به منوی NVDA، "
-"ابزارها، مدیرِ افزونه‌ها، این افزونه‌ها را غیرفعال یا حذف کنید.\n"
+"ابزارها، فروشگاهِ افزونه‌ها، این افزونه‌ها را غیرفعال یا حذف کنید.\n"
+
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Add-on store.\n"
+msgstr ""
+"یک یا چند افزونه‌ی قدیمی در نسخه‌ی NVDAِ نصب‌شده‌ی شما یافت شدند. امکاناتِ موجود "
+"در این افزونه‌ها، حالا بخشی از نگارشِ NVDA هستند که از آن استفاده میکنید؛ یا "
+"توسط نویسنده‌های افزونه‌ها قدیمی اعلام شده‌اند. لطفا با رفتن به منوی NVDA، "
+"ابزارها، فروشگاهِ افزونه‌ها، این افزونه‌ها را غیرفعال یا حذف کنید.\n"
 
 #. Translators: the label for the legacy add-ons list.
 msgid "Legacy add-ons"

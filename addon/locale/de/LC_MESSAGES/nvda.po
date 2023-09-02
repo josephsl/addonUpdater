@@ -8,14 +8,49 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-05-19 08:19+0200\n"
+"PO-Revision-Date: 2023-08-25 04:18+0200\n"
 "Last-Translator: René Linke <rene.linke@hamburg.de>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.3.2\n"
+
+#. Add-on Updater requires Windows 10 22H2 or later.
+#. Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
+#. Unsupported systems include Windows versions earlier than 10 and unsupported feature updates.
+msgid "Unsupported Windows release"
+msgstr "Nicht unterstützte Windows-Version"
+
+#. Translators: Dialog text shown when trying to install the add-on on
+#. releases earlier than minimum supported release.
+#, python-brace-format
+msgid ""
+"You are using {releaseName} ({build}), a Windows release not supported by "
+"this add-on.\n"
+"This add-on requires {supportedReleaseName} ({supportedBuild}) or later."
+msgstr ""
+"Sie verwenden {releaseName} ({build}), eine Windows-Version, die von dieser "
+"NVDA-Erweiterung nicht unterstützt wird.\n"
+"Für diese NVDA-Erweiterung wird {supportedReleaseName} ({supportedBuild}) "
+"oder neuer benötigt."
+
+#. Translators: message presented when add-on store is available in NVDA.
+msgid ""
+"You are using NVDA 2023.1 or earlier. NVDA 2023.2 introduces an add-on store "
+"to browse, install, manage, and update add-ons. After updating to NVDA "
+"2023.2 or later, Visit NVDA add-on store (NVDA menu, Tools, add-on store) to "
+"check for add-on updates. Add-on Updater can still be used to check for add-"
+"on updates in the meantime."
+msgstr ""
+"Sie verwenden NVDA 2023.1 oder älter. Mit NVDA 2023.2 gibt es ein Store für "
+"NVDA-Erweiterungen, um NVDA-Erweiterungen zu suchen, zu installieren, zu "
+"verwalten und zu aktualisieren. Besuchen Sie nach dem Update auf NVDA 2023.2 "
+"oder neuer den Store für NVDA-Erweiterungen (NVDA-Menü, Werkzeuge, Store für "
+"NVDA-Erweiterungen), um nach Updates von NVDA-Erweiterungen zu suchen. Der "
+"Updater kann in der Zwischenzeit weiterhin verwendet werden, um nach Updates "
+"zu suchen."
 
 #. Translators: message presented when add-on store is available in NVDA.
 msgid ""
@@ -117,6 +152,21 @@ msgstr ""
 "oder deinstallieren Sie diese Erweiterungen, indem Sie ins NVDA-Menü gehen, "
 "dann dort auf \"Werkzeuge\" und dann auf \"Erweiterungen verwalten\" "
 "klicken.\n"
+
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Add-on store.\n"
+msgstr ""
+"In Ihrer NVDA-Installation wurden eine oder mehrere veraltete NVDA-"
+"Erweiterungen gefunden. Die Funktionen dieser NVDA-Erweiterungen sind "
+"mittlerweile Teil der von Ihnen verwendeten NVDA-Version oder wurden von den "
+"Entwicklern der NVDA-Erweiterungen als veraltet deklariert. Bitte "
+"deaktivieren bzw. deinstallieren Sie diese NVDA-Erweiterungen über das NVDA-"
+"Menü, Werkzeuge, Store für NVDA-Erweiterungen.\n"
 
 #. Translators: the label for the legacy add-ons list.
 msgid "Legacy add-ons"

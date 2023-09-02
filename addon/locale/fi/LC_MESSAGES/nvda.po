@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-05-19 14:53+0200\n"
+"PO-Revision-Date: 2023-08-18 16:01+0200\n"
 "Last-Translator: Jani Kinnunen <janikinnunen340@gmail.com>\n"
 "Language-Team: Jani Kinnunen <jani.kinnunen@wippies.fi>\n"
 "Language: fi\n"
@@ -19,6 +19,39 @@ msgstr ""
 "X-Generator: Poedit 1.6.11\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
+#. Add-on Updater requires Windows 10 22H2 or later.
+#. Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
+#. Unsupported systems include Windows versions earlier than 10 and unsupported feature updates.
+msgid "Unsupported Windows release"
+msgstr "Ei-tuettu Windows-versio"
+
+#. Translators: Dialog text shown when trying to install the add-on on
+#. releases earlier than minimum supported release.
+#, python-brace-format
+msgid ""
+"You are using {releaseName} ({build}), a Windows release not supported by "
+"this add-on.\n"
+"This add-on requires {supportedReleaseName} ({supportedBuild}) or later."
+msgstr ""
+"Käytät {releaseName}:n koontiversiota {build}, jota ei tueta.\n"
+"Tämä lisäosa edellyttää {supportedReleaseName}:ta (koontiversio "
+"{supportedBuild}) tai uudempaa."
+
+#. Translators: message presented when add-on store is available in NVDA.
+msgid ""
+"You are using NVDA 2023.1 or earlier. NVDA 2023.2 introduces an add-on store "
+"to browse, install, manage, and update add-ons. After updating to NVDA "
+"2023.2 or later, Visit NVDA add-on store (NVDA menu, Tools, add-on store) to "
+"check for add-on updates. Add-on Updater can still be used to check for add-"
+"on updates in the meantime."
+msgstr ""
+"Käytät NVDA 2023.1:tä tai sitä vanhempaa versiota. NVDA 2023.2 tuo mukanaan "
+"lisäosakaupan, jonka avulla voit selata, asentaa, hallita ja päivittää "
+"lisäosia. Kun olet päivittänyt NVDA 2023.2:een tai sitä uudempaan versioon, "
+"tarkista lisäosapäivitykset käymällä lisäosakaupassa (NVDA-valikko > "
+"Työkalut > Lisäosakauppa). Siihen asti lisäosien päivitysten tarkistamiseen "
+"voi edelleen käyttää Lisäosien päivittäjää."
+
 #. Translators: message presented when add-on store is available in NVDA.
 msgid ""
 "You are using an NVDA release with add-on store included. Visit NVDA add-on "
@@ -26,9 +59,9 @@ msgid ""
 "Updater can still be used to check for add-on updates in the meantime."
 msgstr ""
 "Käytät NVDA-versiota, johon sisältyy lisäosakauppa. Tarkista "
-"lisäosapäivitykset avaamalla NVDA:n lisäosakauppa (NVDA-valikko -> Työkalut -"
-"> Lisäosakauppa). Lisäosien päivittäjää voidaan myös edelleen käyttää "
-"lisäosapäivitysten tarkistamiseen."
+"lisäosapäivitykset avaamalla se (NVDA-valikko -> Työkalut -> Lisäosakauppa). "
+"Lisäosien päivittäjää voidaan myös edelleen käyttää lisäosapäivitysten "
+"tarkistamiseen."
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -116,6 +149,20 @@ msgstr ""
 "ovat ilmoittaneet ne vanhentuneiksi. Ole hyvä ja poista nämä lisäosat "
 "käytöstä tai poista niiden asennus avaamalla NVDA-valikko ja valitsemalla "
 "Työkalut-alivalikosta Lisäosien hallinta.\n"
+
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Add-on store.\n"
+msgstr ""
+"NVDA-asennuksestasi löytyi yksi tai useampi vanhentunut lisäosa. Näiden "
+"lisäosien ominaisuudet sisältyvät käyttämääsi NVDA-versioon tai kehittäjät "
+"ovat ilmoittaneet ne vanhentuneiksi. Poista kyseiset lisäosat käytöstä tai "
+"poista niiden asennus avaamalla NVDA-valikko ja valitsemalla Työkalut-"
+"alivalikosta Lisäosakauppa.\n"
 
 #. Translators: the label for the legacy add-ons list.
 msgid "Legacy add-ons"

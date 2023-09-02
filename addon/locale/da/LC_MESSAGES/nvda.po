@@ -8,14 +8,48 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-01-08 06:32-0800\n"
-"Last-Translator: Nicolai Svendsen <chojiro1990@gmail.com>\n"
+"PO-Revision-Date: 2023-08-26 20:25+0200\n"
+"Last-Translator: Nicolai Svendsen <dansk@nvda.dk>\n"
 "Language-Team: Dansk NVDA <dansk@nvda.dk>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.3.2\n"
+
+#. Add-on Updater requires Windows 10 22H2 or later.
+#. Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
+#. Unsupported systems include Windows versions earlier than 10 and unsupported feature updates.
+msgid "Unsupported Windows release"
+msgstr "Ikke-understøttet Windows-version"
+
+#. Translators: Dialog text shown when trying to install the add-on on
+#. releases earlier than minimum supported release.
+#, python-brace-format
+msgid ""
+"You are using {releaseName} ({build}), a Windows release not supported by "
+"this add-on.\n"
+"This add-on requires {supportedReleaseName} ({supportedBuild}) or later."
+msgstr ""
+"Du bruger {releaseName} ({build}), en Windows-version, der ikke understøttes "
+"af denne tilføjelse.\n"
+"Denne tilføjelse kræver {supportedReleaseName} ({supportedBuild}) eller "
+"nyere."
+
+#. Translators: message presented when add-on store is available in NVDA.
+msgid ""
+"You are using NVDA 2023.1 or earlier. NVDA 2023.2 introduces an add-on store "
+"to browse, install, manage, and update add-ons. After updating to NVDA "
+"2023.2 or later, Visit NVDA add-on store (NVDA menu, Tools, add-on store) to "
+"check for add-on updates. Add-on Updater can still be used to check for add-"
+"on updates in the meantime."
+msgstr ""
+"Du bruger NVDA 2023.1 eller tidligere. NVDA 2023.2 introducerer et "
+"tilføjelsescenter til at gennemse, installere, administrere og opdatere "
+"tilføjelser. Efter opdatering til NVDA 2023.2 eller nyere, gå til "
+"tilføjelsescenteret (NVDA-menu, Værktøjer, tilføjelsescenter) for at søge "
+"efter tilføjelsesopdateringer. Denne tilføjelse kan stadig bruges til at "
+"søge efter tilføjelsesopdateringer i mellemtiden."
 
 #. Translators: message presented when add-on store is available in NVDA.
 msgid ""
@@ -23,6 +57,10 @@ msgid ""
 "store (NVDA menu, Tools, add-on store) to check for add-on updates. Add-on "
 "Updater can still be used to check for add-on updates in the meantime."
 msgstr ""
+"Du bruger en version af NVDA med tilføjelsescenteret inkluderet. Gå til NVDA-"
+"tilføjelsescenteret (NVDA-menu, Værktøjer, Tilføjelsescenter) for at søge "
+"efter tilføjelsesopdateringer. Denne tilføjelse kan stadig bruges til at "
+"søge efter tilføjelsesopdateringer i mellemtiden."
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -72,9 +110,8 @@ msgstr "Foretræk &udviklingsversioner:"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
-#, fuzzy
 msgid "Development release &channel:"
-msgstr "Foretræk &udviklingsversioner:"
+msgstr "Kanal for &Udviklingsversioner:"
 
 #. Translators: This is the label for a combo box in the
 #. Add-on Updater settings panel.
@@ -111,6 +148,20 @@ msgstr ""
 "version, du bruger eller erklærede forældet af tilføjelsesudviklere. "
 "Deaktiver eller afinstaller disse tilføjelser ved at gå til NVDA-menuen, "
 "Værktøjer, Administrer tilføjelsesprogrammer.\n"
+
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Add-on store.\n"
+msgstr ""
+"Et eller flere forældede tilføjelsesprogrammer blev fundet i din NVDA-"
+"installation. Funktioner fra disse tilføjelser er nu en del af den NVDA-"
+"version, du bruger eller erklærede forældet af tilføjelsesudviklere. "
+"Deaktiver eller afinstaller disse tilføjelser ved at gå til NVDA-menuen, "
+"Værktøjer, Tilføjelsescenter.\n"
 
 #. Translators: the label for the legacy add-ons list.
 msgid "Legacy add-ons"
@@ -159,9 +210,8 @@ msgstr "Nye version"
 
 #. Translators: The label for a column in add-ons updates list
 #. used to identify add-on update channel (example: stable ).
-#, fuzzy
 msgid "Update channel"
-msgstr "&Opdater tilføjelser"
+msgstr "Opdateringskanal"
 
 #. Translators: Message displayed when no add-on updates are available.
 msgid "No add-on update available."
@@ -274,6 +324,10 @@ msgid "Could not update add-ons."
 msgstr "Kunne ikke opdatere tilføjelser."
 
 #. Translators: one of the add-on update source choices.
+msgid "NV Access add-on store"
+msgstr "NV Access tilføjelsescenter"
+
+#. Translators: one of the add-on update source choices.
 msgid "NVDA community add-ons website"
 msgstr "Tilføjelser til NVDA fra fællesskabets hjemmeside"
 
@@ -288,11 +342,6 @@ msgstr "Hjemmesiden for tilføjelser til NVDA i Kina"
 #. Translators: one of the add-on update source choices.
 msgid "Taiwan community add-ons catalog"
 msgstr "Katalog med tilføjelser til Taiwan-fællesskabet"
-
-#. Translators: one of the add-on update source choices.
-#, fuzzy
-msgid "NVDA add-on store"
-msgstr "NVDA-tilføjelsesopdateringer"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager

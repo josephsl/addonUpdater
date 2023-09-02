@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-05-26 20:06+0200\n"
+"PO-Revision-Date: 2023-08-18 11:22+0200\n"
 "Last-Translator: Rémy Ruiz <remyruiz@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -16,6 +16,41 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.8\n"
+
+#. Add-on Updater requires Windows 10 22H2 or later.
+#. Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
+#. Unsupported systems include Windows versions earlier than 10 and unsupported feature updates.
+msgid "Unsupported Windows release"
+msgstr "Version de Windows non pris en charge"
+
+#. Translators: Dialog text shown when trying to install the add-on on
+#. releases earlier than minimum supported release.
+#, python-brace-format
+msgid ""
+"You are using {releaseName} ({build}), a Windows release not supported by "
+"this add-on.\n"
+"This add-on requires {supportedReleaseName} ({supportedBuild}) or later."
+msgstr ""
+"Vous utilisez {releaseName} ({build}), une version de Windows non prise en "
+"charge par cette extension.\n"
+"Cette extension nécessite {supportedReleaseName} ({supportedBuild}) ou "
+"ultérieure."
+
+#. Translators: message presented when add-on store is available in NVDA.
+msgid ""
+"You are using NVDA 2023.1 or earlier. NVDA 2023.2 introduces an add-on store "
+"to browse, install, manage, and update add-ons. After updating to NVDA "
+"2023.2 or later, Visit NVDA add-on store (NVDA menu, Tools, add-on store) to "
+"check for add-on updates. Add-on Updater can still be used to check for add-"
+"on updates in the meantime."
+msgstr ""
+"Vous utilisez NVDA 2023.1 ou une version antérieure. NVDA 2023.2 présente un "
+"add-on store pour parcourir, installer, gérer et mettre à jour les "
+"extensions. Après la mise à jour vers NVDA 2023.2 ou version ultérieure, "
+"visitez NVDA add-on store (menu NVDA, Outils, add-on store) pour rechercher "
+"les mises à jour des extensions. L'extension Mise à Jour des Extensions peut "
+"toujours être utilisé pour rechercher des mises à jour des extensions pour "
+"l'instant."
 
 #. Translators: message presented when add-on store is available in NVDA.
 msgid ""
@@ -112,9 +147,23 @@ msgid ""
 msgstr ""
 "Une ou plusieurs extensions obsolètes ont été trouvées dans votre "
 "installation NVDA. Les fonctionnalités de ces extensions font maintenant "
-"partie de la version de NVDA que vous utilisez. Veuillez désactiver ou "
-"désinstaller ces extensions en allant dans le menu NVDA, Outils, Gérer les "
-"extensions.\n"
+"partie de la version de NVDA que vous utilisez ou déclarée obsolète par les "
+"développeurs de l'extension. Veuillez désactiver ou désinstaller ces "
+"extensions en allant dans le menu NVDA, Outils, Gérer les extensions.\n"
+
+#. Translators: message displayed if legacy add-ons are found
+#. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
+msgid ""
+"One or more legacy add-ons were found in your NVDA installation. Features "
+"from these add-ons are now part of the NVDA version you are using or "
+"declared legacy by add-on developers. Please disable or uninstall these add-"
+"ons by going to NVDA menu, Tools, Add-on store.\n"
+msgstr ""
+"Une ou plusieurs extensions obsolètes ont été trouvées dans votre "
+"installation NVDA. Les fonctionnalités de ces extensions font maintenant "
+"partie de la version de NVDA que vous utilisez ou déclarée obsolète par les "
+"développeurs de l'extension. Veuillez désactiver ou désinstaller ces "
+"extensions en allant dans le menu NVDA, Outils, Add-on store.\n"
 
 #. Translators: the label for the legacy add-ons list.
 msgid "Legacy add-ons"
@@ -233,7 +282,7 @@ msgstr "Fonctionnalités incluses dans NVDA"
 
 #. Translators: legacy add-on, declared by add-on developers.
 msgid "declared legacy by add-on developers"
-msgstr "déclarée obsolète par les développeurs de l'extensions"
+msgstr "déclarée obsolète par les développeurs de l'extension"
 
 #. Translators: menu item label for reviewing add-on updates.
 #, python-brace-format
@@ -307,6 +356,3 @@ msgid ""
 msgstr ""
 "Implémentation de la preuve de concept de la fonctionnalité de mise à jour "
 "d'extensions (Noyau de NVDA numéro 3208)"
-
-#~ msgid "NVDA add-on store (experimental)"
-#~ msgstr "NVDA add-on store (expérimental)"
