@@ -33,7 +33,7 @@ def getUrlViaMSEdgeUserAgent(url: str) -> Request:
 	return Request(
 		url,
 		headers={
-			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36 Edg/115.0.1901.183"  # NOQA: E501
+			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"  # NOQA: E501
 		}
 	)
 
