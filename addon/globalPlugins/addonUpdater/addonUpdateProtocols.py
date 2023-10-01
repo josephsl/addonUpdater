@@ -580,8 +580,9 @@ class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocol):
 			# URL is of the form https://www.nvaccess.org/addonStore/<language>/all/<NVDA API Version>.json,
 			# in this case sourceUrl/<language>/all/<NVDA API Version>.json,
 			# Use English (en) for language, and in the future, current NVDA release for version.
-			# Setting version to "latest" allows fetching latest available add-ons.
-			url = f"{self.sourceUrl}/en/all/latest.json"
+			import versionInfo
+			currentVersion = f"{versionInfo.version_year}.{versionInfo.version_major}.{versionInfo.version_minor}"
+			url = f"{self.sourceUrl}/en/all/{currentVersion}.json"
 			with concurrent.futures.ThreadPoolExecutor(max_workers=2) as addonsFetcher:
 				try:
 					results = addonsFetcher.submit(
