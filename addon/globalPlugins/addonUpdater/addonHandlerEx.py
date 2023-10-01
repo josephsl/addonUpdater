@@ -31,6 +31,8 @@ LegacyAddonIncludedInNVDA: str = _("features included in NVDA")
 LegacyAddonAuthorDeclaration: str = _("declared legacy by add-on developers")
 
 LegacyAddons: dict[str, str] = {
+	# Add-on Updater is superseeded by NV Access add-on store in NVDA 2023.2.
+	"addonUpdater": LegacyAddonIncludedInNVDA,
 	# Bit Che is no longer maintained as of 2021, therefore the add-on is unnecessary, according to the author.
 	"bitChe": LegacyAddonAuthorDeclaration,
 	"enhancedAria": LegacyAddonIncludedInNVDA,
