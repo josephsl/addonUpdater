@@ -44,6 +44,10 @@ The available add-on update sources are:
 * Spanish community add-ons catalog
 * Catalogs maintained by NVDA communities in China and Taiwan
 
+## Version 23.10
+
+* Changed update notification message to mention NV Access add-on store if running NVDA 2023.2 or later and add-on update source is set to add-on store.
+
 ## Version 23.09
 
 * Windows 10 Version 22H2 or later is required.
