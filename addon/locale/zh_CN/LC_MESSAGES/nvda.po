@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-08-01 16:35+0800\n"
+"PO-Revision-Date: 2023-09-23 20:14+0800\n"
 "Last-Translator: 完美很难 <1872265132@qq.com>\n"
 "Language-Team: NVDASimplified Chinese team All volunteers <Copyright (C) "
 "2010-2019>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #. Add-on Updater requires Windows 10 22H2 or later.
 #. Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
@@ -36,7 +36,6 @@ msgstr ""
 "此插件需要 {supportedReleaseName} ({supportedBuild}) 或更高版本。"
 
 #. Translators: message presented when add-on store is available in NVDA.
-#, fuzzy
 msgid ""
 "You are using NVDA 2023.1 or earlier. NVDA 2023.2 introduces an add-on store "
 "to browse, install, manage, and update add-ons. After updating to NVDA "
@@ -44,8 +43,9 @@ msgid ""
 "check for add-on updates. Add-on Updater can still be used to check for add-"
 "on updates in the meantime."
 msgstr ""
-"您正在使用包含插件商店的 NVDA 版本。访问 NVDA 插件商店（NVDA 菜单、工具、插件"
-"商店）以检查插件更新。同时插件更新器仍然可用。"
+"您使用的是 NVDA 2023.1 或更早版本。 NVDA 2023.2 增加了一个插件商店来浏览、安"
+"装、管理和更新插件。更新到 NVDA 2023.2 或更高版本后，转到 NVDA 菜单、工具、插"
+"件商店，以检查插件的更新。同时，插件更新器也可用于检查插件更新。"
 
 #. Translators: message presented when add-on store is available in NVDA.
 msgid ""
@@ -143,7 +143,6 @@ msgstr ""
 
 #. Translators: message displayed if legacy add-ons are found
 #. (add-ons with all features included in NVDA or declared as legacy by add-on authors).
-#, fuzzy
 msgid ""
 "One or more legacy add-ons were found in your NVDA installation. Features "
 "from these add-ons are now part of the NVDA version you are using or "
@@ -152,7 +151,7 @@ msgid ""
 msgstr ""
 "当前的 NVDA 版本中安装了某些旧版插件。这些插件的某些功能可能已包含在您正在使"
 "用的 NVDA 版本中，或被开发者标记为旧版插件。\n"
-"请转到 NVDA 菜单，工具，插件管理器以禁用或卸载这些插件。\n"
+"请转到 NVDA 菜单，工具，插件商店以禁用或卸载这些插件。\n"
 
 #. Translators: the label for the legacy add-ons list.
 msgid "Legacy add-ons"
