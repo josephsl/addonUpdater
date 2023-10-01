@@ -93,9 +93,11 @@ def _showAddonUpdateUI() -> None:
 		raise
 	if info is not None and len(info):
 		# Show either the update notification toast (Windows client systems),
+		# a notice about add-on store (NVDA 2023.2 or later instaled with source set to add-on store),
 		# the results dialog (server systems),
 		# or download add-ons if background updating is on (client systems).
 		# On client systems, this behavior is configurable.
+		# Setting source to somewhere other than add-on store will present download message instead.
 		# If toast is shown, checking for add-on updates from tools menu will merely show the results dialog.
 		# wxPython 4.1.0 (and consequently, wxWidges 3.1.0) simplifies this by
 		# allowing action handlers to be defined for toasts, which will then show the results dialog on the spot.
@@ -108,6 +110,17 @@ def _showAddonUpdateUI() -> None:
 			and config.isInstalledCopy()
 		):
 			# To reduce intrusiveness, background updates notification will be shown.
+			# If NVDA 2023.2 or later is installed and add-on update source is set to NV Access add-on store,
+			# present a message about how to update add-ons via the store instead of downloading ad-ons.
+			if addonUtils.isAddonStorePresent() and addonUtils.updateState["updateSource"] == "addondatastore":
+				updateMessage: str = _(
+					# Translators: presented as part of add-on update notification message.
+					"One or more add-on updates from {updateSource} are available. "
+					"Go to NVDA menu, Tools, Add-on store, updatable add-ons tab to review and install them."
+				).format(updateSource=updateSources[addonUtils.updateState["updateSource"]])
+				# Translators: title of the add-on update notification message.
+				wx.adv.NotificationMessage(_("NVDA add-on updates"), updateMessage).Show(timeout=30)
+				return
 			global _updateInfo
 			if not addonUtils.updateState["backgroundUpdate"]:
 				# Translators: menu item label for reviewing add-on updates.
@@ -125,7 +138,6 @@ def _showAddonUpdateUI() -> None:
 					# Translators: presented as part of add-on update notification message.
 					"One or more add-on updates from {updateSource} are being downloaded and installed."
 				).format(updateSource=updateSources[addonUtils.updateState["updateSource"]])
-			# Translators: title of the add-on update notification message.
 			wx.adv.NotificationMessage(_("NVDA add-on updates"), updateMessage).Show(timeout=30)
 			if addonUtils.updateState["backgroundUpdate"]:
 				threading.Thread(target=downloadAndInstallAddonUpdates, args=[info]).start()
