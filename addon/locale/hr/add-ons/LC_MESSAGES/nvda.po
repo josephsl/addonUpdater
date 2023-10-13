@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-08-18 10:45+0200\n"
+"PO-Revision-Date: 2023-10-09 15:39+0200\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: hr <LL@li.org>\n"
 "Language: hr\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.0\n"
 
 #. Add-on Updater requires Windows 10 22H2 or later.
 #. Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
@@ -258,13 +258,14 @@ msgid "declared legacy by add-on developers"
 msgstr "razvojni programeri NVDA dodataka označili su ga kao stari dodatak"
 
 #. Translators: presented as part of add-on update notification message.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid ""
 "One or more add-on updates from {updateSource} are available. Go to NVDA "
 "menu, Tools, Add-on store, updatable add-ons tab to review and install them."
 msgstr ""
-"Dostupno je jedno ili više ažuriranja dodataka od {updateSource}. Otvori "
-"NVDA izbornik, Alati, Pregledaj ažuriranja dodataka."
+"Dostupno je jedno ili više ažuriranja dodatka od {updateSource}. Otvori NVDA "
+"izbornik, Alati, Trgovina dodataka, kartica s ažuriranim dodacima za pregled "
+"i instaliranje."
 
 #. Translators: title of the add-on update notification message.
 msgid "NVDA add-on updates"

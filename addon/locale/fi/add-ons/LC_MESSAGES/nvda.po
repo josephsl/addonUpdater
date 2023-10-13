@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-09-05 17:20+0200\n"
+"PO-Revision-Date: 2023-10-06 22:54+0200\n"
 "Last-Translator: Jani Kinnunen <janikinnunen340@gmail.com>\n"
 "Language-Team: Jani Kinnunen <jani.kinnunen@wippies.fi>\n"
 "Language: fi\n"
@@ -257,14 +257,15 @@ msgid "declared legacy by add-on developers"
 msgstr "ilmoitettu vanhentuneeksi lisäosakehittäjien toimesta"
 
 #. Translators: presented as part of add-on update notification message.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid ""
 "One or more add-on updates from {updateSource} are available. Go to NVDA "
 "menu, Tools, Add-on store, updatable add-ons tab to review and install them."
 msgstr ""
-"Yksi tai useampi lisäosapäivitys lähteestä {updateSource} on saatavilla. "
-"Tarkastele niitä menemällä NVDA-valikkoon ja valitsemalla Työkalut-"
-"alivalikosta Tarkastele lisäosien päivityksiä."
+"Yksi tai useampi lisäosapäivitys on saatavilla päivityslähteestä "
+"{updateSource}. Tarkastele niitä menemällä NVDA-valikkoon ja valitsemalla "
+"Työkalut-alivalikosta Lisäosakauppa ja siirtymällä sitten Päivitettävissä-"
+"välilehdelle."
 
 #. Translators: title of the add-on update notification message.
 msgid "NVDA add-on updates"

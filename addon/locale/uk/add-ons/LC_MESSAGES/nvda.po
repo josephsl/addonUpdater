@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: addonUpdater 19.07\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2019-06-28 01:00+1000\n"
-"PO-Revision-Date: 2023-08-18 09:11+0300\n"
+"PO-Revision-Date: 2023-10-06 09:36+0300\n"
 "Last-Translator: Ukrainian NVDA Community <vp88.mobile@gmail.com>\n"
 "Language-Team: \n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4\n"
 
 #. Add-on Updater requires Windows 10 22H2 or later.
 #. Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
@@ -252,14 +252,14 @@ msgid "declared legacy by add-on developers"
 msgstr "розробники визначили додаток як застарілий"
 
 #. Translators: presented as part of add-on update notification message.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid ""
 "One or more add-on updates from {updateSource} are available. Go to NVDA "
 "menu, Tools, Add-on store, updatable add-ons tab to review and install them."
 msgstr ""
 "Доступні оновлення одного або кількох додатків із {updateSource}. Щоб їх "
-"переглянути, увійдіть до меню NVDA, Інструменти, Переглянути оновлення "
-"додатків."
+"переглянути, увійдіть до меню NVDA, Інструменти, Магазин додатків і на "
+"вкладці Додатки з доступними оновленнями перегляньте та встановіть їх."
 
 #. Translators: title of the add-on update notification message.
 msgid "NVDA add-on updates"

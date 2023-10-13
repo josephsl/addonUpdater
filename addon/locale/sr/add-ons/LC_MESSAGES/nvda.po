@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-08-19 16:52+0100\n"
+"PO-Revision-Date: 2023-10-11 15:49+0100\n"
 "Last-Translator: Nikola Jović <wwenikola123@gmail.com>\n"
 "Language-Team: Serbian <wwenikola123@gmail.com>\n"
 "Language: sr\n"
@@ -256,14 +256,14 @@ msgid "declared legacy by add-on developers"
 msgstr "Označen kao zastareo od programera dodatka"
 
 #. Translators: presented as part of add-on update notification message.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid ""
 "One or more add-on updates from {updateSource} are available. Go to NVDA "
 "menu, Tools, Add-on store, updatable add-ons tab to review and install them."
 msgstr ""
 "Jedno ili više ažuriranja dodataka iz izvora {updateSource} je dostupno. "
-"Otvorite NVDA meni, alati, Pregledaj ažuriranja dodataka da biste ih "
-"pregledali."
+"Otvorite NVDA meni, alati, prodavnica dodataka, i na kartici dodaci koji "
+"imaju ažuriranja ih pregledajte ili instalirajte."
 
 #. Translators: title of the add-on update notification message.
 msgid "NVDA add-on updates"
