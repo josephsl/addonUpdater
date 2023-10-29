@@ -51,7 +51,8 @@ def startAutoUpdateCheck(interval: int) -> None:
 	if updateChecker is not None:
 		wx.CallAfter(updateChecker.Stop)
 	updateChecker = wx.PyTimer(autoUpdateCheck)
-	wx.CallAfter(updateChecker.Start, interval * 1000, True)
+	# wxPython 4.2.1 wants timer values to be integers, so round the interval (float).
+	wx.CallAfter(updateChecker.Start, round(interval) * 1000, True)
 
 
 def endAutoUpdateCheck() -> None:
