@@ -35,26 +35,12 @@ msgstr ""
 "您正在使用 {releaseName} ({build})，此插件不支持该版本的 Windows。\n"
 "此插件需要 {supportedReleaseName} ({supportedBuild}) 或更高版本。"
 
-#. Translators: message presented when add-on store is available in NVDA.
-msgid ""
-"You are using NVDA 2023.1 or earlier. NVDA 2023.2 introduces an add-on store "
-"to browse, install, manage, and update add-ons. After updating to NVDA "
-"2023.2 or later, Visit NVDA add-on store (NVDA menu, Tools, add-on store) to "
-"check for add-on updates. Add-on Updater can still be used to check for add-"
-"on updates in the meantime."
-msgstr ""
-"您使用的是 NVDA 2023.1 或更早版本。 NVDA 2023.2 增加了一个插件商店来浏览、安"
-"装、管理和更新插件。更新到 NVDA 2023.2 或更高版本后，转到 NVDA 菜单、工具、插"
-"件商店，以检查插件的更新。同时，插件更新器也可用于检查插件更新。"
+#. Translators: menu item label for checking add-on updates.
+msgid "Check for &add-on updates..."
+msgstr "检查插件更新(&U)..."
 
-#. Translators: message presented when add-on store is available in NVDA.
-msgid ""
-"You are using an NVDA release with add-on store included. Visit NVDA add-on "
-"store (NVDA menu, Tools, add-on store) to check for add-on updates. Add-on "
-"Updater can still be used to check for add-on updates in the meantime."
-msgstr ""
-"您正在使用包含插件商店的 NVDA 版本。访问 NVDA 插件商店（NVDA 菜单、工具、插件"
-"商店）以检查插件更新。同时插件更新器仍然可用。"
+msgid "Check for NVDA add-on updates"
+msgstr "检查 NVDA 插件更新"
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -62,13 +48,6 @@ msgstr ""
 #. to be shown on installation and add-on information.
 msgid "Add-on Updater"
 msgstr "插件更新器"
-
-#. Translators: menu item label for checking add-on updates.
-msgid "Check for &add-on updates..."
-msgstr "检查插件更新(&U)..."
-
-msgid "Check for NVDA add-on updates"
-msgstr "检查 NVDA 插件更新"
 
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
@@ -269,6 +248,19 @@ msgstr "功能已包含在 NVDA 中"
 msgid "declared legacy by add-on developers"
 msgstr "插件开发者标记为旧版"
 
+#. Translators: presented as part of add-on update notification message.
+#, fuzzy, python-brace-format
+msgid ""
+"One or more add-on updates from {updateSource} are available. Go to NVDA "
+"menu, Tools, Add-on store, updatable add-ons tab to review and install them."
+msgstr ""
+"来自{updateSource}的一个或多个插件可更新。转到 NVDA 菜单、工具、查看插件更"
+"新。"
+
+#. Translators: title of the add-on update notification message.
+msgid "NVDA add-on updates"
+msgstr "NVDA 插件更新"
+
 #. Translators: menu item label for reviewing add-on updates.
 #, python-brace-format
 msgid "Review &add-on updates ({updateCount})..."
@@ -289,10 +281,6 @@ msgid ""
 "One or more add-on updates from {updateSource} are being downloaded and "
 "installed."
 msgstr "正在下载或安装来自{updateSource}的插件。"
-
-#. Translators: title of the add-on update notification message.
-msgid "NVDA add-on updates"
-msgstr "NVDA 插件更新"
 
 #. Translators: presented as part of add-on update notification message.
 #, python-brace-format
@@ -334,6 +322,26 @@ msgid ""
 "Proof of concept implementation of add-on update feature (NVDA Core issue "
 "3208)"
 msgstr "插件更新功能的概念证明(NVDA Core issue 3208)"
+
+#~ msgid ""
+#~ "You are using NVDA 2023.1 or earlier. NVDA 2023.2 introduces an add-on "
+#~ "store to browse, install, manage, and update add-ons. After updating to "
+#~ "NVDA 2023.2 or later, Visit NVDA add-on store (NVDA menu, Tools, add-on "
+#~ "store) to check for add-on updates. Add-on Updater can still be used to "
+#~ "check for add-on updates in the meantime."
+#~ msgstr ""
+#~ "您使用的是 NVDA 2023.1 或更早版本。 NVDA 2023.2 增加了一个插件商店来浏览、"
+#~ "安装、管理和更新插件。更新到 NVDA 2023.2 或更高版本后，转到 NVDA 菜单、工"
+#~ "具、插件商店，以检查插件的更新。同时，插件更新器也可用于检查插件更新。"
+
+#~ msgid ""
+#~ "You are using an NVDA release with add-on store included. Visit NVDA add-"
+#~ "on store (NVDA menu, Tools, add-on store) to check for add-on updates. "
+#~ "Add-on Updater can still be used to check for add-on updates in the "
+#~ "meantime."
+#~ msgstr ""
+#~ "您正在使用包含插件商店的 NVDA 版本。访问 NVDA 插件商店（NVDA 菜单、工具、"
+#~ "插件商店）以检查插件更新。同时插件更新器仍然可用。"
 
 #~ msgid "NVDA add-on store (experimental)"
 #~ msgstr "NVDA 插件商店（实验性）"

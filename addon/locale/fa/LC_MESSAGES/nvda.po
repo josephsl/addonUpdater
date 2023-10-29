@@ -35,31 +35,12 @@ msgstr ""
 "استفاده میکنید. این افزونه نیازمندِ {supportedReleaseName} ({supportedBuild}) "
 "یا بالاتر است."
 
-#. Translators: message presented when add-on store is available in NVDA.
-msgid ""
-"You are using NVDA 2023.1 or earlier. NVDA 2023.2 introduces an add-on store "
-"to browse, install, manage, and update add-ons. After updating to NVDA "
-"2023.2 or later, Visit NVDA add-on store (NVDA menu, Tools, add-on store) to "
-"check for add-on updates. Add-on Updater can still be used to check for add-"
-"on updates in the meantime."
-msgstr ""
-"شما دارید از نسخه‌ی NVDA ۲۰۲۳.۱ یا قدیمیتر استفاده می‌کنید. NVDA ۲۰۲۳.۲، یک "
-"فروشگاهِ افزونه‌ها را برای مرور، نصب، مدیریت و بروزرسانیِ افزونه‌ها معرفی می‌کند. "
-"پس از بروزرسانی به NVDA ۲۰۲۳.۲ و جدیدتر، برای دیدنه فروشگاهِ افزونه‌های NVDA، "
-"از منوی NVDA، ابزارها، فروشگاه افزونه‌ها استفاده و بروزرسانی‌های افزونه‌ها را "
-"بررسی کنید. همچنان میتوانید از بروزرسانِ افزونه‌ها برای بررسی افزونه‌های جدید "
-"نیز بهره بگیرید."
+#. Translators: menu item label for checking add-on updates.
+msgid "Check for &add-on updates..."
+msgstr "بررسیِ به‌روزرسانیِ &افزونه‌ها..."
 
-#. Translators: message presented when add-on store is available in NVDA.
-msgid ""
-"You are using an NVDA release with add-on store included. Visit NVDA add-on "
-"store (NVDA menu, Tools, add-on store) to check for add-on updates. Add-on "
-"Updater can still be used to check for add-on updates in the meantime."
-msgstr ""
-"شما دارید از نسخه‌ای از NVDA که دارای «فروشگاهِ افزونه‌ها» است استفاده میکنید. "
-"برای دیدنه فروشگاهِ افزونه‌های NVDA، از منوی NVDA، ابزارها، فروشگاه افزونه‌ها "
-"استفاده و بروزرسانی‌های افزونه‌ها را بررسی کنید. همچنان میتوانید از بروزرسانِ "
-"افزونه‌ها برای بررسی افزونه‌های جدید نیز بهره بگیرید."
+msgid "Check for NVDA add-on updates"
+msgstr "بررسیِ به‌روزرسانیِ افزونه‌های NVDA"
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -67,13 +48,6 @@ msgstr ""
 #. to be shown on installation and add-on information.
 msgid "Add-on Updater"
 msgstr "به‌روزرسانِ افزونه‌ها"
-
-#. Translators: menu item label for checking add-on updates.
-msgid "Check for &add-on updates..."
-msgstr "بررسیِ به‌روزرسانیِ &افزونه‌ها..."
-
-msgid "Check for NVDA add-on updates"
-msgstr "بررسیِ به‌روزرسانیِ افزونه‌های NVDA"
 
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
@@ -278,6 +252,19 @@ msgstr "امکانات در NVDA موجود است."
 msgid "declared legacy by add-on developers"
 msgstr "توسط نویسنده‌های افزونه‌ها به عنوان افزونه‌های قدیمی اعلام شده‌اند."
 
+#. Translators: presented as part of add-on update notification message.
+#, fuzzy, python-brace-format
+msgid ""
+"One or more add-on updates from {updateSource} are available. Go to NVDA "
+"menu, Tools, Add-on store, updatable add-ons tab to review and install them."
+msgstr ""
+"به‌روزرسانیِ یک یا چند افزونه از {updateSource} موجود است. برای بازبینیِ آن‌ها "
+"به منوی NVDA، ابزارها، بازبینیِ به‌روزرسانیِ افزونه‌ها بروید."
+
+#. Translators: title of the add-on update notification message.
+msgid "NVDA add-on updates"
+msgstr "به‌روزرسانی‌های افزونه‌های NVDA"
+
 #. Translators: menu item label for reviewing add-on updates.
 #, python-brace-format
 msgid "Review &add-on updates ({updateCount})..."
@@ -298,10 +285,6 @@ msgid ""
 "One or more add-on updates from {updateSource} are being downloaded and "
 "installed."
 msgstr "یک یا چند افزونه از {updateSource} دارند دانلود و نصب میشوند."
-
-#. Translators: title of the add-on update notification message.
-msgid "NVDA add-on updates"
-msgstr "به‌روزرسانی‌های افزونه‌های NVDA"
 
 #. Translators: presented as part of add-on update notification message.
 #, python-brace-format
@@ -343,6 +326,31 @@ msgid ""
 "Proof of concept implementation of add-on update feature (NVDA Core issue "
 "3208)"
 msgstr "اجرای اثباتِ مفهومیِ ویژگیِ به‌روزرسانیِ افزونه‌ها (مسأله‌ی ۳۲۰۸)"
+
+#~ msgid ""
+#~ "You are using NVDA 2023.1 or earlier. NVDA 2023.2 introduces an add-on "
+#~ "store to browse, install, manage, and update add-ons. After updating to "
+#~ "NVDA 2023.2 or later, Visit NVDA add-on store (NVDA menu, Tools, add-on "
+#~ "store) to check for add-on updates. Add-on Updater can still be used to "
+#~ "check for add-on updates in the meantime."
+#~ msgstr ""
+#~ "شما دارید از نسخه‌ی NVDA ۲۰۲۳.۱ یا قدیمیتر استفاده می‌کنید. NVDA ۲۰۲۳.۲، یک "
+#~ "فروشگاهِ افزونه‌ها را برای مرور، نصب، مدیریت و بروزرسانیِ افزونه‌ها معرفی "
+#~ "می‌کند. پس از بروزرسانی به NVDA ۲۰۲۳.۲ و جدیدتر، برای دیدنه فروشگاهِ "
+#~ "افزونه‌های NVDA، از منوی NVDA، ابزارها، فروشگاه افزونه‌ها استفاده و "
+#~ "بروزرسانی‌های افزونه‌ها را بررسی کنید. همچنان میتوانید از بروزرسانِ افزونه‌ها "
+#~ "برای بررسی افزونه‌های جدید نیز بهره بگیرید."
+
+#~ msgid ""
+#~ "You are using an NVDA release with add-on store included. Visit NVDA add-"
+#~ "on store (NVDA menu, Tools, add-on store) to check for add-on updates. "
+#~ "Add-on Updater can still be used to check for add-on updates in the "
+#~ "meantime."
+#~ msgstr ""
+#~ "شما دارید از نسخه‌ای از NVDA که دارای «فروشگاهِ افزونه‌ها» است استفاده "
+#~ "میکنید. برای دیدنه فروشگاهِ افزونه‌های NVDA، از منوی NVDA، ابزارها، فروشگاه "
+#~ "افزونه‌ها استفاده و بروزرسانی‌های افزونه‌ها را بررسی کنید. همچنان میتوانید "
+#~ "از بروزرسانِ افزونه‌ها برای بررسی افزونه‌های جدید نیز بهره بگیرید."
 
 #~ msgid "NVDA add-on store (experimental)"
 #~ msgstr "فروشگاهِ افزونه‌های NVDA (آزمایشی)"

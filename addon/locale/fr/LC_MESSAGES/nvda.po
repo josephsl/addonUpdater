@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-08-18 11:22+0200\n"
+"PO-Revision-Date: 2023-10-06 12:07+0200\n"
 "Last-Translator: Rémy Ruiz <remyruiz@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -36,32 +36,12 @@ msgstr ""
 "Cette extension nécessite {supportedReleaseName} ({supportedBuild}) ou "
 "ultérieure."
 
-#. Translators: message presented when add-on store is available in NVDA.
-msgid ""
-"You are using NVDA 2023.1 or earlier. NVDA 2023.2 introduces an add-on store "
-"to browse, install, manage, and update add-ons. After updating to NVDA "
-"2023.2 or later, Visit NVDA add-on store (NVDA menu, Tools, add-on store) to "
-"check for add-on updates. Add-on Updater can still be used to check for add-"
-"on updates in the meantime."
-msgstr ""
-"Vous utilisez NVDA 2023.1 ou une version antérieure. NVDA 2023.2 présente un "
-"add-on store pour parcourir, installer, gérer et mettre à jour les "
-"extensions. Après la mise à jour vers NVDA 2023.2 ou version ultérieure, "
-"visitez NVDA add-on store (menu NVDA, Outils, add-on store) pour rechercher "
-"les mises à jour des extensions. L'extension Mise à Jour des Extensions peut "
-"toujours être utilisé pour rechercher des mises à jour des extensions pour "
-"l'instant."
+#. Translators: menu item label for checking add-on updates.
+msgid "Check for &add-on updates..."
+msgstr "Recherche des &mises à jour d'extensions..."
 
-#. Translators: message presented when add-on store is available in NVDA.
-msgid ""
-"You are using an NVDA release with add-on store included. Visit NVDA add-on "
-"store (NVDA menu, Tools, add-on store) to check for add-on updates. Add-on "
-"Updater can still be used to check for add-on updates in the meantime."
-msgstr ""
-"Vous utilisez une version NVDA avec un add-on store incorporé. Visitez NVDA "
-"add-on store (menu NVDA, Outils, add-on store) pour rechercher les mises à "
-"jour des extensions. L'extension Mise à Jour des Extensions peut toujours "
-"être utilisé pour rechercher des mises à jour des extensions pour l'instant."
+msgid "Check for NVDA add-on updates"
+msgstr "Recherche des mises à jour d'extensions NVDA"
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -69,13 +49,6 @@ msgstr ""
 #. to be shown on installation and add-on information.
 msgid "Add-on Updater"
 msgstr "Mise à Jour des Extensions"
-
-#. Translators: menu item label for checking add-on updates.
-msgid "Check for &add-on updates..."
-msgstr "Recherche des &mises à jour d'extensions..."
-
-msgid "Check for NVDA add-on updates"
-msgstr "Recherche des mises à jour d'extensions NVDA"
 
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
@@ -284,6 +257,20 @@ msgstr "Fonctionnalités incluses dans NVDA"
 msgid "declared legacy by add-on developers"
 msgstr "déclarée obsolète par les développeurs de l'extension"
 
+#. Translators: presented as part of add-on update notification message.
+#, python-brace-format
+msgid ""
+"One or more add-on updates from {updateSource} are available. Go to NVDA "
+"menu, Tools, Add-on store, updatable add-ons tab to review and install them."
+msgstr ""
+"Une ou plusieurs mises à jour d'extensions depuis {updateSource} sont "
+"disponibles. Allez dans le menu NVDA, Outils, Add-on store, onglet Mises à "
+"jour pour les examiner et les installer."
+
+#. Translators: title of the add-on update notification message.
+msgid "NVDA add-on updates"
+msgstr "Mises à jour des extensions NVDA"
+
 #. Translators: menu item label for reviewing add-on updates.
 #, python-brace-format
 msgid "Review &add-on updates ({updateCount})..."
@@ -307,10 +294,6 @@ msgid ""
 msgstr ""
 "Une ou plusieurs mises à jour d'extensions de {updateSource} sont en cours "
 "de téléchargement et d'installation."
-
-#. Translators: title of the add-on update notification message.
-msgid "NVDA add-on updates"
-msgstr "Mises à jour des extensions NVDA"
 
 #. Translators: presented as part of add-on update notification message.
 #, python-brace-format
@@ -356,3 +339,30 @@ msgid ""
 msgstr ""
 "Implémentation de la preuve de concept de la fonctionnalité de mise à jour "
 "d'extensions (Noyau de NVDA numéro 3208)"
+
+#~ msgid ""
+#~ "You are using NVDA 2023.1 or earlier. NVDA 2023.2 introduces an add-on "
+#~ "store to browse, install, manage, and update add-ons. After updating to "
+#~ "NVDA 2023.2 or later, Visit NVDA add-on store (NVDA menu, Tools, add-on "
+#~ "store) to check for add-on updates. Add-on Updater can still be used to "
+#~ "check for add-on updates in the meantime."
+#~ msgstr ""
+#~ "Vous utilisez NVDA 2023.1 ou une version antérieure. NVDA 2023.2 présente "
+#~ "un add-on store pour parcourir, installer, gérer et mettre à jour les "
+#~ "extensions. Après la mise à jour vers NVDA 2023.2 ou version ultérieure, "
+#~ "visitez NVDA add-on store (menu NVDA, Outils, add-on store) pour "
+#~ "rechercher les mises à jour des extensions. L'extension Mise à Jour des "
+#~ "Extensions peut toujours être utilisé pour rechercher des mises à jour "
+#~ "des extensions pour l'instant."
+
+#~ msgid ""
+#~ "You are using an NVDA release with add-on store included. Visit NVDA add-"
+#~ "on store (NVDA menu, Tools, add-on store) to check for add-on updates. "
+#~ "Add-on Updater can still be used to check for add-on updates in the "
+#~ "meantime."
+#~ msgstr ""
+#~ "Vous utilisez une version NVDA avec un add-on store incorporé. Visitez "
+#~ "NVDA add-on store (menu NVDA, Outils, add-on store) pour rechercher les "
+#~ "mises à jour des extensions. L'extension Mise à Jour des Extensions peut "
+#~ "toujours être utilisé pour rechercher des mises à jour des extensions "
+#~ "pour l'instant."

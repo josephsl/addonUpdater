@@ -36,33 +36,12 @@ msgstr ""
 "Für diese NVDA-Erweiterung wird {supportedReleaseName} ({supportedBuild}) "
 "oder neuer benötigt."
 
-#. Translators: message presented when add-on store is available in NVDA.
-msgid ""
-"You are using NVDA 2023.1 or earlier. NVDA 2023.2 introduces an add-on store "
-"to browse, install, manage, and update add-ons. After updating to NVDA "
-"2023.2 or later, Visit NVDA add-on store (NVDA menu, Tools, add-on store) to "
-"check for add-on updates. Add-on Updater can still be used to check for add-"
-"on updates in the meantime."
-msgstr ""
-"Sie verwenden NVDA 2023.1 oder älter. Mit NVDA 2023.2 gibt es ein Store für "
-"NVDA-Erweiterungen, um NVDA-Erweiterungen zu suchen, zu installieren, zu "
-"verwalten und zu aktualisieren. Besuchen Sie nach dem Update auf NVDA 2023.2 "
-"oder neuer den Store für NVDA-Erweiterungen (NVDA-Menü, Werkzeuge, Store für "
-"NVDA-Erweiterungen), um nach Updates von NVDA-Erweiterungen zu suchen. Der "
-"Updater kann in der Zwischenzeit weiterhin verwendet werden, um nach Updates "
-"zu suchen."
+#. Translators: menu item label for checking add-on updates.
+msgid "Check for &add-on updates..."
+msgstr "Nach &Updates für NVDA-Erweiterungen suchen..."
 
-#. Translators: message presented when add-on store is available in NVDA.
-msgid ""
-"You are using an NVDA release with add-on store included. Visit NVDA add-on "
-"store (NVDA menu, Tools, add-on store) to check for add-on updates. Add-on "
-"Updater can still be used to check for add-on updates in the meantime."
-msgstr ""
-"Sie verwenden eine NVDA-Version mit integriertem Store für NVDA-"
-"Erweiterungen. Besuchen Sie diesen Store (NVDA-Menü, Werkzeuge, Store für "
-"NVDA-Erweiterungen), um nach Updates für NVDA-Erweiterungen zu suchen. Mit "
-"dem Updater für NVDA-Erweiterungen können Sie in der Zwischenzeit weiterhin "
-"nach Updates suchen."
+msgid "Check for NVDA add-on updates"
+msgstr "Nach Updates für NVDA-Erweiterungen suchen"
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -70,13 +49,6 @@ msgstr ""
 #. to be shown on installation and add-on information.
 msgid "Add-on Updater"
 msgstr "Updater für NVDA-Erweiterungen"
-
-#. Translators: menu item label for checking add-on updates.
-msgid "Check for &add-on updates..."
-msgstr "Nach &Updates für NVDA-Erweiterungen suchen..."
-
-msgid "Check for NVDA add-on updates"
-msgstr "Nach Updates für NVDA-Erweiterungen suchen"
 
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
@@ -287,6 +259,20 @@ msgstr "Funktionen, die in NVDA enthalten sind"
 msgid "declared legacy by add-on developers"
 msgstr "Durch Entwickler als veraltet gekennzeichnete Erweiterungen"
 
+#. Translators: presented as part of add-on update notification message.
+#, fuzzy, python-brace-format
+msgid ""
+"One or more add-on updates from {updateSource} are available. Go to NVDA "
+"menu, Tools, Add-on store, updatable add-ons tab to review and install them."
+msgstr ""
+"Ein oder mehrere Updates für NVDA-Erweiterungen von {updateSource} sind "
+"verfügbar. Gehen Sie ins NVDA-Menü, Werkzeuge, Nach Updates für NVDA-"
+"Erweiterungen suchen, um sie zu überprüfen."
+
+#. Translators: title of the add-on update notification message.
+msgid "NVDA add-on updates"
+msgstr "Updates für NVDA-Erweiterungen"
+
 #. Translators: menu item label for reviewing add-on updates.
 #, python-brace-format
 msgid "Review &add-on updates ({updateCount})..."
@@ -310,10 +296,6 @@ msgid ""
 msgstr ""
 "Ein oder mehrere Updates für NVDA-Erweiterungen von {updateSource} werden "
 "gerade heruntergeladen und installiert."
-
-#. Translators: title of the add-on update notification message.
-msgid "NVDA add-on updates"
-msgstr "Updates für NVDA-Erweiterungen"
 
 #. Translators: presented as part of add-on update notification message.
 #, python-brace-format
@@ -359,3 +341,30 @@ msgid ""
 msgstr ""
 "\"Proof of Concept\"-Implementierung der Funktion für die Aktualisierung von "
 "NVDA-Erweiterung (NVDA-Kernproblem #3208)"
+
+#~ msgid ""
+#~ "You are using NVDA 2023.1 or earlier. NVDA 2023.2 introduces an add-on "
+#~ "store to browse, install, manage, and update add-ons. After updating to "
+#~ "NVDA 2023.2 or later, Visit NVDA add-on store (NVDA menu, Tools, add-on "
+#~ "store) to check for add-on updates. Add-on Updater can still be used to "
+#~ "check for add-on updates in the meantime."
+#~ msgstr ""
+#~ "Sie verwenden NVDA 2023.1 oder älter. Mit NVDA 2023.2 gibt es ein Store "
+#~ "für NVDA-Erweiterungen, um NVDA-Erweiterungen zu suchen, zu installieren, "
+#~ "zu verwalten und zu aktualisieren. Besuchen Sie nach dem Update auf NVDA "
+#~ "2023.2 oder neuer den Store für NVDA-Erweiterungen (NVDA-Menü, Werkzeuge, "
+#~ "Store für NVDA-Erweiterungen), um nach Updates von NVDA-Erweiterungen zu "
+#~ "suchen. Der Updater kann in der Zwischenzeit weiterhin verwendet werden, "
+#~ "um nach Updates zu suchen."
+
+#~ msgid ""
+#~ "You are using an NVDA release with add-on store included. Visit NVDA add-"
+#~ "on store (NVDA menu, Tools, add-on store) to check for add-on updates. "
+#~ "Add-on Updater can still be used to check for add-on updates in the "
+#~ "meantime."
+#~ msgstr ""
+#~ "Sie verwenden eine NVDA-Version mit integriertem Store für NVDA-"
+#~ "Erweiterungen. Besuchen Sie diesen Store (NVDA-Menü, Werkzeuge, Store für "
+#~ "NVDA-Erweiterungen), um nach Updates für NVDA-Erweiterungen zu suchen. "
+#~ "Mit dem Updater für NVDA-Erweiterungen können Sie in der Zwischenzeit "
+#~ "weiterhin nach Updates suchen."

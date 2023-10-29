@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 'addonUpdater' '23.05.1'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2023-05-15 15:01+0300\n"
-"PO-Revision-Date: 2023-08-18 16:52+0300\n"
+"PO-Revision-Date: 2023-10-06 14:57+0300\n"
 "Last-Translator: Umut KORKMAZ <umutkork@gmail.com>\n"
 "Language-Team: Umut KORKMAZ <umutkork@gmail.com>\n"
 "Language: tr_TR\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4\n"
 "X-Poedit-Basepath: ../../../globalPlugins\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -39,31 +39,12 @@ msgstr ""
 "Bu eklenti, {supportedReleaseName} ({supportedBuild}) veya sonraki bir "
 "sürümünü gerektirir."
 
-#. Translators: message presented when add-on store is available in NVDA.
-msgid ""
-"You are using NVDA 2023.1 or earlier. NVDA 2023.2 introduces an add-on store "
-"to browse, install, manage, and update add-ons. After updating to NVDA "
-"2023.2 or later, Visit NVDA add-on store (NVDA menu, Tools, add-on store) to "
-"check for add-on updates. Add-on Updater can still be used to check for add-"
-"on updates in the meantime."
-msgstr ""
-"NVDA 2023.1 veya önceki bir sürümünü kullanıyorsunuz. NVDA 2023.2, "
-"eklentilere göz atmak, yüklemek, yönetmek ve güncellemek için bir eklenti "
-"deposu sunuyor. NVDA 2023.2 veya sonrasına güncelledikten sonra, eklenti "
-"güncellemelerini kontrol etmek için NVDA eklenti mağazasını (NVDA menüsü, "
-"Araçlar, eklenti mağazası) ziyaret edin. Eklenti Güncelleyici, bu arada "
-"eklenti güncellemelerini kontrol etmek için kullanılabilir."
+#. Translators: menu item label for checking add-on updates.
+msgid "Check for &add-on updates..."
+msgstr "Eklenti &güncelleme kontrolü..."
 
-#. Translators: message presented when add-on store is available in NVDA.
-msgid ""
-"You are using an NVDA release with add-on store included. Visit NVDA add-on "
-"store (NVDA menu, Tools, add-on store) to check for add-on updates. Add-on "
-"Updater can still be used to check for add-on updates in the meantime."
-msgstr ""
-"Eklenti deposunun dahil olduğu bir NVDA sürümü kullanıyorsunuz. Eklenti "
-"güncellemelerini kontrol etmek için NVDA eklenti mağazasını (NVDA "
-"menüsü>Araçlar>eklenti mağazası) ziyaret edin. Eklenti Güncelleyici, bu "
-"arada eklenti güncellemelerini kontrol etmek için hala kullanılabilir."
+msgid "Check for NVDA add-on updates"
+msgstr "NVDA eklenti güncellemelerini kontrol edin"
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -71,13 +52,6 @@ msgstr ""
 #. to be shown on installation and add-on information.
 msgid "Add-on Updater"
 msgstr "Eklenti Güncelleyici"
-
-#. Translators: menu item label for checking add-on updates.
-msgid "Check for &add-on updates..."
-msgstr "Eklenti &güncelleme kontrolü..."
-
-msgid "Check for NVDA add-on updates"
-msgstr "NVDA eklenti güncellemelerini kontrol edin"
 
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
@@ -284,6 +258,20 @@ msgstr "NVDA'da bulunan özellikler"
 msgid "declared legacy by add-on developers"
 msgstr "eklenti geliştiriciler tarafından eski olarak ilan edildi"
 
+#. Translators: presented as part of add-on update notification message.
+#, python-brace-format
+msgid ""
+"One or more add-on updates from {updateSource} are available. Go to NVDA "
+"menu, Tools, Add-on store, updatable add-ons tab to review and install them."
+msgstr ""
+"{updateSource} tarafından sağlanan bir veya daha fazla eklenti güncellemesi "
+"mevcut. İncelemek ve yüklemek için NVDA menüsü, Araçlar, Eklenti mağazası, "
+"güncellenebilir eklentiler sekmesine gidin."
+
+#. Translators: title of the add-on update notification message.
+msgid "NVDA add-on updates"
+msgstr "NVDA eklenti güncellemeleri"
+
 #. Translators: menu item label for reviewing add-on updates.
 #, python-brace-format
 msgid "Review &add-on updates ({updateCount})..."
@@ -307,10 +295,6 @@ msgid ""
 msgstr ""
 "{updateSource}'dan bir veya daha fazla eklenti güncellemesi indiriliyor ve "
 "yükleniyor."
-
-#. Translators: title of the add-on update notification message.
-msgid "NVDA add-on updates"
-msgstr "NVDA eklenti güncellemeleri"
 
 #. Translators: presented as part of add-on update notification message.
 #, python-brace-format
@@ -356,6 +340,31 @@ msgid ""
 msgstr ""
 "Eklenti güncelleme özelliğinin konsept uygulamasının kanıtı (NVDA Core issue "
 "3208)"
+
+#~ msgid ""
+#~ "You are using NVDA 2023.1 or earlier. NVDA 2023.2 introduces an add-on "
+#~ "store to browse, install, manage, and update add-ons. After updating to "
+#~ "NVDA 2023.2 or later, Visit NVDA add-on store (NVDA menu, Tools, add-on "
+#~ "store) to check for add-on updates. Add-on Updater can still be used to "
+#~ "check for add-on updates in the meantime."
+#~ msgstr ""
+#~ "NVDA 2023.1 veya önceki bir sürümünü kullanıyorsunuz. NVDA 2023.2, "
+#~ "eklentilere göz atmak, yüklemek, yönetmek ve güncellemek için bir eklenti "
+#~ "deposu sunuyor. NVDA 2023.2 veya sonrasına güncelledikten sonra, eklenti "
+#~ "güncellemelerini kontrol etmek için NVDA eklenti mağazasını (NVDA menüsü, "
+#~ "Araçlar, eklenti mağazası) ziyaret edin. Eklenti Güncelleyici, bu arada "
+#~ "eklenti güncellemelerini kontrol etmek için kullanılabilir."
+
+#~ msgid ""
+#~ "You are using an NVDA release with add-on store included. Visit NVDA add-"
+#~ "on store (NVDA menu, Tools, add-on store) to check for add-on updates. "
+#~ "Add-on Updater can still be used to check for add-on updates in the "
+#~ "meantime."
+#~ msgstr ""
+#~ "Eklenti deposunun dahil olduğu bir NVDA sürümü kullanıyorsunuz. Eklenti "
+#~ "güncellemelerini kontrol etmek için NVDA eklenti mağazasını (NVDA "
+#~ "menüsü>Araçlar>eklenti mağazası) ziyaret edin. Eklenti Güncelleyici, bu "
+#~ "arada eklenti güncellemelerini kontrol etmek için hala kullanılabilir."
 
 #~ msgid "NVDA add-on store (experimental)"
 #~ msgstr "NVDA eklenti deposu (deneysel)"

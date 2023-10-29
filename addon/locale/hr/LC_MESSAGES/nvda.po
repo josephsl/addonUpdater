@@ -10,16 +10,16 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-08-18 10:45+0200\n"
+"PO-Revision-Date: 2023-10-09 15:39+0200\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: hr <LL@li.org>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"X-Generator: Poedit 3.3.2\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Generator: Poedit 3.0\n"
 
 #. Add-on Updater requires Windows 10 22H2 or later.
 #. Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
@@ -40,31 +40,12 @@ msgstr ""
 "Ovaj dodatak zahtijeva {supportedReleaseName} ({supportedBuild}) ili novije "
 "izdanje."
 
-#. Translators: message presented when add-on store is available in NVDA.
-msgid ""
-"You are using NVDA 2023.1 or earlier. NVDA 2023.2 introduces an add-on store "
-"to browse, install, manage, and update add-ons. After updating to NVDA "
-"2023.2 or later, Visit NVDA add-on store (NVDA menu, Tools, add-on store) to "
-"check for add-on updates. Add-on Updater can still be used to check for add-"
-"on updates in the meantime."
-msgstr ""
-"Koristiš NVDA 2023.1 ili stariji. NVDA 2023.2 uvodi značajku Add-on store za "
-"pregledavanje, instalaciju, upravljanje i ažuriranje dodataka. Nakon "
-"ažuriranja na NVDA 2023.2 ili noviji, posjetite NVDA Add-on store (NVDA "
-"izbornik, Alati, add-on store) da biste provjerili ima li ažuriranja "
-"dodataka. Add-on updater i dalje se u međuvremenu može koristiti za provjeru "
-"ažuriranja dodataka."
+#. Translators: menu item label for checking add-on updates.
+msgid "Check for &add-on updates..."
+msgstr "Provjeri ima li ažuriranja &dodataka …"
 
-#. Translators: message presented when add-on store is available in NVDA.
-msgid ""
-"You are using an NVDA release with add-on store included. Visit NVDA add-on "
-"store (NVDA menu, Tools, add-on store) to check for add-on updates. Add-on "
-"Updater can still be used to check for add-on updates in the meantime."
-msgstr ""
-"Koristiš NVDA izdanje s uključenom trgovinom dodataka. Posjeti NVDA trgovinu "
-"dodataka (NVDA izbornik, Alati, trgovina dodataka) za provjeru novih verzija "
-"dodataka. Program za ažuriranje dodataka se u međuvremenu  još uvijek može "
-"koristiti za provjeru ažuriranja dodataka."
+msgid "Check for NVDA add-on updates"
+msgstr "Provjeri ažuriranja NVDA dodataka"
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -72,13 +53,6 @@ msgstr ""
 #. to be shown on installation and add-on information.
 msgid "Add-on Updater"
 msgstr "Ažuriranje dodataka"
-
-#. Translators: menu item label for checking add-on updates.
-msgid "Check for &add-on updates..."
-msgstr "Provjeri ima li ažuriranja &dodataka …"
-
-msgid "Check for NVDA add-on updates"
-msgstr "Provjeri ažuriranja NVDA dodataka"
 
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
@@ -283,6 +257,20 @@ msgstr "značajke koje su uvedene u NVDA"
 msgid "declared legacy by add-on developers"
 msgstr "razvojni programeri NVDA dodataka označili su ga kao stari dodatak"
 
+#. Translators: presented as part of add-on update notification message.
+#, python-brace-format
+msgid ""
+"One or more add-on updates from {updateSource} are available. Go to NVDA "
+"menu, Tools, Add-on store, updatable add-ons tab to review and install them."
+msgstr ""
+"Dostupno je jedno ili više ažuriranja dodatka od {updateSource}. Otvori NVDA "
+"izbornik, Alati, Trgovina dodataka, kartica s ažuriranim dodacima za pregled "
+"i instaliranje."
+
+#. Translators: title of the add-on update notification message.
+msgid "NVDA add-on updates"
+msgstr "Ažuriranja NVDA dodataka"
+
 #. Translators: menu item label for reviewing add-on updates.
 #, python-brace-format
 msgid "Review &add-on updates ({updateCount})..."
@@ -305,10 +293,6 @@ msgid ""
 msgstr ""
 "Preuzimaju se i instaliraju jedan ili više dodataka s izvora dodataka "
 "{updateSource}."
-
-#. Translators: title of the add-on update notification message.
-msgid "NVDA add-on updates"
-msgstr "Ažuriranja NVDA dodataka"
 
 #. Translators: presented as part of add-on update notification message.
 #, python-brace-format
@@ -353,6 +337,31 @@ msgid ""
 msgstr ""
 "Koncept implementacije funkcije nadograđivanja dodataka (problem 3208 u NVDA "
 "jezgri)"
+
+#~ msgid ""
+#~ "You are using NVDA 2023.1 or earlier. NVDA 2023.2 introduces an add-on "
+#~ "store to browse, install, manage, and update add-ons. After updating to "
+#~ "NVDA 2023.2 or later, Visit NVDA add-on store (NVDA menu, Tools, add-on "
+#~ "store) to check for add-on updates. Add-on Updater can still be used to "
+#~ "check for add-on updates in the meantime."
+#~ msgstr ""
+#~ "Koristiš NVDA 2023.1 ili stariji. NVDA 2023.2 uvodi značajku Add-on store "
+#~ "za pregledavanje, instalaciju, upravljanje i ažuriranje dodataka. Nakon "
+#~ "ažuriranja na NVDA 2023.2 ili noviji, posjetite NVDA Add-on store (NVDA "
+#~ "izbornik, Alati, add-on store) da biste provjerili ima li ažuriranja "
+#~ "dodataka. Add-on updater i dalje se u međuvremenu može koristiti za "
+#~ "provjeru ažuriranja dodataka."
+
+#~ msgid ""
+#~ "You are using an NVDA release with add-on store included. Visit NVDA add-"
+#~ "on store (NVDA menu, Tools, add-on store) to check for add-on updates. "
+#~ "Add-on Updater can still be used to check for add-on updates in the "
+#~ "meantime."
+#~ msgstr ""
+#~ "Koristiš NVDA izdanje s uključenom trgovinom dodataka. Posjeti NVDA "
+#~ "trgovinu dodataka (NVDA izbornik, Alati, trgovina dodataka) za provjeru "
+#~ "novih verzija dodataka. Program za ažuriranje dodataka se u međuvremenu  "
+#~ "još uvijek može koristiti za provjeru ažuriranja dodataka."
 
 #~ msgid "NVDA add-on store (experimental)"
 #~ msgstr "Trgovina NVDA dodataka (eksperimentalno)"

@@ -34,29 +34,12 @@ msgstr ""
 "본 추가 기능은 {releaseName}({build}) 버전을 지원하지 않습니다.\n"
 "{supportedReleaseName}({supportedBuild}) 이상으로 업그레이드하십시오."
 
-#. Translators: message presented when add-on store is available in NVDA.
-msgid ""
-"You are using NVDA 2023.1 or earlier. NVDA 2023.2 introduces an add-on store "
-"to browse, install, manage, and update add-ons. After updating to NVDA "
-"2023.2 or later, Visit NVDA add-on store (NVDA menu, Tools, add-on store) to "
-"check for add-on updates. Add-on Updater can still be used to check for add-"
-"on updates in the meantime."
-msgstr ""
-"NVDA 2023.1 또는 이전 버전입니다. NVDA 2023.2로 업그레이드하여 추가 기능 스토"
-"어를 통해 추가 기능들을 검색, 설치, 관리 및 업데이트하실 수 있습니다. NVDA "
-"2023.2 설치 후 NVDA 추가 기능 스토어(NVDA 메뉴, 도구, 추가 기능 스토어)을 방"
-"문하여 추가 기능 업데이트를 확인하세요. Add-on Updater을 통해 추가 기능 업데"
-"이트를 받으실 수도 있습니다."
+#. Translators: menu item label for checking add-on updates.
+msgid "Check for &add-on updates..."
+msgstr "추가 기능 업데이트 확인 (&A)..."
 
-#. Translators: message presented when add-on store is available in NVDA.
-msgid ""
-"You are using an NVDA release with add-on store included. Visit NVDA add-on "
-"store (NVDA menu, Tools, add-on store) to check for add-on updates. Add-on "
-"Updater can still be used to check for add-on updates in the meantime."
-msgstr ""
-"추가 기능 스토어가 탑제된 NVDA 버전입니다. NVDA 추가 기능 스토어(NVDA 메뉴, "
-"도구, 추가 기능 스토어)을 방문하여 추가 기능 업데이트를 확인하세요. Add-on "
-"Updater을 통해 추가 기능 업데이트를 받으실 수도 있습니다."
+msgid "Check for NVDA add-on updates"
+msgstr "NVDA 추가 기능 업데이트 확인"
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -64,13 +47,6 @@ msgstr ""
 #. to be shown on installation and add-on information.
 msgid "Add-on Updater"
 msgstr "Add-on Updater"
-
-#. Translators: menu item label for checking add-on updates.
-msgid "Check for &add-on updates..."
-msgstr "추가 기능 업데이트 확인 (&A)..."
-
-msgid "Check for NVDA add-on updates"
-msgstr "NVDA 추가 기능 업데이트 확인"
 
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
@@ -274,6 +250,19 @@ msgstr "NVDA에 기능이 추가됨"
 msgid "declared legacy by add-on developers"
 msgstr "추가 기능 개발자가 더이상 필요없다고 선언함"
 
+#. Translators: presented as part of add-on update notification message.
+#, fuzzy, python-brace-format
+msgid ""
+"One or more add-on updates from {updateSource} are available. Go to NVDA "
+"menu, Tools, Add-on store, updatable add-ons tab to review and install them."
+msgstr ""
+"{updateSource}에서 하나 이상의 추가 기능 업데이트가 있습니다. NVDA 메뉴의 도"
+"구, 추가 기능 업데이트 검토 항목을 통해서 확인할 수 있습니다."
+
+#. Translators: title of the add-on update notification message.
+msgid "NVDA add-on updates"
+msgstr "NVDA 추가 기능 업데이트"
+
 #. Translators: menu item label for reviewing add-on updates.
 #, python-brace-format
 msgid "Review &add-on updates ({updateCount})..."
@@ -295,10 +284,6 @@ msgid ""
 "installed."
 msgstr ""
 "한개 이상의 추가 기능이 {updateSource}에서 다운로드 및 설치되고 있습니다"
-
-#. Translators: title of the add-on update notification message.
-msgid "NVDA add-on updates"
-msgstr "NVDA 추가 기능 업데이트"
 
 #. Translators: presented as part of add-on update notification message.
 #, python-brace-format
@@ -340,3 +325,26 @@ msgid ""
 "Proof of concept implementation of add-on update feature (NVDA Core issue "
 "3208)"
 msgstr "추가 기능 업데이트 기능의 시험적 구현 (NVDA Core issue 3208)"
+
+#~ msgid ""
+#~ "You are using NVDA 2023.1 or earlier. NVDA 2023.2 introduces an add-on "
+#~ "store to browse, install, manage, and update add-ons. After updating to "
+#~ "NVDA 2023.2 or later, Visit NVDA add-on store (NVDA menu, Tools, add-on "
+#~ "store) to check for add-on updates. Add-on Updater can still be used to "
+#~ "check for add-on updates in the meantime."
+#~ msgstr ""
+#~ "NVDA 2023.1 또는 이전 버전입니다. NVDA 2023.2로 업그레이드하여 추가 기능 "
+#~ "스토어를 통해 추가 기능들을 검색, 설치, 관리 및 업데이트하실 수 있습니다. "
+#~ "NVDA 2023.2 설치 후 NVDA 추가 기능 스토어(NVDA 메뉴, 도구, 추가 기능 스토"
+#~ "어)을 방문하여 추가 기능 업데이트를 확인하세요. Add-on Updater을 통해 추"
+#~ "가 기능 업데이트를 받으실 수도 있습니다."
+
+#~ msgid ""
+#~ "You are using an NVDA release with add-on store included. Visit NVDA add-"
+#~ "on store (NVDA menu, Tools, add-on store) to check for add-on updates. "
+#~ "Add-on Updater can still be used to check for add-on updates in the "
+#~ "meantime."
+#~ msgstr ""
+#~ "추가 기능 스토어가 탑제된 NVDA 버전입니다. NVDA 추가 기능 스토어(NVDA 메"
+#~ "뉴, 도구, 추가 기능 스토어)을 방문하여 추가 기능 업데이트를 확인하세요. "
+#~ "Add-on Updater을 통해 추가 기능 업데이트를 받으실 수도 있습니다."

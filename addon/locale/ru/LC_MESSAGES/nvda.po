@@ -34,21 +34,12 @@ msgid ""
 "This add-on requires {supportedReleaseName} ({supportedBuild}) or later."
 msgstr ""
 
-#. Translators: message presented when add-on store is available in NVDA.
-msgid ""
-"You are using NVDA 2023.1 or earlier. NVDA 2023.2 introduces an add-on store "
-"to browse, install, manage, and update add-ons. After updating to NVDA "
-"2023.2 or later, Visit NVDA add-on store (NVDA menu, Tools, add-on store) to "
-"check for add-on updates. Add-on Updater can still be used to check for add-"
-"on updates in the meantime."
-msgstr ""
+#. Translators: menu item label for checking add-on updates.
+msgid "Check for &add-on updates..."
+msgstr "Проверить наличие обновлений для &дополнений..."
 
-#. Translators: message presented when add-on store is available in NVDA.
-msgid ""
-"You are using an NVDA release with add-on store included. Visit NVDA add-on "
-"store (NVDA menu, Tools, add-on store) to check for add-on updates. Add-on "
-"Updater can still be used to check for add-on updates in the meantime."
-msgstr ""
+msgid "Check for NVDA add-on updates"
+msgstr "Проверить наличие обновлений дополнения NVDA"
 
 #. Translators: This is the label for the Add-on Updater settings panel.
 #. Add-on summary, usually the user visible name of the addon.
@@ -56,13 +47,6 @@ msgstr ""
 #. to be shown on installation and add-on information.
 msgid "Add-on Updater"
 msgstr "Обновление дополнений"
-
-#. Translators: menu item label for checking add-on updates.
-msgid "Check for &add-on updates..."
-msgstr "Проверить наличие обновлений для &дополнений..."
-
-msgid "Check for NVDA add-on updates"
-msgstr "Проверить наличие обновлений дополнения NVDA"
 
 #. Translators: This is the label for a checkbox in the
 #. Add-on Updater settings panel.
@@ -273,6 +257,19 @@ msgstr "функции включены в NVDA"
 msgid "declared legacy by add-on developers"
 msgstr "объявлен старым разработчиками дополнения"
 
+#. Translators: presented as part of add-on update notification message.
+#, fuzzy, python-brace-format
+msgid ""
+"One or more add-on updates from {updateSource} are available. Go to NVDA "
+"menu, Tools, Add-on store, updatable add-ons tab to review and install them."
+msgstr ""
+"Доступно одно или несколько дополнений из {updateSource}. Перейдите в меню "
+"NVDA, Сервис, Просмотр обновлений дополнений, чтобы просмотреть их."
+
+#. Translators: title of the add-on update notification message.
+msgid "NVDA add-on updates"
+msgstr "Обновления дополнений NVDA"
+
 #. Translators: menu item label for reviewing add-on updates.
 #, python-brace-format
 msgid "Review &add-on updates ({updateCount})..."
@@ -295,10 +292,6 @@ msgid ""
 msgstr ""
 "Выполняется загрузка и установка одного или нескольких обновлений дополнения "
 "из {updateSource}"
-
-#. Translators: title of the add-on update notification message.
-msgid "NVDA add-on updates"
-msgstr "Обновления дополнений NVDA"
 
 #. Translators: presented as part of add-on update notification message.
 #, python-brace-format
