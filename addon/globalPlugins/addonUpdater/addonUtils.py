@@ -1,5 +1,5 @@
 # Add-on Updater
-# Copyright 2018-2023 Joseph Lee, released under GPL.
+# Copyright 2018-2024 Joseph Lee, released under GPL version 2.
 
 import pickle
 import os

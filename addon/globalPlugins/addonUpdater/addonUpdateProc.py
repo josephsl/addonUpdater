@@ -1,5 +1,5 @@
 # Add-on update process/procedure internals
-# Copyright 2022-2023 Joseph Lee, released under GPL
+# Copyright 2022-2024 Joseph Lee, released under GPL version 2
 
 # Proof of concept implementation of NVDA Core issue 3208.
 # Split from extended add-on handler and GUI modules in 2022.

@@ -1,8 +1,7 @@
 # -*- coding: UTF-8 -*-
-# addonHandler.py
 # A part of NonVisual Desktop Access (NVDA)
-# Copyright (C) 2012-2023 Rui Batista, NV Access Limited, Noelia Ruiz Martínez, Joseph Lee
-# This file is covered by the GNU General Public License.
+# Copyright (C) 2012-2024 Rui Batista, NV Access Limited, Noelia Ruiz Martínez, Joseph Lee
+# This file is covered by the GNU General Public License, version 2.
 # See the file COPYING for more details.
 
 # Proof of concept implementation of NVDA Core issue 3208.

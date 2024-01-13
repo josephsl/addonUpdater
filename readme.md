@@ -2,8 +2,7 @@
 
 * Author: Joseph Lee, Luke Davis
 * Download [stable version][1]
-* NVDA compatibility: 2023.1
-* This is a legacy add-on: NVDA 2023.2 includes add-on update check functionality through add-on store
+* NVDA compatibility: 2023.1-2023.3
 
 This add-on brings NVDA Core issue 3208 to life: ability to check for, download, and apply add-on updates.
 

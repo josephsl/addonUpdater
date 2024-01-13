@@ -1,5 +1,6 @@
 # addonUpdater/installTasks.py
-# Copyright 2023 Joseph Lee, released under GPL.
+# Copyright 2023 Joseph Lee, released under GPL version 2
+# Copyright 2024, Luke Davis
 
 # Provides needed routines during add-on installation and removal.
 # Mostly checks compatibility.

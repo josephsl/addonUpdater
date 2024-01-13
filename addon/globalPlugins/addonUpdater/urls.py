@@ -1,8 +1,8 @@
 # urls.py
 # A part of NonVisual Desktop Access (NVDA)
-# This file is covered by the GNU General Public License.
+# This file is covered by the GNU General Public License version 2.
 # See the file COPYING for more details.
-# Copyright (C) 2012-2022 NV Access Limited, Beqa Gozalishvili, Joseph Lee,
+# Copyright (C) 2012-2024 NV Access Limited, Beqa Gozalishvili, Joseph Lee,
 # Babbage B.V., Ethan Holliger, Luke Davis
 
 # Centralized URL constants.
