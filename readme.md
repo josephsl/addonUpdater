@@ -15,7 +15,7 @@ The following add-ons provide built-in update feature and thus updates will not 
 
 IMPORTANT NOTES:
 
-* This is a proof of concept add-on. Once the [relevant feature is included in NVDA][2] in the form of [an add-on store][3] (introduced in NVDA 2023.2), this add-on will be discontinued.
+* This is a proof of concept add-on. Once the [relevant feature is included in NVDA][2] in the form of [an add-on store][3] (introduced in NVDA 2023.2), this add-on will be phased out.
 * This add-on requires Windows 10 Version 22H2 or later.
 * This add-on is not intended to be used in secure screens. If you have add-ons installed in the secure screen, even if you copy Add-on Updater to secure screen mode, Add-on Updater will not work.
 * If the new add-on updates specify a compatibility range (minimum and last tested NVDA versions) and if the NVDA version you are running does not fall within the compatibility range according to NVDA, add-on updating will not proceed.
@@ -58,6 +58,10 @@ This is the final version to support Windows 7, 8, 8.1, and 10 21H2 and earlier.
 * Add-on update results dialog or toast message will be shown once add-on store message is closed.
 * If add-on updates dialog is shown and then closed without installing add-ons, NVDA will no longer report no add-on updates when add-on updates are checked.
 * Add-on Updater will no longer present startup messages and perform update checks if updating a portable copy of NVDA.
+
+## Version 24.01.2
+
+* Short life-span release which removes the legacy status introduced in late 2023.
 
 ## Version 23.07
 
