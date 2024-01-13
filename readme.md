@@ -59,7 +59,7 @@ This is the final version to support Windows 7, 8, 8.1, and 10 21H2 and earlier.
 * If add-on updates dialog is shown and then closed without installing add-ons, NVDA will no longer report no add-on updates when add-on updates are checked.
 * Add-on Updater will no longer present startup messages and perform update checks if updating a portable copy of NVDA.
 
-## Version 24.01.2
+## Version 24.01.1
 
 * Short life-span release which removes the legacy status introduced in late 2023.
 
