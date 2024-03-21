@@ -239,7 +239,7 @@ def installAddonUpdate(destPath: str, addonName: str) -> int:
 		# as having updates, even though it's just a different instance of the same version.
 		# The real cause is the older version listed in the store JSON, but the UI can't represent that.
 		oldStoreRecord: str = os.path.join(
-			WritePaths.addonsDir(),
+			WritePaths.addonsDir,
 			bundleName + ".json"
 		)
 		try:
