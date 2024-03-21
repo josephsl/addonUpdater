@@ -6,20 +6,26 @@
 # The purpose of this module is to provide implementation of add-on update processes and procedures.
 # Specifically, internals of update check, download, and installation steps.
 # For update check, this module is responsible for asking different protocols to return update records.
-# Note that add-on update record class is striclty part of update procedures/processes.
+# Note that add-on update record class is strictly part of update procedures/processes.
 # Parts will resemble that of extended add-on handler and GUI modules.
 
 from __future__ import annotations
 from typing import Optional, Any
 from urllib.request import urlopen
 import enum
+import hashlib
+import os
+
 import addonHandler
 import globalVars
 from logHandler import log
-from . import addonUtils
-import hashlib
 import gui
 import extensionPoints
+from NVDAState import WritePaths
+
+from . import addonUtils
+
+
 addonHandler.initTranslation()
 
 
@@ -228,4 +234,17 @@ def installAddonUpdate(destPath: str, addonName: str) -> int:
 	except Exception:
 		log.error(f"Error installing  addon bundle from {destPath}", exc_info=True)
 		return AddonInstallStatus.AddonInstallGenericError
+	else:	# We want to remove any record the store has of this add-on, since we install externally.
+		# If we don't, the store shows stable add-ons of the same version as our external add-ons,
+		# as having updates, even though it's just a different instance of the same version.
+		# The real cause is the older version listed in the store JSON, but the UI can't represent that.
+		oldStoreRecord: str = os.path.join(
+			WritePaths.addonsDir,
+			bundleName + ".json"
+		)
+		try:
+			os.remove(os.path.abspath(oldStoreRecord))
+			log.debug(f"Removed old store record at {oldStoreRecord}")
+		except OSError:
+			log.debug(f"Attempt to remove an old store record failed: may not exist. Target: {oldStoreRecord}")
 	return AddonInstallStatus.AddonInstallSuccess
