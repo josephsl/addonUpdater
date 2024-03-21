@@ -43,6 +43,10 @@ The available add-on update sources are:
 * Spanish community add-ons catalog
 * Catalogs maintained by NVDA communities in China and Taiwan
 
+## 24.2.1
+
+* Fixes a problem wherein Updater's updates, which appear in the external channel, were shown as still updatable in the store via the stable (or other) channel. Caused by residual JSON files from old non-external installations. Now they are removed.
+
 ## Version 24.2.0
 
 * Release compatible with NVDA 2024.1.
