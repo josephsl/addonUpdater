@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-08-26 12:58+0100\n"
+"PO-Revision-Date: 2024-03-28 19:14+0000\n"
 "Last-Translator: Ângelo Abrantes <ampa4374@gmail.com>\n"
 "Language-Team: Equipa portuguesa do NVDA <ampa4374@gmail.com; rui."
 "fontes@tiflotecnia.pt>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. Add-on Updater requires Windows 10 22H2 or later.
@@ -256,13 +256,14 @@ msgid "declared legacy by add-on developers"
 msgstr "antiguidade declarada pelos criadores de extras"
 
 #. Translators: presented as part of add-on update notification message.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid ""
 "One or more add-on updates from {updateSource} are available. Go to NVDA "
 "menu, Tools, Add-on store, updatable add-ons tab to review and install them."
 msgstr ""
-"Estão disponíveis uma ou mais actualizações de {updateSource} add-on. Ir "
-"para o menu NVDA, Ferramentas, Rever actualizações de add-on para as rever."
+"Estão disponíveis uma ou mais actualizações de extras de {updateSource}. "
+"Aceda ao menu NVDA, Ferramentas, Loja de complementos, separador "
+"Complementos actualizáveis para os rever e instalar."
 
 #. Translators: title of the add-on update notification message.
 msgid "NVDA add-on updates"
