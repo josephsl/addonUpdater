@@ -28,7 +28,7 @@ addonHandler.initTranslation()
 
 # Overall update check routine was inspired by StationPlaylist Studio add-on (Joseph Lee).)
 
-addonUpdateCheckInterval = 86400
+addonUpdateCheckInterval = 21600  # 6 hours; was 86400 (24 hours)
 updateChecker = None
 
 

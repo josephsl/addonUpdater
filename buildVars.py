@@ -25,7 +25,7 @@ addon_info = {
 	# Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 	"addon_description": _("""Proof of concept implementation of add-on update feature (NVDA Core issue 3208)"""),
 	# version
-	"addon_version": "24.2.501",
+	"addon_version": "24.2.502",
 	# Author(s)
 	"addon_author": "Joseph Lee <joseph.lee22590@gmail.com>, Luke Davis <XLTechie@newanswertech.com>",
 	# URL for the add-on documentation support
