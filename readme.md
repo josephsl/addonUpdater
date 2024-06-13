@@ -2,39 +2,43 @@
 
 * Author: Joseph Lee, Luke Davis
 * Download [stable version][1]
-* NVDA compatibility: 2023.1-2024.1+
+* NVDA compatibility: 2023.1-2024.2+
 
 This add-on brings NVDA Core issue 3208 to life: ability to check for, download, and apply add-on updates.
 
-To check for updates after installing this add-on, go to NVDA menu/Tools/Check for add-on updates (if NVDA did notice updates, the menu item will say "Review add-on updates" followed by update count). If updates are available, a list of add-on updates will be shown, with each entry consisting of add-on name, current version, new version, and update channel. Select Update, and NVDA will download and apply updates in sequence, with a prompt to restart your NVDA shown afterwards.
+To check for updates after installing this add-on, go to NVDA menu/Tools/Check for add-on updates (if NVDA did notice updates, the menu item will say "Review add-on updates" followed by update count).
+If updates are available, a list of add-on updates will be shown, with each entry consisting of add-on name, current version, new version, and update channel.
+Select Update, and NVDA will download and apply updates in sequence, with a prompt to restart your NVDA shown afterwards.
 
 The following add-ons provide built-in update feature and thus updates will not be checked via this add-on:
 
 * Braille Extender
 * Tienda NVDA (Spanish NVDA Community Store)
 
-IMPORTANT NOTES:
+### IMPORTANT NOTES:
 
-* Once the [relevant feature is included in NVDA][2] in the form of [an add-on store][3] with automatic updates and update notification, this add-on will be phased out. Currently, while the Add-on Store was introduced in NVDA 2023.2, the other features are not yet available.
+* Once the [relevant feature is included in NVDA][2] in the form of [an add-on store][3] with automatic updates and update notification, this add-on will be phased out. Currently, while the Add-on Store was introduced in NVDA 2023.2, and basic update notifications will be available in NVDA 2024.3, the full range of capabilities are not yet available.
 * This add-on requires Windows 10 Version 22H2 or later.
 * This add-on is not intended to be used in secure screens. If you have add-ons installed in the secure screen, even if you copy Add-on Updater to secure screen mode, Add-on Updater will not work.
 * If the new add-on updates specify a compatibility range (minimum and last tested NVDA versions) and if the NVDA version you are running does not fall within the compatibility range according to NVDA, add-on updating will not proceed.
 * Not all add-ons come with development releases. If you are not getting updates after choosing to install development versions of an add-on, switch to stable channel for affected add-ons.
+* In the NVDA settings window, while editing the settings for Add-on Updater, you may notice that the title indicates that you are editing settings for a particular configuration profile (whatever profile you had active before entering settings). This does not matter. This add-on's settings are always global.
 * On some systems (particularly computers joined to a corporate domain), add-on update check functionality may not work properly, therefore add-on updates must be downloaded manually.
 * Some features require NVDA to be installed on the computer.
 * Some add-on releases include SHA256 hash values for checking add-on package integrity (all add-ons published on add-on store include SHA256 values), and if the hash value does not match, add-on updating will fail.
 
 ## Add-on settings
 
-You can configure Add-on Updater settings from NVDA Settings screen (NVDA menu, Preferences, Settings) under Add-on Updater category. Add-on settings are as follows:
+You can configure Add-on Updater settings from NVDA Settings screen (NVDA menu, Preferences, Settings) under Add-on Updater category.
+Add-on settings are as follow:
 
-* Automatically check for add-on updates: if checked, NVDA will check for add-on updates once a day. Automatic update checks is enabled on Windows client systems and disabled on server systems.
-* Add-on update notification: you can choose to receive update notification as a dialog or a toast. On server systems or running a portable copy of NVDA, update notification will be shown as a dialog.
+* Automatically check for add-on updates: if checked, NVDA will check for add-on updates once every 12 hours. Automatic update checks are enabled by default on Windows client systems, and disabled by default on server systems.
+* Add-on update notification: you can choose to receive update notifications as a dialog or a toast. On server systems or if running a portable copy of NVDA, the update notification will be shown as a dialog.
 * Update add-ons in the background (update notification is set to toast): if checked, Add-on Updater will apply updates in the background. A toast will appear informing you that add-on updates are being downloaded and installed, followed by another message announcing update results. Same limitations as add-on update notification setting and toast must be selected from the above option in order for background updates to work.
 * Do not update add-ons: you can choose add-ons that should not be updated.
 * Prefer development releases: any add-ons checked in this list will receive development (prerelease) releases.
 * Development release channel (selected add-on must be checked from prefer development releases): allows selecting development updates coming from either dev or beta channel.
-* Add-on update source: you can choose where to get updates from. Currently Add-on Updater supports downloading updates from the sources listed below. A confirmation message will be shown after changing update source.
+* Add-on update source: you can choose where to get updates from. Add-on Updater supports downloading updates from the sources listed below. A confirmation message will be shown after changing update source.
 
 The available add-on update sources are:
 
@@ -42,6 +46,13 @@ The available add-on update sources are:
 * Community add-ons website
 * Spanish community add-ons catalog
 * Catalogs maintained by NVDA communities in China and Taiwan
+
+## Version 24.2.4
+
+* Fix a bug related to the fix in version 24.2.1: that bug was not fully fixed in NVDA 2023.X, because the fix relied on a change made in NVDA 2024.1. This situation is now detected and patched (josephsl/addonUpdater#22).
+* The update interval has been changed to 12 hours.
+* The readme now makes note of the update notifications available natively in NVDA 2024.3.
+* The readme has been updated to comment on an unfixable, but harmless, bug in NVDA's settings panel (josephsl/addonUpdater#8).
 
 ## Version 24.2.2
 
