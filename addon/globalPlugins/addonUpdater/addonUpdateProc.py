@@ -21,7 +21,12 @@ import globalVars
 from logHandler import log
 import gui
 import extensionPoints
-from NVDAState import WritePaths
+try:
+	# NVDA versions below 2024.1 do not support this
+	from NVDAState import WritePaths
+	addonsDir: str = WritePaths.addonsDir
+except Exception:
+	addonsDir: str = os.path.join(globalVars.appArgs.configPath, "addons")
 
 from . import addonUtils
 
@@ -239,7 +244,7 @@ def installAddonUpdate(destPath: str, addonName: str) -> int:
 		# as having updates, even though it's just a different instance of the same version.
 		# The real cause is the older version listed in the store JSON, but the UI can't represent that.
 		oldStoreRecord: str = os.path.join(
-			WritePaths.addonsDir,
+			addonsDir,
 			bundleName + ".json"
 		)
 		try:
