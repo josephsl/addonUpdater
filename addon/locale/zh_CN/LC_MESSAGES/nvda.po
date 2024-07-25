@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: addonUpdater 18.12\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2018-11-30 01:00+1000\n"
-"PO-Revision-Date: 2023-09-23 20:14+0800\n"
+"PO-Revision-Date: 2024-02-12 15:32+0800\n"
 "Last-Translator: 完美很难 <1872265132@qq.com>\n"
 "Language-Team: NVDASimplified Chinese team All volunteers <Copyright (C) "
 "2010-2019>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #. Add-on Updater requires Windows 10 22H2 or later.
 #. Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
@@ -97,8 +97,8 @@ msgid ""
 "You are about to switch to a different add-on update source. Are you sure "
 "you wish to change update source to {updateSourceDescription}?"
 msgstr ""
-"您即将切换到另一个插件更新源。您确定要将更新源切换为{updateSourceDescription}"
-"吗？"
+"您即将切换到另一个插件更新源。您确定要将更新源切换为"
+"{updateSourceDescription}吗？"
 
 #. Translators: Title of the add-on update source dialog.
 msgid "Add-on update source change"
@@ -195,8 +195,8 @@ msgid ""
 "One or more add-ons are currently disabled. These add-ons will be enabled "
 "after updating. Are you sure you wish to update disabled add-ons anyway?"
 msgstr ""
-"目前有一个或多个NVDA 插件被禁用。这些插件将在更新后被启用。您确定要更新被禁用"
-"的插件吗？"
+"目前有一个或多个NVDA 插件被禁用。这些插件将在更新后被启用。您确定要更新被禁"
+"用的插件吗？"
 
 #. Translators: Title of the add-on update confirmation dialog.
 msgid "Update disabled add-ons"
@@ -249,7 +249,7 @@ msgid "declared legacy by add-on developers"
 msgstr "插件开发者标记为旧版"
 
 #. Translators: presented as part of add-on update notification message.
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid ""
 "One or more add-on updates from {updateSource} are available. Go to NVDA "
 "menu, Tools, Add-on store, updatable add-ons tab to review and install them."
@@ -330,9 +330,10 @@ msgstr "插件更新功能的概念证明(NVDA Core issue 3208)"
 #~ "store) to check for add-on updates. Add-on Updater can still be used to "
 #~ "check for add-on updates in the meantime."
 #~ msgstr ""
-#~ "您使用的是 NVDA 2023.1 或更早版本。 NVDA 2023.2 增加了一个插件商店来浏览、"
-#~ "安装、管理和更新插件。更新到 NVDA 2023.2 或更高版本后，转到 NVDA 菜单、工"
-#~ "具、插件商店，以检查插件的更新。同时，插件更新器也可用于检查插件更新。"
+#~ "您使用的是 NVDA 2023.1 或更早版本。 NVDA 2023.2 增加了一个插件商店来浏"
+#~ "览、安装、管理和更新插件。更新到 NVDA 2023.2 或更高版本后，转到 NVDA 菜"
+#~ "单、工具、插件商店，以检查插件的更新。同时，插件更新器也可用于检查插件更"
+#~ "新。"
 
 #~ msgid ""
 #~ "You are using an NVDA release with add-on store included. Visit NVDA add-"
