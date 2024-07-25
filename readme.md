@@ -47,6 +47,10 @@ The available add-on update sources are:
 * Spanish community add-ons catalog
 * Catalogs maintained by NVDA communities in China and Taiwan
 
+## Version 24.3/24.08
+
+* When NVDA starts, Add-on Updater will not present updates dialog if NVDA 2024.3 or later is in use and update notifications is set to "notify" from NVDA's add-on store settings.
+
 ## Version 24.2.4
 
 * Fix a bug related to the fix in version 24.2.1: that bug was not fully fixed in NVDA 2023.X, because the fix relied on a change made in NVDA 2024.1. This situation is now detected and patched (josephsl/addonUpdater#22).
