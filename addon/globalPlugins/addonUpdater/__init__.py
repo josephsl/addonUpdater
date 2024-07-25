@@ -33,9 +33,17 @@ updateChecker = None
 
 
 # To avoid freezes, a background thread will run after the global plugin constructor calls wx.CallAfter.
-def autoUpdateCheck() -> None:
+# Do not run this at startup if NVDA is told to notify users about add-on updates at startup.
+def autoUpdateCheck(startup: bool = False) -> None:
 	currentTime = time.time()
 	whenToCheck = addonUtils.updateState["lastChecked"] + addonUpdateCheckInterval
+	if (
+		startup
+		and config.conf.get("addonStore", None)
+		and config.conf["addonStore"].get("automaticUpdates", None) == "notify"
+	):
+		# Delay "add-on update check" by update check interval so NVDA can present add-on updates dialog.
+		whenToCheck += addonUpdateCheckInterval
 	if currentTime >= whenToCheck:
 		addonUtils.updateState["lastChecked"] = currentTime
 		if addonUtils.updateState["autoUpdate"]:
@@ -129,7 +137,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			# But not when NVDA itself is updating.
 			# Disable this if add-on store message was shown.
 			if not ((globalVars.appArgs.install or globalVars.appArgs.createPortable) and globalVars.appArgs.minimal):
-				wx.CallAfter(autoUpdateCheck)
+				wx.CallAfter(autoUpdateCheck, startup=True)
 
 	def terminate(self):
 		super(GlobalPlugin, self).terminate()
