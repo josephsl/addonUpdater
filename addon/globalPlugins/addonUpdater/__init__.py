@@ -40,7 +40,7 @@ def autoUpdateCheck(startup: bool = False) -> None:
 	if (
 		startup
 		and config.conf.get("addonStore", None)
-		and config.conf["addonStore"].get("automaticUpdates", None) != "disabled"
+		and config.conf["addonStore"].get("automaticUpdates", "disabled") != "disabled"
 	):
 		# Delay "add-on update check" by update check interval so NVDA can present add-on updates dialog.
 		whenToCheck += addonUpdateCheckInterval
