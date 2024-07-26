@@ -1,0 +1,39 @@
+# https://crontab.guru/crontab.5.html
+
+name: Check for and merge l10n updates
+
+on:
+  workflow_dispatch:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '08 00 * * 6' # At 00:08 on Saturdays
+
+jobs:
+  update-translations:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout main
+      uses: actions/checkout@v3
+    - name: Merge changes
+      run: |
+        git config --global user.name translation-updater
+        git config --global user.email github-actions@github.com
+        git pull
+        git remote add l10n https://github.com/nvdaaddons/addonUpdater
+        git fetch l10n
+        git merge -q --ff -m "Translations automerge" l10n/stable
+    - name: Fix problem directories
+      run: |
+        for badDir in $(find addon/locale -name '*add-ons'); do
+        echo "Fixing bad directory: $badDir"
+        mkdir "$badDir"/../LC_MESSAGES 2>/dev/null
+        # Have to use real mv not git mv, because git mv won't overwrite
+        mv "$badDir"/LC_MESSAGES/nvda.po "$badDir"/../LC_MESSAGES/
+        git add "$badDir"/../LC_MESSAGES/nvda.po
+        rm -r "$badDir"
+        done
+        git commit -am 'Removing "add-ons" from l10n directories.'
+    - name: Pushing updates
+      run: |
+        git push     
+        
