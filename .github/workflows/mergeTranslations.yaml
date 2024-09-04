@@ -23,7 +23,9 @@ jobs:
         #git pull
         git remote add l10n https://github.com/nvdaaddons/addonUpdater
         git fetch l10n
-        git merge --ff -m "Translations automerge" l10n/stable
+        git checkout stable
+        git checkout main
+        git merge --ff -m "Translations automerge" stable
     - name: Fix problem directories
       run: |
         for badDir in $(find addon/locale -name '*add-ons'); do \
