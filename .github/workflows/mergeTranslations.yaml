@@ -12,13 +12,15 @@ jobs:
   update-translations:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout main
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
+      with:
+        show-progress: false
+        ref: main
     - name: Merge changes
       run: |
         git config --global user.name translation-updater
         git config --global user.email github-actions@github.com
-        git pull
+        #git pull
         git remote add l10n https://github.com/nvdaaddons/addonUpdater
         git fetch l10n
         git merge --ff -m "Translations automerge" l10n/stable
