@@ -69,6 +69,9 @@ def loadState() -> None:
 	for entry in updateState["devUpdates"]:
 		if entry not in updateState["devUpdateChannels"]:
 			updateState["devUpdateChannels"][entry] = "dev"
+	# Move update source from community add-ons website to add-on store.
+	if updateState["updateSource"] == "nvdaprojectcompatinfo":
+		updateState["updateSource"] = "addondatastore"
 
 
 def saveState(keepStateOnline: bool = False) -> None:
