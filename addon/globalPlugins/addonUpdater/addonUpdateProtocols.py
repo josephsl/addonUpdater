@@ -677,33 +677,27 @@ class AddonUpdateCheckProtocolNVDATw(AddonUpdateCheckProtocolNVDAAddonsGitHub):
 UpdateProtocol = namedtuple("UpdateProtocol", "key, protocol, description")
 AvailableUpdateProtocols = (
 	UpdateProtocol(
-		# Translators: one of the add-on update source choices.
 		"addondatastore",
 		"AddonUpdateCheckProtocolNVAccessDatastore",
+		# Translators: one of the add-on update source choices.
 		_("NV Access add-on store"),
 	),
 	UpdateProtocol(
-		# Translators: one of the add-on update source choices.
-		"nvdaprojectcompatinfo",
-		"AddonUpdateCheckProtocolNVDAAddonsGitHub",
-		_("NVDA community add-ons website"),
-	),
-	UpdateProtocol(
-		# Translators: one of the add-on update source choices.
 		"nvdaes",
 		"AddonUpdateCheckProtocolNVDAEs",
+		# Translators: one of the add-on update source choices.
 		_("Spanish community add-ons catalog"),
 	),
 	UpdateProtocol(
-		# Translators: one of the add-on update source choices.
 		"nvdacn",
 		"AddonUpdateCheckProtocolNVDACn",
+		# Translators: one of the add-on update source choices.
 		_("China community add-ons catalog"),
 	),
 	UpdateProtocol(
-		# Translators: one of the add-on update source choices.
 		"nvdatw",
 		"AddonUpdateCheckProtocolNVDATw",
+		# Translators: one of the add-on update source choices.
 		_("Taiwan community add-ons catalog"),
 	),
 )
