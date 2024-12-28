@@ -43,9 +43,12 @@ Add-on settings are as follow:
 The available add-on update sources are:
 
 * NV Access add-on store (default)
-* Community add-ons website
 * Spanish community add-ons catalog
 * Catalogs maintained by NVDA communities in China and Taiwan
+
+## Version 25.1
+
+* Removed comunity add-ons website as an add-on update source.
 
 ## Version 24.3/24.08
 
