@@ -534,8 +534,10 @@ class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocol):
 	"""Protocol 4: NV Access add-ons datastore protocol
 	NV Access has reimagined the add-ons metadata storage mechanics.
 	Due to similarities, this protocol borrows ideas from Spanish community catalog protocol.
-	Version, compatibility, hash, and update channel checks are available.
+	Version, compatibility, hash, and update channel checks are available
+	and is the default protocol in Add-on Updater 23.06.
 	Just like Spanish community catalog, results data is a list, not a dictionary.
+	Note: use NVDA's own add-on store user interface when updating add-ons.
 	"""
 
 	protocol = 4
