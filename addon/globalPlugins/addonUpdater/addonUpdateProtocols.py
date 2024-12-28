@@ -205,11 +205,13 @@ class AddonUpdateCheckProtocol(object):
 		return info
 
 
+# Historical and cannot be used
+
 # For use in update check protocol 1.
 # Record add-on names to URL keys hosted on community add-ons website.
 # The URL prefixes are same for add-ons listed below.
 # Only keys that differ between manifest name and download key are recorded.
-names2urls = {
+"""names2urls = {
 	"calibre": "cae",
 	"classicSelection": "clsel",
 	"debugHelper": "debughelper",
@@ -221,15 +223,15 @@ names2urls = {
 	"speechHistory": "sps",
 	"synthRingSettingsSelector": "synthrings",
 	"textInformation": "txtinfo",
-}
+}"""
 
 
-class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
+# Historical
+"""class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 	"""Protocol 1: NV Access community add-ons website protocol.
 	This protocol uses community add-ons get.php JSON to construct update metadata.
 	No compatibility range check is possible with this protocol.
 	This resembles Add-on Updater 21.05 and earlier.
-	Note: deprecated, to be removed in a future add-on release.
 	"""
 
 	protocol = 1
@@ -295,16 +297,18 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 			self.fetchAddonInfo(addon, results)
 		# Build an update info list based on update availability.
 		return [addon for addon in curAddons if addon.updateAvailable()]
+"""
 
 
-class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
+# Historical
+"""class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 	"""Protocol 2.x: NVDA community add-ons website with compatibility information supplied by the community.
 	This protocol uses a combination of community add-ons get.php JSON
 	and compatibility data provided by the community.
 	While similar to protocol 1, addons.nvda-project.org JSON is consulted only to retrieve download links.
 	Version and compatibility range (minimum and last tested NVDA versions) checks are possible.
 	Later iterations add hash value checks.
-	This resembles Add-on Updater 21.07 and later and is the default protocol.
+	This resembles Add-on Updater 21.07 and later.
 	Protocol 2.0 (original implementation) uses an older version of the compatibility JSON that
 	relies on NV Access get.php JSON representation for obtaining links,
 	whereas protocol 2.1 (2022) uses additional fields such as URL and hash provided by the JSON
@@ -441,6 +445,7 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 			self.fetchAddonInfo(addon, results, addonsData)
 		# Build an update info list based on update availability.
 		return [addon for addon in curAddons if addon.updateAvailable()]
+"""
 
 
 class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
