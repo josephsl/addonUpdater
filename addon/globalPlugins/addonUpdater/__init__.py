@@ -9,9 +9,11 @@ import time
 import gui
 from gui.nvdaControls import CustomCheckListBox, AutoWidthColumnListCtrl
 import wx
+
 # What if this is run from NVDA source?
 try:
 	import updateCheck  # NOQA: F401
+
 	canUpdate = True
 except RuntimeError:
 	canUpdate = False
@@ -24,6 +26,7 @@ from . import addonUtils
 from .addonUpdateProtocols import AvailableUpdateProtocols
 from .skipTranslation import translate
 import addonHandler
+
 addonHandler.initTranslation()
 
 # Overall update check routine was inspired by StationPlaylist Studio add-on (Joseph Lee).)
@@ -83,12 +86,12 @@ def legacyAddonsFound() -> bool:
 		gui.mainFrame.prePopup()
 		LegacyAddonsDialog(gui.mainFrame, info).Show()
 		gui.mainFrame.postPopup()
+
 	legacyAddons = addonHandlerEx.detectLegacyAddons()
 	# Installed add-ons marked "legacy" takes precedence (do set intersection).
 	addonUtils.updateState["legacyAddonsFound"] &= set(legacyAddons.keys())
 	legacyAddonsFound = [
-		addon for addon in legacyAddons.keys()
-		if addon not in addonUtils.updateState["legacyAddonsFound"]
+		addon for addon in legacyAddons.keys() if addon not in addonUtils.updateState["legacyAddonsFound"]
 	]
 	if len(legacyAddonsFound):
 		legacyAddonsInfo = {}
@@ -107,7 +110,6 @@ def disableInSecureMode(cls):
 
 @disableInSecureMode
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
-
 	def __init__(self):
 		super(GlobalPlugin, self).__init__()
 		# Return early if add-on store client is present.
@@ -124,7 +126,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		self.toolsMenu = gui.mainFrame.sysTrayIcon.toolsMenu
 		self.addonUpdater = self.toolsMenu.Append(
 			# Translators: menu item label for checking add-on updates.
-			wx.ID_ANY, _("Check for &add-on updates..."), _("Check for NVDA add-on updates")
+			wx.ID_ANY,
+			_("Check for &add-on updates..."),
+			_("Check for NVDA add-on updates"),
 		)
 		gui.mainFrame.sysTrayIcon.Bind(wx.EVT_MENU, addonGuiEx.onAddonUpdateCheck, self.addonUpdater)
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.append(AddonUpdaterPanel)
@@ -136,7 +140,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		if addonUtils.updateState["autoUpdate"]:
 			# But not when NVDA itself is updating.
 			# Disable this if add-on store message was shown.
-			if not ((globalVars.appArgs.install or globalVars.appArgs.createPortable) and globalVars.appArgs.minimal):
+			if not (
+				(globalVars.appArgs.install or globalVars.appArgs.createPortable)
+				and globalVars.appArgs.minimal
+			):
 				wx.CallAfter(autoUpdateCheck, startup=True)
 
 	def terminate(self):
@@ -187,12 +194,19 @@ class AddonUpdaterPanel(gui.settingsDialogs.SettingsPanel):
 			self.updateNotification = sHelper.addLabeledControl(
 				# Translators: This is the label for a combo box in the
 				# Add-on Updater settings panel.
-				_("&Add-on update notification:"), wx.Choice, choices=[x[1] for x in updateNotificationChoices]
+				_("&Add-on update notification:"),
+				wx.Choice,
+				choices=[x[1] for x in updateNotificationChoices],
 			)
 			self.updateNotification.Bind(wx.EVT_CHOICE, self.onNotificationSelection)
 			self.updateNotification.SetSelection(
-				next((x for x, y in enumerate(updateNotificationChoices)
-				if y[0] == addonUtils.updateState["updateNotification"]))
+				next(
+					(
+						x
+						for x, y in enumerate(updateNotificationChoices)
+						if y[0] == addonUtils.updateState["updateNotification"]
+					)
+				)
 			)
 			# Only enable this checkbox if update notification is set to toast.
 			self.backgroundUpdateCheckBox = sHelper.addItem(
@@ -206,18 +220,26 @@ class AddonUpdaterPanel(gui.settingsDialogs.SettingsPanel):
 		# Checkable list comes from NVDA Core issue 7491 (credit: Derek Riemer and Babbage B.V.).
 		# Some add-ons come with pretty badly formatted summary text,
 		# so try catching them and exclude them from this list.
-		self.noAddonUpdates = sHelper.addLabeledControl(_("Do &not update add-ons:"), CustomCheckListBox, choices=[
-			addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
-			if isinstance(addon.manifest['summary'], str)
-		])
+		self.noAddonUpdates = sHelper.addLabeledControl(
+			_("Do &not update add-ons:"),
+			CustomCheckListBox,
+			choices=[
+				addon.manifest["summary"]
+				for addon in addonHandler.getAvailableAddons()
+				if isinstance(addon.manifest["summary"], str)
+			],
+		)
 		self.noAddonUpdates.SetCheckedStrings(addonHandlerEx.shouldNotUpdate())
 		self.noAddonUpdates.SetSelection(0)
 
 		self.devAddonUpdates = sHelper.addLabeledControl(
-			_("Prefer &development releases:"), CustomCheckListBox, choices=[
-				addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
-				if isinstance(addon.manifest['summary'], str)
-			]
+			_("Prefer &development releases:"),
+			CustomCheckListBox,
+			choices=[
+				addon.manifest["summary"]
+				for addon in addonHandler.getAvailableAddons()
+				if isinstance(addon.manifest["summary"], str)
+			],
 		)
 		self.devAddonUpdates.SetCheckedStrings(addonHandlerEx.preferDevUpdates())
 		self.devAddonUpdates.Bind(wx.EVT_CHECKLISTBOX, self.onDevUpdateCheck)
@@ -232,7 +254,9 @@ class AddonUpdaterPanel(gui.settingsDialogs.SettingsPanel):
 		self.devUpdateChannel = sHelper.addLabeledControl(
 			# Translators: This is the label for a combo box in the
 			# Add-on Updater settings panel.
-			_("Development release &channel:"), wx.Choice, choices=["dev", "beta"]
+			_("Development release &channel:"),
+			wx.Choice,
+			choices=["dev", "beta"],
 		)
 		self.devUpdateChannel.Bind(wx.EVT_CHOICE, self.onChannelSelection)
 		self.devUpdateChannel.SetSelection(0)
@@ -242,8 +266,9 @@ class AddonUpdaterPanel(gui.settingsDialogs.SettingsPanel):
 		self.updateSource = sHelper.addLabeledControl(
 			# Translators: This is the label for a combo box in the
 			# Add-on Updater settings panel.
-			_("Add-on update &source:"), wx.Choice,
-			choices=[protocol.description for protocol in AvailableUpdateProtocols]
+			_("Add-on update &source:"),
+			wx.Choice,
+			choices=[protocol.description for protocol in AvailableUpdateProtocols],
 		)
 		self.updateSource.SetSelection(
 			[protocol.key for protocol in AvailableUpdateProtocols].index(
@@ -289,26 +314,33 @@ class AddonUpdaterPanel(gui.settingsDialogs.SettingsPanel):
 		# Present a message if about to switch to a different add-on update source.
 		selectedSource = self.updateSource.GetSelection()
 		if addonUtils.updateState["updateSource"] != self.updateSourceKeys[selectedSource]:
-			return gui.messageBox(
-				_(
-					# Translators: Presented when about to switch add-on update sources.
-					"You are about to switch to a different add-on update source. "
-					"Are you sure you wish to change update source to {updateSourceDescription}?"
-				).format(updateSourceDescription=self.updateSource.GetStringSelection()),
-				# Translators: Title of the add-on update source dialog.
-				_("Add-on update source change"), wx.YES | wx.NO | wx.ICON_WARNING, self
-			) == wx.YES
+			return (
+				gui.messageBox(
+					_(
+						# Translators: Presented when about to switch add-on update sources.
+						"You are about to switch to a different add-on update source. "
+						"Are you sure you wish to change update source to {updateSourceDescription}?"
+					).format(updateSourceDescription=self.updateSource.GetStringSelection()),
+					# Translators: Title of the add-on update source dialog.
+					_("Add-on update source change"),
+					wx.YES | wx.NO | wx.ICON_WARNING,
+					self,
+				)
+				== wx.YES
+			)
 		return super(AddonUpdaterPanel, self).isValid()
 
 	def onSave(self):
 		noAddonUpdateSummaries = self.noAddonUpdates.GetCheckedStrings()
 		addonUtils.updateState["noUpdates"] = [
-			addon.name for addon in addonHandler.getAvailableAddons()
+			addon.name
+			for addon in addonHandler.getAvailableAddons()
 			if addon.manifest["summary"] in noAddonUpdateSummaries
 		]
 		devAddonUpdateSummaries = self.devAddonUpdates.GetCheckedStrings()
 		addonUtils.updateState["devUpdates"] = [
-			addon.name for addon in addonHandler.getAvailableAddons()
+			addon.name
+			for addon in addonHandler.getAvailableAddons()
 			if addon.manifest["summary"] in devAddonUpdateSummaries
 		]
 		addonUtils.updateState["devUpdateChannels"].clear()
@@ -318,7 +350,9 @@ class AddonUpdaterPanel(gui.settingsDialogs.SettingsPanel):
 		addonUtils.updateState["autoUpdate"] = self.autoUpdateCheckBox.IsChecked()
 		addonUtils.updateState["updateSource"] = self.updateSourceKeys[self.updateSource.GetSelection()]
 		if hasattr(self, "updateNotification"):
-			addonUtils.updateState["updateNotification"] = ["toast", "dialog"][self.updateNotification.GetSelection()]
+			addonUtils.updateState["updateNotification"] = ["toast", "dialog"][
+				self.updateNotification.GetSelection()
+			]
 		if hasattr(self, "backgroundUpdateCheckBox"):
 			addonUtils.updateState["backgroundUpdate"] = self.backgroundUpdateCheckBox.IsChecked()
 		global updateChecker
@@ -334,7 +368,6 @@ class AddonUpdaterPanel(gui.settingsDialogs.SettingsPanel):
 # Inspired by NVDA's incompatible add-ons dialog (credit: NV Access)
 # The ideal place is add-on GUI but is placed here since add-on GUI module might not be importable.
 class LegacyAddonsDialog(wx.Dialog):
-
 	def __init__(self, parent, legacyAddonInfo):
 		# Translators: The title of the legacy add-ons dialog.
 		super(LegacyAddonsDialog, self).__init__(parent, title=_("Legacy add-ons found"))

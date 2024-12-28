@@ -15,6 +15,7 @@
 # The URLs object is what should be imported by consumers. I.E. "from .urls import URLs"
 # Individual URLs may then be accessed, for example, as: "URLs.communityFileGetter".
 
+
 class _URLAccessors(object):
 	"""Public accessors for the URL constants in the urls module."""
 

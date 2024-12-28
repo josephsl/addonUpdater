@@ -16,6 +16,7 @@ def isClientOS() -> bool:
 def isAddonStorePresent() -> bool:
 	# NVDA 2023.2 comes with add-on store GUI command with add-ons manager command as an alias for it.
 	import gui
+
 	return hasattr(gui.mainFrame, "onAddonStoreCommand")
 
 

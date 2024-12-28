@@ -22,6 +22,7 @@ from .skipTranslation import translate
 from . import addonUtils
 from . import addonUpdateProc
 from .addonUpdateProtocols import AvailableUpdateProtocols
+
 # Temporary
 addonHandler.initTranslation()
 
@@ -34,6 +35,7 @@ updateSources: dict[str, str] = {protocol.key: protocol.description for protocol
 # The following event handler comes from a combination of StationPlaylist and Windows App Essentials.
 def onAddonUpdateCheck(evt):
 	from . import addonHandlerEx
+
 	addonHandlerEx.updateSuccess.notify()
 	# If toast was shown, this will launch the results dialog directly as there is already update info.
 	# Update info is valid only once, and this check will nullify it.
@@ -44,7 +46,7 @@ def onAddonUpdateCheck(evt):
 			gui.mainFrame,
 			addonHandlerEx._updateInfo,
 			auto=False,
-			updatesInstalled=addonHandlerEx._backgroundUpdate
+			updatesInstalled=addonHandlerEx._backgroundUpdate,
 		)
 		addonHandlerEx._updateInfo = None
 		addonHandlerEx._backgroundUpdate = False
@@ -58,7 +60,7 @@ def onAddonUpdateCheck(evt):
 		# Translators: The message displayed while checking for add-on updates.
 		_("Checking for add-on updates from {updateSource}...").format(
 			updateSource=updateSources[addonUtils.updateState["updateSource"]]
-		)
+		),
 	)
 	t = threading.Thread(target=addonUpdateCheck)
 	t.daemon = True
@@ -73,7 +75,9 @@ def addonUpdateCheck():
 		info = None
 		wx.CallAfter(_progressDialog.done)
 		_progressDialog = None
-		wx.CallAfter(gui.messageBox, _("Error checking for add-on updates."), translate("Error"), wx.ICON_ERROR)
+		wx.CallAfter(
+			gui.messageBox, _("Error checking for add-on updates."), translate("Error"), wx.ICON_ERROR
+		)
 		raise
 	wx.CallAfter(_progressDialog.done)
 	_progressDialog = None
@@ -81,7 +85,6 @@ def addonUpdateCheck():
 
 
 class AddonUpdatesDialog(wx.Dialog):
-
 	def __init__(self, parent, addonUpdateInfo, auto=True, updatesInstalled=False):
 		# Translators: The title of the add-on updates dialog.
 		title = _("NVDA Add-on Updates ({updateSource})").format(
@@ -177,16 +180,21 @@ class AddonUpdatesDialog(wx.Dialog):
 					disabledAddonsPresent = True
 		# Present a messagf attempting to update at least one disabled add-on.
 		if disabledAddonsPresent:
-			if gui.messageBox(
-				_(
-					# Translators: Presented when attempting to udpate disabled add-ons.
-					"One or more add-ons are currently disabled. "
-					"These add-ons will be enabled after updating. "
-					"Are you sure you wish to update disabled add-ons anyway?"
-				),
-				# Translators: Title of the add-on update confirmation dialog.
-				_("Update disabled add-ons"), wx.YES | wx.NO | wx.ICON_WARNING, self
-			) == wx.NO:
+			if (
+				gui.messageBox(
+					_(
+						# Translators: Presented when attempting to udpate disabled add-ons.
+						"One or more add-ons are currently disabled. "
+						"These add-ons will be enabled after updating. "
+						"Are you sure you wish to update disabled add-ons anyway?"
+					),
+					# Translators: Title of the add-on update confirmation dialog.
+					_("Update disabled add-ons"),
+					wx.YES | wx.NO | wx.ICON_WARNING,
+					self,
+				)
+				== wx.NO
+			):
 				return
 		self.Destroy()
 		# #3208: do not display add-ons manager while updates are in progress.
@@ -219,9 +227,9 @@ def downloadAndInstallAddonUpdates(addons: list[addonUpdateProc.AddonUpdateRecor
 		for addon in addons:
 			destPath: str = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
 			log.debug(f"nvda3208: downloading {addon.summary}, URL is {addon.url}, destpath is {destPath}")
-			downloads[downloader.submit(
-				addonUpdateProc.downloadAddonUpdate, addon.url, destPath, addon.hash
-			)] = [destPath, addon]
+			downloads[
+				downloader.submit(addonUpdateProc.downloadAddonUpdate, addon.url, destPath, addon.hash)
+			] = [destPath, addon]
 		for download in concurrent.futures.as_completed(downloads):
 			destPath, addon = downloads[download]
 			log.debug(f"nvda3208: downloading {addon.summary}")
@@ -229,8 +237,9 @@ def downloadAndInstallAddonUpdates(addons: list[addonUpdateProc.AddonUpdateRecor
 				downloadPercent: int = int((currentPos / totalCount) * 100)
 				log.debug(f"nvda3208: download percent: {downloadPercent}")
 				wx.CallAfter(
-					_downloadProgressDialog.Update, downloadPercent,
-					_("Downloading {addonName}").format(addonName=addon.summary)
+					_downloadProgressDialog.Update,
+					downloadPercent,
+					_("Downloading {addonName}").format(addonName=addon.summary),
 				)
 				wx.CallAfter(_downloadProgressDialog.Fit)
 				download.result()
@@ -240,7 +249,8 @@ def downloadAndInstallAddonUpdates(addons: list[addonUpdateProc.AddonUpdateRecor
 					# Translators: A message indicating that an error occurred while downloading an update to NVDA.
 					_("Error downloading update for {name}.").format(name=addon.summary),
 					translate("Error"),
-					wx.OK | wx.ICON_ERROR)
+					wx.OK | wx.ICON_ERROR,
+				)
 			else:
 				downloadedAddons.append((destPath, addon.summary))
 			currentPos += 1
@@ -259,7 +269,7 @@ def installAddons(addons: list[tuple[str, str]]) -> None:
 		# Translators: The title of the dialog presented while an Addon is being updated.
 		_("Updating add-ons"),
 		# Translators: The message displayed while an addon is being updated.
-		_("Please wait while add-ons are being updated.")
+		_("Please wait while add-ons are being updated."),
 	)
 	successfullyInstalledCount: int = 0
 	for addon in addons:
@@ -273,11 +283,11 @@ def installAddons(addons: list[tuple[str, str]]) -> None:
 				# when trying to update an add-on package due to package problems.
 				_("Cannot update {name} - missing file or invalid file format").format(name=addon[1]),
 				translate("Error"),
-				wx.OK | wx.ICON_ERROR
+				wx.OK | wx.ICON_ERROR,
 			)
 		elif installStatus in (
 			addonUpdateProc.AddonInstallStatus.AddonMinVersionNotMet,
-			addonUpdateProc.AddonInstallStatus.AddonNotTested
+			addonUpdateProc.AddonInstallStatus.AddonNotTested,
 		):
 			# NVDA itself will check add-on compatibility range.
 			# As such, the below fragment was borrowed from NVDA Core (credit: NV Access).
@@ -293,7 +303,7 @@ def installAddons(addons: list[tuple[str, str]]) -> None:
 				# Translators: The message displayed when an error occurs when installing an add-on package.
 				_("Failed to update {name} add-on").format(name=addon[1]),
 				translate("Error"),
-				wx.OK | wx.ICON_ERROR
+				wx.OK | wx.ICON_ERROR,
 			)
 		else:
 			successfullyInstalledCount += 1
@@ -324,7 +334,7 @@ def updateAddons(addons: list[addonUpdateProc.AddonUpdateRecord], auto: bool = T
 		# PD_AUTO_HIDE is required because ProgressDialog.Update blocks at 100%
 		# and waits for the user to press the Close button.
 		style=wx.PD_CAN_ABORT | wx.PD_ELAPSED_TIME | wx.PD_REMAINING_TIME | wx.PD_AUTO_HIDE,
-		parent=gui.mainFrame
+		parent=gui.mainFrame,
 	)
 	_downloadProgressDialog.CentreOnScreen()
 	_downloadProgressDialog.Raise()

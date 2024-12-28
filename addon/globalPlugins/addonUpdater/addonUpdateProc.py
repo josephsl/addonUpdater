@@ -21,9 +21,11 @@ import globalVars
 from logHandler import log
 import gui
 import extensionPoints
+
 try:
 	# NVDA versions below 2024.1 do not support this
 	from NVDAState import WritePaths
+
 	addonsDir: str = WritePaths.addonsDir
 except Exception:
 	addonsDir: str = os.path.join(globalVars.appArgs.configPath, "addons")
@@ -41,18 +43,18 @@ class AddonUpdateRecord(object):
 	"""
 
 	def __init__(
-			self,
-			name: str = "",
-			summary: str = "",
-			version: str = "",
-			installedVersion: str = "",
-			url: str = "",
-			hash: Optional[str] = None,
-			minimumNVDAVersion: list[int] = [0, 0, 0],
-			lastTestedNVDAVersion: list[int] = [0, 0, 0],
-			updateChannel: Optional[str] = "",
-			installedChannel: Optional[str] = "",
-			isEnabled: bool = True
+		self,
+		name: str = "",
+		summary: str = "",
+		version: str = "",
+		installedVersion: str = "",
+		url: str = "",
+		hash: Optional[str] = None,
+		minimumNVDAVersion: list[int] = [0, 0, 0],
+		lastTestedNVDAVersion: list[int] = [0, 0, 0],
+		updateChannel: Optional[str] = "",
+		installedChannel: Optional[str] = "",
+		isEnabled: bool = True,
 	) -> None:
 		self.name = name
 		self.summary = summary
@@ -76,7 +78,7 @@ class AddonUpdateRecord(object):
 			"hash": self.hash,
 			"minimumNVDAVersion": self.minimumNVDAVersion,
 			"lastTestedNVDAVersion": self.lastTestedNVDAVersion,
-			"updateChannel": self.updateChannel
+			"updateChannel": self.updateChannel,
 		}
 
 	# It might be possible that some protocols may provide version number info.
@@ -110,6 +112,7 @@ def checkForAddonUpdates() -> Optional[list[AddonUpdateRecord]]:
 	if globalVars.appArgs.secure:
 		return None
 	from . import addonUpdateProtocols
+
 	# Build a list of preliminary update records based on installed add-ons.
 	curAddons = []
 	for addon in addonHandler.getAvailableAddons():
@@ -135,15 +138,17 @@ def checkForAddonUpdates() -> Optional[list[AddonUpdateRecord]]:
 		# Mark disabled add-ons (flag passed in will be "isEnabled").
 		isEnabled = not addon.isDisabled
 		# Note that version (update) and installed version will be the same for now.
-		curAddons.append(AddonUpdateRecord(
-			name=name,
-			summary=manifest["summary"],
-			version=curVersion,
-			installedVersion=curVersion,
-			updateChannel=updateChannel,
-			installedChannel=installedChannel,
-			isEnabled=isEnabled
-		))
+		curAddons.append(
+			AddonUpdateRecord(
+				name=name,
+				summary=manifest["summary"],
+				version=curVersion,
+				installedVersion=curVersion,
+				updateChannel=updateChannel,
+				installedChannel=installedChannel,
+				isEnabled=isEnabled,
+			)
+		)
 	# Choos the appropriate add-on update protocol/source.
 	updateProtocols: dict[str, str] = {
 		protocol.key: protocol.protocol for protocol in addonUpdateProtocols.AvailableUpdateProtocols
@@ -163,6 +168,7 @@ AddonDownloadNotifier = extensionPoints.Action()
 def downloadAddonUpdate(url: str, destPath: Optional[str], fileHash: Optional[str]) -> None:
 	if not destPath:
 		import tempfile
+
 		destPath = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
 	log.debug(f"nvda3208: dest path is {destPath}")
 	# #2352: Some security scanners such as Eset NOD32 HTTP Scanner
@@ -222,15 +228,16 @@ def installAddonUpdate(destPath: str, addonName: str) -> int:
 	# NVDA itself will check add-on compatibility range.
 	# As such, the below fragment was borrowed from NVDA Core (credit: NV Access).
 	from addonHandler import addonVersionCheck
+
 	if not addonVersionCheck.hasAddonGotRequiredSupport(bundle):
 		return AddonInstallStatus.AddonMinVersionNotMet
 	elif not addonVersionCheck.isAddonTested(bundle):
 		return AddonInstallStatus.AddonNotTested
-	bundleName: str = bundle.manifest['name']
+	bundleName: str = bundle.manifest["name"]
 	# Optimization (future): it is better to remove would-be add-ons all at once
 	# instead of doing it each time a bundle is opened.
 	for addon in addonHandler.getAvailableAddons():
-		if bundleName == addon.manifest['name']:
+		if bundleName == addon.manifest["name"]:
 			if not addon.isPendingRemove:
 				addon.requestRemove()
 			break
@@ -239,17 +246,16 @@ def installAddonUpdate(destPath: str, addonName: str) -> int:
 	except Exception:
 		log.error(f"Error installing  addon bundle from {destPath}", exc_info=True)
 		return AddonInstallStatus.AddonInstallGenericError
-	else:	# We want to remove any record the store has of this add-on, since we install externally.
+	else:  # We want to remove any record the store has of this add-on, since we install externally.
 		# If we don't, the store shows stable add-ons of the same version as our external add-ons,
 		# as having updates, even though it's just a different instance of the same version.
 		# The real cause is the older version listed in the store JSON, but the UI can't represent that.
-		oldStoreRecord: str = os.path.join(
-			addonsDir,
-			bundleName + ".json"
-		)
+		oldStoreRecord: str = os.path.join(addonsDir, bundleName + ".json")
 		try:
 			os.remove(os.path.abspath(oldStoreRecord))
 			log.debug(f"Removed old store record at {oldStoreRecord}")
 		except OSError:
-			log.debug(f"Attempt to remove an old store record failed: may not exist. Target: {oldStoreRecord}")
+			log.debug(
+				f"Attempt to remove an old store record failed: may not exist. Target: {oldStoreRecord}"
+			)
 	return AddonInstallStatus.AddonInstallSuccess

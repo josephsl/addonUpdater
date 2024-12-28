@@ -18,6 +18,7 @@ from logHandler import log
 from . import addonUtils
 from . import addonUpdateProc
 from .addonUpdateProtocols import AvailableUpdateProtocols
+
 addonHandler.initTranslation()
 
 
@@ -49,7 +50,8 @@ LegacyAddons: dict[str, str] = {
 def shouldNotUpdate() -> list[str]:
 	# Returns a list of descriptions for add-ons that should not update.
 	return [
-		addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
+		addon.manifest["summary"]
+		for addon in addonHandler.getAvailableAddons()
 		if addon.name in addonUtils.updateState["noUpdates"]
 	]
 
@@ -57,7 +59,8 @@ def shouldNotUpdate() -> list[str]:
 def preferDevUpdates() -> list[str]:
 	# Returns a list of descriptions for add-ons that prefers development releases.
 	return [
-		addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
+		addon.manifest["summary"]
+		for addon in addonHandler.getAvailableAddons()
 		if addon.name in addonUtils.updateState["devUpdates"]
 	]
 
@@ -65,7 +68,8 @@ def preferDevUpdates() -> list[str]:
 def detectLegacyAddons() -> dict[str, str]:
 	# Returns a dictionary of add-on name and summary for legacy add-ons.
 	return {
-		addon.name: addon.manifest["summary"] for addon in addonHandler.getAvailableAddons()
+		addon.name: addon.manifest["summary"]
+		for addon in addonHandler.getAvailableAddons()
 		if addon.name in LegacyAddons
 	}
 
@@ -86,9 +90,11 @@ def _showAddonUpdateUI() -> None:
 	def _showAddonUpdateUICallback(info: Optional[list[addonUpdateProc.AddonUpdateRecord]]) -> None:
 		import gui
 		from .addonGuiEx import AddonUpdatesDialog
+
 		gui.mainFrame.prePopup()
 		AddonUpdatesDialog(gui.mainFrame, info).Show()
 		gui.mainFrame.postPopup()
+
 	try:
 		info = addonUpdateProc.checkForAddonUpdates()
 	except Exception:
@@ -107,6 +113,7 @@ def _showAddonUpdateUI() -> None:
 		# However it doesn't work for desktop apps such as NVDA,
 		# and in case of NVDA, it sort of works if it is actually installed.
 		import config
+
 		if (
 			addonUtils.isClientOS()
 			and addonUtils.updateState["updateNotification"] == "toast"
@@ -115,7 +122,10 @@ def _showAddonUpdateUI() -> None:
 			# To reduce intrusiveness, background updates notification will be shown.
 			# If NVDA 2023.2 or later is installed and add-on update source is set to NV Access add-on store,
 			# present a message about how to update add-ons via the store instead of downloading ad-ons.
-			if addonUtils.isAddonStorePresent() and addonUtils.updateState["updateSource"] == "addondatastore":
+			if (
+				addonUtils.isAddonStorePresent()
+				and addonUtils.updateState["updateSource"] == "addondatastore"
+			):
 				updateMessage: str = _(
 					# Translators: presented as part of add-on update notification message.
 					"One or more add-on updates from {updateSource} are available. "
@@ -127,7 +137,9 @@ def _showAddonUpdateUI() -> None:
 			global _updateInfo
 			if not addonUtils.updateState["backgroundUpdate"]:
 				# Translators: menu item label for reviewing add-on updates.
-				updateSuccess.notify(label=_("Review &add-on updates ({updateCount})...").format(updateCount=len(info)))
+				updateSuccess.notify(
+					label=_("Review &add-on updates ({updateCount})...").format(updateCount=len(info))
+				)
 				updateMessage: str = _(
 					# Translators: presented as part of add-on update notification message.
 					"One or more add-on updates from {updateSource} are available. "
@@ -157,6 +169,7 @@ _backgroundUpdate: bool = False
 def downloadAndInstallAddonUpdates(addons: list[addonUpdateProc.AddonUpdateRecord]) -> None:
 	import tempfile
 	import globalVars
+
 	global _updateInfo, _backgroundUpdate
 	# Disable GUI (enable minimal flag) for the duration of this function.
 	minimal = globalVars.appArgs.minimal
@@ -180,9 +193,9 @@ def downloadAndInstallAddonUpdates(addons: list[addonUpdateProc.AddonUpdateRecor
 		for addon in addons:
 			destPath: str = tempfile.mktemp(prefix="nvda_addonUpdate-", suffix=".nvda-addon")
 			log.debug(f"nvda3208: downloading {addon.summary}, URL is {addon.url}, destpath is {destPath}")
-			downloads[downloader.submit(
-				addonUpdateProc.downloadAddonUpdate, addon.url, destPath, addon.hash
-			)] = [destPath, addon]
+			downloads[
+				downloader.submit(addonUpdateProc.downloadAddonUpdate, addon.url, destPath, addon.hash)
+			] = [destPath, addon]
 		for download in concurrent.futures.as_completed(downloads):
 			destPath, addon = downloads[download]
 			log.debug(f"nvda3208: downloading {addon.summary}")
@@ -211,9 +224,11 @@ def downloadAndInstallAddonUpdates(addons: list[addonUpdateProc.AddonUpdateRecor
 	globalVars.appArgs.minimal = minimal
 	# Now present review add-on updates notification if add-ons were installed.
 	if successfullyInstalledCount:
-		updateSuccess.notify(label=_("Review &add-on updates ({updateCount})...").format(
-			updateCount=successfullyInstalledCount
-		))
+		updateSuccess.notify(
+			label=_("Review &add-on updates ({updateCount})...").format(
+				updateCount=successfullyInstalledCount
+			)
+		)
 		updateMessage: str = _(
 			# Translators: presented as part of add-on update notification message.
 			"One or more add-on updates from {updateSource} were installed. "

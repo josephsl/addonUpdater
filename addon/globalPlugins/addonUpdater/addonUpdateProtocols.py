@@ -21,8 +21,10 @@ import globalVars
 from logHandler import log
 from .urls import URLs
 from . import addonUtils
+
 # To provide type information
 from .addonUpdateProc import AddonUpdateRecord
+
 addonHandler.initTranslation()
 
 
@@ -34,7 +36,7 @@ def getUrlViaMSEdgeUserAgent(url: str) -> Request:
 		url,
 		headers={
 			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62"  # NOQA: E501
-		}
+		},
 	)
 
 
@@ -56,7 +58,7 @@ class AddonUpdateCheckProtocol(object):
 	sourceUrl = ""
 
 	def getAddonsData(
-			self, url: Any = None, differentUserAgent: bool = False, errorText: Optional[str] = None
+		self, url: Any = None, differentUserAgent: bool = False, errorText: Optional[str] = None
 	) -> Any:
 		"""Accesses and returns add-ons data from a predefined add-on source URL.
 		As this function blocks the main thread, it should be run from a separate thread.
@@ -88,8 +90,7 @@ class AddonUpdateCheckProtocol(object):
 		return results
 
 	def addonCompatibleAccordingToMetadata(self, addon: str, addonMetadata: Dict[str, Any]) -> bool:
-		"""Checks if a given add-on update is compatible with the running version of NVDA.
-		"""
+		"""Checks if a given add-on update is compatible with the running version of NVDA."""
 		# Check add-on update eligibility with help from community add-ons metadata if present.
 		# Always return "yes" for development releases.
 		# The whole point of development releases is to send feedback to add-on developers across NVDA releases.
@@ -98,6 +99,7 @@ class AddonUpdateCheckProtocol(object):
 		if addon in addonUtils.updateState["devUpdates"]:
 			return True
 		import addonAPIVersion
+
 		minimumNVDAVersion = tuple(addonMetadata["minimumNVDAVersion"])
 		lastTestedNVDAVersion = tuple(addonMetadata["lastTestedNVDAVersion"])
 		# Is the add-on update compatible with local NVDA version the user is using?
@@ -156,7 +158,7 @@ class AddonUpdateCheckProtocol(object):
 		raise NotImplementedError
 
 	def checkForAddonUpdates(
-			self, installedAddons: Optional[AddonUpdateRecords] = None
+		self, installedAddons: Optional[AddonUpdateRecords] = None
 	) -> Optional[AddonUpdateRecords]:
 		"""Checks and returns add-on update metadata (update records) if any.
 		Update record includes name, summary, update URL, compatibility information and other attributes.
@@ -186,13 +188,15 @@ class AddonUpdateCheckProtocol(object):
 				else:
 					updateChannel = None
 				# Note that version (update) and installed version will be the same for now.
-				curAddons.append(AddonUpdateRecord(
-					name=name,
-					summary=manifest["summary"],
-					version=curVersion,
-					installedVersion=curVersion,
-					updateChannel=updateChannel
-				))
+				curAddons.append(
+					AddonUpdateRecord(
+						name=name,
+						summary=manifest["summary"],
+						version=curVersion,
+						installedVersion=curVersion,
+						updateChannel=updateChannel,
+					)
+				)
 		try:
 			info = self.checkForAddonUpdate(curAddons)
 		except Exception:
@@ -268,7 +272,9 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		addon.version = version
 		addon.url = addonUrl
 
-	def checkForAddonUpdate(self, curAddons: AddonUpdateRecords, fallbackData: Any = None) -> AddonUpdateRecords:
+	def checkForAddonUpdate(
+		self, curAddons: AddonUpdateRecords, fallbackData: Any = None
+	) -> AddonUpdateRecords:
 		# Fetch current community add-ons.
 		results = None
 		# Only do this if no fallback data is specified.
@@ -277,7 +283,7 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 				try:
 					results = addonsFetcher.submit(
 						self.getAddonsData,
-						errorText="nvda3208: errors occurred while retrieving community add-ons"
+						errorText="nvda3208: errors occurred while retrieving community add-ons",
 					).result()
 				except Exception:
 					raise RuntimeError("Failed to retrieve community add-ons")
@@ -288,10 +294,7 @@ class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 		for addon in curAddons:
 			self.fetchAddonInfo(addon, results)
 		# Build an update info list based on update availability.
-		return [
-			addon for addon in curAddons
-			if addon.updateAvailable()
-		]
+		return [addon for addon in curAddons if addon.updateAvailable()]
 
 
 class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
@@ -320,7 +323,7 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 	sourceList = URLs.communityAddonsList
 
 	def fetchAddonInfo(
-			self, addon: AddonUpdateRecord, results: Dict[str, Any], addonsData: Dict[str, Any]
+		self, addon: AddonUpdateRecord, results: Dict[str, Any], addonsData: Dict[str, Any]
 	) -> None:
 		# Borrowed ideas from NVDA Core.
 		# Obtain update status for add-ons returned from community add-ons website.
@@ -378,7 +381,9 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 		if updateChannels is not None:
 			addon.hash = updateChannels[addonKey].get("sha256")
 
-	def checkForAddonUpdate(self, curAddons: AddonUpdateRecords, fallbackData: Any = None) -> AddonUpdateRecords:
+	def checkForAddonUpdate(
+		self, curAddons: AddonUpdateRecords, fallbackData: Any = None
+	) -> AddonUpdateRecords:
 		# NVDA community add-ons list is always retrieved for fallback reasons.
 		# It is also supposed to be the first fallback collection.
 		results = None
@@ -400,12 +405,13 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 		# Obtain both at once through concurrency.
 		with concurrent.futures.ThreadPoolExecutor(max_workers=2) as addonsFetcher:
 			protocol1 = addonsFetcher.submit(
-				self.getAddonsData, url=actualUrl,
-				errorText="nvda3208: errors occurred while retrieving community add-ons"
+				self.getAddonsData,
+				url=actualUrl,
+				errorText="nvda3208: errors occurred while retrieving community add-ons",
 			)
 			protocol2 = addonsFetcher.submit(
 				self.getAddonsData,
-				errorText="nvda3208: errors occurred while retrieving community add-ons metadata"
+				errorText="nvda3208: errors occurred while retrieving community add-ons metadata",
 			)
 			# Obtain community add-ons metadata (protocol 2) first.
 			try:
@@ -423,7 +429,9 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 					results = fallbackData
 		# Fallback to add-ons list if metadata is unusable.
 		if addonsData is None:
-			log.debug("nvda3208: add-ons metadata unusable, using add-ons list from community add-ons website")
+			log.debug(
+				"nvda3208: add-ons metadata unusable, using add-ons list from community add-ons website"
+			)
 			# Resort to using protocol 1.
 			return AddonUpdateCheckProtocolNVDAProject().checkForAddonUpdate(curAddons, fallbackData=results)
 		else:
@@ -432,10 +440,7 @@ class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 		for addon in curAddons:
 			self.fetchAddonInfo(addon, results, addonsData)
 		# Build an update info list based on update availability.
-		return [
-			addon for addon in curAddons
-			if addon.updateAvailable()
-		]
+		return [addon for addon in curAddons if addon.updateAvailable()]
 
 
 class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
@@ -494,15 +499,18 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 		addon.version = version
 		addon.url = addonUrl
 
-	def checkForAddonUpdate(self, curAddons: AddonUpdateRecords, fallbackData: Any = None) -> AddonUpdateRecords:
+	def checkForAddonUpdate(
+		self, curAddons: AddonUpdateRecords, fallbackData: Any = None
+	) -> AddonUpdateRecords:
 		results = None
 		# Only do this if no fallback data is specified.
 		if fallbackData is None:
 			with concurrent.futures.ThreadPoolExecutor(max_workers=1) as addonsFetcher:
 				try:
 					results = addonsFetcher.submit(
-						self.getAddonsData, differentUserAgent=True,
-						errorText="nvda3208: errors occurred while retrieving Spanish community add-ons catalog"
+						self.getAddonsData,
+						differentUserAgent=True,
+						errorText="nvda3208: errors occurred while retrieving Spanish community add-ons catalog",
 					).result()
 				except Exception:
 					# Raise an error if results says so.
@@ -519,10 +527,7 @@ class AddonUpdateCheckProtocolNVDAEs(AddonUpdateCheckProtocol):
 		for addon in curAddons:
 			self.fetchAddonInfo(addon, metadataDictionary)
 		# Build an update info list based on update availability.
-		return [
-			addon for addon in curAddons
-			if addon.updateAvailable()
-		]
+		return [addon for addon in curAddons if addon.updateAvailable()]
 
 
 class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocol):
@@ -573,7 +578,9 @@ class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocol):
 		addon.url = addonUrl
 		addon.hash = addonMetadata["sha256"]
 
-	def checkForAddonUpdate(self, curAddons: AddonUpdateRecords, fallbackData: Any = None) -> AddonUpdateRecords:
+	def checkForAddonUpdate(
+		self, curAddons: AddonUpdateRecords, fallbackData: Any = None
+	) -> AddonUpdateRecords:
 		results = None
 		# Only do this if no fallback data is specified.
 		if fallbackData is None:
@@ -581,14 +588,18 @@ class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocol):
 			# in this case sourceUrl/<language>/all/<NVDA API Version>.json,
 			# Use English (en) for language, and in the future, current NVDA release for version.
 			import versionInfo
-			currentVersion = f"{versionInfo.version_year}.{versionInfo.version_major}.{versionInfo.version_minor}"
+
+			currentVersion = (
+				f"{versionInfo.version_year}.{versionInfo.version_major}.{versionInfo.version_minor}"
+			)
 			url = f"{self.sourceUrl}/en/all/{currentVersion}.json"
 			with concurrent.futures.ThreadPoolExecutor(max_workers=2) as addonsFetcher:
 				try:
 					results = addonsFetcher.submit(
 						self.getAddonsData,
-						url=url, differentUserAgent=True,
-						errorText="nvda3208: errors occurred while accessing NV Access datastore"
+						url=url,
+						differentUserAgent=True,
+						errorText="nvda3208: errors occurred while accessing NV Access datastore",
 					).result()
 				except Exception:
 					raise RuntimeError("Failed to retrieve community add-ons")
@@ -660,22 +671,32 @@ UpdateProtocol = namedtuple("UpdateProtocol", "key, protocol, description")
 AvailableUpdateProtocols = (
 	UpdateProtocol(
 		# Translators: one of the add-on update source choices.
-		"addondatastore", "AddonUpdateCheckProtocolNVAccessDatastore", _("NV Access add-on store")
+		"addondatastore",
+		"AddonUpdateCheckProtocolNVAccessDatastore",
+		_("NV Access add-on store"),
 	),
 	UpdateProtocol(
 		# Translators: one of the add-on update source choices.
-		"nvdaprojectcompatinfo", "AddonUpdateCheckProtocolNVDAAddonsGitHub", _("NVDA community add-ons website")
+		"nvdaprojectcompatinfo",
+		"AddonUpdateCheckProtocolNVDAAddonsGitHub",
+		_("NVDA community add-ons website"),
 	),
 	UpdateProtocol(
 		# Translators: one of the add-on update source choices.
-		"nvdaes", "AddonUpdateCheckProtocolNVDAEs", _("Spanish community add-ons catalog")
+		"nvdaes",
+		"AddonUpdateCheckProtocolNVDAEs",
+		_("Spanish community add-ons catalog"),
 	),
 	UpdateProtocol(
 		# Translators: one of the add-on update source choices.
-		"nvdacn", "AddonUpdateCheckProtocolNVDACn", _("China community add-ons catalog")
+		"nvdacn",
+		"AddonUpdateCheckProtocolNVDACn",
+		_("China community add-ons catalog"),
 	),
 	UpdateProtocol(
 		# Translators: one of the add-on update source choices.
-		"nvdatw", "AddonUpdateCheckProtocolNVDATw", _("Taiwan community add-ons catalog")
-	)
+		"nvdatw",
+		"AddonUpdateCheckProtocolNVDATw",
+		_("Taiwan community add-ons catalog"),
+	),
 )
