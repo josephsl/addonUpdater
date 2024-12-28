@@ -212,7 +212,7 @@ class AddonUpdateCheckProtocol(object):
 # Record add-on names to URL keys hosted on community add-ons website.
 # The URL prefixes are same for add-ons listed below.
 # Only keys that differ between manifest name and download key are recorded.
-"""names2urls = {
+names2urls = {
 	"calibre": "cae",
 	"classicSelection": "clsel",
 	"debugHelper": "debughelper",
@@ -224,11 +224,11 @@ class AddonUpdateCheckProtocol(object):
 	"speechHistory": "sps",
 	"synthRingSettingsSelector": "synthrings",
 	"textInformation": "txtinfo",
-}"""
+}
 
 
-# Historical
-"""class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
+# Historical (DO NOT USE)
+class AddonUpdateCheckProtocolNVDAProject(AddonUpdateCheckProtocol):
 	"""Protocol 1: NV Access community add-ons website protocol.
 	This protocol uses community add-ons get.php JSON to construct update metadata.
 	No compatibility range check is possible with this protocol.
@@ -298,11 +298,10 @@ class AddonUpdateCheckProtocol(object):
 			self.fetchAddonInfo(addon, results)
 		# Build an update info list based on update availability.
 		return [addon for addon in curAddons if addon.updateAvailable()]
-"""
 
 
-# Historical
-"""class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
+# Historical (DO NOT USE)
+class AddonUpdateCheckProtocolNVDAAddonsGitHub(AddonUpdateCheckProtocol):
 	"""Protocol 2: NVDA community add-ons website with compatibility information supplied by the community.
 	This protocol uses a combination of community add-ons get.php JSON
 	and compatibility data provided by the community.
@@ -446,7 +445,6 @@ class AddonUpdateCheckProtocol(object):
 			self.fetchAddonInfo(addon, results, addonsData)
 		# Build an update info list based on update availability.
 		return [addon for addon in curAddons if addon.updateAvailable()]
-"""
 
 
 # Define legacy update protocols as a named tuple.
