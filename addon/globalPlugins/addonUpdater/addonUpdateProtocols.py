@@ -21,6 +21,7 @@ import globalVars
 from logHandler import log
 from .urls import URLs
 from . import addonUtils
+from .addonUpdateLegacyProtocols import AddonUpdateCheckProtocolNVDAAddonsGitHub
 
 # To provide type information
 from .addonUpdateProc import AddonUpdateRecord
