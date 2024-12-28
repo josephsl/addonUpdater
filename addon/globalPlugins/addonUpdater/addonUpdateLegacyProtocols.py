@@ -453,6 +453,8 @@ UpdateProtocol = namedtuple("UpdateProtocol", "key, protocol, description")
 LegacyUpdateProtocols = (
 	UpdateProtocol(
 		# Translators: one of the add-on update source choices.
-		"nvdaprojectcompatinfo", "AddonUpdateCheckProtocolNVDAAddonsGitHub", _("NVDA community add-ons website")
+		"nvdaprojectcompatinfo",
+		"AddonUpdateCheckProtocolNVDAAddonsGitHub",
+		_("NVDA community add-ons website"),
 	),
 )

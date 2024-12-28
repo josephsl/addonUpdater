@@ -19,7 +19,6 @@ import concurrent.futures
 import addonHandler
 import globalVars
 from logHandler import log
-from .urls import URLs
 from . import addonUtils
 from .addonUpdateLegacyProtocols import AddonUpdateCheckProtocolNVDAAddonsGitHub
 
