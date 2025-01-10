@@ -17,7 +17,7 @@ The following add-ons provide built-in update feature and thus updates will not 
 
 ### IMPORTANT NOTES:
 
-* Once the [relevant feature is included in NVDA][2] in the form of [an add-on store][3] with automatic updates and update notification, this add-on will be phased out. Currently, while the Add-on Store was introduced in NVDA 2023.2, and basic update notifications will be available in NVDA 2024.3, the full range of capabilities are not yet available.
+* Once the [relevant feature is included in NVDA][2] in the form of [an add-on store][3] with automatic updates and update notification, this add-on will be phased out. Currently, while the Add-on Store (NVDA 2023.2) and basic update notifications (NVDA 2024.3) are available, the full range of capabilities are not yet available.
 * This add-on requires Windows 10 Version 22H2 or later.
 * This add-on is not intended to be used in secure screens. If you have add-ons installed in the secure screen, even if you copy Add-on Updater to secure screen mode, Add-on Updater will not work.
 * If the new add-on updates specify a compatibility range (minimum and last tested NVDA versions) and if the NVDA version you are running does not fall within the compatibility range according to NVDA, add-on updating will not proceed.
@@ -30,9 +30,9 @@ The following add-ons provide built-in update feature and thus updates will not 
 ## Add-on settings
 
 You can configure Add-on Updater settings from NVDA Settings screen (NVDA menu, Preferences, Settings) under Add-on Updater category.
-Add-on settings are as follow:
+The available settings are:
 
-* Automatically check for add-on updates: if checked, NVDA will check for add-on updates once every 12 hours. Automatic update checks are enabled by default on Windows client systems, and disabled by default on server systems.
+* Automatically check for add-on updates: if checked, NVDA will check for add-on updates via this add-on once every 12 hours. Automatic update checks are enabled by default on Windows client systems, and disabled by default on server systems. This setting should be disabled if using NVDA 2024.3 or later as NVDA itself can check for add-on updates.
 * Add-on update notification: you can choose to receive update notifications as a dialog or a toast. On server systems or if running a portable copy of NVDA, the update notification will be shown as a dialog.
 * Update add-ons in the background (update notification is set to toast): if checked, Add-on Updater will apply updates in the background. A toast will appear informing you that add-on updates are being downloaded and installed, followed by another message announcing update results. Same limitations as add-on update notification setting and toast must be selected from the above option in order for background updates to work.
 * Do not update add-ons: you can choose add-ons that should not be updated.
