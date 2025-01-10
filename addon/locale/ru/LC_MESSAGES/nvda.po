@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 'addonUpdater' '22.06'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2022-05-21 16:44+0400\n"
-"PO-Revision-Date: 2024-05-02 11:59+0500\n"
+"PO-Revision-Date: 2024-07-15 17:50+0500\n"
 "Last-Translator: Dragan Ratkovich\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.4.4\n"
 
 #. Add-on Updater requires Windows 10 22H2 or later.
 #. Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
@@ -40,7 +40,7 @@ msgstr ""
 
 #. Translators: menu item label for checking add-on updates.
 msgid "Check for &add-on updates..."
-msgstr "Проверить наличие обновлений для &дополнений..."
+msgstr "Проверить наличие обновлений &дополнений..."
 
 msgid "Check for NVDA add-on updates"
 msgstr "Проверить наличие обновлений дополнения NVDA"
@@ -205,11 +205,11 @@ msgid ""
 msgstr ""
 "Одно или несколько дополнений в настоящее время отключены. Эти дополнения "
 "будут включены после обновления. Вы действительно хотите обновить "
-"отключенные дополнения?"
+"отключённые дополнения?"
 
 #. Translators: Title of the add-on update confirmation dialog.
 msgid "Update disabled add-ons"
-msgstr "Обновить отключенные дополнения"
+msgstr "Обновить отключённые дополнения"
 
 #, python-brace-format
 msgid "Downloading {addonName}"
@@ -256,7 +256,7 @@ msgstr "функции включены в NVDA"
 
 #. Translators: legacy add-on, declared by add-on developers.
 msgid "declared legacy by add-on developers"
-msgstr "объявлен старым разработчиками дополнения"
+msgstr "объявлен устаревшим разработчиками дополнения"
 
 #. Translators: presented as part of add-on update notification message.
 #, python-brace-format
@@ -325,7 +325,7 @@ msgstr "Каталог дополнений испанского сообщес�
 
 #. Translators: one of the add-on update source choices.
 msgid "China community add-ons catalog"
-msgstr "Каталог дополнений сообщества Китая"
+msgstr "Каталог дополнений китайского сообщества"
 
 #. Translators: one of the add-on update source choices.
 msgid "Taiwan community add-ons catalog"
