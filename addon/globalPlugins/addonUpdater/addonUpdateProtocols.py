@@ -308,7 +308,7 @@ class AddonUpdateCheckProtocolNVAccessDatastore(AddonUpdateCheckProtocol):
 	protocol = 4
 	protocolName = "nvaccessdatastore"
 	protocolDescription = "NV Access add-ons datastore"
-	sourceUrl = "https://www.nvaccess.org/addonStore"
+	sourceUrl = "https://addonStore.nvaccess.org"
 
 	def fetchAddonInfo(self, addon: AddonUpdateRecord, results: Dict[str, Any]) -> None:
 		# NV Access datastore contains version, channel, URL, hash, and compatibility information.
