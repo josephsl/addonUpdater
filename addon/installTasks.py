@@ -14,7 +14,6 @@ addonHandler.initTranslation()
 
 
 def onInstall():
-	# Do not present dialogs if minimal mode is set.
 	currentWinVer = winVersion.getWinVer()
 	# Add-on Updater requires Windows 10 22H2 or later.
 	# Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
