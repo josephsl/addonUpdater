@@ -4,6 +4,8 @@
 * Download [stable version][1]
 * NVDA compatibility: 2023.1-2024.4.2
 
+IMPORTANT: Add-on Updater was discontinued on April 15, 2025.
+
 This add-on brings NVDA Core issue 3208 to life: ability to check for, download, and apply add-on updates.
 
 To check for updates after installing this add-on, go to NVDA menu/Tools/Check for add-on updates (if NVDA did notice updates, the menu item will say "Review add-on updates" followed by update count).
