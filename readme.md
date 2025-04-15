@@ -17,7 +17,7 @@ The following add-ons provide built-in update feature and thus updates will not 
 
 ### IMPORTANT NOTES:
 
-* Once the [relevant feature is included in NVDA][2] in the form of [an add-on store][3] with automatic updates and update notification, this add-on will be phased out. Currently, while the Add-on Store (NVDA 2023.2) and basic update notifications (NVDA 2024.3) are available, the full range of capabilities including automatic add-on updates and accompanying notifications are planned for NVDA 2025.1.
+* Once the [relevant feature is included in NVDA][2] in the form of [an add-on store][3] with automatic updates and update notification, this add-on will be phased out. Currently, while the Add-on Store (NVDA 2023.2) and basic update notifications (NVDA 2024.3) are available, the full range of capabilities including automatic add-on updates and accompanying notifications became part of NVDA 2025.1.
 * This add-on requires Windows 10 Version 22H2 or later.
 * This add-on is not intended to be used in secure screens. If you have add-ons installed in the secure screen, even if you copy Add-on Updater to secure screen mode, Add-on Updater will not work.
 * If the new add-on updates specify a compatibility range (minimum and last tested NVDA versions) and if the NVDA version you are running does not fall within the compatibility range according to NVDA, add-on updating will not proceed.
